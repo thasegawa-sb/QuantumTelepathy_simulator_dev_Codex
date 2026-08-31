@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-telepathy-simulator"
+version = "0.1.0"
+description = "Research-grade reproduction scaffold for Ding-Jiang and Li et al. LCTC quantum-advantage models."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Research use"}
+authors = [
+  {name = "Quantum Network Simulator R&D Project"}
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"

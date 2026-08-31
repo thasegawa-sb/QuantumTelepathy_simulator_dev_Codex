@@ -1,0 +1,5 @@
+"""Research scaffold for LCTC quantum-advantage reproduction."""
+
+__all__ = ["__version__"]
+
+__version__ = "0.1.0"
