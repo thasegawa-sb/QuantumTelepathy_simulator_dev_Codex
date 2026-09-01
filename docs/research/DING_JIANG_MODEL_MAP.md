@@ -19,7 +19,7 @@ Retrieval and version audit:
 
 ## Scope
 
-This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The first analytical layer is implemented, while full figure, loss, memory-rate, and robustness reproductions remain open.
+This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer and representative direct-loss case are implemented, while full loss figures, memory-rate, and robustness reproductions remain open.
 
 ## Scientific Model
 
@@ -37,7 +37,7 @@ Key simulator abstractions required:
 | Weighted utility array | Appendix A.1 | `w[o,d] = p_O(o) u[o,d]` | PARTIAL |
 | Classical/quantum value and gap | Appendix A.1 | `c_star`, `q_star`, `gap = q_star - c_star` | PARTIAL |
 | XOR array | Appendix A.2 | Binary-output parity game abstraction | PARTIAL |
-| Lossy behavior | Appendix A.3 | Loss model combining quantum strategy with deterministic fallback | NOT_IMPLEMENTED |
+| Lossy behavior | Appendix A.3 | Loss model combining quantum strategy with deterministic fallback | PASS for `(2,2,2)` |
 | Depolarizing-noise behavior | Appendix A.4 | Noisy quantum behavior and robustness oracle | NOT_IMPLEMENTED |
 
 ## Equation and Result Mapping
@@ -47,7 +47,7 @@ Key simulator abstractions required:
 | HFT anti-CHSH utility matrix | Sec. 3 | Binary utility where same/opposite action parity depends on observations N/I | HFT utility constructor with beta fixed to 0 | Paper Sec. 3 | CHSH/anti-CHSH relabeling | Deterministic enumeration plus XOR quantum optimizer | PASS | Exact for utility entries |
 | Eq. 3.1 | Sec. 3 | Hedging utility with beta in [0,1] for mixed-input cases | HFT utility family `u_HFT(o|x,y,beta)` | Paper Eq. 3.1 | At beta=0 recover anti-CHSH gap region | 101x101 Fig. 3 data and sections | PASS | Exact entries; analytical errors <= 2.22e-16 |
 | Bernoulli input result | Sec. 3 and Appendix A.1 | For beta=0, quantum advantage iff p in `(1 - 1/sqrt(2), 1/sqrt(2))` | Independent Bernoulli input distribution | Paper Sec. 3, Theorem 10 | Theorem 10 | Grid scan over p | PASS | Boundary error <= 1e-8 |
-| Eq. 4.1 | Sec. 4.1 | Example Schmidt decomposition for p=0.3, beta=0.3, eta=0.95 strategy | Optional explicit strategy record and validation fixture | Paper Eq. 4.1 | Normalization and reconstruction from Schmidt factors | Expected utility near 0.792 with loss | NOT_IMPLEMENTED | Published values 3 sig figs |
+| Eq. 4.1 | Sec. 4.1 | Example Schmidt decomposition for p=0.3, beta=0.3, eta=0.95 strategy | Explicit strategy record and validation fixture | Paper Eq. 4.1 | Schmidt singular values | Optimized lossy Bell operator | PASS | Published values within 5e-4 |
 | Effective memory rate | Sec. 4.2 | `r_e = M p_s / t_a` | Ding-Jiang Type II system-level rate model | Paper Sec. 4.2 | Direct formula | Distance and multiplicity sweep | NOT_IMPLEMENTED | Relative error <= 1e-12 for formula |
 | Attempt time | Sec. 4.2 | NYSE/NASDAQ half-link fiber plus free-space heralding, about 230 microseconds | Ding-Jiang memory-attempt timing model | d=56.3 km, v_f=2e8 m/s, v_s=3e8 m/s | Direct formula | Unit conversion test | NOT_IMPLEMENTED | <= 0.5 microsecond |
 | Success probability | Sec. 4.2 | `p_s = p_p p_c p_d (10^(-0.1 alpha d/2))^2`, about 0.0248 | Ding-Jiang memory success model | alpha=0.17 dB/km, p_p=0.5, p_c=0.5, p_d=0.9 | Direct formula | Parameterized reproduction | NOT_IMPLEMENTED | Relative error <= 1e-3 |
@@ -62,9 +62,9 @@ Key simulator abstractions required:
 | Proposition 13 | Appendix A.2 | XOR anti-array preserves gap | Relabeling invariance tests | Utility tensor | Exact invariance | Random utility relabel tests | NOT_IMPLEMENTED | <= 1e-12 |
 | Theorem 14 | Appendix A.2 | Tsirelson equivalence between quantum correlations and unit vectors | Quantum XOR optimizer basis | Matrix M | Known theorem | 2x2 vector optimization | PARTIAL | <= 1e-8 |
 | Eq. A.10 | Appendix A.2 | Correlator from XOR probabilities | Probability/correlator converters | Behavior tensor | Direct identity | Round-trip conversion tests | NOT_IMPLEMENTED | <= 1e-12 |
-| Eq. A.11-A.12 | Appendix A.3 | Lossy behavior and lossy Bell operator with deterministic fallback | Type I loss model and lossy-value optimizer | Per-party eta_i and fallback strategy | Exact finite sum over loss subsets | Fig. 5 and Fig. 12 reproduction | NOT_IMPLEMENTED | <= 1e-8 for value; plot uncertainty for digitized |
-| Proposition 19 | Appendix A.3 | Degenerate quantum behavior is classical for (2,2,2) | Loss model simplification tests | Binary problem | Classical polytope property | Random degenerate-strategy enumeration | NOT_IMPLEMENTED | <= 1e-12 |
-| Proposition 20 | Appendix A.3 | Qubits suffice for lossy values in `(n,2,2)` | Optimizer dimension policy | Binary problem | Published proposition | Cross-check explicit qubit optimizer | NOT_IMPLEMENTED | N/A |
+| Eq. A.11-A.12 | Appendix A.3 | Lossy behavior and lossy Bell operator with deterministic fallback | `ding_jiang.loss` | Per-party eta_i and fallback strategy | Exact loss-event mixture | Direct probability vs Bell expectation | PASS | Difference 1.11e-16 |
+| Proposition 19 | Appendix A.3 | Degenerate quantum behavior is classical for (2,2,2) | Loss model simplification tests | Binary problem | Classical polytope property | Both-lost deterministic limit | PARTIAL | <= 1e-12 |
+| Proposition 20 | Appendix A.3 | Qubits suffice for lossy values in `(n,2,2)` | Qubit optimizer dimension policy | Binary problem | Published proposition | Representative strategy and Schmidt values | PARTIAL | Published theorem used; no independent proof |
 | Eq. A.13-A.14 | Appendix A.4 | Depolarizing noise behavior and classical factorizable term | Ding-Jiang noise module | Noise nu and projector ranks | Direct formula | Fig. 7-Fig. 8 reproduction | NOT_IMPLEMENTED | <= 1e-12 |
 | Eq. B.1-B.5 | Appendix B | General-purpose projective-measurement parameterization | Optional explicit quantum optimizer | Hilbert dimensions and outcomes | Paper parameter count | Compare with XOR solver on small cases | NOT_IMPLEMENTED | Optimizer-dependent |
 
@@ -76,14 +76,14 @@ Key simulator abstractions required:
 | Fig. 2 | Sec. 3 | NYSE/NASDAQ HFT setup, distance 56.3 km | Scenario configuration | Paper distance and context | NOT_IMPLEMENTED |
 | Fig. 3 | Sec. 3 | Hedging quantum advantage over p and beta | `experiments/ding_jiang/reproduce_fig3.py` | 2x2 XOR vector optimizer plus independent deterministic enumeration | PARTIAL |
 | Fig. 4 | Sec. 4.1 | Direct photonic Type I architecture | Architecture docs and optional system model | Paper schematic | NOT_IMPLEMENTED |
-| Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | Loss-threshold reproduction | Lossy-value optimizer/NPA or independent grid oracle | NOT_IMPLEMENTED |
+| Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | Loss-threshold reproduction | Representative point plus future NPA/grid oracle | PARTIAL |
 | Fig. 6 | Sec. 4.2 | Quantum-memory Type II architecture | M1 memory model | Paper schematic plus rate formula | NOT_IMPLEMENTED |
 | Fig. 7 | Sec. 4.2 | Robustness nu_star over p and beta | Noise robustness reproduction | Eq. 4.2-4.3 and quantum/classical values | NOT_IMPLEMENTED |
 | Fig. 8 | Sec. 4.2 | Quantum advantage under depolarizing noise | Noisy HFT reproduction | Eq. 4.3 and gap calculation | NOT_IMPLEMENTED |
 | Fig. 9 | Appendix B | Low-resolution Fig. 3 reproduction by general optimizer | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
 | Fig. 10 | Appendix B | Low-resolution robustness reproduction | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
 | Fig. 11 | Appendix B | Low-resolution noisy advantage reproduction | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
-| Fig. 12 | Appendix B | Loss threshold from general optimizer | Loss regression | Production-independent optimizer | NOT_IMPLEMENTED |
+| Fig. 12 | Appendix B | Loss threshold from general optimizer | Deterministic grid plus Powell optimizer | Representative point and limit tests | PARTIAL |
 | Fig. 13 | Appendix C | Computer-architecture pseudo-example mapping to CHSH | Optional scenario fixture | Exact CHSH relabeling | NOT_IMPLEMENTED |
 
 ## Required Ding-Jiang Regression Gates

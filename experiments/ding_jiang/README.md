@@ -21,3 +21,13 @@ The validation gate compares:
 - the maximum gap with the analytical CHSH value.
 
 The main paper does not state its surface-grid spacing. The default 0.01 spacing is a documented simulator choice. Appendix Figure 9 explicitly uses 0.1 spacing.
+
+## Section 4.1 Loss Example
+
+The direct-photon experiment implements Equation A.11 as an explicit probability mixture and Equation A.12 as a lossy Bell operator. It enumerates all 16 local fallback strategies and applies the paper's 20-point angle grid before deterministic local refinement.
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_loss_example.py
+```
+
+The result reports the `p=0.3`, `beta=0.3`, `eta=0.95` lossy value, Schmidt coefficients, and a bracketed threshold efficiency.

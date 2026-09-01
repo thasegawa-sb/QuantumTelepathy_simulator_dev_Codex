@@ -1,0 +1,41 @@
+{
+  "reference": "Ding-Jiang arXiv:2407.21723v3",
+  "paper_item": "Section 4.1 and Equation 4.1",
+  "oracles": {
+    "classical_value": {
+      "value": 0.79,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Paper Section 4.1; independently enumerable deterministic optimum"
+    },
+    "lossy_quantum_value": {
+      "value": 0.792,
+      "absolute_tolerance": 0.0005,
+      "provenance": "Paper Section 4.1, approximately 0.792 at eta=0.95"
+    },
+    "threshold_efficiency": {
+      "value": 0.941,
+      "absolute_tolerance": 0.0005,
+      "provenance": "Paper Section 4.1, approximately 0.941"
+    },
+    "largest_schmidt_coefficient": {
+      "value": 0.903,
+      "absolute_tolerance": 0.0005,
+      "provenance": "Paper Equation 4.1, three significant figures"
+    },
+    "smallest_schmidt_coefficient": {
+      "value": 0.429,
+      "absolute_tolerance": 0.0005,
+      "provenance": "Paper Equation 4.1, three significant figures"
+    },
+    "paper_rounded_strategy_value": {
+      "value": 0.792,
+      "absolute_tolerance": 0.001,
+      "provenance": "Direct evaluation of paper coefficients, whose inputs are rounded to three significant figures"
+    },
+    "bell_direct_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Independent Eq. A.11 probability mixture versus Eq. A.12 Bell operator"
+    }
+  }
+}

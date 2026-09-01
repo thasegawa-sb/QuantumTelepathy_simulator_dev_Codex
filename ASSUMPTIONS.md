@@ -10,3 +10,5 @@
 | A6 | Ding-Jiang's depolarizing `nu` and Li's combined infidelity `epsilon` are distinct model parameters. | Active |
 | A7 | Pointwise tolerances for plot-only paper results remain unset unless equations, author data, or documented digitization uncertainty provides an oracle. | Active |
 | A8 | Ding-Jiang Figure 3 main-panel grid spacing is not specified; the reproduction uses 0.01 over `[0,1]^2`. | Active; Appendix Figure 9 separately specifies 0.1. |
+| A9 | For the Ding HFT action labels, output 0 is `ask_first` and output 1 is `bid_first`. | Matches the paper's A/B utility columns and reported fallback strategy. |
+| A10 | The representative loss threshold is bracketed using an advantage tolerance of `1e-9` and efficiency width `2e-5`. | Numerical criterion is explicit and configuration-driven. |

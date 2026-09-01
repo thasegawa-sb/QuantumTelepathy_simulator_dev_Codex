@@ -12,11 +12,14 @@ license = {text = "Research use"}
 authors = [
   {name = "Quantum Network Simulator R&D Project"}
 ]
+dependencies = [
+  "numpy>=1.26,<3",
+  "scipy>=1.13,<2",
+]
 
 [project.optional-dependencies]
 plots = [
   "matplotlib>=3.8,<4",
-  "numpy>=1.26,<3",
 ]
 
 [tool.setuptools.packages.find]

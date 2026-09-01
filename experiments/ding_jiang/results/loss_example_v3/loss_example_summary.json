@@ -1,0 +1,138 @@
+{
+  "configuration": {
+    "optimizer": {
+      "grid_size": 20,
+      "local_starts": 2,
+      "method": "deterministic_grid_plus_powell",
+      "optimizer_tolerance": 1e-11
+    },
+    "scenario": {
+      "beta": 0.3,
+      "decision_labels": {
+        "0": "ask_first",
+        "1": "bid_first"
+      },
+      "efficiency": 0.95,
+      "p": 0.3
+    },
+    "threshold_search": {
+      "advantage_tolerance": 1e-09,
+      "efficiency_tolerance": 2e-05,
+      "grid_size": 20,
+      "local_starts": 1,
+      "lower_efficiency": 0.6666666666666666,
+      "optimizer_tolerance": 1e-11,
+      "upper_efficiency": 1.0
+    }
+  },
+  "overall_status": "PASS",
+  "reference": {
+    "arxiv_id": "2407.21723",
+    "authors": "Dawei Ding and Liang Jiang",
+    "equations": [
+      "A.11",
+      "A.12",
+      "4.1"
+    ],
+    "paper_item": "Section 4.1 representative lossy strategy",
+    "retrieval_date": "2026-08-31",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "version": "v3"
+  },
+  "simulator": {
+    "classical_value": 0.7899999999999999,
+    "deterministic_strategy_count": 16,
+    "lossy_quantum_value": 0.7918676876290414,
+    "objective_evaluations": 14610,
+    "optimized_angles": [
+      0.5484289407716464,
+      0.5484290500554533
+    ],
+    "optimized_fallback_strategy": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "optimized_state": [
+      0.04006712301379162,
+      0.9020659669222352,
+      0.4278624104097456,
+      -0.04006712782834629
+    ],
+    "paper_rounded_strategy_value": 0.7914679613685205,
+    "quantum_advantage_at_configured_efficiency": 0.0018676876290414368,
+    "schmidt_coefficients": [
+      0.9032719867973704,
+      0.42906843028488056
+    ],
+    "threshold_bracket": [
+      0.9405924479166666,
+      0.9406026204427083
+    ],
+    "threshold_efficiency": 0.9405975341796875,
+    "threshold_evaluations": 17
+  },
+  "validations": {
+    "bell_direct_abs_error": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "provenance": "Independent Eq. A.11 probability mixture versus Eq. A.12 Bell operator",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "classical_value": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 0.7899999999999999,
+      "expected": 0.79,
+      "provenance": "Paper Section 4.1; independently enumerable deterministic optimum",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "largest_schmidt_coefficient": {
+      "absolute_error": 0.0002719867973703938,
+      "actual": 0.9032719867973704,
+      "expected": 0.903,
+      "provenance": "Paper Equation 4.1, three significant figures",
+      "status": "PASS",
+      "tolerance": 0.0005
+    },
+    "lossy_quantum_value": {
+      "absolute_error": 0.00013231237095867598,
+      "actual": 0.7918676876290414,
+      "expected": 0.792,
+      "provenance": "Paper Section 4.1, approximately 0.792 at eta=0.95",
+      "status": "PASS",
+      "tolerance": 0.0005
+    },
+    "paper_rounded_strategy_value": {
+      "absolute_error": 0.0005320386314795478,
+      "actual": 0.7914679613685205,
+      "expected": 0.792,
+      "provenance": "Direct evaluation of paper coefficients, whose inputs are rounded to three significant figures",
+      "status": "PASS",
+      "tolerance": 0.001
+    },
+    "smallest_schmidt_coefficient": {
+      "absolute_error": 6.843028488057179e-05,
+      "actual": 0.42906843028488056,
+      "expected": 0.429,
+      "provenance": "Paper Equation 4.1, three significant figures",
+      "status": "PASS",
+      "tolerance": 0.0005
+    },
+    "threshold_efficiency": {
+      "absolute_error": 0.0004024658203124476,
+      "actual": 0.9405975341796875,
+      "expected": 0.941,
+      "provenance": "Paper Section 4.1, approximately 0.941",
+      "status": "PASS",
+      "tolerance": 0.0005
+    }
+  }
+}

@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-278 passed in 0.27s
+285 passed in 21.00s
 ```
 
 ## Passing Coverage
@@ -27,6 +27,10 @@ Result:
 | Ding-Jiang Figure 3 beta symmetry and beta=0.5 limit | `tests/scientific/test_ding_fig3_reproduction.py` |
 | Ding-Jiang Figure 3 beta=0 Theorem 10 cross-section | `tests/scientific/test_ding_fig3_reproduction.py` |
 | Ding-Jiang Figure 3 101x101 experiment gate | `experiments/ding_jiang/results/fig3_v3/fig3_summary.json` |
+| Ding-Jiang lossy behavior Eq. A.11 vs Bell operator Eq. A.12 | `tests/scientific/test_ding_loss_reproduction.py` |
+| Ding-Jiang `p=0.3`, `beta=0.3`, `eta=0.95` lossy value | `tests/scientific/test_ding_loss_reproduction.py` |
+| Ding-Jiang Section 4.1 Schmidt coefficients | `tests/scientific/test_ding_loss_reproduction.py` |
+| Ding-Jiang representative threshold efficiency | `experiments/ding_jiang/results/loss_example_v3/loss_example_summary.json` |
 | Li generalized utility with beta1/beta2 | `tests/scientific/test_ding_li_utilities.py` |
 | Li generalized matrix CHSH limit | `tests/scientific/test_ding_li_utilities.py` |
 | Li strict latency condition | `tests/scientific/test_ding_li_utilities.py` |
@@ -38,7 +42,8 @@ Result:
 | Gap | Status |
 |---|---|
 | Ding-Jiang Fig. 3 paper-level numerical comparison | PARTIAL: analytical and qualitative gates pass; author numerical data is unavailable |
-| Ding-Jiang loss threshold and robustness reproductions | NOT_IMPLEMENTED |
+| Ding-Jiang full Figure 5 loss-threshold surface | PARTIAL: representative point passes; full grid and independent upper bound remain |
+| Ding-Jiang robustness reproduction | NOT_IMPLEMENTED |
 | Li Fig. 2 reproduction | NOT_IMPLEMENTED |
 | Li finite-statistics Fig. 3 reproduction | NOT_IMPLEMENTED |
 | Li operational output schema | NOT_IMPLEMENTED |

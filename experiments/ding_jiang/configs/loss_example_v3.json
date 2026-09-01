@@ -1,0 +1,43 @@
+{
+  "reference": {
+    "authors": "Dawei Ding and Liang Jiang",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "arxiv_id": "2407.21723",
+    "version": "v3",
+    "retrieval_date": "2026-08-31",
+    "paper_item": "Section 4.1 representative lossy strategy",
+    "equations": ["A.11", "A.12", "4.1"]
+  },
+  "scenario": {
+    "p": 0.3,
+    "beta": 0.3,
+    "efficiency": 0.95,
+    "decision_labels": {
+      "0": "ask_first",
+      "1": "bid_first"
+    }
+  },
+  "optimizer": {
+    "grid_size": 20,
+    "local_starts": 2,
+    "optimizer_tolerance": 1e-11,
+    "method": "deterministic_grid_plus_powell"
+  },
+  "threshold_search": {
+    "lower_efficiency": 0.6666666666666666,
+    "upper_efficiency": 1.0,
+    "efficiency_tolerance": 0.00002,
+    "advantage_tolerance": 1e-9,
+    "grid_size": 20,
+    "local_starts": 1,
+    "optimizer_tolerance": 1e-11
+  },
+  "paper_rounded_strategy": {
+    "angles": [-0.590, -0.590],
+    "state": [0.0401, -0.902, -0.428, -0.0401],
+    "fallback_strategy": [[0, 0], [1, 1]]
+  },
+  "validation": {
+    "oracle_file": "../oracles/loss_example_v3.json"
+  }
+}
