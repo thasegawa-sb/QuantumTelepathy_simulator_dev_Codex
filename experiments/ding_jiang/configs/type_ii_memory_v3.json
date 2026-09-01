@@ -1,0 +1,42 @@
+{
+  "reference": {
+    "authors": "Dawei Ding and Liang Jiang",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "arxiv_id": "2407.21723",
+    "version": "v3",
+    "retrieval_date": "2026-08-31",
+    "paper_item": "Section 4.2 Type II quantum-memory calculation",
+    "figure": "Figure 6"
+  },
+  "model": {
+    "name": "M1_Ding_Jiang_Type_II",
+    "parallel_memory_assumption": "Independent identical attempts provide linear rate scaling with memory count.",
+    "excluded_effects": [
+      "memory_photon_operation_time",
+      "memory_occupancy",
+      "reset_and_reuse_time",
+      "buffering",
+      "finite_memory_lifetime",
+      "memory_decoherence"
+    ]
+  },
+  "parameters": {
+    "separation_km": 56.3,
+    "fiber_speed_m_s": 200000000.0,
+    "herald_speed_m_s": 300000000.0,
+    "attenuation_db_per_km": 0.17,
+    "projection_success_probability": 0.5,
+    "collection_efficiency": 0.5,
+    "detector_efficiency": 0.9
+  },
+  "demand": {
+    "target_event_rate_hz": 100.0
+  },
+  "sweep": {
+    "minimum_memory_count": 1,
+    "maximum_memory_count": 10
+  },
+  "validation": {
+    "oracle_file": "../oracles/type_ii_memory_v3.json"
+  }
+}

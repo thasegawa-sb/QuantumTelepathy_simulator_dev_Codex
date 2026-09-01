@@ -6,7 +6,7 @@ Current state:
 
 - Git repository initialized from an empty workspace.
 - Research model maps and reproduction matrix live in `docs/research/`.
-- Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT and representative direct-photon loss, Li generalized utility mapping, and Li's exact combined-infidelity expression.
+- Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT, representative direct-photon loss, and the v3 Type II memory-rate calculation, plus Li generalized utility mapping and Li's exact combined-infidelity expression.
 
 Run tests:
 
@@ -24,4 +24,10 @@ Reproduce the Ding-Jiang v3 Section 4.1 loss example:
 
 ```bash
 PYTHONPATH=src python3 experiments/ding_jiang/reproduce_loss_example.py
+```
+
+Reproduce the Ding-Jiang v3 Section 4.2 Type II memory calculation:
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_type_ii_memory.py
 ```

@@ -6,22 +6,22 @@ Date: 2026-08-31, updated 2026-09-01
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The first code milestone, an independently verified nonlocal/XOR-game core with CHSH and utility/fidelity oracles, now passes. Next should be finite statistics and figure reproduction, not the full Li hardware model.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, Ding ideal HFT and representative loss cases, and the corrected v3 Type II memory calculation now pass their current gates. Ding depolarizing robustness remains before the Li operational layers advance.
 
 ## Existing Implementation
 
 | Area | Finding |
 |---|---|
 | Repository structure | Fresh scaffold |
-| Source code | Minimal core/Ding/Li modules present |
-| Tests | 23 scientific tests present and passing |
-| Experiment scripts | Not present |
-| Configurations | Not present |
-| Validation results | Not present |
-| Paper reproduction code | Not present |
+| Source code | Shared core plus paper-specific Ding and Li modules present |
+| Tests | CHSH, utility, fidelity, Figure 3, loss, and Type II scientific tests present |
+| Experiment scripts | Ding Figure 3, loss example, and Type II memory scripts present |
+| Configurations | Version-pinned Ding experiment configurations present |
+| Validation results | Generated Ding result summaries and data present |
+| Paper reproduction code | Ding ideal, loss, and Type II reproduction paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 3 partial; CHSH/utility/fidelity foundation passes |
+| Current validation gate | Phase 2 partial; Ding depolarizing robustness remains |
 
 Files requested by the operating procedure were not available:
 
@@ -91,6 +91,7 @@ Because no existing implementation is visible, these are architectural requireme
 | P1 | Ding Theorem 10 biased CHSH | PASS for sampled unit tests |
 | P1 | Ding Eq. 3.1 HFT utility and Fig. 3 | PARTIAL: computation gates pass; no author numerical grid for pointwise comparison |
 | P2 | Ding loss and p=0.3, beta=0.3, eta=0.95 example | PASS for representative case; full Figure 5 remains PARTIAL |
+| P2 | Ding Type II v3 memory calculation | PASS for exact formulas and rounded Section 4.2 values |
 | P2 | Ding robustness/noisy-gap figures | NOT_IMPLEMENTED |
 | P3 | Li Eq. 23-25 generalized LCTC | PASS for utility/matrix unit tests |
 | P3 | Li Fig. 2 | NOT_IMPLEMENTED |

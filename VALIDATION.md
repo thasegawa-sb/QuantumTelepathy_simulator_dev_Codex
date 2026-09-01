@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-285 passed in 21.00s
+300 passed in 26.19s
 ```
 
 ## Passing Coverage
@@ -31,6 +31,8 @@ Result:
 | Ding-Jiang `p=0.3`, `beta=0.3`, `eta=0.95` lossy value | `tests/scientific/test_ding_loss_reproduction.py` |
 | Ding-Jiang Section 4.1 Schmidt coefficients | `tests/scientific/test_ding_loss_reproduction.py` |
 | Ding-Jiang representative threshold efficiency | `experiments/ding_jiang/results/loss_example_v3/loss_example_summary.json` |
+| Ding-Jiang Type II attempt time, two-arm success probability, and rate | `tests/scientific/test_ding_type_ii_memory.py` |
+| Ding-Jiang Type II Section 4.2 experiment gate | `experiments/ding_jiang/results/type_ii_memory_v3/type_ii_memory_summary.json` |
 | Li generalized utility with beta1/beta2 | `tests/scientific/test_ding_li_utilities.py` |
 | Li generalized matrix CHSH limit | `tests/scientific/test_ding_li_utilities.py` |
 | Li strict latency condition | `tests/scientific/test_ding_li_utilities.py` |
@@ -43,6 +45,7 @@ Result:
 |---|---|
 | Ding-Jiang Fig. 3 paper-level numerical comparison | PARTIAL: analytical and qualitative gates pass; author numerical data is unavailable |
 | Ding-Jiang full Figure 5 loss-threshold surface | PARTIAL: representative point passes; full grid and independent upper bound remain |
+| Ding-Jiang Type II memory-rate calculation | PASS: v3 formulas and rounded published values pass independent oracles |
 | Ding-Jiang robustness reproduction | NOT_IMPLEMENTED |
 | Li Fig. 2 reproduction | NOT_IMPLEMENTED |
 | Li finite-statistics Fig. 3 reproduction | NOT_IMPLEMENTED |

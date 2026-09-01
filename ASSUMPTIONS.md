@@ -12,3 +12,5 @@
 | A8 | Ding-Jiang Figure 3 main-panel grid spacing is not specified; the reproduction uses 0.01 over `[0,1]^2`. | Active; Appendix Figure 9 separately specifies 0.1. |
 | A9 | For the Ding HFT action labels, output 0 is `ask_first` and output 1 is `bid_first`. | Matches the paper's A/B utility columns and reported fallback strategy. |
 | A10 | The representative loss threshold is bracketed using an advantage tolerance of `1e-9` and efficiency width `2e-5`. | Numerical criterion is explicit and configuration-driven. |
+| A11 | Ding-Jiang Type II is a traversal-dominated M1 system estimate with independent identical memories and ideal linear scaling `r_e=M p_s/t_a`; it omits memory-photon operation time, occupancy, reset, finite lifetime, and decoherence. | Active only for Ding v3 reproduction; must not be substituted for Li M2. |
+| A12 | Ding-Jiang's `t_a approx 230 us` is a two-significant-figure publication value; the listed inputs evaluate to `234.583 us`. | Exact formula is the primary oracle; paper-rounding tolerance is 5 us. |

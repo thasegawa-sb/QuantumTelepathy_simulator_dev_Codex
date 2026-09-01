@@ -10,3 +10,5 @@
 | 2026-09-01 | Report the Ding Figure 3 computation gate as PASS but the paper-plot reproduction as PARTIAL. | Exact analytical checks pass, while author source data for nonzero beta is unavailable. |
 | 2026-09-01 | Implement photon loss both as an Eq. A.11 probability mixture and an Eq. A.12 Bell operator. | The two paths provide an independent numerical cross-check of the loss semantics. |
 | 2026-09-01 | Use a deterministic angle grid, Powell refinement, and all 16 fallback strategies. | Matches Appendix B.3 without stochastic optimizer variance. |
+| 2026-09-01 | Represent the Ding-Jiang Type II calculation as a paper-specific M1 model with decomposed timing and two-arm transmission terms. | Preserves the corrected v3 formula and prevents accidental reuse as Li's occupancy-aware M2 model. |
+| 2026-09-01 | Validate Type II against both exact formula-derived Decimal values and separately rounded publication values. | The published `230 us`, `0.0248`, and `106 Hz` have different stated precision from the underlying formulas. |

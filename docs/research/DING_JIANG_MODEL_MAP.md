@@ -19,7 +19,7 @@ Retrieval and version audit:
 
 ## Scope
 
-This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer and representative direct-loss case are implemented, while full loss figures, memory-rate, and robustness reproductions remain open.
+This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer, representative direct-loss case, and v3 Type II memory-rate calculation are implemented, while full loss figures and robustness reproductions remain open.
 
 ## Scientific Model
 
@@ -38,6 +38,7 @@ Key simulator abstractions required:
 | Classical/quantum value and gap | Appendix A.1 | `c_star`, `q_star`, `gap = q_star - c_star` | PARTIAL |
 | XOR array | Appendix A.2 | Binary-output parity game abstraction | PARTIAL |
 | Lossy behavior | Appendix A.3 | Loss model combining quantum strategy with deterministic fallback | PASS for `(2,2,2)` |
+| Type II memory rate | Sec. 4.2 | M1 traversal-dominated heralded-memory estimate | PASS |
 | Depolarizing-noise behavior | Appendix A.4 | Noisy quantum behavior and robustness oracle | NOT_IMPLEMENTED |
 
 ## Equation and Result Mapping
@@ -48,10 +49,10 @@ Key simulator abstractions required:
 | Eq. 3.1 | Sec. 3 | Hedging utility with beta in [0,1] for mixed-input cases | HFT utility family `u_HFT(o|x,y,beta)` | Paper Eq. 3.1 | At beta=0 recover anti-CHSH gap region | 101x101 Fig. 3 data and sections | PASS | Exact entries; analytical errors <= 2.22e-16 |
 | Bernoulli input result | Sec. 3 and Appendix A.1 | For beta=0, quantum advantage iff p in `(1 - 1/sqrt(2), 1/sqrt(2))` | Independent Bernoulli input distribution | Paper Sec. 3, Theorem 10 | Theorem 10 | Grid scan over p | PASS | Boundary error <= 1e-8 |
 | Eq. 4.1 | Sec. 4.1 | Example Schmidt decomposition for p=0.3, beta=0.3, eta=0.95 strategy | Explicit strategy record and validation fixture | Paper Eq. 4.1 | Schmidt singular values | Optimized lossy Bell operator | PASS | Published values within 5e-4 |
-| Effective memory rate | Sec. 4.2 | `r_e = M p_s / t_a` | Ding-Jiang Type II system-level rate model | Paper Sec. 4.2 | Direct formula | Distance and multiplicity sweep | NOT_IMPLEMENTED | Relative error <= 1e-12 for formula |
-| Attempt time | Sec. 4.2 | NYSE/NASDAQ half-link fiber plus free-space heralding, about 230 microseconds | Ding-Jiang memory-attempt timing model | d=56.3 km, v_f=2e8 m/s, v_s=3e8 m/s | Direct formula | Unit conversion test | NOT_IMPLEMENTED | <= 0.5 microsecond |
-| Success probability | Sec. 4.2 | `p_s = p_p p_c p_d (10^(-0.1 alpha d/2))^2`, about 0.0248 | Ding-Jiang memory success model | alpha=0.17 dB/km, p_p=0.5, p_c=0.5, p_d=0.9 | Direct formula | Parameterized reproduction | NOT_IMPLEMENTED | Relative error <= 1e-3 |
-| General memory rate | Sec. 4.2 | `r_e = M * 2 p_p p_c p_d 10^(-0.1 alpha d) / (d(1/v_f + 1/v_s))` | Generic two-node memory rate model | Paper Sec. 4.2 | Direct formula | Sweep over distance and M | NOT_IMPLEMENTED | Relative error <= 1e-12 |
+| Effective memory rate | Sec. 4.2 | `r_e = M p_s / t_a` | `ding_jiang.memory.type_ii_memory_rate` | Paper Sec. 4.2 | Independent Decimal evaluation | Configured multiplicity sweep | PASS | Formula-derived rate abs error `1.42e-14 Hz` |
+| Attempt time | Sec. 4.2 | NYSE/NASDAQ half-link fiber plus free-space heralding, about 230 microseconds | `traversal_attempt_time_s` | d=56.3 km, v_f=2e8 m/s, v_s=3e8 m/s | Independent Decimal evaluation | Unit conversion and publication-rounding tests | PASS | Exact formula abs error 0; rounded-paper tolerance 5 microseconds |
+| Success probability | Sec. 4.2 | `p_s = p_p p_c p_d (10^(-0.1 alpha d/2))^2`, about 0.0248 | `heralded_success_probability` | alpha=0.17 dB/km, p_p=0.5, p_c=0.5, p_d=0.9 | Independent Decimal evaluation | Two-arm decomposition test | PASS | Exact formula abs error 0; rounded-paper tolerance `5e-5` |
+| General memory rate | Sec. 4.2 | `r_e = M * 2 p_p p_c p_d 10^(-0.1 alpha d) / (d(1/v_f + 1/v_s))` | `TypeIIMemoryParameters` and `TypeIIMemoryRate` | Paper Sec. 4.2 | Decomposed `p_s/t_a` calculation | M=1 through 10 sweep | PASS | Linear scaling abs error <= `1e-12 Hz` |
 | Depolarizing behavior | Sec. 4.2, Eq. 4.2 | Qubit strategy behavior shrinks toward uniform `1/4` | Ding-Jiang depolarizing noise model | Paper Eq. 4.2 and Appendix A.4 | Exact affine behavior | Robustness heatmap | NOT_IMPLEMENTED | <= 1e-12 |
 | Noisy expected utility | Sec. 4.2, Eq. 4.3 | Expected utility maps to `(1-nu) u_bar + nu/2` for hedging qubit strategies | Ding-Jiang noisy utility model | Paper Eq. 4.3 | Exact affine expression | Fig. 8 reproduction | NOT_IMPLEMENTED | <= 1e-12 |
 | Robustness | Sec. 4.2 | `nu_star = (q_star - c_star)/(q_star - 1/2)` | Ding-Jiang robustness function | Paper Sec. 4.2 | Direct formula once `c_star`, `q_star` known | Reproduce Fig. 7 | NOT_IMPLEMENTED | <= 1e-8 except near zero gap |
@@ -77,7 +78,7 @@ Key simulator abstractions required:
 | Fig. 3 | Sec. 3 | Hedging quantum advantage over p and beta | `experiments/ding_jiang/reproduce_fig3.py` | 2x2 XOR vector optimizer plus independent deterministic enumeration | PARTIAL |
 | Fig. 4 | Sec. 4.1 | Direct photonic Type I architecture | Architecture docs and optional system model | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | Loss-threshold reproduction | Representative point plus future NPA/grid oracle | PARTIAL |
-| Fig. 6 | Sec. 4.2 | Quantum-memory Type II architecture | M1 memory model | Paper schematic plus rate formula | NOT_IMPLEMENTED |
+| Fig. 6 | Sec. 4.2 | Quantum-memory Type II architecture | M1 parameter/result model and configured rate experiment | Paper schematic plus Section 4.2 formula | PARTIAL |
 | Fig. 7 | Sec. 4.2 | Robustness nu_star over p and beta | Noise robustness reproduction | Eq. 4.2-4.3 and quantum/classical values | NOT_IMPLEMENTED |
 | Fig. 8 | Sec. 4.2 | Quantum advantage under depolarizing noise | Noisy HFT reproduction | Eq. 4.3 and gap calculation | NOT_IMPLEMENTED |
 | Fig. 9 | Appendix B | Low-resolution Fig. 3 reproduction by general optimizer | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
@@ -111,8 +112,8 @@ Key simulator abstractions required:
    - Reproduce robustness and noisy-gap figures.
 
 6. Memory Type II:
-   - Recompute NYSE/NASDAQ `t_a`, `p_s`, and `r_e`.
-   - Treat Ding-Jiang Type II as M1, not the Li event-ready M2 architecture.
+   - PASS: recomputed NYSE/NASDAQ `t_a`, `p_s`, and `r_e` from v3.
+   - PASS: Ding-Jiang Type II is isolated as M1, not the Li event-ready M2 architecture.
 
 ## Discrepancy Protocol
 

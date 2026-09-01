@@ -15,11 +15,12 @@ Current validation gate: Phase 2 partial, Ding-Jiang reference reproduction.
 | 2026-09-01 | Passed Figure 3 analytical and independent-classical gates | `python3 -m pytest`, 278 passed |
 | 2026-09-01 | Reproduced the Ding-Jiang Section 4.1 lossy representative case | `experiments/ding_jiang/results/loss_example_v3/` |
 | 2026-09-01 | Cross-validated Eq. A.11/A.12 and threshold search | `python3 -m pytest`, 285 passed |
+| 2026-09-01 | Reproduced the Ding-Jiang v3 Type II memory calculation | `experiments/ding_jiang/results/type_ii_memory_v3/` |
+| 2026-09-01 | Cross-validated Type II formulas with independent Decimal and closed-form oracles | `python3 -m pytest`, 300 passed |
 
 ## Next Gates
 
 1. Continue Ding-Jiang reproduction:
-   - Type II v3 memory-rate correction,
    - depolarizing-noise robustness.
 
 2. Extend direct-photon loss reproduction:

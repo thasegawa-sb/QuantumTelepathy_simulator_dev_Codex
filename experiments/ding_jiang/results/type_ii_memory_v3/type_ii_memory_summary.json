@@ -1,0 +1,117 @@
+{
+  "configuration": {
+    "demand": {
+      "target_event_rate_hz": 100.0
+    },
+    "parameters": {
+      "attenuation_db_per_km": 0.17,
+      "collection_efficiency": 0.5,
+      "detector_efficiency": 0.9,
+      "fiber_speed_m_s": 200000000.0,
+      "herald_speed_m_s": 300000000.0,
+      "projection_success_probability": 0.5,
+      "separation_km": 56.3
+    },
+    "sweep": {
+      "maximum_memory_count": 10,
+      "minimum_memory_count": 1
+    }
+  },
+  "model": {
+    "excluded_effects": [
+      "memory_photon_operation_time",
+      "memory_occupancy",
+      "reset_and_reuse_time",
+      "buffering",
+      "finite_memory_lifetime",
+      "memory_decoherence"
+    ],
+    "name": "M1_Ding_Jiang_Type_II",
+    "parallel_memory_assumption": "Independent identical attempts provide linear rate scaling with memory count."
+  },
+  "overall_status": "PASS",
+  "reference": {
+    "arxiv_id": "2407.21723",
+    "authors": "Dawei Ding and Liang Jiang",
+    "figure": "Figure 6",
+    "paper_item": "Section 4.2 Type II quantum-memory calculation",
+    "retrieval_date": "2026-08-31",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "version": "v3"
+  },
+  "simulator": {
+    "attempt_time_s": 0.00023458333333333333,
+    "attempt_time_us": 234.58333333333334,
+    "joint_two_arm_transmission": 0.11038244256712205,
+    "minimum_memory_count_for_target": 1,
+    "per_arm_transmission": 0.3322385326344945,
+    "per_memory_rate_hz": 105.87303549954868,
+    "success_probability": 0.02483604957760246,
+    "target_event_rate_hz": 100.0
+  },
+  "validations": {
+    "attempt_time_formula_s": {
+      "absolute_error": 0.0,
+      "actual": 0.00023458333333333333,
+      "expected": 0.00023458333333333333,
+      "provenance": "Independent Decimal evaluation of d/(2*v_f)+d/(2*v_s) using the published parameters",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-15
+    },
+    "minimum_memory_count_for_100_hz": {
+      "absolute_error": 0.0,
+      "actual": 1.0,
+      "expected": 1.0,
+      "provenance": "Paper Section 4.2 conclusion for an event demand of 100 Hz or lower",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "per_memory_rate_formula_hz": {
+      "absolute_error": 1.4210854715202004e-14,
+      "actual": 105.87303549954868,
+      "expected": 105.87303549954869,
+      "provenance": "Independent Decimal evaluation of p_s/t_a using the published parameters",
+      "relative_error": 1.3422543944404598e-16,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "published_attempt_time_us": {
+      "absolute_error": 4.583333333333343,
+      "actual": 234.58333333333334,
+      "expected": 230.0,
+      "provenance": "Paper Section 4.2, approximately 230 microseconds (two significant figures)",
+      "relative_error": 0.019927536231884098,
+      "status": "PASS",
+      "tolerance": 5.0
+    },
+    "published_per_memory_rate_hz": {
+      "absolute_error": 0.12696450045132224,
+      "actual": 105.87303549954868,
+      "expected": 106.0,
+      "provenance": "Paper Section 4.2, approximately M times 106 Hz",
+      "relative_error": 0.0011977783061445494,
+      "status": "PASS",
+      "tolerance": 0.5
+    },
+    "published_success_probability": {
+      "absolute_error": 3.604957760246219e-05,
+      "actual": 0.02483604957760246,
+      "expected": 0.0248,
+      "provenance": "Paper Section 4.2, approximately 0.0248",
+      "relative_error": 0.0014536120000992819,
+      "status": "PASS",
+      "tolerance": 5e-05
+    },
+    "success_probability_formula": {
+      "absolute_error": 0.0,
+      "actual": 0.02483604957760246,
+      "expected": 0.02483604957760246,
+      "provenance": "Independent Decimal evaluation of p_p*p_c*p_d*(10^(-0.1*alpha*d/2))^2",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-14
+    }
+  }
+}

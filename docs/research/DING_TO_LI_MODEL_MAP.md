@@ -91,8 +91,8 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 | `T_comm` | Informal communication latency | Eq. 15 | LCTC timing config |
 | `T_env` | Not formalized | Eq. 18, Table I | Certification window config |
 | `R_req` | Not formalized | Eq. 18 and Eq. 41-43 | Statistics-derived rate |
-| `R_HEG` | Generic memory rate `r_e` | Eq. 52 and Eq. 57 | Hardware throughput |
-| `N_a`, `N_ch` | Ding `M` memory multiplicity | Eq. 47, 52, Table III | M2 memory/channel parameters |
+| `R_HEG` | Generic memory rate `r_e`, reproduced as `105.873 M Hz` for the v3 HFT parameters | Eq. 52 and Eq. 57 | Keep paper-specific M1 and M2 throughput implementations separate |
+| `N_a`, `N_ch` | Ding has only ideal multiplicity `M`; no occupancy or channel model | Eq. 47, 52, Table III | Do not map `M` directly to M2 memory/channel capacity |
 
 ## Reproduction Target Ordering
 
@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 3 generic nonlocal/XOR-game abstraction (partial).
+Current gate: Phase 2 Ding-Jiang reference reproduction (partial); the v3 Type II numerical gate passes and depolarizing robustness remains.
 
 Status:
 
@@ -142,6 +142,7 @@ Status:
 | Ding-Jiang version pinned | PASS | arXiv v3 confirmed |
 | Li et al. version pinned | PASS | arXiv v1 confirmed; no newer revision visible |
 | Ding implementation audited | PASS | No inherited code existed; current Ding utility and biased-CHSH oracle reviewed |
+| Ding Type II memory calculation | PASS | Corrected v3 `t_a`, `p_s`, `r_e`, and M=1 demand conclusion reproduced |
 | Li implementation audited | PARTIAL | Generalized utility, timing inequality, and fidelity formulas implemented; operational layers remain |
 | Equation-to-code map created | PARTIAL | Core mappings are linked; experiment and hardware mappings remain unimplemented |
 | Implementation may begin | YES | User authorized a fresh scaffold; CHSH analytical gate passes |

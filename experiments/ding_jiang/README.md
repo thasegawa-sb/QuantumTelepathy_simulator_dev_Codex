@@ -31,3 +31,13 @@ PYTHONPATH=src python3 experiments/ding_jiang/reproduce_loss_example.py
 ```
 
 The result reports the `p=0.3`, `beta=0.3`, `eta=0.95` lossy value, Schmidt coefficients, and a bracketed threshold efficiency.
+
+## Section 4.2 Type II Quantum Memory
+
+The Type II experiment evaluates the v3 traversal-dominated M1 estimate, including the fiber photon flight, free-space herald return, two-arm transmission, heralded success probability, and ideal linear memory multiplicity.
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_type_ii_memory.py
+```
+
+The exact formula-derived values are checked against an independent Decimal oracle. The separately reported paper values are rounded, so their validation tolerances reflect the stated precision. This model does not include memory occupancy, reset timing, finite lifetime, or decoherence; those belong to the later Li M2 model.

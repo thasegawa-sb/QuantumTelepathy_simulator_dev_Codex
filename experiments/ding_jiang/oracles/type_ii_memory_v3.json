@@ -1,0 +1,41 @@
+{
+  "reference": "Ding-Jiang arXiv:2407.21723v3",
+  "paper_item": "Section 4.2 Type II quantum-memory calculation",
+  "oracles": {
+    "attempt_time_formula_s": {
+      "value": 0.00023458333333333334,
+      "absolute_tolerance": 1e-15,
+      "provenance": "Independent Decimal evaluation of d/(2*v_f)+d/(2*v_s) using the published parameters"
+    },
+    "published_attempt_time_us": {
+      "value": 230.0,
+      "absolute_tolerance": 5.0,
+      "provenance": "Paper Section 4.2, approximately 230 microseconds (two significant figures)"
+    },
+    "success_probability_formula": {
+      "value": 0.024836049577602463,
+      "absolute_tolerance": 1e-14,
+      "provenance": "Independent Decimal evaluation of p_p*p_c*p_d*(10^(-0.1*alpha*d/2))^2"
+    },
+    "published_success_probability": {
+      "value": 0.0248,
+      "absolute_tolerance": 0.00005,
+      "provenance": "Paper Section 4.2, approximately 0.0248"
+    },
+    "per_memory_rate_formula_hz": {
+      "value": 105.87303549954869,
+      "absolute_tolerance": 1e-10,
+      "provenance": "Independent Decimal evaluation of p_s/t_a using the published parameters"
+    },
+    "published_per_memory_rate_hz": {
+      "value": 106.0,
+      "absolute_tolerance": 0.5,
+      "provenance": "Paper Section 4.2, approximately M times 106 Hz"
+    },
+    "minimum_memory_count_for_100_hz": {
+      "value": 1.0,
+      "absolute_tolerance": 0.0,
+      "provenance": "Paper Section 4.2 conclusion for an event demand of 100 Hz or lower"
+    }
+  }
+}
