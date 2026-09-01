@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 2 Ding-Jiang reference reproduction (partial); Type II and depolarizing-noise analytical gates pass, while the full Figure 5 surface remains partial.
+Current gate: Phase 4-5 Li generalized LCTC and fidelity/Figure 2 reproduction. Ding Figure 5 cross-sections and independent numerical bounds pass their configured gates; the full surface remains a documented partial result.
 
 Status:
 
@@ -144,6 +144,7 @@ Status:
 | Ding implementation audited | PASS | No inherited code existed; current Ding utility and biased-CHSH oracle reviewed |
 | Ding Type II memory calculation | PASS | Corrected v3 `t_a`, `p_s`, `r_e`, and M=1 demand conclusion reproduced |
 | Ding depolarizing-noise calculation | PASS | Eq. 4.2-4.3, CHSH robustness, and configured Figure 7-8 grids validated |
+| Ding loss-threshold cross-sections | PARTIAL | Figure 5(b,c), CHSH endpoint, representative threshold, and NPA/explicit bracket pass; full surface and author modified-NPA comparison unavailable |
 | Li implementation audited | PARTIAL | Generalized utility, timing inequality, and fidelity formulas implemented; operational layers remain |
 | Equation-to-code map created | PARTIAL | Core mappings are linked; experiment and hardware mappings remain unimplemented |
 | Implementation may begin | YES | User authorized a fresh scaffold; CHSH analytical gate passes |

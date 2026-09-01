@@ -48,7 +48,13 @@ class ThresholdEvaluation:
 
 @dataclass(frozen=True)
 class LossThresholdResult:
-    """Bracketed threshold efficiency for positive lossy quantum advantage."""
+    """Transition found by the configured explicit-strategy optimizer.
+
+    The upper endpoint exhibits a strategy with positive advantage and therefore
+    upper-bounds the physical threshold. The lower endpoint only records that
+    this optimizer did not detect an advantage; it is not an independent lower
+    bound on the physical threshold.
+    """
 
     threshold: float
     lower_bound: float

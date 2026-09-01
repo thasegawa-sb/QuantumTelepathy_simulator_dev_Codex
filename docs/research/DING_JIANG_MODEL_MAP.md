@@ -19,7 +19,7 @@ Retrieval and version audit:
 
 ## Scope
 
-This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer, representative direct-loss case, v3 Type II memory-rate calculation, and qubit depolarizing-noise equations are implemented. Full loss surfaces and pointwise paper comparisons for plot-only noise results remain open.
+This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer, direct-loss equations and Figure 5 cross-sections, v3 Type II memory-rate calculation, and qubit depolarizing-noise equations are implemented. Full loss surfaces and pointwise paper comparisons for plot-only results remain open.
 
 ## Scientific Model
 
@@ -64,6 +64,7 @@ Key simulator abstractions required:
 | Theorem 14 | Appendix A.2 | Tsirelson equivalence between quantum correlations and unit vectors | Quantum XOR optimizer basis | Matrix M | Known theorem | 2x2 vector optimization | PARTIAL | <= 1e-8 |
 | Eq. A.10 | Appendix A.2 | Correlator from XOR probabilities | Probability/correlator converters | Behavior tensor | Direct identity | Round-trip conversion tests | NOT_IMPLEMENTED | <= 1e-12 |
 | Eq. A.11-A.12 | Appendix A.3 | Lossy behavior and lossy Bell operator with deterministic fallback | `ding_jiang.loss` | Per-party eta_i and fallback strategy | Exact loss-event mixture | Direct probability vs Bell expectation | PASS | Difference 1.11e-16 |
+| Modified NPA threshold search | Sec. 4.1 | Upper-bound lossy quantum value and lower-bound `eta_star` | `ding_jiang.loss_sdp` standard real `Q1+AB` relaxation | Bell functional from Eq. A.11 | CHSH endpoint `2/3` | Explicit-strategy threshold upper bound | PARTIAL | Numerical bracket order violation 0; not the unpublished modified-NPA code |
 | Proposition 19 | Appendix A.3 | Degenerate quantum behavior is classical for (2,2,2) | Loss model simplification tests | Binary problem | Classical polytope property | Both-lost deterministic limit | PARTIAL | <= 1e-12 |
 | Proposition 20 | Appendix A.3 | Qubits suffice for lossy values in `(n,2,2)` | Qubit optimizer dimension policy | Binary problem | Published proposition | Representative strategy and Schmidt values | PARTIAL | Published theorem used; no independent proof |
 | Eq. A.13-A.14 | Appendix A.4 | General rank-dependent depolarizing behavior and classical factorizable term | `ding_jiang.noise` rank-one binary specialization | Noise nu and projector ranks | Eq. 4.2 specialization | Figure 7-8 reproduction | PARTIAL | Main-text qubit case <= `1e-12`; general ranks not implemented |
@@ -77,14 +78,14 @@ Key simulator abstractions required:
 | Fig. 2 | Sec. 3 | NYSE/NASDAQ HFT setup, distance 56.3 km | Scenario configuration | Paper distance and context | NOT_IMPLEMENTED |
 | Fig. 3 | Sec. 3 | Hedging quantum advantage over p and beta | `experiments/ding_jiang/reproduce_fig3.py` | 2x2 XOR vector optimizer plus independent deterministic enumeration | PARTIAL |
 | Fig. 4 | Sec. 4.1 | Direct photonic Type I architecture | Architecture docs and optional system model | Paper schematic | NOT_IMPLEMENTED |
-| Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | Loss-threshold reproduction | Representative point plus future NPA/grid oracle | PARTIAL |
+| Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | `reproduce_fig5_cross_sections.py`, CSV and PNG | CHSH `2/3`, beta/p symmetries, published representative point, NPA versus explicit-strategy bracket | PARTIAL |
 | Fig. 6 | Sec. 4.2 | Quantum-memory Type II architecture | M1 parameter/result model and configured rate experiment | Paper schematic plus Section 4.2 formula | PARTIAL |
 | Fig. 7 | Sec. 4.2 | Robustness nu_star over p and beta | `reproduce_noise_robustness.py`, CSV and PNG | CHSH maximum, beta symmetry, threshold identity | PARTIAL |
 | Fig. 8 | Sec. 4.2 | Quantum advantage under depolarizing noise | `reproduce_noise_robustness.py`, signed CSV and PNG | CHSH noisy maxima and nested positive regions | PARTIAL |
 | Fig. 9 | Appendix B | Low-resolution Fig. 3 reproduction by general optimizer | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
 | Fig. 10 | Appendix B | Low-resolution robustness reproduction | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
 | Fig. 11 | Appendix B | Low-resolution noisy advantage reproduction | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
-| Fig. 12 | Appendix B | Loss threshold from general optimizer | Deterministic grid plus Powell optimizer | Representative point and limit tests | PARTIAL |
+| Fig. 12 | Appendix B | Loss threshold from general optimizer | Deterministic 20-point grid, Powell refinement, and all 16 fallbacks | Representative point, symmetries, and NPA bracket | PARTIAL |
 | Fig. 13 | Appendix C | Computer-architecture pseudo-example mapping to CHSH | Optional scenario fixture | Exact CHSH relabeling | NOT_IMPLEMENTED |
 
 ## Required Ding-Jiang Regression Gates

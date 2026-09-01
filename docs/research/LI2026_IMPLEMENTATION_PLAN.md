@@ -89,7 +89,7 @@ Deliverables:
 |---|---|
 | CHSH/anti-CHSH | Analytical values pass to tight tolerance |
 | Ding Fig. 3 | Gap heatmap and cross-sections generated from solver |
-| Ding Fig. 5 | eta-star computed with documented optimizer/oracle limits |
+| Ding Fig. 5 | PARTIAL recorded: cross-sections and independent numerical bounds pass; full surface and author modified-NPA comparison unavailable |
 | Ding p=0.3, beta=0.3 example | `eta_star approx 0.941`, `c_star=0.79`, `q_star(eta=0.95) approx 0.792` reproduced or discrepancy documented |
 | Ding Fig. 7-Fig. 8 | Robustness/noisy gap reproduced |
 | Ding memory rate | `t_a`, `p_s`, `r_e` reproduced from v3 |

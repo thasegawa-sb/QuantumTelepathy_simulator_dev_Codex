@@ -6,7 +6,7 @@ Current state:
 
 - Git repository initialized from an empty workspace.
 - Research model maps and reproduction matrix live in `docs/research/`.
-- Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT, representative direct-photon loss, v3 Type II memory rate, and qubit depolarizing-noise robustness, plus Li generalized utility mapping and Li's exact combined-infidelity expression.
+- Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT, direct-photon loss with Figure 5 cross-sections and an independent NPA bound, v3 Type II memory rate, and qubit depolarizing-noise robustness, plus Li generalized utility mapping and Li's exact combined-infidelity expression.
 
 Run tests:
 
@@ -24,6 +24,12 @@ Reproduce the Ding-Jiang v3 Section 4.1 loss example:
 
 ```bash
 PYTHONPATH=src python3 experiments/ding_jiang/reproduce_loss_example.py
+```
+
+Reproduce the Ding-Jiang v3 Figure 5(b,c) loss-threshold cross-sections:
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_fig5_cross_sections.py
 ```
 
 Reproduce the Ding-Jiang v3 Section 4.2 Type II memory calculation:

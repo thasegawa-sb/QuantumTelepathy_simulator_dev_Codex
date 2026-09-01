@@ -32,6 +32,16 @@ PYTHONPATH=src python3 experiments/ding_jiang/reproduce_loss_example.py
 
 The result reports the `p=0.3`, `beta=0.3`, `eta=0.95` lossy value, Schmidt coefficients, and a bracketed threshold efficiency.
 
+## Figure 5 Loss-Threshold Cross-Sections
+
+The Figure 5 experiment evaluates the `p=0.5` beta cross-section and the `beta=0.4` input-probability cross-section on a documented 0.1 grid. For each point it reports two distinct numerical quantities: an upper bound on `eta*` from an explicit qubit strategy and a lower bound from a real-moment NPA `Q1+AB` relaxation.
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_fig5_cross_sections.py
+```
+
+The explicit search evaluates the Appendix B.3 20-point angle grid for all 16 deterministic fallbacks, then applies deterministic Powell refinement to the best two grid starts per fallback. It does not locally refine all 400 starts. The standard `Q1+AB` implementation is independent of that search but is not the paper's unpublished modified-NPA code and is not a machine-certified SDP proof. The committed result is therefore `PARTIAL` despite passing the CHSH endpoints, symmetry gates, bracket ordering, and the published `p=0.3`, `beta=0.3`, `eta* approximately 0.941` value. A full fresh run takes about 9.6 minutes on the recorded machine.
+
 ## Section 4.2 Type II Quantum Memory
 
 The Type II experiment evaluates the v3 traversal-dominated M1 estimate, including the fiber photon flight, free-space herald return, two-arm transmission, heralded success probability, and ideal linear memory multiplicity.

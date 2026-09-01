@@ -1,0 +1,41 @@
+{
+  "reference": "Ding-Jiang arXiv:2407.21723v3",
+  "paper_item": "Figure 5 and Section 4.1",
+  "oracles": {
+    "chsh_npa_threshold_beta_0": {
+      "value": 0.6666666666666666,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Analytical two-input/two-output detector-efficiency lower limit cited in Section 4.1; independently recovered by Q1+AB"
+    },
+    "chsh_npa_threshold_beta_1": {
+      "value": 0.6666666666666666,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Output-relabeling symmetry of the beta=0 CHSH endpoint"
+    },
+    "chsh_strategy_upper_excess": {
+      "value": 0.0,
+      "absolute_tolerance": 0.004,
+      "provenance": "Explicit-strategy threshold upper endpoints versus analytical 2/3; tolerance covers two configured 0.002 efficiency intervals"
+    },
+    "representative_threshold": {
+      "value": 0.941,
+      "absolute_tolerance": 0.002,
+      "provenance": "Paper Section 4.1, approximately 0.941 for p=0.3 and beta=0.3"
+    },
+    "beta_symmetry": {
+      "value": 0.0,
+      "absolute_tolerance": 0.002,
+      "provenance": "Hedging-game beta to 1-beta output-relabeling symmetry"
+    },
+    "p_symmetry_at_beta_0_4": {
+      "value": 0.0,
+      "absolute_tolerance": 0.002,
+      "provenance": "Independent Bernoulli p to 1-p input-relabeling symmetry"
+    },
+    "numerical_bracket_order_violation": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-9,
+      "provenance": "NPA quantum-value upper bound versus explicit-strategy lower bound"
+    }
+  }
+}

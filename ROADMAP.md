@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 2 partial, Ding-Jiang reference reproduction.
+Current validation gate: Phase 4-5, Li generalized LCTC and fidelity/Figure 2 reproduction.
 
 ## Completed
 
@@ -19,27 +19,24 @@ Current validation gate: Phase 2 partial, Ding-Jiang reference reproduction.
 | 2026-09-01 | Cross-validated Type II formulas with independent Decimal and closed-form oracles | `python3 -m pytest`, 300 passed |
 | 2026-09-01 | Implemented Ding-Jiang Eq. 4.2-4.3 qubit depolarizing noise and robustness | `src/quantum_telepathy/ding_jiang/noise.py` |
 | 2026-09-01 | Generated Figure 7-8 data and plots with analytical validation | `experiments/ding_jiang/results/noise_robustness_v3/` |
+| 2026-09-02 | Reproduced Ding-Jiang Figure 5(b,c) on documented 0.1 cross-sections | `experiments/ding_jiang/results/fig5_cross_sections_v3/` |
+| 2026-09-02 | Added independent real NPA `Q1+AB` lossy-value bounds and two-sided numerical threshold brackets | `src/quantum_telepathy/ding_jiang/loss_sdp.py` |
 
 ## Next Gates
 
-1. Extend direct-photon loss reproduction:
-   - Figure 5 cross-sections,
-   - selected grid points with an independent upper-bound oracle,
-   - full Figure 5 only after runtime and oracle strategy are documented.
-
-2. Add Li Fig. 2 reproduction scripts:
+1. Add Li Fig. 2 reproduction scripts:
    - independent Bernoulli inputs,
    - correlated inputs,
    - asymmetric beta cases,
    - fidelity-threshold plots/data.
 
-3. Implement Li finite-statistics certification:
+2. Implement Li finite-statistics certification:
    - exact binomial-tail p-value,
    - `n_req(epsilon,M,alpha)`,
    - `R_req(epsilon,M,alpha,T_env)`,
    - small-n brute-force or direct-sum oracle.
 
-4. Implement Li operational status object:
+3. Implement Li operational status object:
    - theoretical advantage,
    - fidelity criterion,
    - statistical certification,
@@ -47,7 +44,7 @@ Current validation gate: Phase 2 partial, Ding-Jiang reference reproduction.
    - decision criterion,
    - overall operational quantum advantage.
 
-5. Implement M2 analytical HEG/time-multiplexing model:
+4. Implement M2 analytical HEG/time-multiplexing model:
    - occupancy,
    - memory depth,
    - attempt rate,
@@ -58,6 +55,7 @@ Current validation gate: Phase 2 partial, Ding-Jiang reference reproduction.
 
 | Topic | Reason |
 |---|---|
+| Ding-Jiang full Figure 5(a) 101x101 surface | Cross-sections and independent bounds pass; a fresh 22-point run took 578 s, author pointwise data and unpublished modified-NPA code are unavailable |
 | Event-driven network simulation | Analytical Li formulas must pass first |
 | Microscopic cQED/TPI/CAPS models | System-level model is mandatory first; appendix-level microscopic reproduction may need further data |
 | Multiparty LCTC | Defer until two-party gates are validated |

@@ -1,12 +1,12 @@
 # Research/Design Review: Ding-Jiang to Li et al. Operational LCTC Extension
 
-Date: 2026-08-31, updated 2026-09-01
+Date: 2026-08-31, updated 2026-09-02
 
 ## Executive Summary
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, Ding ideal HFT, representative loss case, corrected v3 Type II memory calculation, and qubit depolarizing robustness now pass their analytical gates. The full Figure 5 surface remains partial before the Li operational layers advance.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, Ding ideal HFT, loss equations and Figure 5 cross-sections, corrected v3 Type II memory calculation, and qubit depolarizing robustness now pass their configured analytical gates. The full Figure 5 surface remains a documented partial result because the paper's point data and unpublished modified-NPA implementation are unavailable; work can advance to Li Figure 2 without treating that partial result as a pass.
 
 ## Existing Implementation
 
@@ -14,14 +14,14 @@ The correct development sequence remains staged. The independently verified nonl
 |---|---|
 | Repository structure | Fresh scaffold |
 | Source code | Shared core plus paper-specific Ding and Li modules present |
-| Tests | CHSH, utility, fidelity, Figure 3, loss, Type II, and depolarizing-noise scientific tests present |
-| Experiment scripts | Ding Figure 3, loss example, Type II memory, and Figure 7-8 scripts present |
+| Tests | CHSH, utility, fidelity, Figure 3, loss/NPA, Type II, and depolarizing-noise scientific tests present |
+| Experiment scripts | Ding Figure 3, loss example, Figure 5 cross-sections, Type II memory, and Figure 7-8 scripts present |
 | Configurations | Version-pinned Ding experiment configurations present |
 | Validation results | Generated Ding result summaries and data present |
 | Paper reproduction code | Ding ideal, loss, Type II, and qubit-noise reproduction paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 2 partial; full Figure 5 loss surface remains |
+| Current validation gate | Phase 4-5; Li generalized LCTC fidelity/Figure 2 reproduction |
 
 Files requested by the operating procedure were not available:
 
@@ -90,7 +90,7 @@ Because no existing implementation is visible, these are architectural requireme
 | P0 | CHSH analytical limits | PASS |
 | P1 | Ding Theorem 10 biased CHSH | PASS for sampled unit tests |
 | P1 | Ding Eq. 3.1 HFT utility and Fig. 3 | PARTIAL: computation gates pass; no author numerical grid for pointwise comparison |
-| P2 | Ding loss and p=0.3, beta=0.3, eta=0.95 example | PASS for representative case; full Figure 5 remains PARTIAL |
+| P2 | Ding loss and p=0.3, beta=0.3, eta=0.95 example | Representative case PASS; Figure 5(b,c) configured gates PASS; full Figure 5 remains PARTIAL |
 | P2 | Ding Type II v3 memory calculation | PASS for exact formulas and rounded Section 4.2 values |
 | P2 | Ding robustness/noisy-gap figures | PARTIAL: analytical and visual gates pass; author pointwise data unavailable |
 | P3 | Li Eq. 23-25 generalized LCTC | PASS for utility/matrix unit tests |

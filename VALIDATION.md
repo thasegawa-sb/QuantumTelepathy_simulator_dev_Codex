@@ -1,6 +1,6 @@
 # Validation
 
-Last validation run: 2026-09-01.
+Last validation run: 2026-09-02.
 
 Command:
 
@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-317 passed in 26.36s
+330 passed in 36.62s
 ```
 
 ## Passing Coverage
@@ -31,6 +31,9 @@ Result:
 | Ding-Jiang `p=0.3`, `beta=0.3`, `eta=0.95` lossy value | `tests/scientific/test_ding_loss_reproduction.py` |
 | Ding-Jiang Section 4.1 Schmidt coefficients | `tests/scientific/test_ding_loss_reproduction.py` |
 | Ding-Jiang representative threshold efficiency | `experiments/ding_jiang/results/loss_example_v3/loss_example_summary.json` |
+| Ding-Jiang loss Bell functional versus direct Eq. A.11 | `tests/scientific/test_ding_loss_sdp.py` |
+| Ding-Jiang NPA `Q1+AB` CHSH and no-loss XOR upper bounds | `tests/scientific/test_ding_loss_sdp.py` |
+| Ding-Jiang Figure 5(b,c) numerical threshold brackets | `experiments/ding_jiang/results/fig5_cross_sections_v3/fig5_cross_sections_summary.json` |
 | Ding-Jiang Type II attempt time, two-arm success probability, and rate | `tests/scientific/test_ding_type_ii_memory.py` |
 | Ding-Jiang Type II Section 4.2 experiment gate | `experiments/ding_jiang/results/type_ii_memory_v3/type_ii_memory_summary.json` |
 | Ding-Jiang qubit depolarizing behavior Eq. 4.2 | `tests/scientific/test_ding_noise_robustness.py` |
@@ -47,7 +50,7 @@ Result:
 | Gap | Status |
 |---|---|
 | Ding-Jiang Fig. 3 paper-level numerical comparison | PARTIAL: analytical and qualitative gates pass; author numerical data is unavailable |
-| Ding-Jiang full Figure 5 loss-threshold surface | PARTIAL: representative point passes; full grid and independent upper bound remain |
+| Ding-Jiang full Figure 5 loss-threshold surface | PARTIAL: 0.1 cross-sections, independent NPA bounds, CHSH endpoints, and representative point pass; full 101x101 surface and author modified-NPA comparison remain unavailable |
 | Ding-Jiang Type II memory-rate calculation | PASS: v3 formulas and rounded published values pass independent oracles |
 | Ding-Jiang Figure 7-8 pointwise paper comparison | PARTIAL: equations, analytical extrema, symmetries, and visual shape pass; author numerical grids are unavailable |
 | Li Fig. 2 reproduction | NOT_IMPLEMENTED |
