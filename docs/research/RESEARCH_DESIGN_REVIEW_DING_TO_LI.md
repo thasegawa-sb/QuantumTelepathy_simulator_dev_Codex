@@ -89,7 +89,7 @@ Because no existing implementation is visible, these are architectural requireme
 |---|---|---|
 | P0 | CHSH analytical limits | PASS |
 | P1 | Ding Theorem 10 biased CHSH | PASS for sampled unit tests |
-| P1 | Ding Eq. 3.1 HFT utility and Fig. 3 | NOT_IMPLEMENTED |
+| P1 | Ding Eq. 3.1 HFT utility and Fig. 3 | PARTIAL: computation gates pass; no author numerical grid for pointwise comparison |
 | P2 | Ding loss and p=0.3, beta=0.3, eta=0.95 example | NOT_IMPLEMENTED |
 | P2 | Ding robustness/noisy-gap figures | NOT_IMPLEMENTED |
 | P3 | Li Eq. 23-25 generalized LCTC | PASS for utility/matrix unit tests |

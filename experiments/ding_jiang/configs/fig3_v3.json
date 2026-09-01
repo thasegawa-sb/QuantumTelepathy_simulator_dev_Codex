@@ -1,0 +1,39 @@
+{
+  "reference": {
+    "authors": "Dawei Ding and Liang Jiang",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "arxiv_id": "2407.21723",
+    "version": "v3",
+    "retrieval_date": "2026-08-31",
+    "paper_item": "Figure 3",
+    "equation": "Equation 3.1"
+  },
+  "input_model": {
+    "family": "independent_bernoulli",
+    "p_grid": {
+      "start": 0.0,
+      "stop": 1.0,
+      "step": 0.01
+    }
+  },
+  "utility_model": {
+    "family": "ding_jiang_hedging",
+    "beta_grid": {
+      "start": 0.0,
+      "stop": 1.0,
+      "step": 0.01
+    }
+  },
+  "cross_sections": {
+    "p": 0.5,
+    "beta": 0.4
+  },
+  "validation": {
+    "oracle_file": "../oracles/fig3_v3.json",
+    "classical_abs_tolerance": 1e-12
+  },
+  "notes": [
+    "The paper specifies p and beta in [0,1] but does not state the main-panel grid spacing.",
+    "A 0.01 step is a simulator reproduction choice; Appendix Figure 9 explicitly uses 0.1."
+  ]
+}

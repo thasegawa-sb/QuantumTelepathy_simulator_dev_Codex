@@ -13,3 +13,9 @@ Run tests:
 ```bash
 python3 -m pytest
 ```
+
+Reproduce Ding-Jiang v3 Figure 3:
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_fig3.py
+```

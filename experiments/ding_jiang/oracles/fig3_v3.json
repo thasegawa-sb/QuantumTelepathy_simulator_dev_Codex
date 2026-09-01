@@ -1,0 +1,31 @@
+{
+  "reference": "Ding-Jiang arXiv:2407.21723v3",
+  "paper_item": "Figure 3 and Theorem 10",
+  "oracles": {
+    "maximum_gap": {
+      "value": 0.10355339059327379,
+      "absolute_tolerance": 1e-10,
+      "provenance": "CHSH analytical value (sqrt(2)-1)/4 at p=0.5, beta=0 or 1"
+    },
+    "classical_cross_validation_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Independent enumeration of 16 deterministic local strategies"
+    },
+    "beta_symmetry_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-10,
+      "provenance": "Paper Section 3 and Lemma 7 relabeling symmetry"
+    },
+    "beta_half_max_abs_gap": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-10,
+      "provenance": "Paper Section 3 statement that beta=0.5 has no quantum advantage"
+    },
+    "beta_zero_theorem_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-9,
+      "provenance": "Ding-Jiang Theorem 10 biased-CHSH closed form"
+    }
+  }
+}

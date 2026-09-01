@@ -45,7 +45,7 @@ Key simulator abstractions required:
 | Paper item | Section | Scientific quantity | Simulator component | Parameter source | Analytical oracle | Numerical oracle | Status | Tolerance |
 |---|---|---|---|---|---|---|---|---|
 | HFT anti-CHSH utility matrix | Sec. 3 | Binary utility where same/opposite action parity depends on observations N/I | HFT utility constructor with beta fixed to 0 | Paper Sec. 3 | CHSH/anti-CHSH relabeling | Deterministic enumeration plus XOR quantum optimizer | PASS | Exact for utility entries |
-| Eq. 3.1 | Sec. 3 | Hedging utility with beta in [0,1] for mixed-input cases | HFT utility family `u_HFT(o|x,y,beta)` | Paper Eq. 3.1 | At beta=0 recover anti-CHSH gap region | Reproduce Fig. 3 heatmap and sections | PARTIAL | Exact entries; numerical gap <= 1e-8 for analytic cases |
+| Eq. 3.1 | Sec. 3 | Hedging utility with beta in [0,1] for mixed-input cases | HFT utility family `u_HFT(o|x,y,beta)` | Paper Eq. 3.1 | At beta=0 recover anti-CHSH gap region | 101x101 Fig. 3 data and sections | PASS | Exact entries; analytical errors <= 2.22e-16 |
 | Bernoulli input result | Sec. 3 and Appendix A.1 | For beta=0, quantum advantage iff p in `(1 - 1/sqrt(2), 1/sqrt(2))` | Independent Bernoulli input distribution | Paper Sec. 3, Theorem 10 | Theorem 10 | Grid scan over p | PASS | Boundary error <= 1e-8 |
 | Eq. 4.1 | Sec. 4.1 | Example Schmidt decomposition for p=0.3, beta=0.3, eta=0.95 strategy | Optional explicit strategy record and validation fixture | Paper Eq. 4.1 | Normalization and reconstruction from Schmidt factors | Expected utility near 0.792 with loss | NOT_IMPLEMENTED | Published values 3 sig figs |
 | Effective memory rate | Sec. 4.2 | `r_e = M p_s / t_a` | Ding-Jiang Type II system-level rate model | Paper Sec. 4.2 | Direct formula | Distance and multiplicity sweep | NOT_IMPLEMENTED | Relative error <= 1e-12 for formula |
@@ -74,7 +74,7 @@ Key simulator abstractions required:
 |---|---|---|---|---|---|
 | Fig. 1 | Sec. 2 | TC problem schematic | Documentation figure only | Paper diagram | NOT_IMPLEMENTED |
 | Fig. 2 | Sec. 3 | NYSE/NASDAQ HFT setup, distance 56.3 km | Scenario configuration | Paper distance and context | NOT_IMPLEMENTED |
-| Fig. 3 | Sec. 3 | Hedging quantum advantage over p and beta | Reproduction script `experiments/ding_jiang/fig3_*` | XOR SDP/vector optimizer plus deterministic enumeration | NOT_IMPLEMENTED |
+| Fig. 3 | Sec. 3 | Hedging quantum advantage over p and beta | `experiments/ding_jiang/reproduce_fig3.py` | 2x2 XOR vector optimizer plus independent deterministic enumeration | PARTIAL |
 | Fig. 4 | Sec. 4.1 | Direct photonic Type I architecture | Architecture docs and optional system model | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | Loss-threshold reproduction | Lossy-value optimizer/NPA or independent grid oracle | NOT_IMPLEMENTED |
 | Fig. 6 | Sec. 4.2 | Quantum-memory Type II architecture | M1 memory model | Paper schematic plus rate formula | NOT_IMPLEMENTED |

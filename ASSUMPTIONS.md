@@ -8,4 +8,5 @@
 | A4 | The 2x2 XOR quantum bias can be computed by reducing Tsirelson's vector optimization to a one-dimensional maximization over the inner product of Bob's two vectors. | Tested against CHSH and Ding Theorem 10 samples |
 | A5 | Li Eq. 25 is implemented with right-bottom matrix entry `-P(1,1)` because Eq. 35 requires the CHSH limit `1/4 [[1,1],[1,-1]]`. | Active |
 | A6 | Ding-Jiang's depolarizing `nu` and Li's combined infidelity `epsilon` are distinct model parameters. | Active |
-| A7 | Figure reproduction tolerances remain unset until scripts generate numerical data rather than relying on plot images. | Active |
+| A7 | Pointwise tolerances for plot-only paper results remain unset unless equations, author data, or documented digitization uncertainty provides an oracle. | Active |
+| A8 | Ding-Jiang Figure 3 main-panel grid spacing is not specified; the reproduction uses 0.01 over `[0,1]^2`. | Active; Appendix Figure 9 separately specifies 0.1. |

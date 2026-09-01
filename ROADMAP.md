@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 3 partial, foundational nonlocal/XOR core.
+Current validation gate: Phase 2 partial, Ding-Jiang reference reproduction.
 
 ## Completed
 
@@ -11,25 +11,28 @@ Current validation gate: Phase 3 partial, foundational nonlocal/XOR core.
 | 2026-09-01 | Implemented minimal Layer 0/1 scientific core | `src/quantum_telepathy/core/` |
 | 2026-09-01 | Added Ding-Jiang v3 and Li v1 utility/fidelity fixtures | `src/quantum_telepathy/ding_jiang/`, `src/quantum_telepathy/li2026/` |
 | 2026-09-01 | Passed initial analytical tests | `python3 -m pytest`, 23 passed |
+| 2026-09-01 | Recomputed Ding-Jiang v3 Figure 3 on a 101x101 grid | `experiments/ding_jiang/results/fig3_v3/` |
+| 2026-09-01 | Passed Figure 3 analytical and independent-classical gates | `python3 -m pytest`, 278 passed |
 
 ## Next Gates
 
-1. Implement Li finite-statistics certification:
-   - exact binomial-tail p-value,
-   - `n_req(epsilon,M,alpha)`,
-   - `R_req(epsilon,M,alpha,T_env)`,
-   - small-n brute-force or direct-sum oracle.
+1. Continue Ding-Jiang reproduction:
+   - direct-photon loss model,
+   - `p=0.3`, `beta=0.3`, `eta=0.95` representative case,
+   - Type II v3 memory-rate correction,
+   - depolarizing-noise robustness.
 
-2. Add Ding-Jiang reproduction scripts:
-   - biased CHSH sweep,
-   - Ding Eq. 3.1/Fig. 3 grid,
-   - result metadata with paper version.
-
-3. Add Li Fig. 2 reproduction scripts:
+2. Add Li Fig. 2 reproduction scripts:
    - independent Bernoulli inputs,
    - correlated inputs,
    - asymmetric beta cases,
    - fidelity-threshold plots/data.
+
+3. Implement Li finite-statistics certification:
+   - exact binomial-tail p-value,
+   - `n_req(epsilon,M,alpha)`,
+   - `R_req(epsilon,M,alpha,T_env)`,
+   - small-n brute-force or direct-sum oracle.
 
 4. Implement Li operational status object:
    - theoretical advantage,

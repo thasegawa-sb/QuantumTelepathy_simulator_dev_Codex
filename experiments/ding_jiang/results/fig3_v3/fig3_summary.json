@@ -1,0 +1,93 @@
+{
+  "configuration": {
+    "cross_sections": {
+      "beta": 0.4,
+      "p": 0.5
+    },
+    "input_model": {
+      "family": "independent_bernoulli",
+      "p_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      }
+    },
+    "notes": [
+      "The paper specifies p and beta in [0,1] but does not state the main-panel grid spacing.",
+      "A 0.01 step is a simulator reproduction choice; Appendix Figure 9 explicitly uses 0.1."
+    ],
+    "utility_model": {
+      "beta_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      },
+      "family": "ding_jiang_hedging"
+    }
+  },
+  "grid": {
+    "beta_count": 101,
+    "p_count": 101,
+    "point_count": 10201
+  },
+  "overall_status": "PASS",
+  "reference": {
+    "arxiv_id": "2407.21723",
+    "authors": "Dawei Ding and Liang Jiang",
+    "equation": "Equation 3.1",
+    "paper_item": "Figure 3",
+    "retrieval_date": "2026-08-31",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "version": "v3"
+  },
+  "simulator_extrema": {
+    "maximum_gap": 0.10355339059327373,
+    "maximum_gap_location": {
+      "beta": 0.0,
+      "p": 0.5
+    },
+    "minimum_gap": -2.220446049250313e-16
+  },
+  "validations": {
+    "beta_half_max_abs_gap": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Paper Section 3 statement that beta=0.5 has no quantum advantage",
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "beta_symmetry_max_abs_error": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Paper Section 3 and Lemma 7 relabeling symmetry",
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "beta_zero_theorem_max_abs_error": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Ding-Jiang Theorem 10 biased-CHSH closed form",
+      "status": "PASS",
+      "tolerance": 1e-09
+    },
+    "classical_cross_validation_max_abs_error": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Independent enumeration of 16 deterministic local strategies",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "maximum_gap": {
+      "absolute_error": 5.551115123125783e-17,
+      "actual": 0.10355339059327373,
+      "expected": 0.10355339059327379,
+      "provenance": "CHSH analytical value (sqrt(2)-1)/4 at p=0.5, beta=0 or 1",
+      "status": "PASS",
+      "tolerance": 1e-10
+    }
+  }
+}

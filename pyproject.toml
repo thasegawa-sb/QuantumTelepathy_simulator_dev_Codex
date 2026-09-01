@@ -13,6 +13,12 @@ authors = [
   {name = "Quantum Network Simulator R&D Project"}
 ]
 
+[project.optional-dependencies]
+plots = [
+  "matplotlib>=3.8,<4",
+  "numpy>=1.26,<3",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

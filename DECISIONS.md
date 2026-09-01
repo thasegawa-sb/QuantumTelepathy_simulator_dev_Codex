@@ -7,3 +7,4 @@
 | 2026-09-01 | Keep Ding-Jiang and Li et al. wrappers separate while sharing the XOR core. | Prevents Li operational semantics from silently changing Ding reproduction results. |
 | 2026-09-01 | Implement Li combined infidelity using the exact expression from Eq. 30. | The small-error approximation is not acceptable as the reference model. |
 | 2026-09-01 | Treat microscopic cQED reproduction as deferred. | Li Table III system-level formulas are sufficient for the mandatory next hardware gate; appendix-level microscopic reproduction may require more data. |
+| 2026-09-01 | Report the Ding Figure 3 computation gate as PASS but the paper-plot reproduction as PARTIAL. | Exact analytical checks pass, while author source data for nonzero beta is unavailable. |
