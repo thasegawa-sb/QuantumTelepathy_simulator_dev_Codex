@@ -1,0 +1,51 @@
+{
+  "reference": "Li et al. arXiv:2604.07451v1",
+  "paper_item": "Figure 2",
+  "oracles": {
+    "chsh_maximum_gap": {
+      "value": 0.10355339059327379,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Exact CHSH value (sqrt(2)-1)/4"
+    },
+    "chsh_fidelity_threshold": {
+      "value": 0.2928932188134524,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Li Equation 38, 1-1/sqrt(2)"
+    },
+    "classical_cross_validation_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Independent enumeration of all 16 deterministic local strategies"
+    },
+    "ding_layer_cross_validation_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Ding-Jiang ideal layer under the global output-parity relabeling"
+    },
+    "correlated_distribution_constraint_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Figure 2 caption relation and probability normalization"
+    },
+    "beta_half_max_abs_gap": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "At beta1=beta2=1/2 all game-matrix entries except the fixed diagonal reduce to a local boundary with no quantum gap"
+    },
+    "threshold_root_max_abs_gap": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Li Equations 34 and 37 evaluated independently at epsilon_th"
+    },
+    "noisy_curve_linearity_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Li Equation 34 finite-difference linearity in combined infidelity"
+    },
+    "negative_gap_violation": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-12,
+      "provenance": "Quantum strategy set contains all classical deterministic strategies"
+    }
+  }
+}

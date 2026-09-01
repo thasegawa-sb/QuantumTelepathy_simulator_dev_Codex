@@ -1,0 +1,49 @@
+{
+  "reference": {
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "arxiv_id": "2604.07451",
+    "version": "v1",
+    "retrieval_date": "2026-08-31",
+    "version_reverified_date": "2026-09-02",
+    "paper_item": "Figure 2",
+    "equations": ["24", "25", "30", "31", "34", "37"]
+  },
+  "panel_a": {
+    "input_family": "independent_identically_distributed_bernoulli",
+    "p_grid": {"start": 0.0, "stop": 1.0, "step": 0.01},
+    "beta_grid": {"start": 0.0, "stop": 1.0, "step": 0.01},
+    "beta_relation": "beta1=beta2=beta"
+  },
+  "panel_b": {
+    "input_family": "P11=2P01=2P10",
+    "p11_grid": {"start": 0.0, "stop": 0.5, "step": 0.005},
+    "beta_grid": {"start": 0.0, "stop": 1.0, "step": 0.01},
+    "beta_relation": "beta1=beta2=beta"
+  },
+  "panel_c": {
+    "input_distribution": "uniform",
+    "epsilon_grid": {"start": 0.0, "stop": 0.4, "step": 0.001},
+    "beta1_values": [0.0, 0.1, 0.2, 0.3],
+    "utility_families": {
+      "symmetric": "beta2=beta1",
+      "asymmetric_half": "beta2=beta1/2"
+    },
+    "threshold_beta1_grid": {"start": 0.0, "stop": 0.5, "step": 0.005}
+  },
+  "plot": {
+    "minimum_displayed_gap": 0.0001,
+    "maximum_displayed_gap": 0.11,
+    "dpi": 180
+  },
+  "validation": {
+    "oracle_file": "../oracles/fig2_v1.json",
+    "classical_abs_tolerance": 1e-12
+  },
+  "notes": [
+    "Panel (b) normalization gives P00=1-2P11 and P01=P10=P11/2.",
+    "Equation 25 is evaluated with a negative (1,1) matrix entry, as required by Equation 24 and the CHSH matrix in Equation 35.",
+    "Signed gaps are retained in CSV output; only values below 1e-4 are masked in the log-scale plot.",
+    "No author-provided Figure 2 numerical data were available, so exact pixel/numerical reproduction is not claimed."
+  ]
+}

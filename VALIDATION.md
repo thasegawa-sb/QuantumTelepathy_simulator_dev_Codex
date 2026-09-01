@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-330 passed in 36.62s
+375 passed in 36.27s
 ```
 
 ## Passing Coverage
@@ -44,6 +44,11 @@ Result:
 | Li strict latency condition | `tests/scientific/test_ding_li_utilities.py` |
 | Li exact combined infidelity | `tests/scientific/test_li_fidelity.py` |
 | Li noisy value/gap formulas | `tests/scientific/test_li_fidelity.py` |
+| Li Werner state positivity, singlet fidelity, and direct noisy correlator trace | `tests/scientific/test_li_fidelity.py` |
+| Li Figure 2 correlated-input family and deterministic classical oracle | `tests/scientific/test_li_fig2.py` |
+| Li 2x2 quantum bias versus independent measurement-angle optimization | `tests/scientific/test_li_fig2.py` |
+| Li Figure 2(a) full-grid Ding-layer regression | `experiments/li2026/results/fig2_v1/fig2_summary.json` |
+| Li Figure 2(a-c) configured-grid analytical gates and artifacts | `tests/scientific/test_li_fig2_artifacts.py` |
 
 ## Known Gaps
 
@@ -53,7 +58,7 @@ Result:
 | Ding-Jiang full Figure 5 loss-threshold surface | PARTIAL: 0.1 cross-sections, independent NPA bounds, CHSH endpoints, and representative point pass; full 101x101 surface and author modified-NPA comparison remain unavailable |
 | Ding-Jiang Type II memory-rate calculation | PASS: v3 formulas and rounded published values pass independent oracles |
 | Ding-Jiang Figure 7-8 pointwise paper comparison | PARTIAL: equations, analytical extrema, symmetries, and visual shape pass; author numerical grids are unavailable |
-| Li Fig. 2 reproduction | NOT_IMPLEMENTED |
+| Li Fig. 2 reproduction | PARTIAL: all configured analytical, deterministic-enumeration, Ding-regression, and equation-consistency gates pass; author pointwise data are unavailable |
 | Li finite-statistics Fig. 3 reproduction | NOT_IMPLEMENTED |
 | Li operational output schema | NOT_IMPLEMENTED |
 | Li M2 HEG/time-multiplexing model | NOT_IMPLEMENTED |

@@ -1,0 +1,219 @@
+{
+  "configuration": {
+    "notes": [
+      "Panel (b) normalization gives P00=1-2P11 and P01=P10=P11/2.",
+      "Equation 25 is evaluated with a negative (1,1) matrix entry, as required by Equation 24 and the CHSH matrix in Equation 35.",
+      "Signed gaps are retained in CSV output; only values below 1e-4 are masked in the log-scale plot.",
+      "No author-provided Figure 2 numerical data were available, so exact pixel/numerical reproduction is not claimed."
+    ],
+    "panel_a": {
+      "beta_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      },
+      "beta_relation": "beta1=beta2=beta",
+      "input_family": "independent_identically_distributed_bernoulli",
+      "p_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      }
+    },
+    "panel_b": {
+      "beta_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      },
+      "beta_relation": "beta1=beta2=beta",
+      "input_family": "P11=2P01=2P10",
+      "p11_grid": {
+        "start": 0.0,
+        "step": 0.005,
+        "stop": 0.5
+      }
+    },
+    "panel_c": {
+      "beta1_values": [
+        0.0,
+        0.1,
+        0.2,
+        0.3
+      ],
+      "epsilon_grid": {
+        "start": 0.0,
+        "step": 0.001,
+        "stop": 0.4
+      },
+      "input_distribution": "uniform",
+      "threshold_beta1_grid": {
+        "start": 0.0,
+        "step": 0.005,
+        "stop": 0.5
+      },
+      "utility_families": {
+        "asymmetric_half": "beta2=beta1/2",
+        "symmetric": "beta2=beta1"
+      }
+    },
+    "plot": {
+      "dpi": 180,
+      "maximum_displayed_gap": 0.11,
+      "minimum_displayed_gap": 0.0001
+    }
+  },
+  "grid": {
+    "panel_a": {
+      "beta_count": 101,
+      "p_count": 101,
+      "point_count": 10201
+    },
+    "panel_b": {
+      "beta_count": 101,
+      "p11_count": 101,
+      "point_count": 10201
+    },
+    "panel_c": {
+      "curve_point_count": 3208,
+      "threshold_point_count": 202
+    }
+  },
+  "overall_status": "PASS",
+  "paper_reproduction_limitation": "Author numerical data for Figure 2 are unavailable; analytical limits, independent classical enumeration, Ding-layer regression, and internal equation consistency pass, but pointwise paper-data comparison is not possible.",
+  "paper_reproduction_status": "PARTIAL",
+  "reference": {
+    "arxiv_id": "2604.07451",
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "equations": [
+      "24",
+      "25",
+      "30",
+      "31",
+      "34",
+      "37"
+    ],
+    "paper_item": "Figure 2",
+    "retrieval_date": "2026-08-31",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "version": "v1",
+    "version_reverified_date": "2026-09-02"
+  },
+  "simulator_extrema": {
+    "panel_a_maximum_gap": {
+      "beta1": 0.0,
+      "beta2": 0.0,
+      "classical_bias": 0.5,
+      "classical_oracle_abs_error": 0.0,
+      "classical_oracle_value": 0.75,
+      "classical_value": 0.75,
+      "deterministic_strategy_count": 16,
+      "gap": 0.10355339059327373,
+      "input_parameter": "p",
+      "input_value": 0.5,
+      "panel": "a",
+      "quantum_bias": 0.7071067811865475,
+      "quantum_value": 0.8535533905932737
+    },
+    "panel_a_minimum_gap": -2.220446049250313e-16,
+    "panel_b_maximum_gap": {
+      "beta1": 0.0,
+      "beta2": 0.0,
+      "classical_bias": 0.6000000000000001,
+      "classical_oracle_abs_error": 0.0,
+      "classical_oracle_value": 0.8,
+      "classical_value": 0.8,
+      "deterministic_strategy_count": 16,
+      "gap": 0.06742346141747668,
+      "input_parameter": "p11",
+      "input_value": 0.4,
+      "panel": "b",
+      "quantum_bias": 0.7348469228349535,
+      "quantum_value": 0.8674234614174767
+    },
+    "panel_b_minimum_gap": -1.1102230246251565e-16
+  },
+  "validations": {
+    "beta_half_max_abs_gap": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "At beta1=beta2=1/2 all game-matrix entries except the fixed diagonal reduce to a local boundary with no quantum gap",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "chsh_fidelity_threshold": {
+      "absolute_error": 0.0,
+      "actual": 0.2928932188134524,
+      "expected": 0.2928932188134524,
+      "provenance": "Li Equation 38, 1-1/sqrt(2)",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "chsh_maximum_gap": {
+      "absolute_error": 5.551115123125783e-17,
+      "actual": 0.10355339059327373,
+      "expected": 0.10355339059327379,
+      "provenance": "Exact CHSH value (sqrt(2)-1)/4",
+      "relative_error": 5.360630966617862e-16,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "classical_cross_validation_max_abs_error": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Independent enumeration of all 16 deterministic local strategies",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "correlated_distribution_constraint_max_abs_error": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "provenance": "Figure 2 caption relation and probability normalization",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "ding_layer_cross_validation_max_abs_error": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Ding-Jiang ideal layer under the global output-parity relabeling",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "negative_gap_violation": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Quantum strategy set contains all classical deterministic strategies",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "noisy_curve_linearity_max_abs_error": {
+      "absolute_error": 8.326672684688674e-17,
+      "actual": 8.326672684688674e-17,
+      "expected": 0.0,
+      "provenance": "Li Equation 34 finite-difference linearity in combined infidelity",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "threshold_root_max_abs_gap": {
+      "absolute_error": 5.551115123125783e-17,
+      "actual": 5.551115123125783e-17,
+      "expected": 0.0,
+      "provenance": "Li Equations 34 and 37 evaluated independently at epsilon_th",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 4-5, Li generalized LCTC and fidelity/Figure 2 reproduction.
+Current validation gate: Phase 6, Li finite-statistics certification and Figure 3 reproduction.
 
 ## Completed
 
@@ -21,22 +21,18 @@ Current validation gate: Phase 4-5, Li generalized LCTC and fidelity/Figure 2 re
 | 2026-09-01 | Generated Figure 7-8 data and plots with analytical validation | `experiments/ding_jiang/results/noise_robustness_v3/` |
 | 2026-09-02 | Reproduced Ding-Jiang Figure 5(b,c) on documented 0.1 cross-sections | `experiments/ding_jiang/results/fig5_cross_sections_v3/` |
 | 2026-09-02 | Added independent real NPA `Q1+AB` lossy-value bounds and two-sided numerical threshold brackets | `src/quantum_telepathy/ding_jiang/loss_sdp.py` |
+| 2026-09-02 | Implemented Li correlated inputs, asymmetric utilities, Werner-state and measurement-error reference paths | `src/quantum_telepathy/li2026/` |
+| 2026-09-02 | Generated Li v1 Figure 2(a-c) data and plot; all configured analytical and independent-code gates pass | `experiments/li2026/results/fig2_v1/` |
 
 ## Next Gates
 
-1. Add Li Fig. 2 reproduction scripts:
-   - independent Bernoulli inputs,
-   - correlated inputs,
-   - asymmetric beta cases,
-   - fidelity-threshold plots/data.
-
-2. Implement Li finite-statistics certification:
+1. Implement Li finite-statistics certification:
    - exact binomial-tail p-value,
    - `n_req(epsilon,M,alpha)`,
    - `R_req(epsilon,M,alpha,T_env)`,
    - small-n brute-force or direct-sum oracle.
 
-3. Implement Li operational status object:
+2. Implement Li operational status object:
    - theoretical advantage,
    - fidelity criterion,
    - statistical certification,
@@ -44,7 +40,7 @@ Current validation gate: Phase 4-5, Li generalized LCTC and fidelity/Figure 2 re
    - decision criterion,
    - overall operational quantum advantage.
 
-4. Implement M2 analytical HEG/time-multiplexing model:
+3. Implement M2 analytical HEG/time-multiplexing model:
    - occupancy,
    - memory depth,
    - attempt rate,

@@ -13,8 +13,8 @@ Retrieval and version audit:
 | PDF | https://arxiv.org/pdf/2604.07451v1 |
 | arXiv HTML | https://arxiv.org/html/2604.07451v1 |
 | Retrieval date | 2026-08-31 |
-| Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible at retrieval |
-| Local repository state | Fresh Git repository with Layer 0/1 core and initial Li generalized-LCTC/fidelity modules; no inherited implementation existed |
+| Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible when reverified 2026-09-02 |
+| Local repository state | Layer 0/1 core, Ding regression suite, Li generalized LCTC/fidelity modules, and Figure 2 experiment are present |
 
 ## Scope
 
@@ -29,8 +29,8 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | LCTC timing | Sec. II B, Eq. 15 | `T_loc`, `T_comm`, LC-condition enforcement | PARTIAL |
 | Finite statistics | Sec. II C, Eq. 16-21 | Exact binomial p-value, generalized score p-value bound, `n_req`, `R_req` | NOT_IMPLEMENTED |
 | Application examples | Sec. II D, Table I | HFT, grid, load-balancing scenario configs | NOT_IMPLEMENTED |
-| Generalized two-party LCTC | Sec. III A, Eq. 23-25 | Asymmetric beta1/beta2 utility and arbitrary `P(x,y)` | PARTIAL |
-| Noise/fidelity | Sec. III A-B, Eq. 26-38 | Werner state, measurement flip, combined infidelity, threshold | PARTIAL |
+| Generalized two-party LCTC | Sec. III A, Eq. 23-25 | Asymmetric beta1/beta2 utility and arbitrary `P(x,y)` | PASS for binary two-party scope |
+| Noise/fidelity | Sec. III A-B, Eq. 26-38 | Werner state, measurement flip, combined infidelity, threshold | PASS for Figure 2 scope |
 | Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | NOT_IMPLEMENTED |
 | Decision criterion | Sec. III D, Eq. 44-45 | `tau_dec = tau_rot + tau_meas`, compare to `T_loc` | NOT_IMPLEMENTED |
 | Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | NOT_IMPLEMENTED |
@@ -44,37 +44,37 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 |---|---|---|---|---|---|---|---|---|
 | Eq. 1 | II A | Expected utility `omega` for behavior `P(a,b|x,y)` | Generic nonlocal game evaluator | `P(x,y)`, `u`, behavior tensor | Direct finite sum | Fixture behaviors | PASS | <= 1e-12 |
 | Eq. 2 | II A | Local behavior with shared randomness | Classical strategy model | Shared randomness distribution | Convex hull of deterministic strategies | Enumerate deterministic strategies for binary games | PARTIAL | <= 1e-12 |
-| Eq. 3 | II A | Quantum behavior from state and POVMs | Quantum strategy evaluator | State, measurements | Trace expression | Compare to correlator formula | NOT_IMPLEMENTED | <= 1e-9 |
-| Eq. 4 | II A | `Delta omega = omega_Q - omega_C` | Advantage evaluator | Values from optimizers | Direct difference | Regression fixtures | PARTIAL | <= 1e-12 |
+| Eq. 3 | II A | Quantum behavior from state and POVMs | Quantum strategy evaluator | State, measurements | Trace expression | Noisy singlet correlator trace | PARTIAL | <= 1e-12 for implemented singlet scope |
+| Eq. 4 | II A | `Delta omega = omega_Q - omega_C` | Advantage evaluator | Values from optimizers | Direct difference | Figure 2 regression fixtures | PASS for 2x2 XOR scope | <= 1e-12 |
 | Eq. 5 | II A | XOR utility depends on `a xor b` | XOR game abstraction | Binary inputs/actions | Direct parity identity | Utility conversion tests | PASS | Exact |
 | Eq. 6 | II A | Correlator `E_xy` | Probability/correlator converter | Behavior tensor | Direct finite sum | Round-trip tests | NOT_IMPLEMENTED | <= 1e-12 |
 | Eq. 7 | II A | XOR expected utility in correlator form | XOR evaluator | `P(x,y)`, `u(o|x,y)` | Direct identity | Compare Eq. 1 | NOT_IMPLEMENTED | <= 1e-12 |
 | Eq. 8 | II A | Game matrix `M_xy = P(x,y) sum_o (-1)^o u(o|x,y)` | `GameMatrix` constructor | Utility and input distribution | Direct formula | Matrix fixture tests | PASS | <= 1e-12 |
 | Eq. 9 | II A | Classical optimum `C(M)` over signs | Classical XOR optimizer | Matrix M | Enumerate all sign assignments | Independent deterministic strategy enumeration | PASS | <= 1e-12 |
 | Eq. 10 | II A | Binary projective measurement from observables | Quantum measurement model | Observables A_x, B_y | Direct formula | Probability consistency tests | NOT_IMPLEMENTED | <= 1e-12 |
-| Eq. 11 | II A | Correlator trace | Quantum correlator evaluator | State and observables | Direct trace | Compare singlet dot product | NOT_IMPLEMENTED | <= 1e-9 |
+| Eq. 11 | II A | Correlator trace | `noisy_singlet_correlator` | State and observables | Direct density-matrix trace | Compare exact singlet dot product | PASS for singlet model | <= 1e-12 |
 | Eq. 12 | II A | Normalized XOR utility `omega = (1 + sum M E)/2` | XOR value evaluator | Normalized utilities | Direct identity | CHSH benchmark | PASS | <= 1e-12 |
 | Eq. 13 | II A | CHSH win utility `a xor b = x y` | CHSH fixture | Uniform inputs | Known CHSH solution | Unit tests | PASS | Exact utility |
-| Eq. 14 | II A | Singlet state | Quantum fixture | Paper | Known state | State normalization test | NOT_IMPLEMENTED | <= 1e-12 |
+| Eq. 14 | II A | Singlet state | `singlet_density_matrix` | Paper | Known state | Trace, fidelity, and positivity tests | PASS | <= 1e-12 |
 | Eq. 15 | II B | LC condition `T_loc < T_comm` | LCTC timing validator | Scenario config | Direct inequality | Boundary tests | PASS | Exact Boolean |
 | Eq. 16 | II C | Exact binomial-tail p-value for win/loss utilities | Statistics module | `omega_C`, wins v, rounds m | Exact binomial sum | Brute-force/direct for small n; stable survival function for large n | NOT_IMPLEMENTED | <= 1e-12 small n |
 | Eq. 17 | II C | Required rounds `n_req(alpha)` | Statistics module | `omega_Q`, alpha | Minimal m search | Independent brute force for small n | NOT_IMPLEMENTED | Exact integer |
 | Eq. 18 | II C | Required trial rate `R_req = n_req/T_env` | Rate criterion | `n_req`, `T_env` | Direct formula | Unit conversion tests | NOT_IMPLEMENTED | <= 1e-12 |
 | Eq. 19 | II C | General score p-value definition | General-score statistics | Score distribution | Optimization over classical strategies | Bound in Eq. 20 | NOT_IMPLEMENTED | PARTIAL target |
 | Eq. 20-21 | II C | General-score p-value upper bound | General-score certification bound | `u_min`, `u_max`, `omega_C` | Published inequality | Monotonicity and small-case comparisons | NOT_IMPLEMENTED | Conservative bound |
-| Eq. 22 | II D | Symmetric HFT utility from Ding-Jiang | HFT utility fixture | beta | Ding-Jiang Eq. 3.1 after relabeling | Reproduce Li baseline | PARTIAL | Exact entries |
+| Eq. 22 | II D | Symmetric HFT utility from Ding-Jiang | HFT utility fixture | beta | Ding-Jiang Eq. 3.1 after relabeling | Full Figure 2(a) grid versus Ding layer | PASS | <= 1e-12 |
 | Eq. 23 | II D | Asymmetric load-balancing/HFT-style utility with beta1/beta2 | Generalized binary XOR utility | beta1, beta2 | Direct formula | Utility symmetry/asymmetry tests | PASS | Exact entries |
 | Eq. 24 | III A | Compact asymmetric XOR utility | `u_LCTC(o|x,y,beta1,beta2)` | beta1, beta2 | Direct parity formula | Compare Eq. 23 entries | PASS | Exact entries |
 | Eq. 25 | III A | Matrix `M` for arbitrary `P(x,y)` and beta1/beta2; CHSH consistency fixes the right-bottom entry as `-P11` | `GameMatrix.from_lctc` | `P00,P01,P10,-P11,beta1,beta2` | Direct formula | CHSH and correlated-input fixtures | PASS | <= 1e-12 |
-| Eq. 26 | III A | Werner-form entanglement infidelity `epsilon_s` | State infidelity model | `epsilon_s` | Direct density matrix | Trace/positivity tests | NOT_IMPLEMENTED | <= 1e-12 |
-| Eq. 27 | III A | Pauli matrices | Quantum primitives | Constants | Standard matrices | Hermiticity/unit tests | NOT_IMPLEMENTED | Exact |
-| Eq. 28 | III A | Measurement infidelity as sign flip | Measurement-error model | `epsilon_meas` | Exact scaling `(1 - 2 epsilon_meas)` | Boundary tests at 0 and 0.5 | NOT_IMPLEMENTED | <= 1e-12 |
-| Eq. 29 | III A | Noisy singlet correlator | Combined error model | `epsilon_s`, `epsilon_meas` | Exact expression | Monte Carlo/noisy trace cross-check | NOT_IMPLEMENTED | <= 1e-9 |
+| Eq. 26 | III A | Werner-form entanglement infidelity `epsilon_s` | `werner_state` | `epsilon_s` | Direct density matrix | Trace, singlet fidelity, and eigenvalue tests | PASS | <= 1e-12 |
+| Eq. 27 | III A | Pauli matrices | Internal quantum primitives in direct correlator | Standard matrices | Standard algebra | Exercised through arbitrary-axis trace test | PASS for required scope | <= 1e-12 |
+| Eq. 28 | III A | Measurement infidelity as sign flip | `measurement_visibility` | `epsilon_meas` | Exact scaling `(1 - 2 epsilon_meas)` | Direct observable scaling test | PASS | <= 1e-12 |
+| Eq. 29 | III A | Noisy singlet correlator | `noisy_singlet_correlator` | `epsilon_s`, `epsilon_meas`, unit axes | Exact density-matrix trace | Eq. 30 scaling for non-collinear axes | PASS | <= 1e-12 |
 | Eq. 30 | III A | Combined infidelity `epsilon = 1 - (1 - 4 epsilon_s/3)(1 - 2 epsilon_meas)^2` | `combined_infidelity` | `epsilon_s`, `epsilon_meas` | Exact formula; approximation only secondary | Approximation-error report | PASS | <= 1e-12 exact |
 | Eq. 31 | III A | Noisy quantum value `omega_Q(epsilon,M)` | Noisy XOR value | `epsilon`, `Q(M)` | Direct formula | CHSH curve | PASS | <= 1e-12 |
-| Eq. 32 | III A | Quantum optimum `Q(M)` via unit vectors | Quantum XOR optimizer | Matrix M | For 2x2, spectral/Tsirelson oracle where applicable | Numerical angle optimizer | PARTIAL | <= 1e-9 |
+| Eq. 32 | III A | Quantum optimum `Q(M)` via unit vectors | Quantum XOR optimizer | Matrix M | One-dimensional Tsirelson vector reduction | Independent three-angle differential evolution | PASS for 2x2 scope | <= 1e-9 |
 | Eq. 33 | III A | Classical value `omega_C(M)` | Classical XOR value | `C(M)` | Direct formula | Deterministic enumeration | PASS | <= 1e-12 |
-| Eq. 34 | III A | Noisy gap `Delta omega(epsilon,M)` | Gap evaluator | `epsilon`, `C`, `Q` | Direct formula | Fig. 2c reproduction | PARTIAL | <= 1e-12 |
+| Eq. 34 | III A | Noisy gap `Delta omega(epsilon,M)` | Gap evaluator | `epsilon`, `C`, `Q` | Direct formula | Figure 2(c) linearity and threshold-root gates | PASS | <= 1e-12 |
 | Eq. 35-36 | III A | CHSH matrix and noisy CHSH gap | CHSH oracle | Uniform inputs, beta1=beta2=0 | `C=1/2`, `Q=1/sqrt(2)` | Unit tests | PASS | <= 1e-12 |
 | Eq. 37-38 | III B | Fidelity threshold and criterion | Fidelity criterion | Matrix M | `epsilon_th = 1 - C/Q` | Fig. 2 inset | PASS | <= 1e-12 except Q near 0 |
 | Eq. 39-43 | III C | Rate criterion with noisy win probability | Operational status evaluator | `epsilon`, M, alpha, `T_env`, `R_trial` | Exact binomial tail | Reproduce Fig. 3 | NOT_IMPLEMENTED | Exact n for tested cases |
@@ -103,9 +103,9 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 |---|---|---|---|---|---|
 | Fig. 1 | I-II | LCTC spacetime and timing definitions | Timing docs and scenario visualization | Paper schematic | NOT_IMPLEMENTED |
 | Table I | II D | Representative `T_loc`, `T_comm`, `T_env` for HFT/grid/load balancing | Scenario defaults | Paper table | NOT_IMPLEMENTED |
-| Fig. 2a | III A | Ideal gap for independent Bernoulli inputs and symmetric beta | Reproduction script `experiments/li2026/fig2a_*` | Eq. 25, Eq. 32-34 | NOT_IMPLEMENTED |
-| Fig. 2b | III A | Ideal gap for correlated inputs | Reproduction script `experiments/li2026/fig2b_*` | Eq. 25, Eq. 32-34 | NOT_IMPLEMENTED |
-| Fig. 2c | III B | Gap versus combined infidelity and threshold inset | Reproduction script `experiments/li2026/fig2c_*` | Eq. 34 and Eq. 37 | NOT_IMPLEMENTED |
+| Fig. 2a | III A | Ideal gap for independent Bernoulli inputs and symmetric beta | `experiments/li2026/results/fig2_v1/fig2a_independent_gap.csv` | CHSH exact limit, all-point deterministic enumeration, Ding-layer grid | PARTIAL: configured gates PASS; no author point data |
+| Fig. 2b | III A | Ideal gap for correlated inputs | `experiments/li2026/results/fig2_v1/fig2b_correlated_gap.csv` | Caption probability relation, deterministic enumeration | PARTIAL: configured gates PASS; no author point data |
+| Fig. 2c | III B | Gap versus combined infidelity and threshold inset | `experiments/li2026/results/fig2_v1/fig2c_noisy_gap.csv` | Eq. 34 linearity, Eq. 37 roots, CHSH threshold | PARTIAL: configured gates PASS; no author point data |
 | Fig. 3a | III C | Finite-window trial accumulation schematic | Documentation only | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 3b | III C | Required rate versus infidelity, alpha, and T_env for CHSH | Reproduction script `experiments/li2026/fig3_*` | Exact binomial tail Eq. 40-43 | NOT_IMPLEMENTED |
 | Fig. 4 | IV | M2 time-multiplexed event-ready protocol | M2 event-ready model and optional timeline visualization | Eq. 46-53 | NOT_IMPLEMENTED |
@@ -116,6 +116,21 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Fig. 7 | VI | Multiparty network, three-party gap, GHZ generation | Phase 12 reproduction | Eq. 62-67 and Appendix B-C | NOT_IMPLEMENTED |
 | Fig. 8 | App. A | Optimal measurement angles for Fig. 2 cases | Optional strategy diagnostics | Angle optimizer | NOT_IMPLEMENTED |
 | Fig. 9 | App. C | GHZ-generation schematic | Documentation and optional microscopic model | Appendix C | NOT_IMPLEMENTED |
+
+### Figure 2 Reproduction Record
+
+The configured v1 reproduction uses 101x101 grids for panels (a) and (b),
+3,208 noisy-curve points, and 202 threshold points. Panel (a) recovers the
+CHSH maximum `0.10355339059327373` at `p=0.5`, `beta=0`; panel (b) has grid
+maximum `0.06742346141747668` at `P(1,1)=0.4`, `beta=0`. The CHSH fidelity
+threshold is `0.2928932188134524`. All nine configured validations pass at
+absolute tolerance `1e-12`.
+
+The displayed Eq. 25 matrix prints a positive `(1,1)` entry. Direct expansion
+of Eq. 24 and the CHSH matrix in Eq. 35 both require `-P(1,1)`, which is the
+implemented sign. This transcription discrepancy is recorded rather than
+silently choosing the displayed sign. Because no author pointwise Figure 2
+data are available, the three paper-item rows remain `PARTIAL`.
 
 ## Operational Advantage Output Contract
 

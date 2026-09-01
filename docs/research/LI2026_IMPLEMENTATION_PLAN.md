@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan assumes the repository will either be restored or scaffolded after the Phase 0 audit. The current workspace is empty, so file paths below are proposed targets, not audited existing modules.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-5 are complete at their configured gates; Phase 6 is current.
 
 Primary references:
 
@@ -9,18 +9,18 @@ Primary references:
 | Ding and Jiang, arXiv:2407.21723 | v3 | 2026-08-31 |
 | Li et al., arXiv:2604.07451 | v1 | 2026-08-31 |
 
-## Current Blockers
+## Current Gate
 
-| Blocker | Impact | Resolution |
-|---|---|---|
-| Workspace is empty | Cannot audit existing implementation, preserve compatibility, run regression tests, or inspect previous validation results | Restore repository contents or explicitly authorize a fresh scaffold |
-| No Git repository | Cannot inspect recent commits or create traceable commits | Restore `.git` or initialize only after explicit scaffold decision |
-| No ROADMAP/VALIDATION/REPRODUCTION_MATRIX prior files | Current validation gate must be inferred from prompt and paper audit | Use docs created in this pass as initial traceability baseline |
-| No dependencies/configs | Cannot run numerical validation | Define dependency strategy after repo is available |
+| Item | State |
+|---|---|
+| Repository and traceability files | Present on `main` |
+| Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
+| Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
+| Next task | Phase 6 exact finite statistics and Figure 3 |
 
 ## Proposed Package Structure
 
-The exact paths should be adjusted to match the restored repository. If scaffolding from scratch, use:
+The repository uses the following package structure:
 
 | Proposed path | Purpose |
 |---|---|
@@ -46,27 +46,21 @@ The exact paths should be adjusted to match the restored repository. If scaffold
 
 ### Phase 0: Repository and Literature Audit
 
-Status: partially complete.
+Status: complete.
 
 Actions completed in this pass:
 
 | Action | Result |
 |---|---|
-| Inspect workspace | Empty; no repo files |
-| Inspect Git status | Failed because not a Git repository |
-| Inspect recent commits | Failed because no Git repository |
+| Inspect workspace | Fresh scaffold created after user authorization |
+| Inspect Git status | Repository initialized on `main` |
+| Inspect recent commits | Validation work committed incrementally |
 | Pin Ding-Jiang version | v3 confirmed |
 | Pin Li version | v1 confirmed |
 | Read primary papers | Paper text and appendices reviewed from arXiv HTML/PDF extraction |
 | Create model-map docs | Created in `docs/research/` |
 
-Exit condition still missing:
-
-| Missing item | Reason |
-|---|---|
-| Existing implementation audit | No code present |
-| Validation-state audit | No validation files present |
-| Current regression result | No tests present |
+Exit conditions are recorded in `VALIDATION.md` and `REPRODUCTION_MATRIX.md`.
 
 ### Phase 1: Ding-Jiang Version-Pinned Specification
 
@@ -125,6 +119,8 @@ Validation:
 
 ### Phase 4: Li Generalized LCTC Model
 
+Status: complete for binary two-party Figure 2 scope.
+
 Implement:
 
 | Feature | Source |
@@ -144,6 +140,8 @@ Validation:
 | Invalid `P(x,y)` | Probability simplex validation |
 
 ### Phase 5: Li Fidelity/Noise Model
+
+Status: configured validation gate A PASS; paper-level Figure 2 status PARTIAL because author numerical grids are unavailable.
 
 Implement:
 
@@ -166,6 +164,8 @@ Validation Gate A:
 | Fig. 2c | gap decreases linearly in `epsilon`; threshold inset |
 
 ### Phase 6: Finite Statistics Model
+
+Status: current implementation gate.
 
 Implement:
 
@@ -306,4 +306,4 @@ Only after analytical M2 passes:
 
 ## Development Rule
 
-Do not start Li implementation against the current empty workspace unless the user explicitly wants a fresh scaffold. The next scientifically meaningful action is to restore the existing repository or initialize a version-controlled scaffold and then implement Phase 1-3 in order.
+The next scientifically meaningful action is the exact binomial finite-statistics model, including stable tails, direct small-`n` oracles, minimality tests for `n_req`, and Figure 3 reproduction.

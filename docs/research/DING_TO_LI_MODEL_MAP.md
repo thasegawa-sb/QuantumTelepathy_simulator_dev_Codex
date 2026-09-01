@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 4-5 Li generalized LCTC and fidelity/Figure 2 reproduction. Ding Figure 5 cross-sections and independent numerical bounds pass their configured gates; the full surface remains a documented partial result.
+Current gate: Phase 6 Li finite-statistics certification and Figure 3 reproduction. Li Figure 2's configured analytical gates pass; its paper-level status remains partial because author pointwise data are unavailable.
 
 Status:
 
@@ -140,11 +140,13 @@ Status:
 | Git status inspected | PASS | Fresh repository initialized on `main` |
 | Recent commits inspected | PASS | Fresh project history contains validated scaffold, Figure 3, loss, and Type II commits |
 | Ding-Jiang version pinned | PASS | arXiv v3 confirmed |
-| Li et al. version pinned | PASS | arXiv v1 confirmed; no newer revision visible |
+| Li et al. version pinned | PASS | arXiv v1 confirmed; no newer revision visible when reverified 2026-09-02 |
 | Ding implementation audited | PASS | No inherited code existed; current Ding utility and biased-CHSH oracle reviewed |
 | Ding Type II memory calculation | PASS | Corrected v3 `t_a`, `p_s`, `r_e`, and M=1 demand conclusion reproduced |
 | Ding depolarizing-noise calculation | PASS | Eq. 4.2-4.3, CHSH robustness, and configured Figure 7-8 grids validated |
 | Ding loss-threshold cross-sections | PARTIAL | Figure 5(b,c), CHSH endpoint, representative threshold, and NPA/explicit bracket pass; full surface and author modified-NPA comparison unavailable |
-| Li implementation audited | PARTIAL | Generalized utility, timing inequality, and fidelity formulas implemented; operational layers remain |
-| Equation-to-code map created | PARTIAL | Core mappings are linked; experiment and hardware mappings remain unimplemented |
-| Implementation may begin | YES | User authorized a fresh scaffold; CHSH analytical gate passes |
+| Li generalized LCTC and fidelity model | PASS | Correlated inputs, independent beta values, Werner state, measurement visibility, exact combined infidelity, gap, and threshold are tested |
+| Li Figure 2 computation gate | PASS | 20,402 ideal points, 3,208 noisy points, and 202 threshold points pass nine configured validations |
+| Li Figure 2 paper-level reproduction | PARTIAL | Visual structure and exact/invariant oracles pass; author pointwise numerical data are unavailable |
+| Equation-to-code map created | PARTIAL | Through Figure 2 is linked and validated; statistics and hardware mappings remain unimplemented |
+| Next implementation gate | Phase 6 | Exact finite-statistics certification and Figure 3 |

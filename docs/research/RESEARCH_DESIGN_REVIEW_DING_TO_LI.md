@@ -21,7 +21,7 @@ The correct development sequence remains staged. The independently verified nonl
 | Paper reproduction code | Ding ideal, loss, Type II, and qubit-noise reproduction paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 4-5; Li generalized LCTC fidelity/Figure 2 reproduction |
+| Current validation gate | Phase 6; Li finite-statistics certification/Figure 3 reproduction |
 
 Files requested by the operating procedure were not available:
 
@@ -52,18 +52,20 @@ The fresh scaffold now contains these reusable components:
 | Stable binomial-tail statistics | Still missing |
 | Hardware parameter/config system | Still missing |
 
-## Missing Components
+## Operational Prerequisites
 
-The following are mandatory before operational Li claims:
+The following are mandatory before operational Li claims; rows marked PASS in
+their descriptions are already available, while the remaining operational
+layers still block an overall claim:
 
 | Component | Why required |
 |---|---|
-| Version-pinned result metadata | Ding v3 and Li v1 must not be mixed with earlier versions |
-| Classical deterministic enumerator | Independent oracle for admissible classical baseline |
+| Version-pinned result metadata | PASS: Ding v3 and Li v1 are recorded in experiment configs and summaries |
+| Classical deterministic enumerator | PASS for binary two-party scope: independent oracle for admissible classical baseline |
 | CHSH analytical tests | PASS: gate for `C(M)`, `Q(M)`, `omega_C`, `omega_Q`, threshold |
 | Ding HFT reproduction | Prevent Li extension from silently changing foundational results |
-| Li generalized utility/input model | PARTIAL: supports beta1, beta2, and arbitrary 2x2 `P(x,y)` |
-| Exact Li fidelity model | PASS for Eq. 30/34/37 formulas |
+| Li generalized utility/input model | PASS for binary two-party scope, including independent and correlated Figure 2 inputs |
+| Exact Li fidelity model | PASS for Eq. 26 and Eq. 28-38 Figure 2 scope |
 | Exact binomial finite-statistics model | Required for Criterion B |
 | Decision-latency model | Required for Criterion C |
 | M2 time-multiplexed memory model | Required for Li operational architecture |
@@ -72,7 +74,7 @@ The following are mandatory before operational Li claims:
 
 ## Required Refactoring
 
-Because no existing implementation is visible, these are architectural requirements rather than concrete refactors:
+The scaffold follows these architectural requirements:
 
 | Refactor | Rationale |
 |---|---|
@@ -94,7 +96,7 @@ Because no existing implementation is visible, these are architectural requireme
 | P2 | Ding Type II v3 memory calculation | PASS for exact formulas and rounded Section 4.2 values |
 | P2 | Ding robustness/noisy-gap figures | PARTIAL: analytical and visual gates pass; author pointwise data unavailable |
 | P3 | Li Eq. 23-25 generalized LCTC | PASS for utility/matrix unit tests |
-| P3 | Li Fig. 2 | NOT_IMPLEMENTED |
+| P3 | Li Fig. 2 | PARTIAL: configured analytical and independent-code gates PASS; author pointwise data unavailable |
 | P4 | Li finite statistics and Fig. 3 | NOT_IMPLEMENTED |
 | P5 | Li Table II operational status mapping | NOT_IMPLEMENTED |
 | P5 | Li M2 Eq. 46-57 | NOT_IMPLEMENTED |
@@ -130,19 +132,16 @@ Because no existing implementation is visible, these are architectural requireme
 
 ## Proposed Development Sequence
 
-1. Restore repository or explicitly scaffold a new package.
-2. Add version/result metadata support.
-3. Implement Layer 0 expected utility and deterministic classical enumeration.
-4. Implement Layer 1 XOR matrix, CHSH oracles, and `C(M)/Q(M)`.
-5. Reproduce Ding-Jiang v3 analytical and HFT baseline results.
-6. Add Li beta1/beta2 and correlated input support.
-7. Add Li exact fidelity model and reproduce Fig. 2.
-8. Add finite-statistics certification and reproduce Fig. 3.
-9. Add operational status output and timing criteria.
-10. Add M2 analytical memory/HEG model and reproduce Table III.
-11. Cross-validate analytical HEG against event-driven simulation if/when the simulator exists.
-12. Proceed to HFT operational waterfall, multiparty extension, and optimization only after gates pass.
+1. Completed: scaffold repository and add version/result metadata.
+2. Completed: implement Layer 0/1, CHSH, and deterministic classical enumeration.
+3. Completed: reproduce the scoped Ding-Jiang v3 baseline and retain documented partials.
+4. Completed: add Li beta1/beta2, correlated inputs, exact fidelity, and Figure 2.
+5. Current: add finite-statistics certification and reproduce Figure 3.
+6. Add operational status output and timing criteria.
+7. Add M2 analytical memory/HEG model and reproduce Table III.
+8. Cross-validate analytical HEG against event-driven simulation.
+9. Proceed to HFT waterfall, multiparty extension, and optimization only after gates pass.
 
 ## Design Decision
 
-Implementation should not proceed in the current empty workspace without a repository restoration or an explicit decision to scaffold a new project. The scientifically smallest next task after restoration is the CHSH plus deterministic-enumeration core, not the Li hardware model.
+The Figure 2 gate is internally consistent and Ding regression remains mandatory. Development may proceed to Phase 6 finite statistics; hardware modeling remains deferred until the rate criterion has an independently validated `R_req`.
