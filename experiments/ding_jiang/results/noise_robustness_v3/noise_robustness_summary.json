@@ -1,0 +1,186 @@
+{
+  "configuration": {
+    "cross_sections": {
+      "beta": 0.4,
+      "p": 0.5
+    },
+    "input_model": {
+      "family": "independent_bernoulli",
+      "p_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      }
+    },
+    "noise_levels": [
+      {
+        "nu": 0.01,
+        "oracle_key": "maximum_noisy_gap_nu_0_01"
+      },
+      {
+        "nu": 0.05,
+        "oracle_key": "maximum_noisy_gap_nu_0_05"
+      },
+      {
+        "nu": 0.1,
+        "oracle_key": "maximum_noisy_gap_nu_0_1"
+      }
+    ],
+    "notes": [
+      "The paper does not state the main Figure 7-8 surface-grid spacing.",
+      "A 0.01 step is a simulator reproduction choice; Appendix Figures 10-11 explicitly use 0.1."
+    ],
+    "utility_model": {
+      "beta_grid": {
+        "start": 0.0,
+        "step": 0.01,
+        "stop": 1.0
+      },
+      "family": "ding_jiang_hedging"
+    }
+  },
+  "grid": {
+    "beta_count": 101,
+    "noisy_gap_point_count": 30603,
+    "p_count": 101,
+    "robustness_point_count": 10201
+  },
+  "model": {
+    "excluded_model": "Higher-dimensional projectors with a nonuniform factorizable noise behavior are outside the Figure 7-8 reproduction.",
+    "fixed_strategy": "Apply depolarizing noise to a noiseless optimal rank-one qubit strategy.",
+    "name": "Ding_Jiang_qubit_depolarizing_noise"
+  },
+  "overall_status": "PASS",
+  "reference": {
+    "arxiv_id": "2407.21723",
+    "authors": "Dawei Ding and Liang Jiang",
+    "paper_items": [
+      "Equation 4.2",
+      "Equation 4.3",
+      "Figure 7",
+      "Figure 8",
+      "Appendix A.4"
+    ],
+    "retrieval_date": "2026-08-31",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "version": "v3"
+  },
+  "simulator_extrema": {
+    "maximum_noisy_gap_by_nu": {
+      "0.01": 0.10001785668734098,
+      "0.05": 0.08587572106361008,
+      "0.1": 0.06819805153394642
+    },
+    "maximum_robustness": 0.2928932188134524,
+    "maximum_robustness_location": {
+      "beta": 0.0,
+      "p": 0.5
+    },
+    "positive_point_count_by_nu": {
+      "0.01": 4318,
+      "0.05": 2396,
+      "0.1": 1284
+    }
+  },
+  "validations": {
+    "classical_cross_validation_max_abs_error": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Independent enumeration of all 16 deterministic local strategies",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "maximum_noisy_gap_nu_0_01": {
+      "absolute_error": 2.7755575615628914e-17,
+      "actual": 0.10001785668734098,
+      "expected": 0.100017856687341,
+      "provenance": "Independent CHSH closed form (1-nu)*(1+1/sqrt(2))/2+nu/2-3/4",
+      "relative_error": 2.7750620274131372e-16,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "maximum_noisy_gap_nu_0_05": {
+      "absolute_error": 0.0,
+      "actual": 0.08587572106361008,
+      "expected": 0.08587572106361008,
+      "provenance": "Independent CHSH closed form (1-nu)*(1+1/sqrt(2))/2+nu/2-3/4",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "maximum_noisy_gap_nu_0_1": {
+      "absolute_error": 0.0,
+      "actual": 0.06819805153394642,
+      "expected": 0.06819805153394642,
+      "provenance": "Independent CHSH closed form (1-nu)*(1+1/sqrt(2))/2+nu/2-3/4",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "maximum_robustness": {
+      "absolute_error": 0.0,
+      "actual": 0.2928932188134524,
+      "expected": 0.2928932188134524,
+      "provenance": "CHSH analytical value 1-1/sqrt(2) at p=0.5 and beta=0 or 1",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "positive_region_nesting_violations": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Equation 4.3 makes noisy advantage monotonically nonincreasing in nu",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "published_maximum_robustness": {
+      "absolute_error": 0.007106781186547562,
+      "actual": 0.2928932188134524,
+      "expected": 0.3,
+      "provenance": "Paper Section 4.2 states robustness values up to around 0.3",
+      "relative_error": 0.023689270621825208,
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    "robustness_beta_symmetry_max_abs_error": {
+      "absolute_error": 6.591949208711867e-16,
+      "actual": 6.591949208711867e-16,
+      "expected": 0.0,
+      "provenance": "Paper relabeling symmetry under beta to 1-beta",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "threshold_identity_max_abs_error": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "provenance": "Substitution of nu_star into Equation 4.3 must yield the classical value",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "uniform_baseline_max_abs_error": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "provenance": "Independent direct utility sum over four uniformly random output pairs",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "zero_gap_robustness_max_abs_value": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Paper definition assigns zero robustness when no quantum advantage exists",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-12
+    }
+  }
+}

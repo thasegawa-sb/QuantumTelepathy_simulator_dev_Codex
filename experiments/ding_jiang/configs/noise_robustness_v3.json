@@ -1,0 +1,49 @@
+{
+  "reference": {
+    "authors": "Dawei Ding and Liang Jiang",
+    "title": "Coordinating Decisions via Quantum Telepathy",
+    "arxiv_id": "2407.21723",
+    "version": "v3",
+    "retrieval_date": "2026-08-31",
+    "paper_items": ["Equation 4.2", "Equation 4.3", "Figure 7", "Figure 8", "Appendix A.4"]
+  },
+  "model": {
+    "name": "Ding_Jiang_qubit_depolarizing_noise",
+    "fixed_strategy": "Apply depolarizing noise to a noiseless optimal rank-one qubit strategy.",
+    "excluded_model": "Higher-dimensional projectors with a nonuniform factorizable noise behavior are outside the Figure 7-8 reproduction."
+  },
+  "input_model": {
+    "family": "independent_bernoulli",
+    "p_grid": {
+      "start": 0.0,
+      "stop": 1.0,
+      "step": 0.01
+    }
+  },
+  "utility_model": {
+    "family": "ding_jiang_hedging",
+    "beta_grid": {
+      "start": 0.0,
+      "stop": 1.0,
+      "step": 0.01
+    }
+  },
+  "noise_levels": [
+    {"nu": 0.01, "oracle_key": "maximum_noisy_gap_nu_0_01"},
+    {"nu": 0.05, "oracle_key": "maximum_noisy_gap_nu_0_05"},
+    {"nu": 0.1, "oracle_key": "maximum_noisy_gap_nu_0_1"}
+  ],
+  "cross_sections": {
+    "p": 0.5,
+    "beta": 0.4
+  },
+  "validation": {
+    "oracle_file": "../oracles/noise_robustness_v3.json",
+    "classical_abs_tolerance": 1e-12,
+    "advantage_tolerance": 1e-12
+  },
+  "notes": [
+    "The paper does not state the main Figure 7-8 surface-grid spacing.",
+    "A 0.01 step is a simulator reproduction choice; Appendix Figures 10-11 explicitly use 0.1."
+  ]
+}

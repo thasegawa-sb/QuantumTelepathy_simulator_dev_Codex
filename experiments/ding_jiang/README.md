@@ -41,3 +41,13 @@ PYTHONPATH=src python3 experiments/ding_jiang/reproduce_type_ii_memory.py
 ```
 
 The exact formula-derived values are checked against an independent Decimal oracle. The separately reported paper values are rounded, so their validation tolerances reflect the stated precision. This model does not include memory occupancy, reset timing, finite lifetime, or decoherence; those belong to the later Li M2 model.
+
+## Figures 7-8 Depolarizing Noise
+
+This experiment implements the rank-one qubit behavior in Equation 4.2, independently verifies the uniform-output utility in Equation 4.3, and evaluates robustness and noisy advantage over the configured `p,beta` grid.
+
+```bash
+PYTHONPATH=src python3 experiments/ding_jiang/reproduce_noise_robustness.py
+```
+
+The signed noisy gap is retained in CSV output; only the plotted surface is clipped to zero where no quantum advantage remains. The experiment does not reinterpret the paper's qubit depolarizing strength `nu` as Li's combined infidelity `epsilon`, and it does not model the higher-dimensional rank-dependent behavior discussed in Appendix A.4.

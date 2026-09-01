@@ -14,3 +14,5 @@
 | A10 | The representative loss threshold is bracketed using an advantage tolerance of `1e-9` and efficiency width `2e-5`. | Numerical criterion is explicit and configuration-driven. |
 | A11 | Ding-Jiang Type II is a traversal-dominated M1 system estimate with independent identical memories and ideal linear scaling `r_e=M p_s/t_a`; it omits memory-photon operation time, occupancy, reset, finite lifetime, and decoherence. | Active only for Ding v3 reproduction; must not be substituted for Li M2. |
 | A12 | Ding-Jiang's `t_a approx 230 us` is a two-significant-figure publication value; the listed inputs evaluate to `234.583 us`. | Exact formula is the primary oracle; paper-rounding tolerance is 5 us. |
+| A13 | Ding-Jiang Figures 7-8 apply state depolarization to a noiseless optimal rank-one qubit strategy, giving a uniform `1/4` output term. | Active for the main-text reproduction; Appendix A.4 higher-dimensional rank-dependent strategies are excluded. |
+| A14 | Ding-Jiang does not state the main Figure 7-8 grid spacing; the reproduction uses 0.01 on `[0,1]^2`. | Active; Appendix Figures 10-11 explicitly use 0.1. |

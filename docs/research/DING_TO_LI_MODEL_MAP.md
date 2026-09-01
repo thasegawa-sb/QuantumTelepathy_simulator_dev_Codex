@@ -58,13 +58,13 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 | Gap | Ding-Jiang status | Li et al. requirement | Implementation consequence | Priority |
 |---|---|---|---|---|
 | Version pinning | v3 has corrections to HFT and memory calculations | v1 currently sole Li version | Record versions and retrieval dates in configs/results | P0 |
-| Repository baseline | No local implementation present | Regression required before Li support | Cannot perform regression until repo is restored or scaffolded | BLOCKER for code audit |
+| Repository baseline | Fresh validated implementation and regression history now exist | Regression required before Li support | Preserve Ding tests and versioned result artifacts | P0 |
 | Generic game model | Defined in appendix | Used throughout | Implement core first | P1 |
 | Classical optimum | Deterministic enumeration described | Same baseline | Independent oracle mandatory | P1 |
 | Quantum optimum | XOR SDP and general optimizer | `Q(M)` central to criteria | Start with 2x2 XOR exact/numeric solver | P1 |
 | HFT utility | Symmetric beta | beta1/beta2 asymmetric utility | Generalize while preserving Ding fixture | P2 |
 | Input distribution | Independent Bernoulli | Arbitrary correlated `P(x,y)` | Config schema and validation for probability simplex | P2 |
-| Fidelity | Ding depolarizing robustness | Exact state/measurement combined infidelity | Separate modules; no approximation-only implementation | P3 |
+| Fidelity | Ding qubit depolarizing robustness implemented | Exact state/measurement combined infidelity | Separate `nu` and `epsilon` modules; no approximation-only implementation | P3 |
 | Finite statistics | Not central | Required for operational certification | Exact binomial tail and `n_req` search | P3 |
 | Decision timing | Informal local operation speed | Formal `tau_dec < T_loc` | Operational status criterion | P4 |
 | HEG rate | Generic `r_e=M p_s/t_a` | Occupancy and time multiplexing | Implement M2 analytical model | P5 |
@@ -83,7 +83,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 | `C(M)` | Classical value `c_star` | Eq. 9 and Eq. 33 | Deterministic enumeration oracle |
 | `Q(M)` | Quantum value `q_star`/XOR SDP | Eq. 32 | XOR optimizer |
 | `eta` | Direct photon/loss efficiency | Not equivalent to HEG `p_ent` | Ding Type I loss model |
-| `nu` | Depolarizing noise strength | Not Li `epsilon` | Ding robustness only |
+| `nu` | Depolarizing noise strength in Eq. 4.2-4.3; Figures 7-8 configured at 0.01, 0.05, 0.1 | Not Li `epsilon` | Ding rank-one qubit robustness only |
 | `epsilon_s` | Broad physical fidelity discussion only | Eq. 26 | Li fidelity model |
 | `epsilon_meas` | Broad fidelity discussion only | Eq. 28 | Li measurement model |
 | `epsilon` | Not same as Ding `nu` | Eq. 30 | Li combined infidelity |
@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 2 Ding-Jiang reference reproduction (partial); the v3 Type II numerical gate passes and depolarizing robustness remains.
+Current gate: Phase 2 Ding-Jiang reference reproduction (partial); Type II and depolarizing-noise analytical gates pass, while the full Figure 5 surface remains partial.
 
 Status:
 
@@ -138,11 +138,12 @@ Status:
 | Repository structure inspected | PASS | Fresh scaffold and research documents inspected |
 | Instruction docs read | PASS | No inherited `CLAUDE.md` or `AGENTS.md`; current `ROADMAP.md`, `VALIDATION.md`, and reproduction matrix reviewed |
 | Git status inspected | PASS | Fresh repository initialized on `main` |
-| Recent commits inspected | PARTIAL | No inherited history; initial validated commit is being created |
+| Recent commits inspected | PASS | Fresh project history contains validated scaffold, Figure 3, loss, and Type II commits |
 | Ding-Jiang version pinned | PASS | arXiv v3 confirmed |
 | Li et al. version pinned | PASS | arXiv v1 confirmed; no newer revision visible |
 | Ding implementation audited | PASS | No inherited code existed; current Ding utility and biased-CHSH oracle reviewed |
 | Ding Type II memory calculation | PASS | Corrected v3 `t_a`, `p_s`, `r_e`, and M=1 demand conclusion reproduced |
+| Ding depolarizing-noise calculation | PASS | Eq. 4.2-4.3, CHSH robustness, and configured Figure 7-8 grids validated |
 | Li implementation audited | PARTIAL | Generalized utility, timing inequality, and fidelity formulas implemented; operational layers remain |
 | Equation-to-code map created | PARTIAL | Core mappings are linked; experiment and hardware mappings remain unimplemented |
 | Implementation may begin | YES | User authorized a fresh scaffold; CHSH analytical gate passes |

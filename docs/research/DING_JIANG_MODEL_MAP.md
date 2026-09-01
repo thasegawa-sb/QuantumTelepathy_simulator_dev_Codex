@@ -19,7 +19,7 @@ Retrieval and version audit:
 
 ## Scope
 
-This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer, representative direct-loss case, and v3 Type II memory-rate calculation are implemented, while full loss figures and robustness reproductions remain open.
+This document pins the Ding-Jiang model that must be reproduced before the Li et al. operational extension is claimed. The ideal HFT layer, representative direct-loss case, v3 Type II memory-rate calculation, and qubit depolarizing-noise equations are implemented. Full loss surfaces and pointwise paper comparisons for plot-only noise results remain open.
 
 ## Scientific Model
 
@@ -39,7 +39,7 @@ Key simulator abstractions required:
 | XOR array | Appendix A.2 | Binary-output parity game abstraction | PARTIAL |
 | Lossy behavior | Appendix A.3 | Loss model combining quantum strategy with deterministic fallback | PASS for `(2,2,2)` |
 | Type II memory rate | Sec. 4.2 | M1 traversal-dominated heralded-memory estimate | PASS |
-| Depolarizing-noise behavior | Appendix A.4 | Noisy quantum behavior and robustness oracle | NOT_IMPLEMENTED |
+| Depolarizing-noise behavior | Sec. 4.2, Appendix A.4 | Rank-one qubit noisy behavior and robustness oracle | PASS for the main-text qubit model |
 
 ## Equation and Result Mapping
 
@@ -53,9 +53,9 @@ Key simulator abstractions required:
 | Attempt time | Sec. 4.2 | NYSE/NASDAQ half-link fiber plus free-space heralding, about 230 microseconds | `traversal_attempt_time_s` | d=56.3 km, v_f=2e8 m/s, v_s=3e8 m/s | Independent Decimal evaluation | Unit conversion and publication-rounding tests | PASS | Exact formula abs error 0; rounded-paper tolerance 5 microseconds |
 | Success probability | Sec. 4.2 | `p_s = p_p p_c p_d (10^(-0.1 alpha d/2))^2`, about 0.0248 | `heralded_success_probability` | alpha=0.17 dB/km, p_p=0.5, p_c=0.5, p_d=0.9 | Independent Decimal evaluation | Two-arm decomposition test | PASS | Exact formula abs error 0; rounded-paper tolerance `5e-5` |
 | General memory rate | Sec. 4.2 | `r_e = M * 2 p_p p_c p_d 10^(-0.1 alpha d) / (d(1/v_f + 1/v_s))` | `TypeIIMemoryParameters` and `TypeIIMemoryRate` | Paper Sec. 4.2 | Decomposed `p_s/t_a` calculation | M=1 through 10 sweep | PASS | Linear scaling abs error <= `1e-12 Hz` |
-| Depolarizing behavior | Sec. 4.2, Eq. 4.2 | Qubit strategy behavior shrinks toward uniform `1/4` | Ding-Jiang depolarizing noise model | Paper Eq. 4.2 and Appendix A.4 | Exact affine behavior | Robustness heatmap | NOT_IMPLEMENTED | <= 1e-12 |
-| Noisy expected utility | Sec. 4.2, Eq. 4.3 | Expected utility maps to `(1-nu) u_bar + nu/2` for hedging qubit strategies | Ding-Jiang noisy utility model | Paper Eq. 4.3 | Exact affine expression | Fig. 8 reproduction | NOT_IMPLEMENTED | <= 1e-12 |
-| Robustness | Sec. 4.2 | `nu_star = (q_star - c_star)/(q_star - 1/2)` | Ding-Jiang robustness function | Paper Sec. 4.2 | Direct formula once `c_star`, `q_star` known | Reproduce Fig. 7 | NOT_IMPLEMENTED | <= 1e-8 except near zero gap |
+| Depolarizing behavior | Sec. 4.2, Eq. 4.2 | Qubit strategy behavior shrinks toward uniform `1/4` | `depolarize_qubit_behavior` | Paper Eq. 4.2 and Appendix A.4 | Direct probability mixture | Expected-utility cross-check | PASS | <= `1e-12` |
+| Noisy expected utility | Sec. 4.2, Eq. 4.3 | Expected utility maps to `(1-nu) u_bar + nu/2` for hedging qubit strategies | `noisy_hedging_quantum_value` | Paper Eq. 4.3 | Independent direct utility sum | Figure 8 configured grid | PASS | Uniform-baseline error `1.11e-16` |
+| Robustness | Sec. 4.2 | `nu_star = (q_star - c_star)/(q_star - 1/2)` | `depolarizing_robustness` | Paper Sec. 4.2 | CHSH `1-1/sqrt(2)` | Figure 7 configured grid | PASS | Maximum error 0; threshold identity error `1.11e-16` |
 | Eq. A.1 | Appendix A | Expected utility for general TC behavior | Generic nonlocal game value evaluator | Definitions 1-2 | Direct finite sum | Strategy fixture tests | PASS | Exact for rational inputs |
 | Eq. A.2 | Appendix A | Bell operator for explicit finite-dimensional quantum strategies | Quantum-strategy evaluator | Definition 4 | Largest eigenvalue | Cross-check against XOR SDP | NOT_IMPLEMENTED | Eigenvalue abs error <= 1e-9 |
 | Theorem 10 | Appendix A.1 | Closed-form biased CHSH classical and quantum values | CHSH biased oracle | Bernoulli p | Piecewise formula | Independent enumeration and vector optimization | PASS | <= 1e-9 away from boundaries |
@@ -66,7 +66,7 @@ Key simulator abstractions required:
 | Eq. A.11-A.12 | Appendix A.3 | Lossy behavior and lossy Bell operator with deterministic fallback | `ding_jiang.loss` | Per-party eta_i and fallback strategy | Exact loss-event mixture | Direct probability vs Bell expectation | PASS | Difference 1.11e-16 |
 | Proposition 19 | Appendix A.3 | Degenerate quantum behavior is classical for (2,2,2) | Loss model simplification tests | Binary problem | Classical polytope property | Both-lost deterministic limit | PARTIAL | <= 1e-12 |
 | Proposition 20 | Appendix A.3 | Qubits suffice for lossy values in `(n,2,2)` | Qubit optimizer dimension policy | Binary problem | Published proposition | Representative strategy and Schmidt values | PARTIAL | Published theorem used; no independent proof |
-| Eq. A.13-A.14 | Appendix A.4 | Depolarizing noise behavior and classical factorizable term | Ding-Jiang noise module | Noise nu and projector ranks | Direct formula | Fig. 7-Fig. 8 reproduction | NOT_IMPLEMENTED | <= 1e-12 |
+| Eq. A.13-A.14 | Appendix A.4 | General rank-dependent depolarizing behavior and classical factorizable term | `ding_jiang.noise` rank-one binary specialization | Noise nu and projector ranks | Eq. 4.2 specialization | Figure 7-8 reproduction | PARTIAL | Main-text qubit case <= `1e-12`; general ranks not implemented |
 | Eq. B.1-B.5 | Appendix B | General-purpose projective-measurement parameterization | Optional explicit quantum optimizer | Hilbert dimensions and outcomes | Paper parameter count | Compare with XOR solver on small cases | NOT_IMPLEMENTED | Optimizer-dependent |
 
 ## Figure and Table Mapping
@@ -79,8 +79,8 @@ Key simulator abstractions required:
 | Fig. 4 | Sec. 4.1 | Direct photonic Type I architecture | Architecture docs and optional system model | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 5 | Sec. 4.1 | Threshold efficiency eta_star over p and beta | Loss-threshold reproduction | Representative point plus future NPA/grid oracle | PARTIAL |
 | Fig. 6 | Sec. 4.2 | Quantum-memory Type II architecture | M1 parameter/result model and configured rate experiment | Paper schematic plus Section 4.2 formula | PARTIAL |
-| Fig. 7 | Sec. 4.2 | Robustness nu_star over p and beta | Noise robustness reproduction | Eq. 4.2-4.3 and quantum/classical values | NOT_IMPLEMENTED |
-| Fig. 8 | Sec. 4.2 | Quantum advantage under depolarizing noise | Noisy HFT reproduction | Eq. 4.3 and gap calculation | NOT_IMPLEMENTED |
+| Fig. 7 | Sec. 4.2 | Robustness nu_star over p and beta | `reproduce_noise_robustness.py`, CSV and PNG | CHSH maximum, beta symmetry, threshold identity | PARTIAL |
+| Fig. 8 | Sec. 4.2 | Quantum advantage under depolarizing noise | `reproduce_noise_robustness.py`, signed CSV and PNG | CHSH noisy maxima and nested positive regions | PARTIAL |
 | Fig. 9 | Appendix B | Low-resolution Fig. 3 reproduction by general optimizer | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
 | Fig. 10 | Appendix B | Low-resolution robustness reproduction | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
 | Fig. 11 | Appendix B | Low-resolution noisy advantage reproduction | Optimizer regression | Production-independent optimizer | NOT_IMPLEMENTED |
@@ -108,8 +108,8 @@ Key simulator abstractions required:
    - Reproduce `c_star = 0.79` and `q_star(eta=0.95) approximately 0.792`.
 
 5. Noise:
-   - Reproduce affine noisy utility equation.
-   - Reproduce robustness and noisy-gap figures.
+   - PASS: reproduced the affine noisy utility equation with direct behavior evaluation.
+   - PARTIAL: generated robustness and noisy-gap figures; analytical gates pass, while author pointwise data is unavailable.
 
 6. Memory Type II:
    - PASS: recomputed NYSE/NASDAQ `t_a`, `p_s`, and `r_e` from v3.

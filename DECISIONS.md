@@ -12,3 +12,5 @@
 | 2026-09-01 | Use a deterministic angle grid, Powell refinement, and all 16 fallback strategies. | Matches Appendix B.3 without stochastic optimizer variance. |
 | 2026-09-01 | Represent the Ding-Jiang Type II calculation as a paper-specific M1 model with decomposed timing and two-arm transmission terms. | Preserves the corrected v3 formula and prevents accidental reuse as Li's occupancy-aware M2 model. |
 | 2026-09-01 | Validate Type II against both exact formula-derived Decimal values and separately rounded publication values. | The published `230 us`, `0.0248`, and `106 Hz` have different stated precision from the underlying formulas. |
+| 2026-09-01 | Implement Ding depolarizing `nu` in a paper-specific module rather than reuse Li fidelity code. | Ding Eq. 4.2 is a state-depolarizing qubit behavior; Li `epsilon` combines state and measurement infidelity under a different model. |
+| 2026-09-01 | Preserve signed noisy gaps in Figure 8 data and clip only visualized surfaces at zero. | Negative values establish failure of theoretical advantage and must remain available for falsification. |

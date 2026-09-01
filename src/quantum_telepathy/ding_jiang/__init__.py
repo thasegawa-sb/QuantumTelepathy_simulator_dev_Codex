@@ -31,6 +31,12 @@ from quantum_telepathy.ding_jiang.memory import (
     traversal_attempt_time_s,
     type_ii_memory_rate,
 )
+from quantum_telepathy.ding_jiang.noise import (
+    depolarize_qubit_behavior,
+    depolarizing_robustness,
+    noisy_hedging_gap,
+    noisy_hedging_quantum_value,
+)
 
 __all__ = [
     "Fig3Point",
@@ -39,6 +45,8 @@ __all__ = [
     "TypeIIMemoryParameters",
     "TypeIIMemoryRate",
     "biased_chsh_values",
+    "depolarize_qubit_behavior",
+    "depolarizing_robustness",
     "evaluate_fig3_grid",
     "evaluate_fig3_point",
     "hedging_matrix",
@@ -50,6 +58,8 @@ __all__ = [
     "lossy_bell_operator",
     "lossy_expected_utility",
     "minimum_memory_count_for_rate",
+    "noisy_hedging_gap",
+    "noisy_hedging_quantum_value",
     "optimize_lossy_value",
     "projective_measurement",
     "per_arm_fiber_transmission",
