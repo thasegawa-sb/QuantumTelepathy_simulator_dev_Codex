@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 10 analytical/event-driven cross-validation. Phase 9 derives the 50 km Table III system-level result through Eq. 61; formula and operational gates pass, while four paper display values retain documented discrepancies.
+Current gate: Phase 11 HFT operational-advantage waterfall. Phase 10 cross-validates the Table III analytical rate and occupancy against a 256-seed discrete-event model; all configured gates pass.
 
 Status:
 
@@ -154,6 +154,6 @@ Status:
 | Li decision criterion | PASS | Eq. 44 sum and strict Eq. 45 boundary are tested independently of `T_env` and `T_comm` |
 | Li Table II operational status | PASS | Theoretical, fidelity, finite-statistics, rate, decision, LCTC-regime, and overall fields are separate |
 | Li M2 analytical model | PASS | Occupancy, depth saturation, attempt rate, memory error/lifetime, channel multiplexing, and operational connection are validated |
-| Li Fig. 4 event-driven buffering | PARTIAL | Analytical equations pass; stochastic trigger and buffer occupancy distributions remain deferred |
-| Equation-to-code map created | PARTIAL | Through Eq. 61 is linked and validated; event-driven and multiparty mappings remain unimplemented |
-| Next implementation gate | Phase 10 | Cross-validate analytical HEG throughput and occupancy with a seeded discrete-event model |
+| Li Fig. 4 event-driven buffering | PASS for configured scope | Deterministic timing, finite memory, herald events, releases, occupancy, and Bernoulli throughput pass analytical/statistical gates |
+| Equation-to-code map created | PARTIAL | Through Eq. 61 and event-driven M2 are linked and validated; HFT waterfall and multiparty mappings remain incomplete |
+| Next implementation gate | Phase 11 | Build the Ding ideal to Li operational HFT waterfall and bottleneck report |

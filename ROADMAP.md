@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 10, analytical/event-driven HEG cross-validation.
+Current validation gate: Phase 11, HFT operational-advantage waterfall.
 
 ## Completed
 
@@ -28,15 +28,17 @@ Current validation gate: Phase 10, analytical/event-driven HEG cross-validation.
 | 2026-09-02 | Implemented Li Eq. 44-45 decision latency and the Table II operational-status schema | `src/quantum_telepathy/li2026/operational.py` |
 | 2026-09-02 | Implemented Li Eq. 46-53 analytical M2 occupancy, memory fidelity, and HEG throughput | `src/quantum_telepathy/hardware/` |
 | 2026-09-02 | Completed the Li Table III 50 km system-level calculation and documented four paper-value discrepancies | `experiments/li2026/results/table3_50km_v1/` |
+| 2026-09-03 | Cross-validated analytical M2 throughput and occupancy with a 256-seed discrete-event simulation | `experiments/li2026/results/m2_event_cross_validation_v1/` |
 
 ## Next Gates
 
-1. Implement a discrete-event M2 simulator and compare it with the analytical
-   Table III model:
-   - seeded Bernoulli entanglement attempts and herald arrivals,
-   - finite memory occupancy, release, and reset events,
-   - analytical versus simulated throughput and occupancy,
-   - mean, standard deviation, confidence interval, sample size, seed, and runtime.
+1. Produce a configuration-driven HFT operational-advantage waterfall:
+   - Ding-Jiang ideal utility advantage,
+   - Li generalized utility and correlated-input advantage,
+   - physical-infidelity reduction,
+   - finite-statistics and HEG-rate feasibility,
+   - local decision-latency feasibility,
+   - final operational status and dominant bottleneck.
 
 ## Phase 16 Deliverables
 
@@ -56,5 +58,5 @@ supporting project records, not additional Phase 16 narrative deliverables.
 | Ding-Jiang full Figure 5(a) 101x101 surface | Cross-sections and independent bounds pass; a fresh 22-point run took 578 s, author pointwise data and unpublished modified-NPA code are unavailable |
 | Microscopic cQED/TPI/CAPS models | System-level model is mandatory first; appendix-level microscopic reproduction may need further data |
 | Multiparty LCTC | Defer until two-party gates are validated |
-| Hardware optimization | Defer until analytical/event-driven cross-validation is complete |
+| Hardware optimization | Defer until the HFT waterfall and multiparty gate are complete |
 | Li generalized bounded-score p-value, Eq. 19-21 | Figure 3 and current `[0,1]` win-probability utilities use the exact binomial path; implement before supporting utilities outside that range |

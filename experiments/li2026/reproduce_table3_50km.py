@@ -35,7 +35,7 @@ def _load_json(path: Path) -> dict[str, Any]:
         return json.load(stream)
 
 
-def _parameters(config: dict[str, Any]) -> YbSystemLevelParameters:
+def parameters_from_config(config: dict[str, Any]) -> YbSystemLevelParameters:
     device = config["device"]
     network = config["network"]
     return YbSystemLevelParameters(
@@ -269,7 +269,7 @@ def reproduce(config_path: Path, output_directory: Path) -> dict[str, Any]:
     config = _load_json(config_path)
     oracle_path = (config_path.parent / config["validation"]["oracle_file"]).resolve()
     oracle = _load_json(oracle_path)
-    parameters = _parameters(config)
+    parameters = parameters_from_config(config)
     result = evaluate_yb_system_level(parameters)
     if result.memory_adjusted_combined_infidelity_upper_bound is None:
         raise ArithmeticError("memory-adjusted combined infidelity is out of domain")

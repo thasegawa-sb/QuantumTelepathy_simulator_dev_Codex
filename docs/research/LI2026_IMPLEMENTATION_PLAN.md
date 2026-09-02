@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-9 are complete at their configured gates; Phase 10 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-10 are complete at their configured gates; Phase 11 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 10 analytical/event-driven HEG cross-validation |
+| Next task | Phase 11 HFT operational-advantage waterfall |
 
 ## Proposed Package Structure
 
@@ -312,11 +312,20 @@ Only after analytical M2 passes:
 | HEG attempts | Bernoulli/binomial convergence to `p_ent Gamma_HEG` |
 | Discrepancies | Investigate before proceeding |
 
+Phase 10 result: 256 independent PCG64 streams produced 26,368,000 heralded
+trials. The event-driven mean Bell-pair rate is `7863.867 s^-1` with sample
+standard deviation `301.451 s^-1` and 95% t interval
+`[7826.764, 7900.970] s^-1`, containing the analytical
+`7854.545 s^-1`. The attempt-rate relative error is `6.94e-4`, the mean
+occupancy is 250, the aggregate binomial residual is `0.847` standard
+deviations, and all ten configured gates pass. Runtime was recorded for every
+replicate and totaled approximately 28 seconds for the committed run.
+
 ### Phase 11 and Beyond
 
 | Phase | Scope | Gate |
 |---|---|---|
-| HFT operational waterfall | Ding ideal -> Li generalized -> infidelity -> finite stats -> HEG -> decision latency | Two-party gates A-C |
+| HFT operational waterfall | Ding ideal -> Li generalized -> infidelity -> finite stats -> HEG -> decision latency | Current gate; two-party gates A-D pass |
 | Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | Two-party cross-validation |
 | Hardware optimization | Minimum improvements satisfying all criteria | Full operational status |
 | HPC optimization | Performance only after correctness | Reproduction suite stable |
@@ -351,6 +360,6 @@ project records rather than additional final narrative deliverables.
 
 ## Development Rule
 
-The next scientifically meaningful action is Phase 10: implement a seeded
-discrete-event M2 simulator and cross-validate Bell-pair throughput and memory
-occupancy against the Phase 9 analytical result.
+The next scientifically meaningful action is Phase 11: produce the HFT
+operational-advantage waterfall from versioned Ding/Li scenarios and identify
+the first failing criterion and dominant hardware/application bottleneck.

@@ -33,7 +33,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Noise/fidelity | Sec. III A-B, Eq. 26-38 | Werner state, measurement flip, combined infidelity, threshold | PASS for Figure 2 scope |
 | Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | PASS for CHSH/Figure 3 scope |
 | Decision criterion | Sec. III D, Eq. 44-45 | `tau_dec = tau_rot + tau_meas`, compare to `T_loc` | PASS |
-| Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | PASS for analytical model; stochastic buffering deferred |
+| Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | PASS for analytical model and configured event-driven cross-validation |
 | Neutral-atom/Yb benchmark | Sec. V, Eq. 54-61, Table III | System-level 50 km benchmark; microscopic model optional | PARTIAL: equations and operational cases PASS; four displayed paper values disagree |
 | Multiparty extension | Sec. VI, Eq. 62-67, Appendix B | Three-party XOR/GHZ strategy, noise threshold, finite stats | NOT_IMPLEMENTED |
 | cQED appendices | Appendix C, Eq. C1-C15 | Optional microscopic Bell/GHZ and measurement model | NOT_IMPLEMENTED |
@@ -108,7 +108,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Fig. 2c | III B | Gap versus combined infidelity and threshold inset | `experiments/li2026/results/fig2_v1/fig2c_noisy_gap.csv` | Eq. 34 linearity, Eq. 37 roots, CHSH threshold | PARTIAL: configured gates PASS; no author point data |
 | Fig. 3a | III C | Finite-window trial accumulation schematic | `experiments/li2026/results/fig3_v1/fig3_reproduction.png` | Paper schematic and timescale separation | PARTIAL: schematic reproduced computationally |
 | Fig. 3b | III C | Required rate versus infidelity, alpha, and T_env for CHSH | `experiments/li2026/results/fig3_v1/fig3_required_rate.csv` | Exact Eq. 40-43, Decimal points, paper reference lines | PARTIAL: configured gates PASS; no author point data |
-| Fig. 4 | IV | M2 time-multiplexed event-ready protocol | Analytical M2 timing/memory/HEG model | Eq. 46-53 | PARTIAL: equations PASS; event-driven buffer timeline deferred |
+| Fig. 4 | IV | M2 time-multiplexed event-ready protocol | Analytical model plus `m2_event_trace.csv` | Eq. 46-53 and finite-memory DES | PASS for configured deterministic timing and Bernoulli herald scope |
 | Table II | IV C | Mapping operational criteria to hardware requirements | `OperationalAdvantageStatus` | Exact fidelity/rate/decision fields and strict boundaries | PASS for supplied system-level parameters |
 | Fig. 5 | V A | Telecom-band Yb node architecture | Hardware docs and optional config schema | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 6 | V B | Yb TPI and measurement performance | System-level parameter oracle; microscopic optional | Eq. 54-55, Appendix C | PARTIAL: reported system-level point used; microscopic curves deferred |
@@ -158,8 +158,22 @@ test obtains `tau_dec=970 ns` from `100 ns + 870 ns`; exact equality at either
 the local deadline, communication boundary, fidelity threshold, or required
 rate fails. The lower-level derivation of `R_HEG` and memory-decoherence effects
 is now implemented through Eq. 61. The 50 km benchmark supplies its
-memory-adjusted `epsilon` and derived `R_HEG`; event-driven validation of the
-deterministic occupancy/rate assumptions remains Phase 10 work.
+memory-adjusted `epsilon` and derived `R_HEG`. The Phase 10 event simulation
+cross-validates deterministic occupancy, finite-memory scheduling, and
+Bernoulli herald throughput; physical timing jitter and correlated device
+failures are outside that validation scope.
+
+### Analytical/Event-Driven Cross-Validation Record
+
+The configured Table III simulation uses 256 independent PCG64 seeds, a 5 ms
+warmup, and a 100 ms measurement window per replicate. Across 26,368,000
+heralded trials, the mean Bell-pair rate is `7863.867 s^-1`, sample standard
+deviation `301.451 s^-1`, and 95% t interval
+`[7826.764, 7900.970] s^-1`; this contains the analytical
+`7854.545 s^-1`. The event attempt rate differs from Eq. 48 by `6.94e-4`
+relative due to finite-window event counting, the time-weighted occupancy is
+250, and the standardized binomial residual is `0.847`. All configured gates
+pass.
 
 ## Operational Advantage Output Contract
 

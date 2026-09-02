@@ -1,0 +1,39 @@
+{
+  "reference": {
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "arxiv_id": "2604.07451",
+    "version": "v1",
+    "retrieval_date": "2026-08-31",
+    "paper_item": "Figure 4, Table III, and Equations 46-57"
+  },
+  "hardware_config": "table3_50km_v1.json",
+  "simulation": {
+    "replicates": 256,
+    "base_seed": 260407451,
+    "seed_stride": 104729,
+    "warmup_duration_seconds": 0.005,
+    "measurement_duration_seconds": 0.1,
+    "trace_attempts_first_replicate": 8,
+    "confidence_level": 0.95,
+    "convergence_checkpoints": [16, 32, 64, 128, 256]
+  },
+  "validation": {
+    "attempt_rate_relative_tolerance": 0.001,
+    "bell_pair_rate_relative_tolerance": 0.02,
+    "mean_occupancy_absolute_tolerance": 1e-9,
+    "sample_std_relative_tolerance": 0.25,
+    "maximum_absolute_standardized_residual": 3.5,
+    "require_analytical_rate_inside_confidence_interval": true,
+    "require_finite_window_rate_inside_confidence_interval": true,
+    "require_success_probability_inside_exact_interval": true,
+    "require_decreasing_standard_error": true
+  },
+  "notes": [
+    "Each replicate simulates one Table III channel with an independent PCG64 stream.",
+    "An attempt occupies one memory from launch through tau_e + tau_link + tau_dec + tau_res, regardless of herald outcome, matching the deterministic Li Equation 46 assumption.",
+    "The emitter is work-conserving and waits for the earliest memory release when the finite bank is full.",
+    "Bell-pair outcomes are independent Bernoulli samples with the Equation 56 success probability.",
+    "The warmup interval exceeds the time needed to fill the memory bank and is excluded from all reported rates and occupancy moments."
+  ]
+}

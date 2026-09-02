@@ -1,5 +1,13 @@
 """Platform-independent quantum-network hardware models."""
 
+from quantum_telepathy.hardware.event_simulation import (
+    M2EventSimulationParameters,
+    M2EventSimulationResult,
+    M2EventType,
+    M2OccupancyTime,
+    M2SimulationEvent,
+    simulate_m2_memory_bank,
+)
 from quantum_telepathy.hardware.heg import (
     HEGRateParameters,
     HEGRateResult,
@@ -35,6 +43,12 @@ from quantum_telepathy.hardware.yb_node import (
 )
 
 __all__ = [
+    "M2EventSimulationParameters",
+    "M2EventSimulationResult",
+    "M2EventType",
+    "M2OccupancyTime",
+    "M2SimulationEvent",
+    "simulate_m2_memory_bank",
     "evaluate_heg_rate",
     "evaluate_m2_memory_fidelity",
     "evaluate_m2_timing",

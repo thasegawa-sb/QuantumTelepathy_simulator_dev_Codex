@@ -1,0 +1,228 @@
+{
+  "analytical_oracle": {
+    "attempt_rate_hz": 1030715.3164296021,
+    "bell_pair_rate_hz": 7854.545454545455,
+    "entanglement_success_probability": 0.007620480000000001,
+    "mean_occupied_memories": 250.0,
+    "memory_limited": true,
+    "tau_occ_seconds": 0.00024255000000000001
+  },
+  "configuration": {
+    "hardware_config": "table3_50km_v1.json",
+    "notes": [
+      "Each replicate simulates one Table III channel with an independent PCG64 stream.",
+      "An attempt occupies one memory from launch through tau_e + tau_link + tau_dec + tau_res, regardless of herald outcome, matching the deterministic Li Equation 46 assumption.",
+      "The emitter is work-conserving and waits for the earliest memory release when the finite bank is full.",
+      "Bell-pair outcomes are independent Bernoulli samples with the Equation 56 success probability.",
+      "The warmup interval exceeds the time needed to fill the memory bank and is excluded from all reported rates and occupancy moments."
+    ],
+    "simulation": {
+      "base_seed": 260407451,
+      "confidence_level": 0.95,
+      "convergence_checkpoints": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "measurement_duration_seconds": 0.1,
+      "replicates": 256,
+      "seed_stride": 104729,
+      "trace_attempts_first_replicate": 8,
+      "warmup_duration_seconds": 0.005
+    },
+    "validation": {
+      "attempt_rate_relative_tolerance": 0.001,
+      "bell_pair_rate_relative_tolerance": 0.02,
+      "maximum_absolute_standardized_residual": 3.5,
+      "mean_occupancy_absolute_tolerance": 1e-09,
+      "require_analytical_rate_inside_confidence_interval": true,
+      "require_decreasing_standard_error": true,
+      "require_finite_window_rate_inside_confidence_interval": true,
+      "require_success_probability_inside_exact_interval": true,
+      "sample_std_relative_tolerance": 0.25
+    }
+  },
+  "convergence": [
+    {
+      "confidence_interval_half_width_hz": 165.79321906933106,
+      "confidence_interval_lower_hz": 7684.831780930669,
+      "confidence_interval_upper_hz": 8016.418219069331,
+      "mean_bell_pair_rate_hz": 7850.625,
+      "replicates": 16,
+      "sample_std_hz": 311.1370276903731,
+      "standard_error_hz": 77.78425692259327
+    },
+    {
+      "confidence_interval_half_width_hz": 97.10217380821457,
+      "confidence_interval_lower_hz": 7791.3353261917855,
+      "confidence_interval_upper_hz": 7985.5396738082145,
+      "mean_bell_pair_rate_hz": 7888.4375,
+      "replicates": 32,
+      "sample_std_hz": 269.32543421691355,
+      "standard_error_hz": 47.610460220197744
+    },
+    {
+      "confidence_interval_half_width_hz": 80.08058511859413,
+      "confidence_interval_lower_hz": 7880.856914881406,
+      "confidence_interval_upper_hz": 8041.018085118594,
+      "mean_bell_pair_rate_hz": 7960.9375,
+      "replicates": 64,
+      "sample_std_hz": 320.58834183518735,
+      "standard_error_hz": 40.07354272939842
+    },
+    {
+      "confidence_interval_half_width_hz": 53.37165949991549,
+      "confidence_interval_lower_hz": 7851.940840500085,
+      "confidence_interval_upper_hz": 7958.684159499915,
+      "mean_bell_pair_rate_hz": 7905.3125,
+      "replicates": 128,
+      "sample_std_hz": 305.1472795302695,
+      "standard_error_hz": 26.971463827060063
+    },
+    {
+      "confidence_interval_half_width_hz": 37.10311028263703,
+      "confidence_interval_lower_hz": 7826.764077217363,
+      "confidence_interval_upper_hz": 7900.970297782637,
+      "mean_bell_pair_rate_hz": 7863.8671875,
+      "replicates": 256,
+      "sample_std_hz": 301.45055513902685,
+      "standard_error_hz": 18.840659696189178
+    }
+  ],
+  "monte_carlo": {
+    "attempt_rate_statistics": {
+      "confidence_interval_half_width": 0.0,
+      "confidence_interval_lower": 1030000.0,
+      "confidence_interval_upper": 1030000.0,
+      "confidence_level": 0.95,
+      "mean": 1030000.0,
+      "replicates": 256,
+      "sample_std": 0.0,
+      "standard_error": 0.0
+    },
+    "bell_pair_rate_statistics": {
+      "confidence_interval_half_width": 37.10311028263703,
+      "confidence_interval_lower": 7826.764077217363,
+      "confidence_interval_upper": 7900.970297782637,
+      "confidence_level": 0.95,
+      "mean": 7863.8671875,
+      "replicates": 256,
+      "sample_std": 301.45055513902685,
+      "standard_error": 18.840659696189178
+    },
+    "exact_success_probability_interval": {
+      "confidence_level": 0.95,
+      "lower": 0.0076016341610573085,
+      "upper": 0.007668119034827103
+    },
+    "expected_replicate_bell_pair_rate_std_hz": 279.09282565316306,
+    "finite_window_expected_bell_pair_rate_hz": 7849.094400000001,
+    "observed_success_probability": 0.0076348225121359225,
+    "occupancy_statistics": {
+      "confidence_interval_half_width": 0.0,
+      "confidence_interval_lower": 250.00000000000003,
+      "confidence_interval_upper": 250.00000000000003,
+      "confidence_level": 0.95,
+      "mean": 250.00000000000003,
+      "replicates": 256,
+      "sample_std": 0.0,
+      "standard_error": 0.0
+    },
+    "replicates": 256,
+    "runtime_statistics": {
+      "confidence_interval_half_width": 7.293238959686006e-05,
+      "confidence_interval_lower": 0.11085178898801747,
+      "confidence_interval_upper": 0.1109976537672112,
+      "confidence_level": 0.95,
+      "mean": 0.11092472137761433,
+      "replicates": 256,
+      "sample_std": 0.0005925516530585229,
+      "standard_error": 3.703447831615768e-05
+    },
+    "standardized_binomial_residual": 0.8469031744074083,
+    "total_heralded_trials": 26368000,
+    "total_successful_heralds": 201315,
+    "total_wall_clock_seconds": 28.40228412504075
+  },
+  "occupancy_time_distribution": [
+    {
+      "duration": 0.1,
+      "fraction": 1.0,
+      "occupied_memories": 250
+    }
+  ],
+  "overall_status": "PASS",
+  "reference": {
+    "arxiv_id": "2604.07451",
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "paper_item": "Figure 4, Table III, and Equations 46-57",
+    "retrieval_date": "2026-08-31",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "version": "v1"
+  },
+  "validations": {
+    "analytical_rate_inside_confidence_interval": {
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    "attempt_rate_vs_analytical": {
+      "absolute_error": 715.3164296020987,
+      "actual": 1030000.0,
+      "expected": 1030715.3164296021,
+      "relative_error": 0.0006939999999999562,
+      "status": "PASS",
+      "tolerance": 0.001
+    },
+    "bell_pair_rate_sample_std_vs_binomial": {
+      "absolute_error": 22.357729485863786,
+      "actual": 301.45055513902685,
+      "expected": 279.09282565316306,
+      "relative_error": 0.08010857833245918,
+      "status": "PASS",
+      "tolerance": 0.25
+    },
+    "bell_pair_rate_vs_analytical": {
+      "absolute_error": 9.321732954545041,
+      "actual": 7863.8671875,
+      "expected": 7854.545454545455,
+      "relative_error": 0.0011867947048610583,
+      "status": "PASS",
+      "tolerance": 0.02
+    },
+    "finite_window_rate_inside_confidence_interval": {
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    "mean_occupancy_vs_littles_law": {
+      "absolute_error": 2.842170943040401e-14,
+      "actual": 250.00000000000003,
+      "expected": 250.0,
+      "status": "PASS",
+      "tolerance": 1e-09
+    },
+    "memory_capacity_never_exceeded": {
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    "standard_error_decreases_at_checkpoints": {
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    "standardized_binomial_residual": {
+      "actual": 0.8469031744074083,
+      "maximum_absolute_value": 3.5,
+      "status": "PASS"
+    },
+    "success_probability_inside_exact_interval": {
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    }
+  }
+}

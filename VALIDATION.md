@@ -1,6 +1,6 @@
 # Validation
 
-Last validation run: 2026-09-02.
+Last validation run: 2026-09-03.
 
 Command:
 
@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-457 passed in 17.20s
+476 passed in 16.47s
 ```
 
 ## Passing Coverage
@@ -63,6 +63,8 @@ Result:
 | Li M2-derived effective error/rate integration with operational status | `tests/scientific/test_li_m2_hardware.py` |
 | Li Yb system-level Eqs. 54-61 versus independent 60-digit Decimal formulas | `tests/scientific/test_li_yb_node.py` |
 | Li Table III 50 km configuration, displayed-value discrepancies, and operational cases | `tests/scientific/test_li_table3_artifacts.py` |
+| Li event-driven M2 scheduling, memory limits, trace timing, and probability limits | `tests/scientific/test_li_m2_event_simulation.py` |
+| Li analytical/event-driven throughput, occupancy, binomial statistics, and convergence artifacts | `tests/scientific/test_li_m2_event_artifacts.py` |
 
 ## Known Gaps
 
@@ -76,6 +78,6 @@ Result:
 | Li finite-statistics Fig. 3 reproduction | PARTIAL: exact equations, independent Decimal points, minimality, monotonicity, divergence, and paper reference-line behavior pass; author pointwise data are unavailable |
 | Li generalized bounded-score p-value, Eq. 19-21 | NOT_IMPLEMENTED: current exact certification scope is win/loss utilities in `[0,1]` |
 | Li operational output schema | PASS: all required statuses and source quantities are emitted; strict equality and partial-failure cases are tested |
-| Li M2 analytical HEG/time-multiplexing model | PASS for Eqs. 46-53; stochastic trigger/buffer occupancy remains deferred to event-driven validation |
+| Li M2 analytical HEG/time-multiplexing model | PASS for Eqs. 46-53 and the configured deterministic-timing event simulation |
 | Li Table III 50 km benchmark | PARTIAL: formula and operational gates pass, and `R_HEG=7854.545 s^-1` reproduces `7.9e3 s^-1`; exact listed-parameter calculations disagree with displayed `R0`, `p_ent`, `tau_occ`, and `p_false` |
-| Analytical/event-driven cross-validation | NOT_IMPLEMENTED |
+| Analytical/event-driven cross-validation | PASS: 256 seeds, 26,368,000 trials, mean `7863.867 s^-1`, 95% CI `[7826.764,7900.970] s^-1`, analytical `7854.545 s^-1`, and all ten configured gates pass |
