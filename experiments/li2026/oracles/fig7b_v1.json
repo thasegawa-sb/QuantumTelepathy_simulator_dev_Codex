@@ -1,0 +1,21 @@
+{
+  "analytical_values": {
+    "uniform_classical_value": 0.75,
+    "uniform_quantum_value": 0.8535533905932737,
+    "uniform_gap": 0.10355339059327373,
+    "canonical_strategy_bias": 0.7071067811865475,
+    "uniform_infidelity_threshold": 0.2928932188134524
+  },
+  "operational_values": {
+    "combined_infidelity": 0.1125904,
+    "required_trials": 107,
+    "required_rate_hz": 107.0,
+    "overall_status": "PASS"
+  },
+  "provenance": {
+    "analytical": "Li Equations B8-B11 and B22 evaluated independently from the grid",
+    "classical": "Independent full utility enumeration over 64 deterministic local strategies",
+    "quantum": "Unrestricted three-phase differential-evolution cross-check",
+    "paper_limitation": "No author pointwise Figure 7(b) numerical data available"
+  }
+}

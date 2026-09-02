@@ -6,7 +6,7 @@ Date: 2026-08-31, updated 2026-09-03
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li generalized LCTC/fidelity/statistics layers, Table II status, analytical M2 Eqs. 46-53, Table III system model, event-driven cross-validation, and HFT operational waterfall now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is the three-party extension.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li two-party operational/hardware layers, HFT waterfall, and three-party XOR/GHZ Appendix B model now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is hardware-resource optimization.
 
 ## Existing Implementation
 
@@ -21,7 +21,7 @@ The correct development sequence remains staged. The independently verified nonl
 | Paper reproduction code | Scoped Ding baseline plus Li generalized LCTC, fidelity, statistics, and timing paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 12; three-party XOR/GHZ extension |
+| Current validation gate | Phase 13; hardware-resource optimization |
 
 Files requested by the operating procedure were not available:
 
@@ -103,7 +103,7 @@ The scaffold follows these architectural requirements:
 | P5 | Li system-level Eq. 54-57 | PARTIAL: formula gate PASS; displayed `R0` and `p_ent` discrepancies retained |
 | P6 | Li Table III 50 km benchmark | PARTIAL: derived rate and operational gates PASS; four displayed-value discrepancies documented |
 | P7 | Analytical M2 versus event-driven HEG | PASS for deterministic timing and independent Bernoulli herald scope |
-| P8 | Multiparty Fig. 7 and Appendix B-C | NOT_IMPLEMENTED |
+| P8 | Multiparty Fig. 7 and Appendix B-C | PARTIAL: Figure 7(b) and Appendix B computation pass; CAPS panels (c-e) remain unimplemented |
 
 ## Test Strategy
 
@@ -143,8 +143,9 @@ The scaffold follows these architectural requirements:
 8. Completed: derive and reproduce the Table III 50 km benchmark from Eqs. 54-61.
 9. Completed: cross-validate analytical HEG against event-driven simulation.
 10. Completed: produce the HFT operational waterfall and identify criterion-specific bottlenecks.
-11. Current: implement the multiparty extension, followed by hardware optimization.
+11. Completed: implement the three-party XOR/GHZ game, Appendix B noise model, and Figure 7(b) computation.
+12. Current: optimize minimum hardware improvements under all operational constraints.
 
 ## Design Decision
 
-The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, and the Phase 11 waterfall consumes that hardware result without changing the retained Table III `PARTIAL` paper-level status. Development may proceed to Phase 12 while the complete Ding and two-party Li regression suites remain mandatory.
+The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, the Phase 11 waterfall consumes that hardware result, and Phase 12 adds a separate GHZ game/noise path. Development may proceed to Phase 13 without changing the retained Table III or Figure 7(b) `PARTIAL` paper-level statuses; complete Ding, two-party Li, and multiparty regression suites remain mandatory.

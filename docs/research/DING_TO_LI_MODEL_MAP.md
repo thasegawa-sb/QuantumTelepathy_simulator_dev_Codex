@@ -51,7 +51,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 | Layer 5: finite statistics | Not operationally treated | Eq. 16-21 and Eq. 39-43 | Use stable binomial survival functions |
 | Layer 6: decision latency | Informal local-operation comparison | Eq. 44-45 | Separate from `T_env` and `T_comm` |
 | Layer 7: memory/network | Ding Type II `r_e` | M2 Eq. 46-57, Table III | Analytical model first, event simulation second |
-| Layer 8: multiparty | Future work only | Eq. 62-67, Appendix B-C | Phase after bipartite validation |
+| Layer 8: multiparty | No Ding counterpart | Eq. 62-67, Appendix B-C | Three-party XOR/GHZ game and Appendix B noise are implemented; microscopic CAPS remains separate |
 
 ## Ding to Li Gap Analysis
 
@@ -70,7 +70,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 | HEG rate | Generic `r_e=M p_s/t_a` | Occupancy and time multiplexing | Implement M2 analytical model | P5 |
 | 50 km benchmark | 56.3 km NYSE/NASDAQ examples | Table III 50 km system-level result | Dedicated benchmark from lower-level parameters | P5 |
 | Microscopic cQED | Not present | Appendix C models | Mark partial unless reconstructed and validated | P6 |
-| Multiparty | Left to future work | Three-party GHZ model | Defer until two-party gates pass | P7 |
+| Multiparty | No corresponding Ding model | Three-party GHZ model | Implemented after the two-party gates; retain a separate microscopic CAPS scope | P7 |
 
 ## Parameter Provenance
 
@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 12 multiparty LCTC extension. Phase 11 now connects the pinned Ding ideal HFT model to Li generalized utilities, physical infidelity, finite statistics, HEG rate, local decision latency, and the strict no-communication regime.
+Current gate: Phase 13 hardware-resource optimization. Phase 12 now adds the Li three-party majority XOR/GHZ game, Appendix B noise model, finite-statistics status, and configured Figure 7(b) reproduction without changing the Ding or two-party Li layers.
 
 Status:
 
@@ -157,5 +157,7 @@ Status:
 | Li Fig. 4 event-driven buffering | PASS for configured scope | Deterministic timing, finite memory, herald events, releases, occupancy, and Bernoulli throughput pass analytical/statistical gates |
 | Li general-score finite statistics | PASS | Eq. 20 log-space bound, direct small-case sums, and discrete `n_req` minimality pass |
 | Ding-to-Li HFT waterfall | PASS | Eight scenarios derive hardware inputs from the Table III artifact; 3 overall PASS and 5 controlled FAIL cases match oracles |
-| Equation-to-code map created | PARTIAL | Through the Phase 11 HFT waterfall are linked and validated; multiparty mappings remain incomplete |
-| Next implementation gate | Phase 12 | Implement and validate the three-party XOR/GHZ extension |
+| Li three-party XOR/GHZ game | PASS | 64-strategy classical oracle, symmetric GHZ optimizer, independent three-phase checks, and Appendix B noise equations pass |
+| Li Figure 7(b) paper reproduction | PARTIAL | Full configured grid and analytical structure pass; author pointwise data are unavailable |
+| Equation-to-code map created | PARTIAL | Through the Phase 12 game/noise layer are linked; microscopic CAPS and optimization mappings remain incomplete |
+| Next implementation gate | Phase 13 | Optimize minimum hardware improvements subject to all operational constraints |

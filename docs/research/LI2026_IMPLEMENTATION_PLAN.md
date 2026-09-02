@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-11 are complete at their configured gates; Phase 12 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-12 are complete at their configured gates; Phase 13 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 12 three-party XOR/GHZ extension |
+| Next task | Phase 13 hardware-resource optimization |
 
 ## Proposed Package Structure
 
@@ -38,7 +38,8 @@ The repository uses the following package structure:
 | `src/quantum_telepathy/hardware/memory_m0_m1_m2.py` | M0 no memory, M1 generic memory, M2 event-ready time multiplexing |
 | `src/quantum_telepathy/hardware/heg.py` | System-level HEG formulas |
 | `src/quantum_telepathy/hardware/yb_node.py` | Li Table III system-level neutral-atom benchmark |
-| `src/quantum_telepathy/multiparty/xor.py` | Three-party XOR/GHZ support after two-party gates |
+| `src/quantum_telepathy/multiparty/xor.py` | Generic multiparty XOR coefficients, local strategies, and GHZ phase optimization |
+| `src/quantum_telepathy/li2026/multiparty.py` | Li three-party majority utility, GHZ noise, and operational status |
 | `experiments/ding_jiang/` | Ding reproduction scripts/configs |
 | `experiments/li2026/` | Li reproduction scripts/configs |
 | `tests/scientific/` | Analytical and reproduction tests |
@@ -327,8 +328,8 @@ replicate and totaled approximately 28 seconds for the committed run.
 | Phase | Scope | Gate |
 |---|---|---|
 | HFT operational waterfall | Ding ideal -> Li generalized -> infidelity -> finite stats -> HEG -> decision latency | PASS; eight scenarios and lower-level hardware provenance validated |
-| Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | Current gate; two-party gates A-D and Phase 11 pass |
-| Hardware optimization | Minimum improvements satisfying all criteria | Full operational status |
+| Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | PASS for game/noise computation; Figure 7(b) paper level PARTIAL |
+| Hardware optimization | Minimum improvements satisfying all criteria | Current gate; bipartite and multiparty operational status available |
 | HPC optimization | Performance only after correctness | Reproduction suite stable |
 | Phase 16 documentation | Japanese simulator manual (`.docx`), Japanese report (`.docx`), English paper (`.tex`) | Final validation complete |
 
@@ -361,6 +362,7 @@ project records rather than additional final narrative deliverables.
 
 ## Development Rule
 
-The next scientifically meaningful action is Phase 12: implement the
-three-party XOR/GHZ model, deterministic classical oracle, Appendix B noise
-threshold, finite-statistics path, and configured Figure 7(b) reproduction.
+The next scientifically meaningful action is Phase 13: formulate the minimum
+hardware-improvement search over fidelity, HEG rate, decision latency, memory,
+and distance, then validate Pareto-optimal candidates by direct reevaluation of
+the complete operational status.

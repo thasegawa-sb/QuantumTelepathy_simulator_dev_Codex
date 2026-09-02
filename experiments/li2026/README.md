@@ -81,3 +81,20 @@ method, HEG rate, local decision latency, strict LCTC regime, and overall
 status. Fractional utilities use the Eq. 20 general-score bound, while binary
 win/loss utilities retain the exact Eq. 16 path. Outputs are written to
 `experiments/li2026/results/hft_waterfall_v1/`.
+
+## Figure 7(b) three-party XOR/GHZ extension
+
+Run from the repository root:
+
+```bash
+PYTHONPATH=src python3 -m experiments.li2026.reproduce_fig7b
+```
+
+The experiment evaluates all 10,201 points on the configured `p` and `beta`
+grid, independently enumerates 64 deterministic local strategies at every
+point, and checks selected symmetric-polynomial quantum values against an
+unrestricted three-phase optimizer. It also validates Appendix B's GHZ noise
+threshold and an exact-binomial prospective operational case. Outputs are
+written to `experiments/li2026/results/fig7b_v1/`. Paper-level status is
+`PARTIAL` because author pointwise Figure 7(b) data are unavailable. The CAPS
+hardware calculations in Figure 7(c-e) are not part of this game-layer result.

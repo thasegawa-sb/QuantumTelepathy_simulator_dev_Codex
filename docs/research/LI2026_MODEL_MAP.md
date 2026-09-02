@@ -14,7 +14,7 @@ Retrieval and version audit:
 | arXiv HTML | https://arxiv.org/html/2604.07451v1 |
 | Retrieval date | 2026-08-31 |
 | Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible when reverified 2026-09-02 |
-| Local repository state | Layer 0/1 core, Ding regression suite, Li generalized LCTC/fidelity/statistics/operational modules, analytical/event-driven M2 hardware, Figure 2-3 experiments, Table III, and the Phase 11 HFT waterfall are present |
+| Local repository state | Layer 0/1 core, Ding regression suite, Li two-party operational/hardware layers through Phase 11, and the Phase 12 three-party XOR/GHZ Figure 7(b) model are present |
 
 ## Scope
 
@@ -35,7 +35,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Decision criterion | Sec. III D, Eq. 44-45 | `tau_dec = tau_rot + tau_meas`, compare to `T_loc` | PASS |
 | Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | PASS for analytical model and configured event-driven cross-validation |
 | Neutral-atom/Yb benchmark | Sec. V, Eq. 54-61, Table III | System-level 50 km benchmark; microscopic model optional | PARTIAL: equations and operational cases PASS; four displayed paper values disagree |
-| Multiparty extension | Sec. VI, Eq. 62-67, Appendix B | Three-party XOR/GHZ strategy, noise threshold, finite stats | NOT_IMPLEMENTED |
+| Multiparty extension | Sec. VI, Eq. 62-67, Appendix B | Three-party XOR/GHZ strategy, noise threshold, finite stats | PASS for game/Appendix B computation; Figure 7(b) paper level PARTIAL |
 | cQED appendices | Appendix C, Eq. C1-C15 | Optional microscopic Bell/GHZ and measurement model | NOT_IMPLEMENTED |
 
 ## Equation Mapping
@@ -89,10 +89,10 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Eq. 56-57 | V C | Distance-dependent HEG success/rate | `YbSystemLevelResult`, 50 km experiment | `eta_att`, `eta_det`, `eta_misc`, `N_ch`, M2 rates | 60-digit Decimal formula | `R_HEG=7854.545 s^-1` rounds to `7.9e3`; exact `p_ent=0.00762048` differs from `0.0077` | PARTIAL | Formula <= 1e-10 Hz; paper display intervals |
 | Eq. 58-59 | V C | Dark-count false positives and 50 km success probability | `dark_count_false_positive_fraction` | `tau_p`, D, `p_ent` | 60-digit Decimal formula | Exact `p_false=0.125976%` differs from displayed `0.12%` | PARTIAL | Formula <= 1e-17; paper display interval |
 | Eq. 60-61 | V C | Representative entanglement and combined infidelity | `YbSystemLevelResult` | `epsilon_s <= 0.04`, `epsilon_meas=0.002` | Exact Eq. 30 | `epsilon=0.06089152`; with memory `0.0609727385`, both `<0.061` | PASS | Conservative upper-bound evaluation |
-| Eq. 62-67 | VI A | Three-party majority XOR and GHZ quantum value | Multiparty extension | k=3, beta, P(x) | Known GHZ/CHSH-equivalent benchmark | Fig. 7b | NOT_IMPLEMENTED | <= 1e-8 |
-| Eq. B1-B4 | App. B | Multiparty utility and correlator | Generic multiparty XOR evaluator | `P(x)`, `u(a|x)` | Direct identities | Brute-force behavior fixtures | NOT_IMPLEMENTED | <= 1e-12 |
-| Eq. B5-B15 | App. B | Three-party majority XOR classical and quantum evaluation | Three-party oracle | Uniform/Bernoulli inputs | 64 deterministic strategies; GHZ angle formula | Numerical angle optimization | NOT_IMPLEMENTED | <= 1e-8 |
-| Eq. B16-B22 | App. B | Three-party GHZ infidelity threshold | Multiparty fidelity module | `epsilon_GHZ`, `epsilon_meas` | Direct formula | CHSH-equivalent threshold at beta=0, uniform | NOT_IMPLEMENTED | <= 1e-12 |
+| Eq. 62-67 | VI A | Three-party majority XOR and GHZ quantum value | `li2026.multiparty`, `multiparty.xor` | k=3, beta, IID Bernoulli `P(x)` | GHZ/CHSH-equivalent benchmark | Figure 7(b) 101x101 grid | PASS | <= `1e-12` analytical limits |
+| Eq. B1-B4 | App. B | Multiparty utility and correlator | Generic multiparty XOR coefficients and local strategies | `P(x)`, `u(a|x)` | Direct parity identities | Utility enumeration | PASS for binary XOR scope | <= `1e-12` |
+| Eq. B5-B15 | App. B | Three-party majority XOR classical and quantum evaluation | `three_party_values`, `deterministic_classical_bias`, symmetric GHZ optimizer | Uniform/Bernoulli inputs | 64 deterministic strategies; canonical GHZ angles | Unrestricted three-phase optimization at ten points | PASS | classical <= `1e-12`; quantum <= `2e-9` |
+| Eq. B16-B22 | App. B | Three-party GHZ infidelity threshold | GHZ density matrix, direct correlator, operational status | `epsilon_GHZ`, `epsilon_meas` | Direct 8x8 trace and exact formulas | CHSH-equivalent threshold at beta=0, uniform | PASS | <= `1e-12` |
 | Eq. C1-C4 | App. C | TPI Bell-pair trace purity and averaged state | Optional microscopic TPI model | Temporal modes | Direct integrals where modes known | Fig. 6b if data reconstructed | NOT_IMPLEMENTED | PARTIAL target |
 | Eq. C5-C6 | App. C | Measurement false-positive/false-negative probabilities | Optional microscopic measurement model | Poisson rates and lifetime | Direct Poisson/integral formulas | Fig. 6d if parameters complete | NOT_IMPLEMENTED | PARTIAL target |
 | Eq. C7-C15 | App. C | CAPS GHZ reflection, postmeasurement state, fidelity | Optional microscopic GHZ model | Cavity parameters and pulse spectrum | Direct equations | Fig. 7e if data reconstructed | NOT_IMPLEMENTED | PARTIAL target |
@@ -113,7 +113,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Fig. 5 | V A | Telecom-band Yb node architecture | Hardware docs and optional config schema | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 6 | V B | Yb TPI and measurement performance | System-level parameter oracle; microscopic optional | Eq. 54-55, Appendix C | PARTIAL: reported system-level point used; microscopic curves deferred |
 | Table III | V C | Representative 50 km benchmark | `experiments/li2026/results/table3_50km_v1/` | Eq. 46-61, Decimal oracle, table values | PARTIAL: formula and operational gates PASS; four displayed-value discrepancies documented |
-| Fig. 7 | VI | Multiparty network, three-party gap, GHZ generation | Phase 12 reproduction | Eq. 62-67 and Appendix B-C | NOT_IMPLEMENTED |
+| Fig. 7 | VI | Multiparty network, three-party gap, GHZ generation | `reproduce_fig7b.py`; CAPS remains separate | Eq. 62-67 and Appendix B-C | PARTIAL: panel (b) computation PASS; panels (c-e) not reproduced |
 | Fig. 8 | App. A | Optimal measurement angles for Fig. 2 cases | Optional strategy diagnostics | Angle optimizer | NOT_IMPLEMENTED |
 | Fig. 9 | App. C | GHZ-generation schematic | Documentation and optional microscopic model | Appendix C | NOT_IMPLEMENTED |
 
@@ -192,6 +192,31 @@ the rate criterion for `T_env=10 s` (`R_req=6613.3 s^-1`) but fails for
 `P=((0.2,0.2),(0.2,0.4))`, `beta1=0.05`, `beta2=0.1` requires 1772 rounds and
 passes all criteria for a 1 s window. These asymmetric scenarios are
 HFT-style sensitivity analyses, not empirical market calibrations.
+
+### Multiparty Figure 7(b) Record
+
+The Phase 12 experiment evaluates the complete 101 by 101 Figure 7(b) grid for
+IID Bernoulli input probability `p` and balanced softness `beta`. The maximum
+occurs at `p=0.5`, `beta=0`, with `omega_C=0.75`,
+`omega_Q=0.8535533905932737`, and
+`Delta omega=0.10355339059327373`, matching Eqs. B8-B11. Exactly 3,474 grid
+points meet the displayed `Delta omega>=10^-4` threshold. The gap is zero to
+numerical tolerance at deterministic-input boundaries and `beta=0.5`, and no
+positive region above tolerance occurs for `beta>=0.5`.
+
+Every grid point is checked against an independent 64-strategy utility
+enumeration; the maximum error is `4.44e-16`. Ten selected quantum points are
+checked against unrestricted three-phase differential evolution, with maximum
+bias error `6.52e-13`. Eq. B16 is evaluated as an 8 by 8 density matrix and its
+correlators agree with Eqs. B17-B18 to `1e-12`. The canonical Eq. B22 effective
+infidelity threshold is `0.2928932188134524`.
+
+For the paper's qualitative `epsilon_GHZ=0.05`, `epsilon_meas=0.01`, and
+supplied `R_GHZ=10^6 s^-1` scale, the configured prospective case has combined
+infidelity `0.1125904`, `n_req=107` at `alpha=0.05`, and `R_req=107 s^-1` for
+`T_env=1 s`. This is not a reproduction of the lower-level CAPS calculations
+in Figure 7(e). Author pointwise Figure 7(b) data are unavailable, so the
+paper-level panel status remains `PARTIAL`.
 
 ## Operational Advantage Output Contract
 

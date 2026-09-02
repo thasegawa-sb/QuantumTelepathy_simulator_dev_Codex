@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 12, multiparty LCTC extension.
+Current validation gate: Phase 13, hardware-resource optimization.
 
 ## Completed
 
@@ -31,15 +31,17 @@ Current validation gate: Phase 12, multiparty LCTC extension.
 | 2026-09-03 | Cross-validated analytical M2 throughput and occupancy with a 256-seed discrete-event simulation | `experiments/li2026/results/m2_event_cross_validation_v1/` |
 | 2026-09-03 | Completed the configuration-driven Ding-to-Li HFT operational-advantage waterfall | `experiments/li2026/results/hft_waterfall_v1/` |
 | 2026-09-03 | Implemented and independently validated the Li Eq. 20 general-score finite-statistics bound | `src/quantum_telepathy/li2026/statistics.py` |
+| 2026-09-03 | Implemented the Li three-party XOR/GHZ game, 64-strategy classical oracle, and Appendix B noise model | `src/quantum_telepathy/multiparty/`, `src/quantum_telepathy/li2026/multiparty.py` |
+| 2026-09-03 | Reproduced the Li Figure 7(b) computation on a 101x101 grid with independent phase optimization | `experiments/li2026/results/fig7b_v1/` |
 
 ## Next Gates
 
-1. Implement the Li three-party LCTC extension:
-   - generic three-party binary XOR utility and deterministic classical oracle,
-   - Eq. 62-67 majority game and GHZ strategy,
-   - Appendix B noise and fidelity threshold,
-   - finite-statistics certification using the validated general-score bound,
-   - configured Figure 7(b) reproduction and documented limitations.
+1. Implement configuration-driven hardware-resource optimization:
+   - minimize hardware improvements while satisfying every operational criterion,
+   - include fidelity, HEG rate, decision latency, memory, and distance constraints,
+   - distinguish infeasible search regions from numerical optimizer failure,
+   - produce Pareto fronts for competing hardware improvements,
+   - validate selected optima by direct operational-status reevaluation.
 
 ## Phase 16 Deliverables
 
@@ -58,4 +60,3 @@ supporting project records, not additional Phase 16 narrative deliverables.
 |---|---|
 | Ding-Jiang full Figure 5(a) 101x101 surface | Cross-sections and independent bounds pass; a fresh 22-point run took 578 s, author pointwise data and unpublished modified-NPA code are unavailable |
 | Microscopic cQED/TPI/CAPS models | System-level model is mandatory first; appendix-level microscopic reproduction may need further data |
-| Hardware optimization | Defer until the HFT waterfall and multiparty gate are complete |

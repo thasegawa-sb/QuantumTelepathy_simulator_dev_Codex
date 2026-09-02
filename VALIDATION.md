@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-504 passed in 16.90s
+550 passed in 18.82s
 ```
 
 ## Passing Coverage
@@ -69,6 +69,12 @@ Result:
 | Li analytical/event-driven throughput, occupancy, binomial statistics, and convergence artifacts | `tests/scientific/test_li_m2_event_artifacts.py` |
 | Ding-to-Li HFT waterfall stage separation and criterion-specific failure cases | `tests/scientific/test_li_hft_waterfall.py` |
 | HFT waterfall scenario oracles, score-bound minimality, and Table III source digest | `tests/scientific/test_li_hft_waterfall_artifacts.py` |
+| Multiparty binary inputs, majority utility, and 64 deterministic local strategies | `tests/scientific/test_li_multiparty.py` |
+| Li three-party GHZ canonical value versus CHSH-equivalent analytical oracle | `tests/scientific/test_li_multiparty.py` |
+| Symmetric GHZ stationary polynomial versus unrestricted three-phase optimization | `tests/scientific/test_li_multiparty.py` |
+| Li Appendix B GHZ density matrix, combined infidelity, and direct correlator trace | `tests/scientific/test_li_multiparty.py` |
+| Multiparty exact-binomial certification and strict operational boundaries | `tests/scientific/test_li_multiparty.py` |
+| Li Figure 7(b) full-grid invariants and committed artifacts | `tests/scientific/test_li_fig7b_artifacts.py` |
 
 ## Known Gaps
 
@@ -86,3 +92,5 @@ Result:
 | Li Table III 50 km benchmark | PARTIAL: formula and operational gates pass, and `R_HEG=7854.545 s^-1` reproduces `7.9e3 s^-1`; exact listed-parameter calculations disagree with displayed `R0`, `p_ent`, `tau_occ`, and `p_false` |
 | Analytical/event-driven cross-validation | PASS: 256 seeds, 26,368,000 trials, mean `7863.867 s^-1`, 95% CI `[7826.764,7900.970] s^-1`, analytical `7854.545 s^-1`, and all ten configured gates pass |
 | HFT operational-advantage waterfall | PASS: eight configuration-driven scenarios, three overall PASS and five intended criterion-specific FAIL cases; hardware inputs are traced to the committed Table III artifact |
+| Li multiparty Figure 7(b) | PARTIAL: all equation, 64-strategy, three-phase, symmetry, limit, noise, and finite-statistics gates pass; author pointwise data are unavailable |
+| Li multiparty CAPS Figure 7(c-e) | NOT_IMPLEMENTED: game/noise support is separate; microscopic atom-cavity pulse dynamics and GHZ generation rates remain outside the validated scope |

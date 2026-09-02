@@ -1,0 +1,350 @@
+{
+  "grid": {
+    "beta_count": 101,
+    "point_count": 10201,
+    "probability_count": 101
+  },
+  "notes": [
+    "The complete 101x101 grid retains signed gaps; values below 1e-4 are masked only in the logarithmic plot.",
+    "The production quantum path uses the symmetric stationary polynomial; selected points are checked by an independent unrestricted three-phase differential-evolution search.",
+    "Equation 65 is treated as a probabilistic win utility and therefore uses the exact Equation 16 binomial tail, following the explicit statement in Section VI.B.",
+    "Author pointwise Figure 7(b) data are unavailable, so paper-level status remains PARTIAL even when equation and invariant gates pass.",
+    "Figure 7(c-e) CAPS rate/fidelity dynamics are excluded from this Figure 7(b) game-layer reproduction."
+  ],
+  "operational_status_validation": {
+    "actual": "PASS",
+    "expected": "PASS",
+    "provenance": "Prospective supplied-rate case; Figure 7(e) not reproduced",
+    "status": "PASS"
+  },
+  "overall_status": "PASS",
+  "paper_reproduction_limitation": "No author pointwise Figure 7(b) numerical data available",
+  "paper_reproduction_status": "PARTIAL",
+  "quantum_cross_validation": [
+    {
+      "absolute_error": 6.511458039426543e-13,
+      "beta": 0.1,
+      "independent_phase_offset": -1.7502092476628295e-07,
+      "independent_phase_steps": [
+        2.941369440881539e-06,
+        -2.6911335467094895e-06,
+        2.9412387825373088e-06
+      ],
+      "independent_quantum_bias": 0.900799999999349,
+      "probability_one": 0.1,
+      "production_quantum_bias": 0.9008000000000002
+    },
+    {
+      "absolute_error": 4.4209080840573733e-13,
+      "beta": 0.0,
+      "independent_phase_offset": -0.21106312427001422,
+      "independent_phase_steps": [
+        0.7827933950032575,
+        0.7827905232639568,
+        0.782793961019522
+      ],
+      "independent_quantum_bias": 0.8072619204883978,
+      "probability_one": 0.2,
+      "production_quantum_bias": 0.8072619204888399
+    },
+    {
+      "absolute_error": 1.7408297026122455e-13,
+      "beta": 0.2,
+      "independent_phase_offset": -0.29580709627884383,
+      "independent_phase_steps": [
+        1.1586754381722397,
+        1.1586770110096074,
+        1.1586761302107416
+      ],
+      "independent_quantum_bias": 0.5765428723938543,
+      "probability_one": 0.3,
+      "production_quantum_bias": 0.5765428723940283
+    },
+    {
+      "absolute_error": 1.5543122344752192e-13,
+      "beta": 0.4,
+      "independent_phase_offset": -0.14854704416933542,
+      "independent_phase_steps": [
+        1.1405378813056515,
+        1.1405361763619348,
+        1.1405407042383446
+      ],
+      "independent_quantum_bias": 0.35501262007373247,
+      "probability_one": 0.4,
+      "production_quantum_bias": 0.3550126200738879
+    },
+    {
+      "absolute_error": 4.993783164763954e-13,
+      "beta": 0.0,
+      "independent_phase_offset": 0.785399588806016,
+      "independent_phase_steps": [
+        -1.5707961999746167,
+        -1.5707985905029307,
+        -1.5707970407242777
+      ],
+      "independent_quantum_bias": 0.7071067811860482,
+      "probability_one": 0.5,
+      "production_quantum_bias": 0.7071067811865476
+    },
+    {
+      "absolute_error": 1.1785017406396037e-13,
+      "beta": 0.3,
+      "independent_phase_offset": -0.3283595005923351,
+      "independent_phase_steps": [
+        1.2661037934725774,
+        1.2661052594805244,
+        1.2661026018213617
+      ],
+      "independent_quantum_bias": 0.4141255848168553,
+      "probability_one": 0.5,
+      "production_quantum_bias": 0.41412558481697315
+    },
+    {
+      "absolute_error": 3.553823901825126e-13,
+      "beta": 0.1,
+      "independent_phase_offset": -0.5241330803736781,
+      "independent_phase_steps": [
+        1.4071722401410145,
+        1.407171401879145,
+        1.407168991797198
+      ],
+      "independent_quantum_bias": 0.6128875114183644,
+      "probability_one": 0.6,
+      "production_quantum_bias": 0.6128875114187198
+    },
+    {
+      "absolute_error": 1.7386092565629951e-13,
+      "beta": 0.4,
+      "independent_phase_offset": 0.05185074403038622,
+      "independent_phase_steps": [
+        1.0657296729764136,
+        1.065730947958214,
+        1.0657258623070514
+      ],
+      "independent_quantum_bias": 0.4352452194639023,
+      "probability_one": 0.7,
+      "production_quantum_bias": 0.4352452194640762
+    },
+    {
+      "absolute_error": 3.785860513971784e-14,
+      "beta": 0.2,
+      "independent_phase_offset": -1.015934405952175,
+      "independent_phase_steps": [
+        -0.7543063849088153,
+        -0.7543077241007278,
+        -0.7543063335706138
+      ],
+      "independent_quantum_bias": 0.6878993030047157,
+      "probability_one": 0.8,
+      "production_quantum_bias": 0.6878993030047535
+    },
+    {
+      "absolute_error": 1.2112533198660458e-13,
+      "beta": 0.49,
+      "independent_phase_offset": 0.8571774143738176,
+      "independent_phase_steps": [
+        0.7624021032373155,
+        0.7624190808401572,
+        0.7624080212630004
+      ],
+      "independent_quantum_bias": 0.7331494072465616,
+      "probability_one": 0.9,
+      "production_quantum_bias": 0.7331494072466828
+    }
+  ],
+  "reference": {
+    "arxiv_id": "2604.07451",
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "paper_item": "Figure 7(b), Equations 62-67, and Appendix B",
+    "retrieval_date": "2026-08-31",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "version": "v1",
+    "version_reverified_date": "2026-09-02"
+  },
+  "representative_operational_case": {
+    "configuration": {
+      "beta": 0.0,
+      "communication_time_seconds": 0.00024,
+      "ghz_state_infidelity": 0.05,
+      "local_decision_window_seconds": 1e-05,
+      "measurement_infidelity": 0.01,
+      "measurement_time_seconds": 8.7e-07,
+      "probability_one": 0.5,
+      "provenance": "Qualitative Section VI.B values, not a lower-level reproduction of Figure 7(e)",
+      "rotation_time_seconds": 1e-07,
+      "stationary_window_seconds": 1.0,
+      "supplied_ghz_rate_hz": 1000000.0,
+      "target_alpha": 0.05
+    },
+    "result": {
+      "alpha": 0.05,
+      "beta": 0.0,
+      "classical_value": 0.75,
+      "combined_infidelity": 0.11259040000000009,
+      "decision_criterion": "PASS",
+      "epsilon_ghz": 0.05,
+      "epsilon_meas": 0.01,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_wins_at_n_req": 88,
+      "fidelity_criterion": "PASS",
+      "ideal_gap": 0.10355339059327373,
+      "ideal_quantum_value": 0.8535533905932737,
+      "latency_constrained_regime": "PASS",
+      "n_req": 107,
+      "noisy_gap": 0.06374667292502079,
+      "noisy_quantum_value": 0.8137466729250208,
+      "overall_operational_quantum_advantage": "PASS",
+      "p_value_at_n_req": 0.048988437416019624,
+      "probability_one": 0.5,
+      "r_ghz": 1000000.0,
+      "r_req": 107.0,
+      "rate_criterion": "PASS",
+      "statistical_certification": "PASS",
+      "statistics_method": "exact_binomial",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "theoretical_advantage": "PASS"
+    }
+  },
+  "simulator_extrema": {
+    "maximum": {
+      "beta": 0.0,
+      "classical_bias": 0.5,
+      "classical_value": 0.75,
+      "gap": 0.10355339059327373,
+      "phase_offset": 0.7853981633974485,
+      "phase_step_1": 4.71238898038469,
+      "phase_step_2": 4.71238898038469,
+      "phase_step_3": 4.71238898038469,
+      "probability_one": 0.5,
+      "quantum_bias": 0.7071067811865476,
+      "quantum_value": 0.8535533905932737
+    },
+    "minimum_gap": -2.220446049250313e-16,
+    "positive_gap_above_display_threshold_count": 3474
+  },
+  "validations": {
+    "beta_half_max_abs_gap": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Li statement that advantage is confined below beta=1/2",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "beta_upper_advantage_violation": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "provenance": "Li Figure 7(b) beta<1/2 advantage region",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "canonical_strategy_bias": {
+      "absolute_error": 0.0,
+      "actual": 0.7071067811865475,
+      "expected": 0.7071067811865475,
+      "provenance": "Li Equations B8-B11 and B22 evaluated independently from the grid",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "classical_enumeration_max_abs_error": {
+      "absolute_error": 4.440892098500626e-16,
+      "actual": 4.440892098500626e-16,
+      "expected": 0.0,
+      "provenance": "Independent full utility enumeration over 64 deterministic local strategies",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "input_boundary_max_abs_gap": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Deterministic-input limit",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "negative_gap_violation": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Quantum strategy contains the optimal classical boundary in this family",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "operational_combined_infidelity": {
+      "absolute_error": 9.71445146547012e-17,
+      "actual": 0.11259040000000009,
+      "expected": 0.1125904,
+      "provenance": "Li Eq. B18",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "operational_required_rate": {
+      "absolute_error": 0.0,
+      "actual": 107.0,
+      "expected": 107.0,
+      "provenance": "Li Eq. 18",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "operational_required_trials": {
+      "absolute_error": 0.0,
+      "actual": 107.0,
+      "expected": 107.0,
+      "provenance": "Exact Li Eq. 16-17 search",
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "p_reflection_symmetry_max_abs_error": {
+      "absolute_error": 2.220446049250313e-16,
+      "actual": 2.220446049250313e-16,
+      "expected": 0.0,
+      "provenance": "Direct p versus 1-p grid comparison",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "quantum_cross_validation_max_abs_error": {
+      "absolute_error": 6.511458039426543e-13,
+      "actual": 6.511458039426543e-13,
+      "expected": 0.0,
+      "provenance": "Unrestricted three-phase differential-evolution cross-check",
+      "status": "PASS",
+      "tolerance": 2e-09
+    },
+    "uniform_classical_value": {
+      "absolute_error": 0.0,
+      "actual": 0.75,
+      "expected": 0.75,
+      "provenance": "Li Equations B8-B11 and B22 evaluated independently from the grid",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "uniform_gap": {
+      "absolute_error": 0.0,
+      "actual": 0.10355339059327373,
+      "expected": 0.10355339059327373,
+      "provenance": "Li Equations B8-B11 and B22 evaluated independently from the grid",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "uniform_infidelity_threshold": {
+      "absolute_error": 0.0,
+      "actual": 0.2928932188134524,
+      "expected": 0.2928932188134524,
+      "provenance": "Li Equations B8-B11 and B22 evaluated independently from the grid",
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "uniform_quantum_value": {
+      "absolute_error": 0.0,
+      "actual": 0.8535533905932737,
+      "expected": 0.8535533905932737,
+      "provenance": "Li Equations B8-B11 and B22 evaluated independently from the grid",
+      "status": "PASS",
+      "tolerance": 1e-12
+    }
+  }
+}
