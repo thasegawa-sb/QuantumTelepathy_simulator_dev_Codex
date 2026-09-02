@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-403 passed in 19.08s
+420 passed in 17.26s
 ```
 
 ## Passing Coverage
@@ -53,6 +53,9 @@ Result:
 | Li discrete `n_req` minimality, strict alpha boundary, and no-solution cases | `tests/scientific/test_li_statistics.py` |
 | Li required-rate identity and stationary-window units | `tests/scientific/test_li_statistics.py` |
 | Li Figure 3 configured-grid gates and generated artifacts | `tests/scientific/test_li_fig3_artifacts.py` |
+| Li Eq. 44 decision-latency sum and strict Eq. 45 boundary | `tests/scientific/test_li_operational.py` |
+| Li Table II fidelity/rate/decision status mapping | `tests/scientific/test_li_operational.py` |
+| Li standardized overall status and overclaim-prevention cases | `tests/scientific/test_li_operational.py` |
 
 ## Known Gaps
 
@@ -65,7 +68,7 @@ Result:
 | Li Fig. 2 reproduction | PARTIAL: all configured analytical, deterministic-enumeration, Ding-regression, and equation-consistency gates pass; author pointwise data are unavailable |
 | Li finite-statistics Fig. 3 reproduction | PARTIAL: exact equations, independent Decimal points, minimality, monotonicity, divergence, and paper reference-line behavior pass; author pointwise data are unavailable |
 | Li generalized bounded-score p-value, Eq. 19-21 | NOT_IMPLEMENTED: current exact certification scope is win/loss utilities in `[0,1]` |
-| Li operational output schema | NOT_IMPLEMENTED |
+| Li operational output schema | PASS: all required statuses and source quantities are emitted; strict equality and partial-failure cases are tested |
 | Li M2 HEG/time-multiplexing model | NOT_IMPLEMENTED |
 | Li Table III 50 km benchmark | NOT_IMPLEMENTED |
 | Analytical/event-driven cross-validation | NOT_IMPLEMENTED |

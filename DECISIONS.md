@@ -25,3 +25,5 @@
 | 2026-09-02 | Reuse the previous `n_req` only as a proven lower bound along nonincreasing `omega_Q` sequences. | At every fixed round count, lowering the quantum win probability cannot lower the classical tail p-value, so no earlier solution can appear. |
 | 2026-09-02 | Distinguish no finite certification from an exhausted numerical search. | `omega_Q<=omega_C` is a scientific no-solution condition; reaching `max_rounds` is a configurable computational limit. |
 | 2026-09-02 | Mark Li Figure 3 computation gates `PASS` but paper-level reproduction `PARTIAL`. | Exact equations and independent Decimal checks pass, while author pointwise curve data are unavailable. |
+| 2026-09-02 | Treat the Table II status as prospective system-level feasibility, not an observed experiment result. | Li Eq. 40 certifies the expected quantum win count; observed wins require a separate experimental p-value evaluation. |
+| 2026-09-02 | Require the LCTC regime and every theoretical, fidelity, finite-statistics, rate, and decision status for overall PASS. | This prevents a positive ideal gap or any single hardware criterion from being reported as operational quantum advantage. |

@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 7 Li decision-latency model and standardized operational status. Li Figure 3's exact finite-statistics computation gate passes; its paper-level status remains partial because author pointwise data are unavailable.
+Current gate: Phase 8 Li analytical M2 HEG and time-multiplexing model. Phase 7 decision latency and the standardized Table II status pass strict-boundary tests.
 
 Status:
 
@@ -151,5 +151,7 @@ Status:
 | Li finite-statistics equations | PASS | Stable exact binomial tails, discrete `n_req`, and `R_req` pass Decimal and minimality oracles |
 | Li Figure 3 computation gate | PASS | 1,758 points pass ten configured validations, including paper reference-line behavior |
 | Li Figure 3 paper-level reproduction | PARTIAL | Exact equations and visual structure pass; author pointwise numerical data are unavailable |
-| Equation-to-code map created | PARTIAL | Through Figure 3 is linked and validated; operational status and hardware mappings remain unimplemented |
-| Next implementation gate | Phase 7 | Decision latency and standardized operational status |
+| Li decision criterion | PASS | Eq. 44 sum and strict Eq. 45 boundary are tested independently of `T_env` and `T_comm` |
+| Li Table II operational status | PASS | Theoretical, fidelity, finite-statistics, rate, decision, LCTC-regime, and overall fields are separate |
+| Equation-to-code map created | PARTIAL | Through Table II is linked and validated; M2 and Table III mappings remain unimplemented |
+| Next implementation gate | Phase 8 | Analytical occupancy, memory, attempt-rate, and HEG-throughput formulas |

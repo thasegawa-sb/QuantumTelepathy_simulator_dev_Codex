@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 7, Li decision-latency model and standardized operational status.
+Current validation gate: Phase 8, Li M2 analytical HEG and time-multiplexing model.
 
 ## Completed
 
@@ -25,20 +25,11 @@ Current validation gate: Phase 7, Li decision-latency model and standardized ope
 | 2026-09-02 | Generated Li v1 Figure 2(a-c) data and plot; all configured analytical and independent-code gates pass | `experiments/li2026/results/fig2_v1/` |
 | 2026-09-02 | Implemented stable exact-binomial finite-statistics certification and independent Decimal oracles | `src/quantum_telepathy/li2026/statistics.py` |
 | 2026-09-02 | Generated Li v1 Figure 3 rate curves; all configured equation and discrete-minimality gates pass | `experiments/li2026/results/fig3_v1/` |
+| 2026-09-02 | Implemented Li Eq. 44-45 decision latency and the Table II operational-status schema | `src/quantum_telepathy/li2026/operational.py` |
 
 ## Next Gates
 
-1. Implement Li operational timing and status object:
-   - `tau_dec = tau_rot + tau_meas`,
-   - strict `tau_dec < T_loc`,
-   - theoretical advantage,
-   - fidelity criterion,
-   - statistical certification,
-   - rate criterion,
-   - decision criterion,
-   - overall operational quantum advantage.
-
-2. Implement M2 analytical HEG/time-multiplexing model:
+1. Implement M2 analytical HEG/time-multiplexing model:
    - occupancy,
    - memory depth,
    - attempt rate,

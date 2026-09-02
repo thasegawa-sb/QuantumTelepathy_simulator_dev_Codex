@@ -19,6 +19,13 @@ from quantum_telepathy.li2026.lctc import (
     generalized_lctc_utility,
     generalized_lctc_values,
 )
+from quantum_telepathy.li2026.operational import (
+    CriterionStatus,
+    DecisionCriterion,
+    OperationalAdvantageStatus,
+    evaluate_operational_advantage,
+    evaluate_operational_advantage_from_error_components,
+)
 from quantum_telepathy.li2026.statistics import (
     CertificationSearchLimitError,
     NoFiniteCertificationError,
@@ -37,6 +44,8 @@ __all__ = [
     "combined_infidelity",
     "combined_infidelity_small_error_approx",
     "correlated_input_distribution",
+    "CriterionStatus",
+    "DecisionCriterion",
     "enumerated_classical_optimum",
     "fidelity_threshold",
     "generalized_lctc_matrix",
@@ -47,6 +56,7 @@ __all__ = [
     "noisy_gap",
     "noisy_quantum_value",
     "noisy_singlet_correlator",
+    "OperationalAdvantageStatus",
     "singlet_density_matrix",
     "binomial_tail_p_value",
     "certification_p_value",
@@ -55,5 +65,7 @@ __all__ = [
     "required_trial_rate",
     "required_trials",
     "required_trials_sequence",
+    "evaluate_operational_advantage",
+    "evaluate_operational_advantage_from_error_components",
     "werner_state",
 ]

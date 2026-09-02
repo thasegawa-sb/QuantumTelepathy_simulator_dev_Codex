@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-6 are complete at their configured gates; Phase 7 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-7 are complete at their configured gates; Phase 8 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 7 decision latency and standardized operational status |
+| Next task | Phase 8 analytical M2 HEG and time-multiplexing model |
 
 ## Proposed Package Structure
 
@@ -195,7 +195,7 @@ Validation Gate B:
 
 ### Phase 7: Operational Timing Model
 
-Status: current implementation gate.
+Status: complete.
 
 Implement:
 
@@ -211,7 +211,16 @@ Validation:
 |---|---|
 | Boundary cases | Strict inequalities fail on equality |
 | Timescale separation | `T_env` never used as local decision deadline |
-| Table I scenarios | Config-level examples |
+| Representative system-level case | Exact Eq. 30 and Eq. 40-43 values remain traceable in the status |
+
+Implemented evidence:
+
+| Item | Result |
+|---|---|
+| Eq. 44 sum | `100 ns + 870 ns = 970 ns` in the representative unit test |
+| Strict boundaries | Equality fails for `tau_dec=T_loc`, `T_loc=T_comm`, `epsilon=epsilon_th`, and `R_HEG=R_req` |
+| Standard status | Separate PASS/FAIL fields for theoretical, fidelity, statistical, rate, decision, LCTC-regime, and overall results |
+| Overclaim prevention | Positive ideal gap alone cannot produce overall PASS |
 
 ### Phase 8: Event-Ready Time-Multiplexed Network
 
@@ -308,4 +317,4 @@ Only after analytical M2 passes:
 
 ## Development Rule
 
-The next scientifically meaningful action is the operational timing/status layer: `tau_dec=tau_rot+tau_meas`, strict decision and latency-regime criteria, and a standardized result that cannot report overall advantage from a positive theoretical gap alone.
+The next scientifically meaningful action is the analytical M2 layer: implement Eqs. 46-53 for occupancy, memory depth, attempt rate, decoherence, and HEG throughput before any event-driven network simulation.
