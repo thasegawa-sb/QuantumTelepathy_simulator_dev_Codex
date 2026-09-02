@@ -100,8 +100,8 @@ The scaffold follows these architectural requirements:
 | P4 | Li finite statistics and Fig. 3 | PARTIAL: computation gate PASS; author curve data unavailable |
 | P5 | Li Table II operational status mapping | PASS for supplied effective system-level parameters |
 | P5 | Li M2 Eq. 46-53 | PASS for analytical timing, memory, and throughput formulas |
-| P5 | Li system-level Eq. 54-57 | NOT_IMPLEMENTED |
-| P6 | Li Table III 50 km benchmark | NOT_IMPLEMENTED |
+| P5 | Li system-level Eq. 54-57 | PARTIAL: formula gate PASS; displayed `R0` and `p_ent` discrepancies retained |
+| P6 | Li Table III 50 km benchmark | PARTIAL: derived rate and operational gates PASS; four displayed-value discrepancies documented |
 | P7 | Analytical M2 versus event-driven HEG | NOT_IMPLEMENTED |
 | P8 | Multiparty Fig. 7 and Appendix B-C | NOT_IMPLEMENTED |
 

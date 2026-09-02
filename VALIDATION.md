@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-442 passed in 17.28s
+457 passed in 17.20s
 ```
 
 ## Passing Coverage
@@ -61,6 +61,8 @@ Result:
 | Li memory-lifetime threshold Eqs. 50-51 versus independent numerical root | `tests/scientific/test_li_m2_hardware.py` |
 | Li HEG rate and strict criterion Eqs. 52-53 versus Decimal/boundary oracles | `tests/scientific/test_li_m2_hardware.py` |
 | Li M2-derived effective error/rate integration with operational status | `tests/scientific/test_li_m2_hardware.py` |
+| Li Yb system-level Eqs. 54-61 versus independent 60-digit Decimal formulas | `tests/scientific/test_li_yb_node.py` |
+| Li Table III 50 km configuration, displayed-value discrepancies, and operational cases | `tests/scientific/test_li_table3_artifacts.py` |
 
 ## Known Gaps
 
@@ -75,5 +77,5 @@ Result:
 | Li generalized bounded-score p-value, Eq. 19-21 | NOT_IMPLEMENTED: current exact certification scope is win/loss utilities in `[0,1]` |
 | Li operational output schema | PASS: all required statuses and source quantities are emitted; strict equality and partial-failure cases are tested |
 | Li M2 analytical HEG/time-multiplexing model | PASS for Eqs. 46-53; stochastic trigger/buffer occupancy remains deferred to event-driven validation |
-| Li Table III 50 km benchmark | NOT_IMPLEMENTED |
+| Li Table III 50 km benchmark | PARTIAL: formula and operational gates pass, and `R_HEG=7854.545 s^-1` reproduces `7.9e3 s^-1`; exact listed-parameter calculations disagree with displayed `R0`, `p_ent`, `tau_occ`, and `p_false` |
 | Analytical/event-driven cross-validation | NOT_IMPLEMENTED |

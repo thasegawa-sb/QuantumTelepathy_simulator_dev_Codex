@@ -1,0 +1,73 @@
+{
+  "reference": "Li et al. arXiv:2604.07451v1",
+  "paper_item": "Table III and Equations 54-61",
+  "paper_values": {
+    "tpi_success_probability": {
+      "value": 0.25,
+      "absolute_tolerance": 0.0051,
+      "provenance": "Table III and Figure 6, displayed to two decimal places"
+    },
+    "tau_e_seconds": {
+      "value": 5.80e-7,
+      "absolute_tolerance": 5e-10,
+      "provenance": "Table III, 580 ns"
+    },
+    "intrinsic_heg_rate_hz": {
+      "value": 4.30e5,
+      "absolute_tolerance": 5e3,
+      "provenance": "Table III, 4.3e5 s^-1; displayed two-significant-figure half-unit interval"
+    },
+    "attenuation_law_transmission": {
+      "value": 0.06,
+      "absolute_tolerance": 0.005,
+      "provenance": "Table III, eta_att=0.06 from 0.25 dB/km and 50 km"
+    },
+    "entanglement_success_probability": {
+      "value": 0.0077,
+      "absolute_tolerance": 0.00005,
+      "provenance": "Equation 59, 7.7e-3; displayed two-significant-figure half-unit interval"
+    },
+    "propagation_latency_seconds": {
+      "value": 2.40e-4,
+      "absolute_tolerance": 5e-6,
+      "provenance": "Table III, 240 us from L/v_g"
+    },
+    "tau_dec_seconds": {
+      "value": 1.00e-6,
+      "absolute_tolerance": 5e-8,
+      "provenance": "Table III, 1 us from 100 ns plus 870 ns"
+    },
+    "tau_occ_seconds": {
+      "value": 2.44e-4,
+      "absolute_tolerance": 5e-7,
+      "provenance": "Table III, 244 us; displayed nearest microsecond"
+    },
+    "false_positive_fraction": {
+      "value": 0.0012,
+      "absolute_tolerance": 0.00005,
+      "provenance": "Text following Equation 59, 0.12%"
+    },
+    "combined_infidelity_upper_bound": {
+      "value": 0.061,
+      "absolute_tolerance": 0.0005,
+      "provenance": "Equation 61 and Table III, epsilon < 6.1%"
+    },
+    "r_heg_hz": {
+      "value": 7900.0,
+      "absolute_tolerance": 50.0,
+      "provenance": "Table III, 7.9e3 s^-1; displayed two-significant-figure half-unit interval"
+    }
+  },
+  "expected_discrepancies": [
+    "Exact p_e=0.70 gives p_e^2/2=0.245 and R0=4.224e5 s^-1, whereas the displayed R0=4.3e5 s^-1 follows if 0.245 is first rounded to 0.25.",
+    "Exact Equation 56 with the Table III rounded eta_att=0.06 gives p_ent=0.00762048, outside the half-unit interval around the displayed Equation 59 value 0.0077.",
+    "The listed times sum to tau_occ=242.55 us using tau_dec=970 ns, not the displayed 244 us.",
+    "Using the unrounded Equation 58 inputs gives p_false=0.125976%, outside the half-unit interval around the displayed 0.12%."
+  ],
+  "expected_failed_paper_metrics": [
+    "entanglement_success_probability",
+    "false_positive_fraction",
+    "intrinsic_heg_rate_hz",
+    "tau_occ_seconds"
+  ]
+}

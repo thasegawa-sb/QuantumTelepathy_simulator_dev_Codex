@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 9, Li Table III 50 km system-level benchmark.
+Current validation gate: Phase 10, analytical/event-driven HEG cross-validation.
 
 ## Completed
 
@@ -27,15 +27,16 @@ Current validation gate: Phase 9, Li Table III 50 km system-level benchmark.
 | 2026-09-02 | Generated Li v1 Figure 3 rate curves; all configured equation and discrete-minimality gates pass | `experiments/li2026/results/fig3_v1/` |
 | 2026-09-02 | Implemented Li Eq. 44-45 decision latency and the Table II operational-status schema | `src/quantum_telepathy/li2026/operational.py` |
 | 2026-09-02 | Implemented Li Eq. 46-53 analytical M2 occupancy, memory fidelity, and HEG throughput | `src/quantum_telepathy/hardware/` |
+| 2026-09-02 | Completed the Li Table III 50 km system-level calculation and documented four paper-value discrepancies | `experiments/li2026/results/table3_50km_v1/` |
 
 ## Next Gates
 
-1. Reproduce the Li Table III 50 km system-level benchmark from Eq. 54-61:
-   - intrinsic emitter period and rate,
-   - distance-dependent entanglement success probability,
-   - dark-count and state-infidelity budget,
-   - M2-derived occupancy and HEG throughput,
-   - all operational criteria under the published assumptions.
+1. Implement a discrete-event M2 simulator and compare it with the analytical
+   Table III model:
+   - seeded Bernoulli entanglement attempts and herald arrivals,
+   - finite memory occupancy, release, and reset events,
+   - analytical versus simulated throughput and occupancy,
+   - mean, standard deviation, confidence interval, sample size, seed, and runtime.
 
 ## Phase 16 Deliverables
 
@@ -53,8 +54,7 @@ supporting project records, not additional Phase 16 narrative deliverables.
 | Topic | Reason |
 |---|---|
 | Ding-Jiang full Figure 5(a) 101x101 surface | Cross-sections and independent bounds pass; a fresh 22-point run took 578 s, author pointwise data and unpublished modified-NPA code are unavailable |
-| Event-driven network simulation | Analytical Li formulas must pass first |
 | Microscopic cQED/TPI/CAPS models | System-level model is mandatory first; appendix-level microscopic reproduction may need further data |
 | Multiparty LCTC | Defer until two-party gates are validated |
-| Hardware optimization | Defer until all operational criteria and Table III are validated |
+| Hardware optimization | Defer until analytical/event-driven cross-validation is complete |
 | Li generalized bounded-score p-value, Eq. 19-21 | Figure 3 and current `[0,1]` win-probability utilities use the exact binomial path; implement before supporting utilities outside that range |

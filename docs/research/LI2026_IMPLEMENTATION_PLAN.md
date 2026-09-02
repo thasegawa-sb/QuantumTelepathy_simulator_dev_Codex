@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-8 are complete at their configured gates; Phase 9 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-9 are complete at their configured gates; Phase 10 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 9 Table III 50 km system-level benchmark |
+| Next task | Phase 10 analytical/event-driven HEG cross-validation |
 
 ## Proposed Package Structure
 
@@ -294,6 +294,13 @@ Validation Gate C:
 | Formula-derived values | Relative error <= 1e-3 unless table uses rounded values |
 | Criteria | Decision, fidelity, and rate PASS conditions reproduced under stated assumptions |
 
+Phase 9 result: the independent Decimal equation oracle and both configured
+operational cases pass. The derived `R_HEG=7854.545 s^-1` agrees with the
+displayed `7.9e3 s^-1`. Paper-level status is `PARTIAL`, because direct use of
+the listed parameters yields `R0=4.224e5 s^-1`, `p_ent=0.00762048`,
+`tau_occ=242.55 us`, and `p_false=0.125976%`, outside the displayed-value
+half-unit intervals for `4.3e5`, `0.0077`, `244 us`, and `0.12%` respectively.
+
 ### Phase 10: Analytical/Event-Driven Cross-Validation
 
 Only after analytical M2 passes:
@@ -344,4 +351,6 @@ project records rather than additional final narrative deliverables.
 
 ## Development Rule
 
-The next scientifically meaningful action is the Phase 9 system-level 50 km benchmark: derive Table III quantities from Eqs. 46-61 and versioned configuration parameters without hardcoding the published final performance.
+The next scientifically meaningful action is Phase 10: implement a seeded
+discrete-event M2 simulator and cross-validate Bell-pair throughput and memory
+occupancy against the Phase 9 analytical result.

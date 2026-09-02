@@ -1,0 +1,70 @@
+{
+  "reference": {
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "arxiv_id": "2604.07451",
+    "version": "v1",
+    "retrieval_date": "2026-08-31",
+    "version_reverified_date": "2026-09-02",
+    "paper_item": "Table III and Equations 44, 46-61"
+  },
+  "device": {
+    "internal_cooperativity": 20.0,
+    "n_memory_qubits": 250,
+    "n_channels": 1,
+    "photon_emission_probability": 0.70,
+    "photon_pulse_duration_seconds": 2.40e-7,
+    "swap_time_seconds": 1.00e-7,
+    "rotation_time_seconds": 1.00e-7,
+    "measurement_time_seconds": 8.70e-7,
+    "reset_time_seconds": 1.00e-6,
+    "memory_lifetime_seconds": 7.9,
+    "detector_efficiency": 0.9,
+    "measurement_infidelity": 0.002,
+    "state_infidelity_upper_bound": 0.04
+  },
+  "network": {
+    "distance_km": 50.0,
+    "attenuation_db_per_km": 0.25,
+    "group_velocity_m_per_s": 2.10e8,
+    "optics_efficiency": 0.8,
+    "dark_count_rate_hz": 10.0,
+    "table_rounded_link_transmission_override": 0.06,
+    "table_rounded_link_latency_seconds_override": 2.40e-4
+  },
+  "game": {
+    "name": "CHSH",
+    "input_distribution": "uniform",
+    "beta1": 0.0,
+    "beta2": 0.0
+  },
+  "application": {
+    "local_decision_window_seconds": 1.00e-5,
+    "communication_time_source": "system_link_latency",
+    "stationary_window_seconds": [0.01, 0.1],
+    "target_alpha": 0.05
+  },
+  "validation": {
+    "oracle_file": "../oracles/table3_50km_v1.json",
+    "formula_absolute_tolerances": {
+      "tpi_success_probability": 1e-15,
+      "tau_e_seconds": 1e-20,
+      "intrinsic_heg_rate_hz": 1e-9,
+      "entanglement_success_probability": 1e-17,
+      "tau_occ_seconds": 1e-18,
+      "gamma_heg_hz": 1e-9,
+      "r_heg_hz": 1e-10,
+      "dark_count_probability_per_attempt": 1e-20,
+      "false_positive_fraction": 1e-17,
+      "combined_infidelity_upper_bound": 1e-15,
+      "memory_adjusted_state_infidelity_upper_bound": 1e-14,
+      "memory_adjusted_combined_infidelity_upper_bound": 1e-14
+    }
+  },
+  "notes": [
+    "Device, network, game, application, and statistics parameters are kept separate.",
+    "The reproduction path uses the Table III rounded eta_att=0.06 and tau_link=240 us as explicit overrides; unrounded attenuation-law and propagation-time values are also reported.",
+    "epsilon_s=0.04 is evaluated conservatively at the paper's strict upper bound; Eq. 60 does not provide a lower-level quantitative decomposition for its channel-error margin.",
+    "Microscopic cavity dynamics and temporal-mode mismatch remain outside this system-level benchmark."
+  ]
+}

@@ -36,3 +36,18 @@ PYTHONPATH=src python3 -m experiments.li2026.reproduce_fig3
 The experiment evaluates the exact binomial-tail requirement for the CHSH game
 over combined infidelity, two significance levels, and three stationary-window
 durations. Outputs are written to `experiments/li2026/results/fig3_v1/`.
+
+## Table III 50 km benchmark
+
+Run from the repository root:
+
+```bash
+PYTHONPATH=src python3 -m experiments.li2026.reproduce_table3_50km
+```
+
+The benchmark derives Eq. 54-61 quantities from separate device, network,
+game, and application configuration blocks. Outputs are written to
+`experiments/li2026/results/table3_50km_v1/`. The internal 60-digit Decimal
+formula gate and the 10 ms/100 ms operational cases pass. Paper-level status is
+`PARTIAL`: the output records four displayed-value inconsistencies while the
+derived `R_HEG=7854.545 s^-1` reproduces the reported `7.9e3 s^-1`.
