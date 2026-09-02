@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 8 Li analytical M2 HEG and time-multiplexing model. Phase 7 decision latency and the standardized Table II status pass strict-boundary tests.
+Current gate: Phase 9 Li Table III 50 km system-level benchmark. Phase 8 analytical M2 Eqs. 46-53 pass independent Decimal, numerical-root, and boundary tests.
 
 Status:
 
@@ -153,5 +153,7 @@ Status:
 | Li Figure 3 paper-level reproduction | PARTIAL | Exact equations and visual structure pass; author pointwise numerical data are unavailable |
 | Li decision criterion | PASS | Eq. 44 sum and strict Eq. 45 boundary are tested independently of `T_env` and `T_comm` |
 | Li Table II operational status | PASS | Theoretical, fidelity, finite-statistics, rate, decision, LCTC-regime, and overall fields are separate |
-| Equation-to-code map created | PARTIAL | Through Table II is linked and validated; M2 and Table III mappings remain unimplemented |
-| Next implementation gate | Phase 8 | Analytical occupancy, memory, attempt-rate, and HEG-throughput formulas |
+| Li M2 analytical model | PASS | Occupancy, depth saturation, attempt rate, memory error/lifetime, channel multiplexing, and operational connection are validated |
+| Li Fig. 4 event-driven buffering | PARTIAL | Analytical equations pass; stochastic trigger and buffer occupancy distributions remain deferred |
+| Equation-to-code map created | PARTIAL | Through Eq. 53 is linked and validated; Table III and event-driven mappings remain unimplemented |
+| Next implementation gate | Phase 9 | Derive the Table III 50 km result from Eq. 54-61 parameters |

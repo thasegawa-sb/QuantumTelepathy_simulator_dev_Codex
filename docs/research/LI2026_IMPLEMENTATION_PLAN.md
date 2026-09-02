@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-7 are complete at their configured gates; Phase 8 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-8 are complete at their configured gates; Phase 9 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 8 analytical M2 HEG and time-multiplexing model |
+| Next task | Phase 9 Table III 50 km system-level benchmark |
 
 ## Proposed Package Structure
 
@@ -224,6 +224,9 @@ Implemented evidence:
 
 ### Phase 8: Event-Ready Time-Multiplexed Network
 
+Status: complete for the analytical Eq. 46-53 gate. Stochastic buffering remains
+deferred to the event-driven cross-validation phase.
+
 Implement M0/M1/M2:
 
 | Model | Meaning | Required support |
@@ -242,6 +245,17 @@ Validation:
 | Memory-induced error | Eq. 49 |
 | Memory lifetime threshold | Eq. 50-51 |
 | HEG rate | Eq. 52 |
+
+Implemented evidence:
+
+| Item | Result |
+|---|---|
+| Occupancy and depth | `tau_occ=242.55 us`, minimum saturation depth 419 for the representative analytical fixture |
+| Attempt rate | `Gamma_HEG=1.030715316e6 s^-1` for `N_a=250`; Decimal direct oracle passes |
+| Memory threshold | Eq. 51 agrees with an independent numerical root; strict equality fails |
+| Memory model validity | Out-of-domain Eq. 49 results are reported and never clipped |
+| HEG throughput | Eq. 52 agrees with an independent Decimal product; channel scaling and zero-success limits pass |
+| Operational connection | Derived effective error and `R_HEG` feed the Phase 7 status without hardcoding a final rate |
 
 ### Phase 9: Li 50 km Hardware Benchmark
 
@@ -299,6 +313,19 @@ Only after analytical M2 passes:
 | Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | Two-party cross-validation |
 | Hardware optimization | Minimum improvements satisfying all criteria | Full operational status |
 | HPC optimization | Performance only after correctness | Reproduction suite stable |
+| Phase 16 documentation | Japanese simulator manual (`.docx`), Japanese report (`.docx`), English paper (`.tex`) | Final validation complete |
+
+### Phase 16: Final Narrative Artifacts
+
+Create exactly these three narrative deliverables:
+
+1. A Japanese simulator manual in Word format.
+2. A Japanese research report in Word format.
+3. An English research paper in LaTeX format.
+
+The Word files require rendered page-level QA. The LaTeX paper must compile with
+its bibliography and figures. Existing Markdown traceability documents remain
+project records rather than additional final narrative deliverables.
 
 ## Test Oracle Plan
 
@@ -317,4 +344,4 @@ Only after analytical M2 passes:
 
 ## Development Rule
 
-The next scientifically meaningful action is the analytical M2 layer: implement Eqs. 46-53 for occupancy, memory depth, attempt rate, decoherence, and HEG throughput before any event-driven network simulation.
+The next scientifically meaningful action is the Phase 9 system-level 50 km benchmark: derive Table III quantities from Eqs. 46-61 and versioned configuration parameters without hardcoding the published final performance.

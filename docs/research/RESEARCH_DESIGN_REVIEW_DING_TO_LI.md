@@ -6,22 +6,22 @@ Date: 2026-08-31, updated 2026-09-02
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li generalized LCTC/fidelity/statistics layers, and Table II operational-status mapping now pass their configured analytical gates. Documented paper-level partial results remain partial where author pointwise data are unavailable. The next gate is the analytical M2 memory/HEG model; event-driven simulation remains deferred until those formulas pass.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li generalized LCTC/fidelity/statistics layers, Table II status, and analytical M2 Eqs. 46-53 now pass their configured gates. Documented paper-level partial results remain partial where author pointwise data are unavailable. The next gate is the Table III 50 km system benchmark; event-driven simulation remains deferred until that benchmark passes.
 
 ## Existing Implementation
 
 | Area | Finding |
 |---|---|
 | Repository structure | Fresh scaffold |
-| Source code | Shared core plus paper-specific Ding and Li modules present |
-| Tests | CHSH, Ding regressions, Li utility/fidelity/statistics, Figures 2-3, and operational-status scientific tests present |
+| Source code | Shared core, paper-specific Ding/Li modules, and platform-independent analytical M2 hardware package present |
+| Tests | CHSH, Ding regressions, Li utility/fidelity/statistics, Figures 2-3, operational status, and M2 scientific tests present |
 | Experiment scripts | Version-pinned Ding reproduction and Li Figure 2-3 scripts present |
 | Configurations | Version-pinned Ding and Li experiment configurations present |
-| Validation results | Generated Ding and Li result summaries and data present; 420 tests pass |
+| Validation results | Generated Ding and Li result summaries and data present; 442 tests pass |
 | Paper reproduction code | Scoped Ding baseline plus Li generalized LCTC, fidelity, statistics, and timing paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 8; Li analytical M2 memory and HEG model |
+| Current validation gate | Phase 9; Li Table III 50 km system-level benchmark |
 
 Files requested by the operating procedure were not available:
 
@@ -99,7 +99,8 @@ The scaffold follows these architectural requirements:
 | P3 | Li Fig. 2 | PARTIAL: configured analytical and independent-code gates PASS; author pointwise data unavailable |
 | P4 | Li finite statistics and Fig. 3 | PARTIAL: computation gate PASS; author curve data unavailable |
 | P5 | Li Table II operational status mapping | PASS for supplied effective system-level parameters |
-| P5 | Li M2 Eq. 46-57 | NOT_IMPLEMENTED |
+| P5 | Li M2 Eq. 46-53 | PASS for analytical timing, memory, and throughput formulas |
+| P5 | Li system-level Eq. 54-57 | NOT_IMPLEMENTED |
 | P6 | Li Table III 50 km benchmark | NOT_IMPLEMENTED |
 | P7 | Analytical M2 versus event-driven HEG | NOT_IMPLEMENTED |
 | P8 | Multiparty Fig. 7 and Appendix B-C | NOT_IMPLEMENTED |
@@ -138,10 +139,11 @@ The scaffold follows these architectural requirements:
 4. Completed: add Li beta1/beta2, correlated inputs, exact fidelity, and Figure 2.
 5. Completed: add exact win/loss finite-statistics certification and reproduce Figure 3.
 6. Completed: add operational status output and timing criteria.
-7. Current: add M2 analytical memory/HEG model and reproduce Table III.
-8. Cross-validate analytical HEG against event-driven simulation.
-9. Proceed to HFT waterfall, multiparty extension, and optimization only after gates pass.
+7. Completed: add M2 analytical memory/HEG model for Eqs. 46-53.
+8. Current: derive and reproduce the Table III 50 km benchmark from Eqs. 54-61.
+9. Cross-validate analytical HEG against event-driven simulation.
+10. Proceed to HFT waterfall, multiparty extension, and optimization only after gates pass.
 
 ## Design Decision
 
-The Table II operational contract is internally consistent and the complete Ding regression suite still passes. Development may proceed to Phase 8 analytical M2 hardware modeling; event-driven simulation remains deferred until the analytical HEG and memory gates pass.
+The analytical M2 contract is internally consistent and the complete Ding regression suite remains mandatory. Development may proceed to Phase 9 Table III reconstruction; event-driven simulation remains deferred until the system-level 50 km gate passes.

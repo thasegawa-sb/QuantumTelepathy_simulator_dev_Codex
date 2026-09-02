@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-420 passed in 17.26s
+442 passed in 17.28s
 ```
 
 ## Passing Coverage
@@ -56,6 +56,11 @@ Result:
 | Li Eq. 44 decision-latency sum and strict Eq. 45 boundary | `tests/scientific/test_li_operational.py` |
 | Li Table II fidelity/rate/decision status mapping | `tests/scientific/test_li_operational.py` |
 | Li standardized overall status and overclaim-prevention cases | `tests/scientific/test_li_operational.py` |
+| Li M2 occupancy, memory depth, and attempt rate Eqs. 46-48 versus Decimal/boundary oracles | `tests/scientific/test_li_m2_hardware.py` |
+| Li memory decoherence Eq. 49 versus 60-digit Decimal exponential | `tests/scientific/test_li_m2_hardware.py` |
+| Li memory-lifetime threshold Eqs. 50-51 versus independent numerical root | `tests/scientific/test_li_m2_hardware.py` |
+| Li HEG rate and strict criterion Eqs. 52-53 versus Decimal/boundary oracles | `tests/scientific/test_li_m2_hardware.py` |
+| Li M2-derived effective error/rate integration with operational status | `tests/scientific/test_li_m2_hardware.py` |
 
 ## Known Gaps
 
@@ -69,6 +74,6 @@ Result:
 | Li finite-statistics Fig. 3 reproduction | PARTIAL: exact equations, independent Decimal points, minimality, monotonicity, divergence, and paper reference-line behavior pass; author pointwise data are unavailable |
 | Li generalized bounded-score p-value, Eq. 19-21 | NOT_IMPLEMENTED: current exact certification scope is win/loss utilities in `[0,1]` |
 | Li operational output schema | PASS: all required statuses and source quantities are emitted; strict equality and partial-failure cases are tested |
-| Li M2 HEG/time-multiplexing model | NOT_IMPLEMENTED |
+| Li M2 analytical HEG/time-multiplexing model | PASS for Eqs. 46-53; stochastic trigger/buffer occupancy remains deferred to event-driven validation |
 | Li Table III 50 km benchmark | NOT_IMPLEMENTED |
 | Analytical/event-driven cross-validation | NOT_IMPLEMENTED |

@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 8, Li M2 analytical HEG and time-multiplexing model.
+Current validation gate: Phase 9, Li Table III 50 km system-level benchmark.
 
 ## Completed
 
@@ -26,15 +26,27 @@ Current validation gate: Phase 8, Li M2 analytical HEG and time-multiplexing mod
 | 2026-09-02 | Implemented stable exact-binomial finite-statistics certification and independent Decimal oracles | `src/quantum_telepathy/li2026/statistics.py` |
 | 2026-09-02 | Generated Li v1 Figure 3 rate curves; all configured equation and discrete-minimality gates pass | `experiments/li2026/results/fig3_v1/` |
 | 2026-09-02 | Implemented Li Eq. 44-45 decision latency and the Table II operational-status schema | `src/quantum_telepathy/li2026/operational.py` |
+| 2026-09-02 | Implemented Li Eq. 46-53 analytical M2 occupancy, memory fidelity, and HEG throughput | `src/quantum_telepathy/hardware/` |
 
 ## Next Gates
 
-1. Implement M2 analytical HEG/time-multiplexing model:
-   - occupancy,
-   - memory depth,
-   - attempt rate,
-   - HEG throughput,
-   - Table III 50 km benchmark.
+1. Reproduce the Li Table III 50 km system-level benchmark from Eq. 54-61:
+   - intrinsic emitter period and rate,
+   - distance-dependent entanglement success probability,
+   - dark-count and state-infidelity budget,
+   - M2-derived occupancy and HEG throughput,
+   - all operational criteria under the published assumptions.
+
+## Phase 16 Deliverables
+
+Phase 16 will produce exactly three final narrative artifacts:
+
+1. Japanese simulator manual in Word format (`.docx`).
+2. Japanese research report in Word format (`.docx`).
+3. English research paper in LaTeX format (`.tex` plus required bibliography/assets).
+
+Development traceability Markdown files and generated numerical/figure artifacts remain
+supporting project records, not additional Phase 16 narrative deliverables.
 
 ## Deferred
 

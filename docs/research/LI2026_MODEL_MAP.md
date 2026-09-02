@@ -14,7 +14,7 @@ Retrieval and version audit:
 | arXiv HTML | https://arxiv.org/html/2604.07451v1 |
 | Retrieval date | 2026-08-31 |
 | Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible when reverified 2026-09-02 |
-| Local repository state | Layer 0/1 core, Ding regression suite, Li generalized LCTC/fidelity/statistics/operational modules, and Figure 2-3 experiments are present |
+| Local repository state | Layer 0/1 core, Ding regression suite, Li generalized LCTC/fidelity/statistics/operational modules, analytical M2 hardware package, and Figure 2-3 experiments are present |
 
 ## Scope
 
@@ -33,7 +33,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Noise/fidelity | Sec. III A-B, Eq. 26-38 | Werner state, measurement flip, combined infidelity, threshold | PASS for Figure 2 scope |
 | Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | PASS for CHSH/Figure 3 scope |
 | Decision criterion | Sec. III D, Eq. 44-45 | `tau_dec = tau_rot + tau_meas`, compare to `T_loc` | PASS |
-| Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | NOT_IMPLEMENTED |
+| Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | PASS for analytical model; stochastic buffering deferred |
 | Neutral-atom/Yb benchmark | Sec. V, Eq. 54-61, Table III | System-level 50 km benchmark; microscopic model optional | NOT_IMPLEMENTED |
 | Multiparty extension | Sec. VI, Eq. 62-67, Appendix B | Three-party XOR/GHZ strategy, noise threshold, finite stats | NOT_IMPLEMENTED |
 | cQED appendices | Appendix C, Eq. C1-C15 | Optional microscopic Bell/GHZ and measurement model | NOT_IMPLEMENTED |
@@ -79,12 +79,12 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Eq. 37-38 | III B | Fidelity threshold and criterion | Fidelity criterion | Matrix M | `epsilon_th = 1 - C/Q` | Fig. 2 inset | PASS | <= 1e-12 except Q near 0 |
 | Eq. 39-43 | III C | Rate criterion with noisy win probability | `certification_p_value`, `required_trials_sequence`, `required_trial_rate` | `epsilon`, M, alpha, `T_env`, `R_trial` | Exact binomial tail and strict inequalities | Figure 3, Decimal points, minimality/monotonicity gates | PASS | Exact n at oracle points; p <= 1e-13 |
 | Eq. 44-45 | III D | Decision latency and criterion | `DecisionCriterion` | `tau_rot`, `tau_meas`, `T_loc` | Direct sum and strict inequality | `100 ns + 870 ns = 970 ns`; equality boundary | PASS | <= 1e-18 for sum; exact Boolean |
-| Eq. 46 | IV B | Per-qubit occupancy time | M2 memory model | `tau_e`, `tau_link`, `tau_dec`, `tau_res` | Direct sum | Table III reproduction | NOT_IMPLEMENTED | <= 1 ns for table |
-| Eq. 47 | IV B | Memory depth saturation condition | M2 memory-depth validator | `N_a`, `tau_e`, `tau_occ` | Direct inequality | Boundary tests | NOT_IMPLEMENTED | Exact Boolean |
-| Eq. 48 | IV B | HEG attempt rate `Gamma_HEG` | M2 throughput model | `tau_e`, `N_a`, `tau_occ` | Direct min formula | Table III reproduction | NOT_IMPLEMENTED | <= 1e-12 |
-| Eq. 49 | IV B | Memory decoherence contribution to entanglement infidelity | Memory-error model | `tau_occ`, `tau_mem`, `epsilon_s` | Exact exponential formula | Small-time approximation comparison | NOT_IMPLEMENTED | <= 1e-12 exact |
-| Eq. 50-51 | IV B | Memory lifetime threshold | Memory criterion | `tau_occ`, `epsilon_th`, `epsilon_meas`, `epsilon_s` | Direct formula | Limit-case tests | NOT_IMPLEMENTED | <= 1e-9 |
-| Eq. 52-53 | IV B-C | HEG rate and rate criterion | M2 throughput and operational status | `N_ch`, `p_ent`, `Gamma_HEG`, `R_req` | Direct formula | Table III and Fig. 3 cross-check | PARTIAL: supplied `R_HEG` criterion PASS; lower-level throughput NOT_IMPLEMENTED | <= 1e-12 |
+| Eq. 46 | IV B | Per-qubit occupancy time | `occupancy_time`, `M2TimingResult` | `tau_e`, `tau_link`, `tau_dec`, `tau_res` | Decimal direct sum | Representative analytical fixture | PASS | <= 1e-18 s |
+| Eq. 47 | IV B | Memory depth saturation condition | `minimum_memory_qubits`, `memory_depth_saturates` | `N_a`, `tau_e`, `tau_occ` | Integer ceiling and direct inequality | Equality and one-below boundary tests | PASS | Exact integer/Boolean |
+| Eq. 48 | IV B | HEG attempt rate `Gamma_HEG` | `heg_attempt_rate` | `tau_e`, `N_a`, `tau_occ` | Decimal direct minimum | Saturated and memory-limited cases | PASS | <= 1e-15 relative |
+| Eq. 49 | IV B | Memory decoherence contribution to entanglement infidelity | `memory_adjusted_state_infidelity` | `tau_occ`, `tau_mem`, `epsilon_s` | 60-digit Decimal exponential | Infinite-memory and invalid-domain limits | PASS | <= 1e-14 relative |
+| Eq. 50-51 | IV B | Memory lifetime threshold | `memory_lifetime_threshold`, `M2MemoryFidelityResult` | `tau_occ`, `epsilon_th`, `epsilon_meas`, `epsilon_s` | Independent numerical root | Strict equality and no-finite-solution cases | PASS | <= 1e-11 relative |
+| Eq. 52-53 | IV B-C | HEG rate and rate criterion | `evaluate_heg_rate`, operational status | `N_ch`, `p_ent`, `Gamma_HEG`, `R_req` | Decimal direct product and strict inequality | Channel scaling, zero-success, operational connection | PASS for analytical model | <= 1e-15 relative; exact Boolean |
 | Eq. 54-55 | V B | Intrinsic HEG rate and trial period | Yb system-level model | `p_e`, `tau_p`, `tau_swap` | Direct formula | Table III `R0`, `tau_e` | NOT_IMPLEMENTED | Relative error <= 1e-3 |
 | Eq. 56-57 | V C | Distance-dependent HEG success/rate | 50 km benchmark model | `eta_att`, `eta_det`, `eta_misc`, `N_ch`, M2 rates | Direct formula | Table III `R_HEG` | NOT_IMPLEMENTED | Relative error <= 1e-3 |
 | Eq. 58-59 | V C | Dark-count false positives and 50 km success probability | Hardware-error model | `tau_p`, D, `p_ent` | Direct formula | Table III notes | NOT_IMPLEMENTED | Relative error <= 1e-3 |
@@ -108,7 +108,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Fig. 2c | III B | Gap versus combined infidelity and threshold inset | `experiments/li2026/results/fig2_v1/fig2c_noisy_gap.csv` | Eq. 34 linearity, Eq. 37 roots, CHSH threshold | PARTIAL: configured gates PASS; no author point data |
 | Fig. 3a | III C | Finite-window trial accumulation schematic | `experiments/li2026/results/fig3_v1/fig3_reproduction.png` | Paper schematic and timescale separation | PARTIAL: schematic reproduced computationally |
 | Fig. 3b | III C | Required rate versus infidelity, alpha, and T_env for CHSH | `experiments/li2026/results/fig3_v1/fig3_required_rate.csv` | Exact Eq. 40-43, Decimal points, paper reference lines | PARTIAL: configured gates PASS; no author point data |
-| Fig. 4 | IV | M2 time-multiplexed event-ready protocol | M2 event-ready model and optional timeline visualization | Eq. 46-53 | NOT_IMPLEMENTED |
+| Fig. 4 | IV | M2 time-multiplexed event-ready protocol | Analytical M2 timing/memory/HEG model | Eq. 46-53 | PARTIAL: equations PASS; event-driven buffer timeline deferred |
 | Table II | IV C | Mapping operational criteria to hardware requirements | `OperationalAdvantageStatus` | Exact fidelity/rate/decision fields and strict boundaries | PASS for supplied system-level parameters |
 | Fig. 5 | V A | Telecom-band Yb node architecture | Hardware docs and optional config schema | Paper schematic | NOT_IMPLEMENTED |
 | Fig. 6 | V B | Yb TPI and measurement performance | System-level oracle; microscopic optional | Eq. 54-55, Appendix C | NOT_IMPLEMENTED |
@@ -157,7 +157,8 @@ passes only when every one of these statuses passes. The representative timing
 test obtains `tau_dec=970 ns` from `100 ns + 870 ns`; exact equality at either
 the local deadline, communication boundary, fidelity threshold, or required
 rate fails. The lower-level derivation of `R_HEG` and memory-decoherence effects
-remains Phase 8 work.
+is now implemented through Eq. 53; distance-dependent `p_ent` and the Table III
+parameter provenance remain Phase 9 work.
 
 ## Operational Advantage Output Contract
 
@@ -174,9 +175,10 @@ The simulator reports all of the following fields, with no single overloaded "qu
 | `overall_operational_quantum_advantage` | all preceding regime, advantage, certification, and Table II criteria pass | Table II |
 
 This is a prospective feasibility status for supplied system-level parameters,
-not an observed experimental p-value. Once the M2 model is connected, its
-memory-adjusted `epsilon` and derived `R_HEG` must be supplied to this status;
-memory lifetime is not a fourth independent criterion in Table II.
+not an observed experimental p-value. The analytical M2 model now supplies its
+memory-adjusted `epsilon` and derived `R_HEG` to this status; memory lifetime is
+not a fourth independent criterion in Table II but is an explicit diagnostic
+whose failure prevents the effective fidelity input from passing.
 
 ## Parameter Taxonomy
 
