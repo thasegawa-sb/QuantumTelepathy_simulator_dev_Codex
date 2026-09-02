@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-375 passed in 36.27s
+403 passed in 19.08s
 ```
 
 ## Passing Coverage
@@ -49,6 +49,10 @@ Result:
 | Li 2x2 quantum bias versus independent measurement-angle optimization | `tests/scientific/test_li_fig2.py` |
 | Li Figure 2(a) full-grid Ding-layer regression | `experiments/li2026/results/fig2_v1/fig2_summary.json` |
 | Li Figure 2(a-c) configured-grid analytical gates and artifacts | `tests/scientific/test_li_fig2_artifacts.py` |
+| Li exact binomial tails versus independent Decimal direct sums | `tests/scientific/test_li_statistics.py` |
+| Li discrete `n_req` minimality, strict alpha boundary, and no-solution cases | `tests/scientific/test_li_statistics.py` |
+| Li required-rate identity and stationary-window units | `tests/scientific/test_li_statistics.py` |
+| Li Figure 3 configured-grid gates and generated artifacts | `tests/scientific/test_li_fig3_artifacts.py` |
 
 ## Known Gaps
 
@@ -59,7 +63,8 @@ Result:
 | Ding-Jiang Type II memory-rate calculation | PASS: v3 formulas and rounded published values pass independent oracles |
 | Ding-Jiang Figure 7-8 pointwise paper comparison | PARTIAL: equations, analytical extrema, symmetries, and visual shape pass; author numerical grids are unavailable |
 | Li Fig. 2 reproduction | PARTIAL: all configured analytical, deterministic-enumeration, Ding-regression, and equation-consistency gates pass; author pointwise data are unavailable |
-| Li finite-statistics Fig. 3 reproduction | NOT_IMPLEMENTED |
+| Li finite-statistics Fig. 3 reproduction | PARTIAL: exact equations, independent Decimal points, minimality, monotonicity, divergence, and paper reference-line behavior pass; author pointwise data are unavailable |
+| Li generalized bounded-score p-value, Eq. 19-21 | NOT_IMPLEMENTED: current exact certification scope is win/loss utilities in `[0,1]` |
 | Li operational output schema | NOT_IMPLEMENTED |
 | Li M2 HEG/time-multiplexing model | NOT_IMPLEMENTED |
 | Li Table III 50 km benchmark | NOT_IMPLEMENTED |

@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 6 Li finite-statistics certification and Figure 3 reproduction. Li Figure 2's configured analytical gates pass; its paper-level status remains partial because author pointwise data are unavailable.
+Current gate: Phase 7 Li decision-latency model and standardized operational status. Li Figure 3's exact finite-statistics computation gate passes; its paper-level status remains partial because author pointwise data are unavailable.
 
 Status:
 
@@ -148,5 +148,8 @@ Status:
 | Li generalized LCTC and fidelity model | PASS | Correlated inputs, independent beta values, Werner state, measurement visibility, exact combined infidelity, gap, and threshold are tested |
 | Li Figure 2 computation gate | PASS | 20,402 ideal points, 3,208 noisy points, and 202 threshold points pass nine configured validations |
 | Li Figure 2 paper-level reproduction | PARTIAL | Visual structure and exact/invariant oracles pass; author pointwise numerical data are unavailable |
-| Equation-to-code map created | PARTIAL | Through Figure 2 is linked and validated; statistics and hardware mappings remain unimplemented |
-| Next implementation gate | Phase 6 | Exact finite-statistics certification and Figure 3 |
+| Li finite-statistics equations | PASS | Stable exact binomial tails, discrete `n_req`, and `R_req` pass Decimal and minimality oracles |
+| Li Figure 3 computation gate | PASS | 1,758 points pass ten configured validations, including paper reference-line behavior |
+| Li Figure 3 paper-level reproduction | PARTIAL | Exact equations and visual structure pass; author pointwise numerical data are unavailable |
+| Equation-to-code map created | PARTIAL | Through Figure 3 is linked and validated; operational status and hardware mappings remain unimplemented |
+| Next implementation gate | Phase 7 | Decision latency and standardized operational status |

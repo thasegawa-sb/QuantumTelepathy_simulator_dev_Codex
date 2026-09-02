@@ -21,7 +21,7 @@ The correct development sequence remains staged. The independently verified nonl
 | Paper reproduction code | Ding ideal, loss, Type II, and qubit-noise reproduction paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 6; Li finite-statistics certification/Figure 3 reproduction |
+| Current validation gate | Phase 7; Li decision latency and standardized operational status |
 
 Files requested by the operating procedure were not available:
 
@@ -49,7 +49,7 @@ The fresh scaffold now contains these reusable components:
 | XOR game matrix abstraction | Ding HFT and Li generalized LCTC |
 | 2x2 quantum XOR optimizer | `Q(M)`, CHSH, Fig. 2, Ding Fig. 3 |
 | Li exact combined-infidelity formulas | Fidelity criterion |
-| Stable binomial-tail statistics | Still missing |
+| Stable binomial-tail statistics | PASS for exact win/loss utilities and Figure 3 |
 | Hardware parameter/config system | Still missing |
 
 ## Operational Prerequisites
@@ -66,7 +66,7 @@ layers still block an overall claim:
 | Ding HFT reproduction | Prevent Li extension from silently changing foundational results |
 | Li generalized utility/input model | PASS for binary two-party scope, including independent and correlated Figure 2 inputs |
 | Exact Li fidelity model | PASS for Eq. 26 and Eq. 28-38 Figure 2 scope |
-| Exact binomial finite-statistics model | Required for Criterion B |
+| Exact binomial finite-statistics model | PASS for Criterion B win/loss scope |
 | Decision-latency model | Required for Criterion C |
 | M2 time-multiplexed memory model | Required for Li operational architecture |
 | 50 km benchmark | Required for Table III reproduction |
@@ -97,7 +97,7 @@ The scaffold follows these architectural requirements:
 | P2 | Ding robustness/noisy-gap figures | PARTIAL: analytical and visual gates pass; author pointwise data unavailable |
 | P3 | Li Eq. 23-25 generalized LCTC | PASS for utility/matrix unit tests |
 | P3 | Li Fig. 2 | PARTIAL: configured analytical and independent-code gates PASS; author pointwise data unavailable |
-| P4 | Li finite statistics and Fig. 3 | NOT_IMPLEMENTED |
+| P4 | Li finite statistics and Fig. 3 | PARTIAL: computation gate PASS; author curve data unavailable |
 | P5 | Li Table II operational status mapping | NOT_IMPLEMENTED |
 | P5 | Li M2 Eq. 46-57 | NOT_IMPLEMENTED |
 | P6 | Li Table III 50 km benchmark | NOT_IMPLEMENTED |
@@ -136,12 +136,12 @@ The scaffold follows these architectural requirements:
 2. Completed: implement Layer 0/1, CHSH, and deterministic classical enumeration.
 3. Completed: reproduce the scoped Ding-Jiang v3 baseline and retain documented partials.
 4. Completed: add Li beta1/beta2, correlated inputs, exact fidelity, and Figure 2.
-5. Current: add finite-statistics certification and reproduce Figure 3.
-6. Add operational status output and timing criteria.
+5. Completed: add exact win/loss finite-statistics certification and reproduce Figure 3.
+6. Current: add operational status output and timing criteria.
 7. Add M2 analytical memory/HEG model and reproduce Table III.
 8. Cross-validate analytical HEG against event-driven simulation.
 9. Proceed to HFT waterfall, multiparty extension, and optimization only after gates pass.
 
 ## Design Decision
 
-The Figure 2 gate is internally consistent and Ding regression remains mandatory. Development may proceed to Phase 6 finite statistics; hardware modeling remains deferred until the rate criterion has an independently validated `R_req`.
+The Figure 3 computation gate is internally consistent and Ding regression remains mandatory. Development may proceed to Phase 7 operational timing/status; hardware modeling remains deferred until that status contract is validated.

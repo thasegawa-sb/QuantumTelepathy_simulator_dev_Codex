@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-5 are complete at their configured gates; Phase 6 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-6 are complete at their configured gates; Phase 7 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 6 exact finite statistics and Figure 3 |
+| Next task | Phase 7 decision latency and standardized operational status |
 
 ## Proposed Package Structure
 
@@ -165,7 +165,7 @@ Validation Gate A:
 
 ### Phase 6: Finite Statistics Model
 
-Status: current implementation gate.
+Status: complete for exact win/loss utilities and Figure 3. The generalized-score bound in Eqs. 19-21 remains deferred.
 
 Implement:
 
@@ -194,6 +194,8 @@ Validation Gate B:
 | Divergence near threshold | Qualitative and numerical monotonic behavior |
 
 ### Phase 7: Operational Timing Model
+
+Status: current implementation gate.
 
 Implement:
 
@@ -306,4 +308,4 @@ Only after analytical M2 passes:
 
 ## Development Rule
 
-The next scientifically meaningful action is the exact binomial finite-statistics model, including stable tails, direct small-`n` oracles, minimality tests for `n_req`, and Figure 3 reproduction.
+The next scientifically meaningful action is the operational timing/status layer: `tau_dec=tau_rot+tau_meas`, strict decision and latency-regime criteria, and a standardized result that cannot report overall advantage from a positive theoretical gap alone.

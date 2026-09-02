@@ -24,3 +24,15 @@ Outputs are written to `experiments/li2026/results/fig2_v1/`:
 The paper does not provide author numerical data for Figure 2. The configured
 analytical and independent-code validations can pass while the paper-item
 reproduction status remains `PARTIAL`.
+
+## Figure 3
+
+Run from the repository root:
+
+```bash
+PYTHONPATH=src python3 -m experiments.li2026.reproduce_fig3
+```
+
+The experiment evaluates the exact binomial-tail requirement for the CHSH game
+over combined infidelity, two significance levels, and three stationary-window
+durations. Outputs are written to `experiments/li2026/results/fig3_v1/`.

@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 6, Li finite-statistics certification and Figure 3 reproduction.
+Current validation gate: Phase 7, Li decision-latency model and standardized operational status.
 
 ## Completed
 
@@ -23,16 +23,14 @@ Current validation gate: Phase 6, Li finite-statistics certification and Figure 
 | 2026-09-02 | Added independent real NPA `Q1+AB` lossy-value bounds and two-sided numerical threshold brackets | `src/quantum_telepathy/ding_jiang/loss_sdp.py` |
 | 2026-09-02 | Implemented Li correlated inputs, asymmetric utilities, Werner-state and measurement-error reference paths | `src/quantum_telepathy/li2026/` |
 | 2026-09-02 | Generated Li v1 Figure 2(a-c) data and plot; all configured analytical and independent-code gates pass | `experiments/li2026/results/fig2_v1/` |
+| 2026-09-02 | Implemented stable exact-binomial finite-statistics certification and independent Decimal oracles | `src/quantum_telepathy/li2026/statistics.py` |
+| 2026-09-02 | Generated Li v1 Figure 3 rate curves; all configured equation and discrete-minimality gates pass | `experiments/li2026/results/fig3_v1/` |
 
 ## Next Gates
 
-1. Implement Li finite-statistics certification:
-   - exact binomial-tail p-value,
-   - `n_req(epsilon,M,alpha)`,
-   - `R_req(epsilon,M,alpha,T_env)`,
-   - small-n brute-force or direct-sum oracle.
-
-2. Implement Li operational status object:
+1. Implement Li operational timing and status object:
+   - `tau_dec = tau_rot + tau_meas`,
+   - strict `tau_dec < T_loc`,
    - theoretical advantage,
    - fidelity criterion,
    - statistical certification,
@@ -40,7 +38,7 @@ Current validation gate: Phase 6, Li finite-statistics certification and Figure 
    - decision criterion,
    - overall operational quantum advantage.
 
-3. Implement M2 analytical HEG/time-multiplexing model:
+2. Implement M2 analytical HEG/time-multiplexing model:
    - occupancy,
    - memory depth,
    - attempt rate,
@@ -56,3 +54,4 @@ Current validation gate: Phase 6, Li finite-statistics certification and Figure 
 | Microscopic cQED/TPI/CAPS models | System-level model is mandatory first; appendix-level microscopic reproduction may need further data |
 | Multiparty LCTC | Defer until two-party gates are validated |
 | Hardware optimization | Defer until all operational criteria and Table III are validated |
+| Li generalized bounded-score p-value, Eq. 19-21 | Figure 3 and current `[0,1]` win-probability utilities use the exact binomial path; implement before supporting utilities outside that range |

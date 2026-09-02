@@ -1,0 +1,56 @@
+{
+  "reference": "Li et al. arXiv:2604.07451v1",
+  "paper_item": "Figure 3 and Equations 16-18, 39-43",
+  "oracles": {
+    "ideal_alpha_0_05_required_trials": {
+      "value": 34,
+      "absolute_tolerance": 0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search"
+    },
+    "ideal_alpha_0_001_required_trials": {
+      "value": 143,
+      "absolute_tolerance": 0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search"
+    },
+    "epsilon_0_061_alpha_0_05_required_trials": {
+      "value": 65,
+      "absolute_tolerance": 0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search"
+    },
+    "epsilon_0_061_alpha_0_001_required_trials": {
+      "value": 238,
+      "absolute_tolerance": 0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search"
+    },
+    "decimal_required_trials_max_abs_error": {
+      "value": 0,
+      "absolute_tolerance": 0,
+      "provenance": "Production vectorized survival-function search versus independent Decimal exhaustive search"
+    },
+    "decimal_p_value_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-13,
+      "provenance": "SciPy binomial survival function versus independent Decimal direct sum"
+    },
+    "minimality_violation_count": {
+      "value": 0,
+      "absolute_tolerance": 0,
+      "provenance": "At each returned minimum p(n_req)<alpha and p(n_req-1)>=alpha after exhaustive production scan"
+    },
+    "monotonicity_violation_count": {
+      "value": 0,
+      "absolute_tolerance": 0,
+      "provenance": "n_req cannot decrease with increasing infidelity or stricter significance"
+    },
+    "rate_identity_max_abs_error": {
+      "value": 0.0,
+      "absolute_tolerance": 1e-9,
+      "provenance": "Equations 18 and 41, R_req*T_env=n_req"
+    },
+    "reference_hardware_pass_count": {
+      "value": 4,
+      "absolute_tolerance": 0,
+      "provenance": "At epsilon=0.061 and R_trial=7.9 kHz, both alpha values fail for T_env=1 ms and pass for 100 ms and 10 s"
+    }
+  }
+}

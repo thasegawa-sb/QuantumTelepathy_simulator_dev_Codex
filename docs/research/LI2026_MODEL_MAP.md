@@ -27,11 +27,11 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Generic nonlocal game | Sec. II A, Eq. 1-4 | Expected utility, local/quantum behavior sets, gap | PARTIAL |
 | XOR game | Sec. II A, Eq. 5-12 | Matrix `M`, correlators, `C(M)`, `Q(M)` | PARTIAL |
 | LCTC timing | Sec. II B, Eq. 15 | `T_loc`, `T_comm`, LC-condition enforcement | PARTIAL |
-| Finite statistics | Sec. II C, Eq. 16-21 | Exact binomial p-value, generalized score p-value bound, `n_req`, `R_req` | NOT_IMPLEMENTED |
+| Finite statistics | Sec. II C, Eq. 16-21 | Exact binomial p-value, generalized score p-value bound, `n_req`, `R_req` | PASS for win/loss; general-score bound NOT_IMPLEMENTED |
 | Application examples | Sec. II D, Table I | HFT, grid, load-balancing scenario configs | NOT_IMPLEMENTED |
 | Generalized two-party LCTC | Sec. III A, Eq. 23-25 | Asymmetric beta1/beta2 utility and arbitrary `P(x,y)` | PASS for binary two-party scope |
 | Noise/fidelity | Sec. III A-B, Eq. 26-38 | Werner state, measurement flip, combined infidelity, threshold | PASS for Figure 2 scope |
-| Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | NOT_IMPLEMENTED |
+| Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | PASS for CHSH/Figure 3 scope |
 | Decision criterion | Sec. III D, Eq. 44-45 | `tau_dec = tau_rot + tau_meas`, compare to `T_loc` | NOT_IMPLEMENTED |
 | Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | NOT_IMPLEMENTED |
 | Neutral-atom/Yb benchmark | Sec. V, Eq. 54-61, Table III | System-level 50 km benchmark; microscopic model optional | NOT_IMPLEMENTED |
@@ -57,9 +57,9 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Eq. 13 | II A | CHSH win utility `a xor b = x y` | CHSH fixture | Uniform inputs | Known CHSH solution | Unit tests | PASS | Exact utility |
 | Eq. 14 | II A | Singlet state | `singlet_density_matrix` | Paper | Known state | Trace, fidelity, and positivity tests | PASS | <= 1e-12 |
 | Eq. 15 | II B | LC condition `T_loc < T_comm` | LCTC timing validator | Scenario config | Direct inequality | Boundary tests | PASS | Exact Boolean |
-| Eq. 16 | II C | Exact binomial-tail p-value for win/loss utilities | Statistics module | `omega_C`, wins v, rounds m | Exact binomial sum | Brute-force/direct for small n; stable survival function for large n | NOT_IMPLEMENTED | <= 1e-12 small n |
-| Eq. 17 | II C | Required rounds `n_req(alpha)` | Statistics module | `omega_Q`, alpha | Minimal m search | Independent brute force for small n | NOT_IMPLEMENTED | Exact integer |
-| Eq. 18 | II C | Required trial rate `R_req = n_req/T_env` | Rate criterion | `n_req`, `T_env` | Direct formula | Unit conversion tests | NOT_IMPLEMENTED | <= 1e-12 |
+| Eq. 16 | II C | Exact binomial-tail p-value for win/loss utilities | `binomial_tail_p_value` | `omega_C`, wins v, rounds m | Decimal direct binomial sum | SciPy stable survival function | PASS | <= 1e-13 small n |
+| Eq. 17 | II C | Required rounds `n_req(alpha)` | `required_trials` | `omega_Q`, alpha | Exhaustive positive-integer search | Independent Decimal exhaustive search at four CHSH points | PASS | Exact integer |
+| Eq. 18 | II C | Required trial rate `R_req = n_req/T_env` | `required_trial_rate` | `n_req`, `T_env` | Direct formula | Rate-times-window identity | PASS | <= 1e-9 absolute identity error |
 | Eq. 19 | II C | General score p-value definition | General-score statistics | Score distribution | Optimization over classical strategies | Bound in Eq. 20 | NOT_IMPLEMENTED | PARTIAL target |
 | Eq. 20-21 | II C | General-score p-value upper bound | General-score certification bound | `u_min`, `u_max`, `omega_C` | Published inequality | Monotonicity and small-case comparisons | NOT_IMPLEMENTED | Conservative bound |
 | Eq. 22 | II D | Symmetric HFT utility from Ding-Jiang | HFT utility fixture | beta | Ding-Jiang Eq. 3.1 after relabeling | Full Figure 2(a) grid versus Ding layer | PASS | <= 1e-12 |
@@ -77,7 +77,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Eq. 34 | III A | Noisy gap `Delta omega(epsilon,M)` | Gap evaluator | `epsilon`, `C`, `Q` | Direct formula | Figure 2(c) linearity and threshold-root gates | PASS | <= 1e-12 |
 | Eq. 35-36 | III A | CHSH matrix and noisy CHSH gap | CHSH oracle | Uniform inputs, beta1=beta2=0 | `C=1/2`, `Q=1/sqrt(2)` | Unit tests | PASS | <= 1e-12 |
 | Eq. 37-38 | III B | Fidelity threshold and criterion | Fidelity criterion | Matrix M | `epsilon_th = 1 - C/Q` | Fig. 2 inset | PASS | <= 1e-12 except Q near 0 |
-| Eq. 39-43 | III C | Rate criterion with noisy win probability | Operational status evaluator | `epsilon`, M, alpha, `T_env`, `R_trial` | Exact binomial tail | Reproduce Fig. 3 | NOT_IMPLEMENTED | Exact n for tested cases |
+| Eq. 39-43 | III C | Rate criterion with noisy win probability | `certification_p_value`, `required_trials_sequence`, `required_trial_rate` | `epsilon`, M, alpha, `T_env`, `R_trial` | Exact binomial tail and strict inequalities | Figure 3, Decimal points, minimality/monotonicity gates | PASS | Exact n at oracle points; p <= 1e-13 |
 | Eq. 44-45 | III D | Decision latency and criterion | Decision criterion | `tau_rot`, `tau_meas`, `T_loc` | Direct formula and inequality | Boundary tests | NOT_IMPLEMENTED | Exact Boolean |
 | Eq. 46 | IV B | Per-qubit occupancy time | M2 memory model | `tau_e`, `tau_link`, `tau_dec`, `tau_res` | Direct sum | Table III reproduction | NOT_IMPLEMENTED | <= 1 ns for table |
 | Eq. 47 | IV B | Memory depth saturation condition | M2 memory-depth validator | `N_a`, `tau_e`, `tau_occ` | Direct inequality | Boundary tests | NOT_IMPLEMENTED | Exact Boolean |
@@ -106,8 +106,8 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Fig. 2a | III A | Ideal gap for independent Bernoulli inputs and symmetric beta | `experiments/li2026/results/fig2_v1/fig2a_independent_gap.csv` | CHSH exact limit, all-point deterministic enumeration, Ding-layer grid | PARTIAL: configured gates PASS; no author point data |
 | Fig. 2b | III A | Ideal gap for correlated inputs | `experiments/li2026/results/fig2_v1/fig2b_correlated_gap.csv` | Caption probability relation, deterministic enumeration | PARTIAL: configured gates PASS; no author point data |
 | Fig. 2c | III B | Gap versus combined infidelity and threshold inset | `experiments/li2026/results/fig2_v1/fig2c_noisy_gap.csv` | Eq. 34 linearity, Eq. 37 roots, CHSH threshold | PARTIAL: configured gates PASS; no author point data |
-| Fig. 3a | III C | Finite-window trial accumulation schematic | Documentation only | Paper schematic | NOT_IMPLEMENTED |
-| Fig. 3b | III C | Required rate versus infidelity, alpha, and T_env for CHSH | Reproduction script `experiments/li2026/fig3_*` | Exact binomial tail Eq. 40-43 | NOT_IMPLEMENTED |
+| Fig. 3a | III C | Finite-window trial accumulation schematic | `experiments/li2026/results/fig3_v1/fig3_reproduction.png` | Paper schematic and timescale separation | PARTIAL: schematic reproduced computationally |
+| Fig. 3b | III C | Required rate versus infidelity, alpha, and T_env for CHSH | `experiments/li2026/results/fig3_v1/fig3_required_rate.csv` | Exact Eq. 40-43, Decimal points, paper reference lines | PARTIAL: configured gates PASS; no author point data |
 | Fig. 4 | IV | M2 time-multiplexed event-ready protocol | M2 event-ready model and optional timeline visualization | Eq. 46-53 | NOT_IMPLEMENTED |
 | Table II | IV C | Mapping operational criteria to hardware requirements | Operational status schema | Paper table | NOT_IMPLEMENTED |
 | Fig. 5 | V A | Telecom-band Yb node architecture | Hardware docs and optional config schema | Paper schematic | NOT_IMPLEMENTED |
@@ -131,6 +131,21 @@ of Eq. 24 and the CHSH matrix in Eq. 35 both require `-P(1,1)`, which is the
 implemented sign. This transcription discrepancy is recorded rather than
 silently choosing the displayed sign. Because no author pointwise Figure 2
 data are available, the three paper-item rows remain `PARTIAL`.
+
+### Figure 3 Reproduction Record
+
+The configured CHSH reproduction evaluates 293 infidelities, two significance
+levels, and three stationary-window durations, producing 1,758 rate points.
+Independent 60-digit Decimal sums recover `n_req=34` and `143` at zero
+infidelity and `n_req=65` and `238` at `epsilon=0.061`, for `alpha=0.05` and
+`0.001`, respectively. The maximum configured counts at `epsilon=0.292` are
+`5,083,117` and `17,946,458`, demonstrating the sharp increase near
+`epsilon_th=0.2928932188134524`.
+
+At the paper reference point `epsilon=0.061`, a `7.9 kHz` trial rate fails both
+significance targets for `T_env=1 ms` but passes both for `100 ms` and `10 s`.
+All ten configured validations pass. Author pointwise curve data are not
+available, so Figure 3 remains `PARTIAL` at paper level.
 
 ## Operational Advantage Output Contract
 

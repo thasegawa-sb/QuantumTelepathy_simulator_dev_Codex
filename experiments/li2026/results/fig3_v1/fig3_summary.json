@@ -1,0 +1,320 @@
+{
+  "configuration": {
+    "game": {
+      "beta1": 0.0,
+      "beta2": 0.0,
+      "input_distribution": "uniform",
+      "name": "CHSH"
+    },
+    "notes": [
+      "The expected win count is ceil(m*omega_Q), and certification uses the strict inequality p<alpha exactly as in Equation 42.",
+      "Required trial counts are independent of T_env and are computed once per epsilon and alpha before rate conversion.",
+      "The epsilon grid stops below the CHSH threshold 1-1/sqrt(2), where no finite certification exists.",
+      "No author-provided Figure 3 numerical data were available; paper reference lines are taken from the Figure 3 caption and Table III."
+    ],
+    "paper_reference_lines": {
+      "combined_infidelity": 0.061,
+      "heg_rate_hz": 7900.0
+    },
+    "plot": {
+      "dpi": 180,
+      "maximum_rate_khz": 1000000.0,
+      "minimum_rate_khz": 0.001
+    },
+    "statistics": {
+      "alpha_values": [
+        0.05,
+        0.001
+      ],
+      "chunk_size": 32768,
+      "epsilon_grid": {
+        "start": 0.0,
+        "step": 0.001,
+        "stop": 0.292
+      },
+      "max_rounds": 50000000,
+      "t_env_seconds": [
+        0.001,
+        0.1,
+        10.0
+      ]
+    }
+  },
+  "decimal_oracle_checks": [
+    {
+      "alpha": 0.05,
+      "decimal_p_value": 0.04909333272580061,
+      "decimal_required_trials": 34,
+      "epsilon": 0.0,
+      "production_p_value": 0.04909333272580062,
+      "production_required_trials": 34
+    },
+    {
+      "alpha": 0.001,
+      "decimal_p_value": 0.0009459891226644253,
+      "decimal_required_trials": 143,
+      "epsilon": 0.0,
+      "production_p_value": 0.0009459891226644254,
+      "production_required_trials": 143
+    },
+    {
+      "alpha": 0.05,
+      "decimal_p_value": 0.04465774483455032,
+      "decimal_required_trials": 65,
+      "epsilon": 0.061,
+      "production_p_value": 0.04465774483455032,
+      "production_required_trials": 65
+    },
+    {
+      "alpha": 0.001,
+      "decimal_p_value": 0.0009172732139019797,
+      "decimal_required_trials": 238,
+      "epsilon": 0.061,
+      "production_p_value": 0.0009172732139019824,
+      "production_required_trials": 238
+    }
+  ],
+  "grid": {
+    "alpha_count": 2,
+    "epsilon_count": 293,
+    "point_count": 1758,
+    "t_env_count": 3
+  },
+  "overall_status": "PASS",
+  "paper_reproduction_limitation": "Author numerical data for Figure 3 are unavailable; exact equations, independent Decimal small-round oracles, discrete minimality, monotonicity, and paper reference-line behavior pass.",
+  "paper_reproduction_status": "PARTIAL",
+  "reference": {
+    "arxiv_id": "2604.07451",
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "equations": [
+      "16",
+      "17",
+      "18",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43"
+    ],
+    "paper_item": "Figure 3",
+    "retrieval_date": "2026-08-31",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "version": "v1",
+    "version_reverified_date": "2026-09-02"
+  },
+  "reference_line_points": [
+    {
+      "alpha": 0.05,
+      "certification_p_value": 0.04465774483455032,
+      "classical_bias": 0.5,
+      "classical_win_probability": 0.75,
+      "epsilon": 0.061,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_quantum_wins": 55,
+      "noisy_gap": 0.08198663376708404,
+      "noisy_quantum_win_probability": 0.831986633767084,
+      "previous_round_p_value": 0.051128934984848266,
+      "quantum_bias": 0.7071067811865475,
+      "reference_hardware_rate_hz": 7900.0,
+      "reference_hardware_rate_pass": false,
+      "required_rate_hz": 65000.0,
+      "required_rate_khz": 65.0,
+      "required_trials": 65,
+      "t_env_seconds": 0.001
+    },
+    {
+      "alpha": 0.05,
+      "certification_p_value": 0.04465774483455032,
+      "classical_bias": 0.5,
+      "classical_win_probability": 0.75,
+      "epsilon": 0.061,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_quantum_wins": 55,
+      "noisy_gap": 0.08198663376708404,
+      "noisy_quantum_win_probability": 0.831986633767084,
+      "previous_round_p_value": 0.051128934984848266,
+      "quantum_bias": 0.7071067811865475,
+      "reference_hardware_rate_hz": 7900.0,
+      "reference_hardware_rate_pass": true,
+      "required_rate_hz": 650.0,
+      "required_rate_khz": 0.65,
+      "required_trials": 65,
+      "t_env_seconds": 0.1
+    },
+    {
+      "alpha": 0.05,
+      "certification_p_value": 0.04465774483455032,
+      "classical_bias": 0.5,
+      "classical_win_probability": 0.75,
+      "epsilon": 0.061,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_quantum_wins": 55,
+      "noisy_gap": 0.08198663376708404,
+      "noisy_quantum_win_probability": 0.831986633767084,
+      "previous_round_p_value": 0.051128934984848266,
+      "quantum_bias": 0.7071067811865475,
+      "reference_hardware_rate_hz": 7900.0,
+      "reference_hardware_rate_pass": true,
+      "required_rate_hz": 6.5,
+      "required_rate_khz": 0.0065,
+      "required_trials": 65,
+      "t_env_seconds": 10.0
+    },
+    {
+      "alpha": 0.001,
+      "certification_p_value": 0.0009172732139019824,
+      "classical_bias": 0.5,
+      "classical_win_probability": 0.75,
+      "epsilon": 0.061,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_quantum_wins": 199,
+      "noisy_gap": 0.08198663376708404,
+      "noisy_quantum_win_probability": 0.831986633767084,
+      "previous_round_p_value": 0.0010287854333067312,
+      "quantum_bias": 0.7071067811865475,
+      "reference_hardware_rate_hz": 7900.0,
+      "reference_hardware_rate_pass": false,
+      "required_rate_hz": 238000.0,
+      "required_rate_khz": 238.0,
+      "required_trials": 238,
+      "t_env_seconds": 0.001
+    },
+    {
+      "alpha": 0.001,
+      "certification_p_value": 0.0009172732139019824,
+      "classical_bias": 0.5,
+      "classical_win_probability": 0.75,
+      "epsilon": 0.061,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_quantum_wins": 199,
+      "noisy_gap": 0.08198663376708404,
+      "noisy_quantum_win_probability": 0.831986633767084,
+      "previous_round_p_value": 0.0010287854333067312,
+      "quantum_bias": 0.7071067811865475,
+      "reference_hardware_rate_hz": 7900.0,
+      "reference_hardware_rate_pass": true,
+      "required_rate_hz": 2380.0,
+      "required_rate_khz": 2.38,
+      "required_trials": 238,
+      "t_env_seconds": 0.1
+    },
+    {
+      "alpha": 0.001,
+      "certification_p_value": 0.0009172732139019824,
+      "classical_bias": 0.5,
+      "classical_win_probability": 0.75,
+      "epsilon": 0.061,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_quantum_wins": 199,
+      "noisy_gap": 0.08198663376708404,
+      "noisy_quantum_win_probability": 0.831986633767084,
+      "previous_round_p_value": 0.0010287854333067312,
+      "quantum_bias": 0.7071067811865475,
+      "reference_hardware_rate_hz": 7900.0,
+      "reference_hardware_rate_pass": true,
+      "required_rate_hz": 23.8,
+      "required_rate_khz": 0.0238,
+      "required_trials": 238,
+      "t_env_seconds": 10.0
+    }
+  ],
+  "simulator_extrema": {
+    "maximum_required_rate_hz": 17946458000.0,
+    "maximum_required_trials_by_alpha": {
+      "0.001": 17946458,
+      "0.05": 5083117
+    }
+  },
+  "validations": {
+    "decimal_p_value_max_abs_error": {
+      "absolute_error": 6.938893903907228e-18,
+      "actual": 6.938893903907228e-18,
+      "expected": 0.0,
+      "provenance": "SciPy binomial survival function versus independent Decimal direct sum",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-13
+    },
+    "decimal_required_trials_max_abs_error": {
+      "absolute_error": 0.0,
+      "actual": 0,
+      "expected": 0.0,
+      "provenance": "Production vectorized survival-function search versus independent Decimal exhaustive search",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "epsilon_0_061_alpha_0_001_required_trials": {
+      "absolute_error": 0.0,
+      "actual": 238,
+      "expected": 238.0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "epsilon_0_061_alpha_0_05_required_trials": {
+      "absolute_error": 0.0,
+      "actual": 65,
+      "expected": 65.0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "ideal_alpha_0_001_required_trials": {
+      "absolute_error": 0.0,
+      "actual": 143,
+      "expected": 143.0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "ideal_alpha_0_05_required_trials": {
+      "absolute_error": 0.0,
+      "actual": 34,
+      "expected": 34.0,
+      "provenance": "Independent 60-digit Decimal direct binomial sums and exhaustive positive-integer search",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "minimality_violation_count": {
+      "absolute_error": 0.0,
+      "actual": 0,
+      "expected": 0.0,
+      "provenance": "At each returned minimum p(n_req)<alpha and p(n_req-1)>=alpha after exhaustive production scan",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "monotonicity_violation_count": {
+      "absolute_error": 0.0,
+      "actual": 0,
+      "expected": 0.0,
+      "provenance": "n_req cannot decrease with increasing infidelity or stricter significance",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 0.0
+    },
+    "rate_identity_max_abs_error": {
+      "absolute_error": 0.0,
+      "actual": 0.0,
+      "expected": 0.0,
+      "provenance": "Equations 18 and 41, R_req*T_env=n_req",
+      "relative_error": null,
+      "status": "PASS",
+      "tolerance": 1e-09
+    },
+    "reference_hardware_pass_count": {
+      "absolute_error": 0.0,
+      "actual": 4,
+      "expected": 4.0,
+      "provenance": "At epsilon=0.061 and R_trial=7.9 kHz, both alpha values fail for T_env=1 ms and pass for 100 ms and 10 s",
+      "relative_error": 0.0,
+      "status": "PASS",
+      "tolerance": 0.0
+    }
+  }
+}

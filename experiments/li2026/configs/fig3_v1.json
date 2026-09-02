@@ -1,0 +1,49 @@
+{
+  "reference": {
+    "authors": "Changhao Li, Seigo Kikura, Akihisa Goban, Hayata Yamasaki, and Shinichi Sunami",
+    "title": "Operational criteria for quantum advantage in latency-constrained nonlocal games",
+    "arxiv_id": "2604.07451",
+    "version": "v1",
+    "retrieval_date": "2026-08-31",
+    "version_reverified_date": "2026-09-02",
+    "paper_item": "Figure 3",
+    "equations": ["16", "17", "18", "39", "40", "41", "42", "43"]
+  },
+  "game": {
+    "name": "CHSH",
+    "input_distribution": "uniform",
+    "beta1": 0.0,
+    "beta2": 0.0
+  },
+  "statistics": {
+    "epsilon_grid": {"start": 0.0, "stop": 0.292, "step": 0.001},
+    "alpha_values": [0.05, 0.001],
+    "t_env_seconds": [0.001, 0.1, 10.0],
+    "max_rounds": 50000000,
+    "chunk_size": 32768
+  },
+  "paper_reference_lines": {
+    "combined_infidelity": 0.061,
+    "heg_rate_hz": 7900.0
+  },
+  "plot": {
+    "minimum_rate_khz": 0.001,
+    "maximum_rate_khz": 1000000.0,
+    "dpi": 180
+  },
+  "validation": {
+    "oracle_file": "../oracles/fig3_v1.json",
+    "decimal_oracle_points": [
+      {"epsilon": 0.0, "alpha": 0.05},
+      {"epsilon": 0.0, "alpha": 0.001},
+      {"epsilon": 0.061, "alpha": 0.05},
+      {"epsilon": 0.061, "alpha": 0.001}
+    ]
+  },
+  "notes": [
+    "The expected win count is ceil(m*omega_Q), and certification uses the strict inequality p<alpha exactly as in Equation 42.",
+    "Required trial counts are independent of T_env and are computed once per epsilon and alpha before rate conversion.",
+    "The epsilon grid stops below the CHSH threshold 1-1/sqrt(2), where no finite certification exists.",
+    "No author-provided Figure 3 numerical data were available; paper reference lines are taken from the Figure 3 caption and Table III."
+  ]
+}
