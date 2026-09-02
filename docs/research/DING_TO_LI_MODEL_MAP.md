@@ -9,7 +9,7 @@ Sources:
 | Ding and Jiang, "Coordinating Decisions via Quantum Telepathy" | arXiv:2407.21723v3 | 2026-08-31 | https://arxiv.org/abs/2407.21723 |
 | Li et al., "Operational criteria for quantum advantage in latency-constrained nonlocal games" | arXiv:2604.07451v1 | 2026-08-31 | https://arxiv.org/abs/2604.07451 |
 
-Initial audit result (2026-08-31): the workspace was empty and was not a Git repository, so there was no prior implementation or history to inspect. Current state (2026-09-01): a fresh Git repository, scientific scaffold, validation records, and the first Layer 0/1 implementations now exist. The architecture below remains the controlling design map and gap analysis.
+Initial audit result (2026-08-31): the workspace was empty and was not a Git repository, so there was no prior implementation or history to inspect. Current state (2026-09-03): the repository contains validated Ding and two-party Li layers through the Phase 11 HFT waterfall. The architecture below remains the controlling design map and gap analysis.
 
 ## Scientific Progression
 
@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 11 HFT operational-advantage waterfall. Phase 10 cross-validates the Table III analytical rate and occupancy against a 256-seed discrete-event model; all configured gates pass.
+Current gate: Phase 12 multiparty LCTC extension. Phase 11 now connects the pinned Ding ideal HFT model to Li generalized utilities, physical infidelity, finite statistics, HEG rate, local decision latency, and the strict no-communication regime.
 
 Status:
 
@@ -155,5 +155,7 @@ Status:
 | Li Table II operational status | PASS | Theoretical, fidelity, finite-statistics, rate, decision, LCTC-regime, and overall fields are separate |
 | Li M2 analytical model | PASS | Occupancy, depth saturation, attempt rate, memory error/lifetime, channel multiplexing, and operational connection are validated |
 | Li Fig. 4 event-driven buffering | PASS for configured scope | Deterministic timing, finite memory, herald events, releases, occupancy, and Bernoulli throughput pass analytical/statistical gates |
-| Equation-to-code map created | PARTIAL | Through Eq. 61 and event-driven M2 are linked and validated; HFT waterfall and multiparty mappings remain incomplete |
-| Next implementation gate | Phase 11 | Build the Ding ideal to Li operational HFT waterfall and bottleneck report |
+| Li general-score finite statistics | PASS | Eq. 20 log-space bound, direct small-case sums, and discrete `n_req` minimality pass |
+| Ding-to-Li HFT waterfall | PASS | Eight scenarios derive hardware inputs from the Table III artifact; 3 overall PASS and 5 controlled FAIL cases match oracles |
+| Equation-to-code map created | PARTIAL | Through the Phase 11 HFT waterfall are linked and validated; multiparty mappings remain incomplete |
+| Next implementation gate | Phase 12 | Implement and validate the three-party XOR/GHZ extension |

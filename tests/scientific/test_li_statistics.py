@@ -8,11 +8,15 @@ from quantum_telepathy.li2026.statistics import (
     NoFiniteCertificationError,
     binomial_tail_p_value,
     certification_p_value,
+    expected_score_threshold,
     expected_win_count,
     required_rate,
+    required_score_trials,
     required_trial_rate,
     required_trials,
     required_trials_sequence,
+    score_certification_p_value,
+    score_p_value_bound,
 )
 
 
@@ -37,6 +41,34 @@ def _brute_force_required_trials(classical, quantum, alpha, limit=1000):
     raise AssertionError("brute-force test limit was insufficient")
 
 
+def _direct_score_bound(total_score, rounds, classical, score_min, score_max):
+    score_range = score_max - score_min
+    mu = (total_score - rounds * score_min) / score_range
+    xi = (classical - score_min) / score_range
+    lower = math.floor(mu)
+    upper = math.ceil(mu)
+    fraction = mu - lower
+    lower_tail = float(_direct_decimal_tail(lower, rounds, xi))
+    upper_tail = float(_direct_decimal_tail(upper, rounds, xi))
+    bound = math.e * lower_tail ** (1.0 - fraction) * upper_tail**fraction
+    return min(1.0, bound)
+
+
+def _brute_force_required_score_trials(
+    classical, quantum, alpha, score_min, score_max, limit=1000
+):
+    for rounds in range(1, limit + 1):
+        threshold = math.ceil(rounds * quantum)
+        if (
+            _direct_score_bound(
+                threshold, rounds, classical, score_min, score_max
+            )
+            < alpha
+        ):
+            return rounds
+    raise AssertionError("brute-force score-bound test limit was insufficient")
+
+
 @pytest.mark.parametrize(
     ("wins", "rounds", "probability"),
     [(3, 5, 0.5), (7, 10, 0.75), (19, 25, 0.63), (30, 34, 0.75)],
@@ -55,6 +87,55 @@ def test_binomial_tail_handles_support_boundaries():
     assert binomial_tail_p_value(0, 10, 0.75) == 1.0
     assert binomial_tail_p_value(11, 10, 0.75) == 0.0
     assert binomial_tail_p_value(1, 0, 0.75) == 0.0
+
+
+@pytest.mark.parametrize(
+    ("total_score", "rounds", "classical", "score_min", "score_max"),
+    [
+        (4.2, 5, 0.2, -1.0, 2.0),
+        (7.0, 10, 0.45, 0.0, 1.0),
+        (2.75, 8, 0.1, -0.5, 1.5),
+    ],
+)
+def test_general_score_bound_matches_independent_direct_binomial_evaluation(
+    total_score, rounds, classical, score_min, score_max
+):
+    expected = _direct_score_bound(
+        total_score, rounds, classical, score_min, score_max
+    )
+
+    assert score_p_value_bound(
+        total_score, rounds, classical, score_min, score_max
+    ) == pytest.approx(expected, rel=1e-13, abs=1e-15)
+
+
+def test_general_score_bound_handles_total_score_support_boundaries():
+    assert score_p_value_bound(-5.0, 5, 0.2, -1.0, 2.0) == 1.0
+    assert score_p_value_bound(10.1, 5, 0.2, -1.0, 2.0) == 0.0
+
+
+def test_required_score_trials_matches_independent_exhaustive_oracle():
+    classical = 0.62
+    quantum = 0.74
+    alpha = 0.05
+    expected = _brute_force_required_score_trials(
+        classical, quantum, alpha, 0.0, 1.0
+    )
+
+    actual = required_score_trials(classical, quantum, alpha, 0.0, 1.0)
+
+    assert actual == expected
+    assert score_certification_p_value(
+        actual, classical, quantum, 0.0, 1.0
+    ) < alpha
+    if actual > 1:
+        assert score_certification_p_value(
+            actual - 1, classical, quantum, 0.0, 1.0
+        ) >= alpha
+
+
+def test_score_threshold_stabilizes_integer_boundary():
+    assert expected_score_threshold(10, 0.8) == 8
 
 
 @pytest.mark.parametrize(
@@ -150,6 +231,9 @@ def test_required_trials_sequence_requires_nonincreasing_quantum_values():
         (required_trials, (0.5, 0.6, 0.0)),
         (required_trials, (0.5, 0.6, 1.0)),
         (required_trial_rate, (1, 0.0)),
+        (score_p_value_bound, (1.0, 0, 0.5, 0.0, 1.0)),
+        (score_p_value_bound, (1.0, 2, 0.5, 1.0, 1.0)),
+        (required_score_trials, (0.5, 0.5, 0.05, 0.0, 1.0)),
     ],
 )
 def test_statistics_reject_invalid_parameters(function, arguments):

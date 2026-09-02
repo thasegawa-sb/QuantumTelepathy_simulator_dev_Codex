@@ -1,0 +1,734 @@
+{
+  "classical_enumeration_abs_errors": {
+    "communication_regime_invalid": 0.0,
+    "correlated_asymmetric_fidelity_limited": 0.0,
+    "correlated_asymmetric_generalized": 0.0,
+    "decision_latency_limited": 0.0,
+    "ding_representative_10s": 1.1102230246251565e-16,
+    "ding_representative_1s_rate_limited": 1.1102230246251565e-16,
+    "uniform_chsh_reference": 0.0,
+    "utility_flat_limit": 0.0
+  },
+  "ding_li_equivalence_abs_errors": {
+    "communication_regime_invalid": 0.0,
+    "decision_latency_limited": 0.0,
+    "ding_representative_10s": 1.1102230246251565e-16,
+    "ding_representative_1s_rate_limited": 1.1102230246251565e-16,
+    "uniform_chsh_reference": 0.0,
+    "utility_flat_limit": 0.0
+  },
+  "hardware_provenance": {
+    "default_t_comm_seconds": 0.00024,
+    "epsilon": 0.060972738493541345,
+    "r_heg_hz": 7854.545454545455,
+    "source_file": "experiments/li2026/results/table3_50km_v1/table3_summary.json",
+    "source_sha256": "da87a04fd2c11c884d79a627a1f8314bd45227f713f2e1ba54e674701b50efd0",
+    "source_status": "PASS",
+    "tau_meas_seconds": 8.7e-07,
+    "tau_rot_seconds": 1e-07
+  },
+  "notes": [
+    "The beta1 != beta2 cases are HFT-style research extensions of Li Eq. 23, not empirical market calibrations from either paper.",
+    "Changing from a Ding game to a generalized Li game is reported as a model transition, not as a physical loss term.",
+    "Each scenario pins its statistical interpretation: binary win/loss cases use exact binomial certification and fractional-score cases use the Li Eq. 20 upper bound.",
+    "Strict inequalities are used for epsilon<epsilon_th, R_HEG>R_req, tau_dec<T_loc, and T_loc<T_comm."
+  ],
+  "overall_fail_count": 5,
+  "overall_pass_count": 3,
+  "overall_status": "PASS",
+  "references": {
+    "ding_jiang": {
+      "arxiv_id": "2407.21723",
+      "model": "Section 3 HFT hedging utility",
+      "retrieval_date": "2026-08-31",
+      "version": "v3"
+    },
+    "li2026": {
+      "arxiv_id": "2604.07451",
+      "model": "Equations 15-25 and 30-45",
+      "retrieval_date": "2026-08-31",
+      "version": "v1",
+      "version_reverified_date": "2026-09-02"
+    }
+  },
+  "research_scope": "Configuration-driven two-party HFT and HFT-style sensitivity analysis; asymmetric cases are not empirical market calibrations.",
+  "results": [
+    {
+      "alpha": 0.05,
+      "beta1": 0.0,
+      "beta2": 0.0,
+      "communication_margin_seconds": 0.00023,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 9.03e-06,
+      "description": "Uniform-input win/loss reference with exact binomial certification.",
+      "ding_beta": 0.0,
+      "ding_classical_value": 0.75,
+      "ding_ideal_gap": 0.10355339059327373,
+      "ding_p": 0.5,
+      "ding_quantum_value": 0.8535533905932737,
+      "dominant_bottleneck": "fidelity_criterion",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_score_threshold_at_n_req": 55,
+      "fidelity_criterion": "PASS",
+      "first_failed_criterion": null,
+      "input_distribution": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.75,
+      "li_ideal_gap": 0.10355339059327373,
+      "li_quantum_value": 0.8535533905932737,
+      "model_transition_gap_change": 0.0,
+      "n_req": 65,
+      "noisy_gap": 0.08199627216512517,
+      "noisy_quantum_value": 0.8319962721651252,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9029999999999999,
+        "fidelity_criterion": 0.7918260493003231,
+        "latency_constrained_regime": 0.9583333333333334,
+        "rate_criterion": 119.83916083916084
+      },
+      "overall_operational_quantum_advantage": "PASS",
+      "p_value_or_bound_at_n_req": 0.04465774483455032,
+      "physical_gap_retained_fraction": 0.7918260493003231,
+      "r_heg": 7854.545454545455,
+      "r_req": 65.0,
+      "rate_criterion": "PASS",
+      "rate_margin_hz": 7789.545454545455,
+      "scenario_id": "uniform_chsh_reference",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "PASS",
+      "statistics_method": "exact_binomial",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.3,
+      "beta2": 0.3,
+      "communication_margin_seconds": 0.00023,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 9.03e-06,
+      "description": "Ding-Jiang p=0.3, beta=0.3 case at the upper representative HFT stationary window.",
+      "ding_beta": 0.3,
+      "ding_classical_value": 0.79,
+      "ding_ideal_gap": 0.02233955881380112,
+      "ding_p": 0.3,
+      "ding_quantum_value": 0.8123395588138012,
+      "dominant_bottleneck": "fidelity_criterion",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.07152330911474081,
+      "expected_score_threshold_at_n_req": 52464,
+      "fidelity_criterion": "PASS",
+      "first_failed_criterion": null,
+      "input_distribution": [
+        [
+          0.49,
+          0.21
+        ],
+        [
+          0.21,
+          0.09
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.79,
+      "li_ideal_gap": 0.02233955881380123,
+      "li_quantum_value": 0.8123395588138013,
+      "model_transition_gap_change": 1.1102230246251565e-16,
+      "n_req": 66133,
+      "noisy_gap": 0.0032953605730592916,
+      "noisy_quantum_value": 0.7932953605730593,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9029999999999999,
+        "fidelity_criterion": 0.14751233900928407,
+        "latency_constrained_regime": 0.9583333333333334,
+        "rate_criterion": 0.1876892707945284
+      },
+      "overall_operational_quantum_advantage": "PASS",
+      "p_value_or_bound_at_n_req": 0.049955612031990254,
+      "physical_gap_retained_fraction": 0.1475123390092843,
+      "r_heg": 7854.545454545455,
+      "r_req": 6613.3,
+      "rate_criterion": "PASS",
+      "rate_margin_hz": 1241.2454545454548,
+      "scenario_id": "ding_representative_10s",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "PASS",
+      "statistics_method": "general_score_bound",
+      "t_comm": 0.00024,
+      "t_env": 10.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.3,
+      "beta2": 0.3,
+      "communication_margin_seconds": 0.00023,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 9.03e-06,
+      "description": "Same theoretical game and hardware as the 10 s case, but with a 1 s stationary window.",
+      "ding_beta": 0.3,
+      "ding_classical_value": 0.79,
+      "ding_ideal_gap": 0.02233955881380112,
+      "ding_p": 0.3,
+      "ding_quantum_value": 0.8123395588138012,
+      "dominant_bottleneck": "rate_criterion",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.07152330911474081,
+      "expected_score_threshold_at_n_req": 52464,
+      "fidelity_criterion": "PASS",
+      "first_failed_criterion": "rate_criterion",
+      "input_distribution": [
+        [
+          0.49,
+          0.21
+        ],
+        [
+          0.21,
+          0.09
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.79,
+      "li_ideal_gap": 0.02233955881380123,
+      "li_quantum_value": 0.8123395588138013,
+      "model_transition_gap_change": 1.1102230246251565e-16,
+      "n_req": 66133,
+      "noisy_gap": 0.0032953605730592916,
+      "noisy_quantum_value": 0.7932953605730593,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9029999999999999,
+        "fidelity_criterion": 0.14751233900928407,
+        "latency_constrained_regime": 0.9583333333333334,
+        "rate_criterion": -0.8812310729205471
+      },
+      "overall_operational_quantum_advantage": "FAIL",
+      "p_value_or_bound_at_n_req": 0.049955612031990254,
+      "physical_gap_retained_fraction": 0.1475123390092843,
+      "r_heg": 7854.545454545455,
+      "r_req": 66133.0,
+      "rate_criterion": "FAIL",
+      "rate_margin_hz": -58278.454545454544,
+      "scenario_id": "ding_representative_1s_rate_limited",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "PASS",
+      "statistics_method": "general_score_bound",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.05,
+      "beta2": 0.1,
+      "communication_margin_seconds": 0.00023,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 9.03e-06,
+      "description": "HFT-style research extension with correlated inputs and beta1 unequal to beta2.",
+      "ding_beta": 0.05,
+      "ding_classical_value": 0.75,
+      "ding_ideal_gap": 0.08634060117684272,
+      "ding_p": 0.5,
+      "ding_quantum_value": 0.8363406011768427,
+      "dominant_bottleneck": "fidelity_criterion",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.11528822087264112,
+      "expected_score_threshold_at_n_req": 1470,
+      "fidelity_criterion": "PASS",
+      "first_failed_criterion": null,
+      "input_distribution": [
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.4
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.81,
+      "li_ideal_gap": 0.04039660069381057,
+      "li_quantum_value": 0.8503966006938106,
+      "model_transition_gap_change": -0.045944000483032155,
+      "n_req": 1772,
+      "noisy_gap": 0.019031960390681113,
+      "noisy_quantum_value": 0.829031960390681,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9029999999999999,
+        "fidelity_criterion": 0.47112776975804044,
+        "latency_constrained_regime": 0.9583333333333334,
+        "rate_criterion": 3.4325877282987896
+      },
+      "overall_operational_quantum_advantage": "PASS",
+      "p_value_or_bound_at_n_req": 0.04958773811589441,
+      "physical_gap_retained_fraction": 0.4711277697580412,
+      "r_heg": 7854.545454545455,
+      "r_req": 1772.0,
+      "rate_criterion": "PASS",
+      "rate_margin_hz": 6082.545454545455,
+      "scenario_id": "correlated_asymmetric_generalized",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "PASS",
+      "statistics_method": "general_score_bound",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.1,
+      "beta2": 0.2,
+      "communication_margin_seconds": 0.00023,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 9.03e-06,
+      "description": "Correlated asymmetric game whose ideal gap is erased by the Table III error level.",
+      "ding_beta": 0.1,
+      "ding_classical_value": 0.75,
+      "ding_ideal_gap": 0.07015621187164245,
+      "ding_p": 0.5,
+      "ding_quantum_value": 0.8201562118716424,
+      "dominant_bottleneck": "fidelity_criterion",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.011163226241249546,
+      "expected_score_threshold_at_n_req": null,
+      "fidelity_criterion": "FAIL",
+      "first_failed_criterion": "fidelity_criterion",
+      "input_distribution": [
+        [
+          0.4,
+          0.15
+        ],
+        [
+          0.15,
+          0.3
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.865,
+      "li_ideal_gap": 0.004120576505835083,
+      "li_quantum_value": 0.8691205765058351,
+      "model_transition_gap_change": -0.06603563536580737,
+      "n_req": null,
+      "noisy_gap": -0.018385715878040443,
+      "noisy_quantum_value": 0.8466142841219595,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9029999999999999,
+        "fidelity_criterion": -4.461928046234456,
+        "latency_constrained_regime": 0.9583333333333334
+      },
+      "overall_operational_quantum_advantage": "FAIL",
+      "p_value_or_bound_at_n_req": null,
+      "physical_gap_retained_fraction": -4.461928046234482,
+      "r_heg": 7854.545454545455,
+      "r_req": null,
+      "rate_criterion": "FAIL",
+      "rate_margin_hz": null,
+      "scenario_id": "correlated_asymmetric_fidelity_limited",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "FAIL",
+      "statistics_method": "general_score_bound",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.0,
+      "beta2": 0.0,
+      "communication_margin_seconds": 0.0002395,
+      "decision_criterion": "FAIL",
+      "decision_margin_seconds": -4.7000000000000005e-07,
+      "description": "CHSH control with a local window shorter than the hardware decision latency.",
+      "ding_beta": 0.0,
+      "ding_classical_value": 0.75,
+      "ding_ideal_gap": 0.10355339059327373,
+      "ding_p": 0.5,
+      "ding_quantum_value": 0.8535533905932737,
+      "dominant_bottleneck": "decision_criterion",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_score_threshold_at_n_req": 55,
+      "fidelity_criterion": "PASS",
+      "first_failed_criterion": "decision_criterion",
+      "input_distribution": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.75,
+      "li_ideal_gap": 0.10355339059327373,
+      "li_quantum_value": 0.8535533905932737,
+      "model_transition_gap_change": 0.0,
+      "n_req": 65,
+      "noisy_gap": 0.08199627216512517,
+      "noisy_quantum_value": 0.8319962721651252,
+      "normalized_criterion_margins": {
+        "decision_criterion": -0.9400000000000002,
+        "fidelity_criterion": 0.7918260493003231,
+        "latency_constrained_regime": 0.9979166666666666,
+        "rate_criterion": 119.83916083916084
+      },
+      "overall_operational_quantum_advantage": "FAIL",
+      "p_value_or_bound_at_n_req": 0.04465774483455032,
+      "physical_gap_retained_fraction": 0.7918260493003231,
+      "r_heg": 7854.545454545455,
+      "r_req": 65.0,
+      "rate_criterion": "PASS",
+      "rate_margin_hz": 7789.545454545455,
+      "scenario_id": "decision_latency_limited",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "PASS",
+      "statistics_method": "exact_binomial",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 5e-07,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.5,
+      "beta2": 0.5,
+      "communication_margin_seconds": 0.00023,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 9.03e-06,
+      "description": "beta1=beta2=0.5 limit with no ideal quantum-classical gap.",
+      "ding_beta": 0.5,
+      "ding_classical_value": 0.75,
+      "ding_ideal_gap": 0.0,
+      "ding_p": 0.5,
+      "ding_quantum_value": 0.75,
+      "dominant_bottleneck": "theoretical_advantage",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.0,
+      "expected_score_threshold_at_n_req": null,
+      "fidelity_criterion": "FAIL",
+      "first_failed_criterion": "theoretical_advantage",
+      "input_distribution": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ],
+      "latency_constrained_regime": "PASS",
+      "li_classical_value": 0.75,
+      "li_ideal_gap": 0.0,
+      "li_quantum_value": 0.75,
+      "model_transition_gap_change": 0.0,
+      "n_req": null,
+      "noisy_gap": -0.015243184623385336,
+      "noisy_quantum_value": 0.7347568153766146,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9029999999999999,
+        "latency_constrained_regime": 0.9583333333333334
+      },
+      "overall_operational_quantum_advantage": "FAIL",
+      "p_value_or_bound_at_n_req": null,
+      "physical_gap_retained_fraction": null,
+      "r_heg": 7854.545454545455,
+      "r_req": null,
+      "rate_criterion": "FAIL",
+      "rate_margin_hz": null,
+      "scenario_id": "utility_flat_limit",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "FAIL",
+      "statistics_method": "general_score_bound",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 1e-05,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "FAIL"
+    },
+    {
+      "alpha": 0.05,
+      "beta1": 0.0,
+      "beta2": 0.0,
+      "communication_margin_seconds": 0.0,
+      "decision_criterion": "PASS",
+      "decision_margin_seconds": 0.00023903,
+      "description": "CHSH control at T_loc=T_comm, which violates the strict LCTC condition.",
+      "ding_beta": 0.0,
+      "ding_classical_value": 0.75,
+      "ding_ideal_gap": 0.10355339059327373,
+      "ding_p": 0.5,
+      "ding_quantum_value": 0.8535533905932737,
+      "dominant_bottleneck": "latency_constrained_regime",
+      "epsilon": 0.060972738493541345,
+      "epsilon_threshold": 0.2928932188134524,
+      "expected_score_threshold_at_n_req": 55,
+      "fidelity_criterion": "PASS",
+      "first_failed_criterion": "latency_constrained_regime",
+      "input_distribution": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ],
+      "latency_constrained_regime": "FAIL",
+      "li_classical_value": 0.75,
+      "li_ideal_gap": 0.10355339059327373,
+      "li_quantum_value": 0.8535533905932737,
+      "model_transition_gap_change": 0.0,
+      "n_req": 65,
+      "noisy_gap": 0.08199627216512517,
+      "noisy_quantum_value": 0.8319962721651252,
+      "normalized_criterion_margins": {
+        "decision_criterion": 0.9959583333333333,
+        "fidelity_criterion": 0.7918260493003231,
+        "latency_constrained_regime": 0.0,
+        "rate_criterion": 119.83916083916084
+      },
+      "overall_operational_quantum_advantage": "FAIL",
+      "p_value_or_bound_at_n_req": 0.04465774483455032,
+      "physical_gap_retained_fraction": 0.7918260493003231,
+      "r_heg": 7854.545454545455,
+      "r_req": 65.0,
+      "rate_criterion": "PASS",
+      "rate_margin_hz": 7789.545454545455,
+      "scenario_id": "communication_regime_invalid",
+      "score_max": 1.0,
+      "score_min": 0.0,
+      "statistical_certification": "PASS",
+      "statistics_method": "exact_binomial",
+      "t_comm": 0.00024,
+      "t_env": 1.0,
+      "t_loc": 0.00024,
+      "tau_dec": 9.7e-07,
+      "tau_meas": 8.7e-07,
+      "tau_rot": 1e-07,
+      "theoretical_advantage": "PASS"
+    }
+  ],
+  "scenario_count": 8,
+  "scenario_validations": {
+    "communication_regime_invalid": {
+      "actual": {
+        "dominant_bottleneck": "latency_constrained_regime",
+        "first_failed_criterion": "latency_constrained_regime",
+        "n_req": 65,
+        "overall_status": "FAIL",
+        "statistics_method": "exact_binomial"
+      },
+      "expected": {
+        "dominant_bottleneck": "latency_constrained_regime",
+        "first_failed_criterion": "latency_constrained_regime",
+        "n_req": 65,
+        "overall_status": "FAIL",
+        "statistics_method": "exact_binomial"
+      },
+      "status": "PASS"
+    },
+    "correlated_asymmetric_fidelity_limited": {
+      "actual": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": "fidelity_criterion",
+        "n_req": null,
+        "overall_status": "FAIL",
+        "statistics_method": "general_score_bound"
+      },
+      "expected": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": "fidelity_criterion",
+        "n_req": null,
+        "overall_status": "FAIL",
+        "statistics_method": "general_score_bound"
+      },
+      "status": "PASS"
+    },
+    "correlated_asymmetric_generalized": {
+      "actual": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": null,
+        "n_req": 1772,
+        "overall_status": "PASS",
+        "statistics_method": "general_score_bound"
+      },
+      "expected": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": null,
+        "n_req": 1772,
+        "overall_status": "PASS",
+        "statistics_method": "general_score_bound"
+      },
+      "status": "PASS"
+    },
+    "decision_latency_limited": {
+      "actual": {
+        "dominant_bottleneck": "decision_criterion",
+        "first_failed_criterion": "decision_criterion",
+        "n_req": 65,
+        "overall_status": "FAIL",
+        "statistics_method": "exact_binomial"
+      },
+      "expected": {
+        "dominant_bottleneck": "decision_criterion",
+        "first_failed_criterion": "decision_criterion",
+        "n_req": 65,
+        "overall_status": "FAIL",
+        "statistics_method": "exact_binomial"
+      },
+      "status": "PASS"
+    },
+    "ding_representative_10s": {
+      "actual": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": null,
+        "n_req": 66133,
+        "overall_status": "PASS",
+        "statistics_method": "general_score_bound"
+      },
+      "expected": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": null,
+        "n_req": 66133,
+        "overall_status": "PASS",
+        "statistics_method": "general_score_bound"
+      },
+      "status": "PASS"
+    },
+    "ding_representative_1s_rate_limited": {
+      "actual": {
+        "dominant_bottleneck": "rate_criterion",
+        "first_failed_criterion": "rate_criterion",
+        "n_req": 66133,
+        "overall_status": "FAIL",
+        "statistics_method": "general_score_bound"
+      },
+      "expected": {
+        "dominant_bottleneck": "rate_criterion",
+        "first_failed_criterion": "rate_criterion",
+        "n_req": 66133,
+        "overall_status": "FAIL",
+        "statistics_method": "general_score_bound"
+      },
+      "status": "PASS"
+    },
+    "uniform_chsh_reference": {
+      "actual": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": null,
+        "n_req": 65,
+        "overall_status": "PASS",
+        "statistics_method": "exact_binomial"
+      },
+      "expected": {
+        "dominant_bottleneck": "fidelity_criterion",
+        "first_failed_criterion": null,
+        "n_req": 65,
+        "overall_status": "PASS",
+        "statistics_method": "exact_binomial"
+      },
+      "status": "PASS"
+    },
+    "utility_flat_limit": {
+      "actual": {
+        "dominant_bottleneck": "theoretical_advantage",
+        "first_failed_criterion": "theoretical_advantage",
+        "n_req": null,
+        "overall_status": "FAIL",
+        "statistics_method": "general_score_bound"
+      },
+      "expected": {
+        "dominant_bottleneck": "theoretical_advantage",
+        "first_failed_criterion": "theoretical_advantage",
+        "n_req": null,
+        "overall_status": "FAIL",
+        "statistics_method": "general_score_bound"
+      },
+      "status": "PASS"
+    }
+  },
+  "validations": {
+    "classical_enumeration_max_abs_error": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "ding_li_equivalence_max_abs_error": {
+      "absolute_error": 1.1102230246251565e-16,
+      "actual": 1.1102230246251565e-16,
+      "expected": 0.0,
+      "status": "PASS",
+      "tolerance": 1e-12
+    },
+    "hardware_epsilon": {
+      "absolute_error": 0.0,
+      "actual": 0.060972738493541345,
+      "expected": 0.060972738493541345,
+      "status": "PASS",
+      "tolerance": 1e-15
+    },
+    "hardware_r_heg": {
+      "absolute_error": 0.0,
+      "actual": 7854.545454545455,
+      "expected": 7854.545454545455,
+      "status": "PASS",
+      "tolerance": 1e-10
+    },
+    "hardware_tau_dec": {
+      "absolute_error": 0.0,
+      "actual": 9.7e-07,
+      "expected": 9.7e-07,
+      "status": "PASS",
+      "tolerance": 1e-18
+    }
+  }
+}

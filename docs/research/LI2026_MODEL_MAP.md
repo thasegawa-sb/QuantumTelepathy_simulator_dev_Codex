@@ -14,7 +14,7 @@ Retrieval and version audit:
 | arXiv HTML | https://arxiv.org/html/2604.07451v1 |
 | Retrieval date | 2026-08-31 |
 | Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible when reverified 2026-09-02 |
-| Local repository state | Layer 0/1 core, Ding regression suite, Li generalized LCTC/fidelity/statistics/operational modules, analytical M2 hardware package, Figure 2-3 experiments, and the Table III 50 km benchmark are present |
+| Local repository state | Layer 0/1 core, Ding regression suite, Li generalized LCTC/fidelity/statistics/operational modules, analytical/event-driven M2 hardware, Figure 2-3 experiments, Table III, and the Phase 11 HFT waterfall are present |
 
 ## Scope
 
@@ -27,11 +27,11 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Generic nonlocal game | Sec. II A, Eq. 1-4 | Expected utility, local/quantum behavior sets, gap | PARTIAL |
 | XOR game | Sec. II A, Eq. 5-12 | Matrix `M`, correlators, `C(M)`, `Q(M)` | PARTIAL |
 | LCTC timing | Sec. II B, Eq. 15 and Sec. III D, Eq. 44-45 | `T_loc`, `T_comm`, `tau_dec`, strict LC/decision conditions | PASS |
-| Finite statistics | Sec. II C, Eq. 16-21 | Exact binomial p-value, generalized score p-value bound, `n_req`, `R_req` | PASS for win/loss; general-score bound NOT_IMPLEMENTED |
-| Application examples | Sec. II D, Table I | HFT, grid, load-balancing scenario configs | NOT_IMPLEMENTED |
+| Finite statistics | Sec. II C, Eq. 16-21 | Exact binomial p-value, generalized score p-value bound, `n_req`, `R_req` | PASS for win/loss and general-score bound |
+| Application examples | Sec. II D, Table I | HFT, grid, load-balancing scenario configs | PARTIAL: HFT/HFT-style waterfall implemented |
 | Generalized two-party LCTC | Sec. III A, Eq. 23-25 | Asymmetric beta1/beta2 utility and arbitrary `P(x,y)` | PASS for binary two-party scope |
 | Noise/fidelity | Sec. III A-B, Eq. 26-38 | Werner state, measurement flip, combined infidelity, threshold | PASS for Figure 2 scope |
-| Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | PASS for CHSH/Figure 3 scope |
+| Rate criterion | Sec. III C, Eq. 39-43 | Finite-round certification within `T_env` | PASS for CHSH/Figure 3 and Phase 11 general-score scope |
 | Decision criterion | Sec. III D, Eq. 44-45 | `tau_dec = tau_rot + tau_meas`, compare to `T_loc` | PASS |
 | Memory M2 architecture | Sec. IV, Eq. 46-53 | Event-ready time-multiplexed HEG, occupancy, memory threshold, channel multiplexing | PASS for analytical model and configured event-driven cross-validation |
 | Neutral-atom/Yb benchmark | Sec. V, Eq. 54-61, Table III | System-level 50 km benchmark; microscopic model optional | PARTIAL: equations and operational cases PASS; four displayed paper values disagree |
@@ -60,8 +60,8 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Eq. 16 | II C | Exact binomial-tail p-value for win/loss utilities | `binomial_tail_p_value` | `omega_C`, wins v, rounds m | Decimal direct binomial sum | SciPy stable survival function | PASS | <= 1e-13 small n |
 | Eq. 17 | II C | Required rounds `n_req(alpha)` | `required_trials` | `omega_Q`, alpha | Exhaustive positive-integer search | Independent Decimal exhaustive search at four CHSH points | PASS | Exact integer |
 | Eq. 18 | II C | Required trial rate `R_req = n_req/T_env` | `required_trial_rate` | `n_req`, `T_env` | Direct formula | Rate-times-window identity | PASS | <= 1e-9 absolute identity error |
-| Eq. 19 | II C | General score p-value definition | General-score statistics | Score distribution | Optimization over classical strategies | Bound in Eq. 20 | NOT_IMPLEMENTED | PARTIAL target |
-| Eq. 20-21 | II C | General-score p-value upper bound | General-score certification bound | `u_min`, `u_max`, `omega_C` | Published inequality | Monotonicity and small-case comparisons | NOT_IMPLEMENTED | Conservative bound |
+| Eq. 19 | II C | General score p-value definition | `score_p_value_bound` uses the published upper bound rather than exact score-distribution maximization | Score distribution | Exact classical optimization | Bound in Eq. 20 | PARTIAL | Exact Eq. 19 maximization not required by the paper's operational bound |
+| Eq. 20-21 | II C | General-score p-value upper bound | `score_p_value_bound`, `score_certification_p_value`, `required_score_trials` | `u_min`, `u_max`, `omega_C`, `omega_Q`, alpha | Direct Decimal/binomial-tail evaluation | Direct small-case sums, discrete minimality, Phase 11 scenarios | PASS | Conservative bound; log-space production path |
 | Eq. 22 | II D | Symmetric HFT utility from Ding-Jiang | HFT utility fixture | beta | Ding-Jiang Eq. 3.1 after relabeling | Full Figure 2(a) grid versus Ding layer | PASS | <= 1e-12 |
 | Eq. 23 | II D | Asymmetric load-balancing/HFT-style utility with beta1/beta2 | Generalized binary XOR utility | beta1, beta2 | Direct formula | Utility symmetry/asymmetry tests | PASS | Exact entries |
 | Eq. 24 | III A | Compact asymmetric XOR utility | `u_LCTC(o|x,y,beta1,beta2)` | beta1, beta2 | Direct parity formula | Compare Eq. 23 entries | PASS | Exact entries |
@@ -102,7 +102,7 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Paper item | Section | Scientific meaning | Simulator artifact | Oracle | Status |
 |---|---|---|---|---|---|
 | Fig. 1 | I-II | LCTC spacetime and timing definitions | Timing docs and scenario visualization | Paper schematic | NOT_IMPLEMENTED |
-| Table I | II D | Representative `T_loc`, `T_comm`, `T_env` for HFT/grid/load balancing | Scenario defaults | Paper table | NOT_IMPLEMENTED |
+| Table I | II D | Representative `T_loc`, `T_comm`, `T_env` for HFT/grid/load balancing | HFT waterfall scenario windows | Paper table | PARTIAL: 1-10 s HFT window and microsecond timing covered |
 | Fig. 2a | III A | Ideal gap for independent Bernoulli inputs and symmetric beta | `experiments/li2026/results/fig2_v1/fig2a_independent_gap.csv` | CHSH exact limit, all-point deterministic enumeration, Ding-layer grid | PARTIAL: configured gates PASS; no author point data |
 | Fig. 2b | III A | Ideal gap for correlated inputs | `experiments/li2026/results/fig2_v1/fig2b_correlated_gap.csv` | Caption probability relation, deterministic enumeration | PARTIAL: configured gates PASS; no author point data |
 | Fig. 2c | III B | Gap versus combined infidelity and threshold inset | `experiments/li2026/results/fig2_v1/fig2c_noisy_gap.csv` | Eq. 34 linearity, Eq. 37 roots, CHSH threshold | PARTIAL: configured gates PASS; no author point data |
@@ -151,7 +151,7 @@ available, so Figure 3 remains `PARTIAL` at paper level.
 
 `DecisionCriterion` implements `tau_dec=tau_rot+tau_meas` and the strict
 `tau_dec<T_loc` test. `OperationalAdvantageStatus` separately reports the LCTC
-regime, ideal theoretical gap, fidelity, prospective exact-binomial
+regime, ideal theoretical gap, fidelity, prospective finite-statistics
 certification, supplied HEG rate, and decision conditions. Its overall field
 passes only when every one of these statuses passes. The representative timing
 test obtains `tau_dec=970 ns` from `100 ns + 870 ns`; exact equality at either
@@ -175,6 +175,24 @@ relative due to finite-window event counting, the time-weighted occupancy is
 250, and the standardized binomial residual is `0.847`. All configured gates
 pass.
 
+### HFT Operational Waterfall Record
+
+The Phase 11 experiment evaluates eight configuration-driven scenarios using
+the committed Table III hardware output: memory-adjusted
+`epsilon=0.060972738493541345`, derived `R_HEG=7854.545454545455 s^-1`,
+`tau_dec=970 ns`, and `T_comm=240 us`. Three scenarios pass every criterion and
+five controlled cases fail at the intended game, fidelity, rate, decision, or
+strict LCTC-regime gate.
+
+The Ding `p=0.3`, `beta=0.3` case retains an ideal gap of
+`0.0223395588138011`, which falls to `0.00329536057305929` after physical
+infidelity. Li Eq. 20 requires `n_req=66133` at `alpha=0.05`; the case passes
+the rate criterion for `T_env=10 s` (`R_req=6613.3 s^-1`) but fails for
+`T_env=1 s` (`R_req=66133 s^-1`). The correlated asymmetric research case
+`P=((0.2,0.2),(0.2,0.4))`, `beta1=0.05`, `beta2=0.1` requires 1772 rounds and
+passes all criteria for a 1 s window. These asymmetric scenarios are
+HFT-style sensitivity analyses, not empirical market calibrations.
+
 ## Operational Advantage Output Contract
 
 The simulator reports all of the following fields, with no single overloaded "quantum advantage" flag:
@@ -184,7 +202,7 @@ The simulator reports all of the following fields, with no single overloaded "qu
 | `latency_constrained_regime` | `T_loc < T_comm` | Eq. 15 |
 | `theoretical_advantage` | `Delta omega(0,M) > 0` | Eq. 4, Eq. 34 |
 | `fidelity_criterion` | `epsilon < epsilon_th(M)` | Eq. 37-38 |
-| `statistical_certification` | exact binomial p-value at `ceil(n_req*omega_Q)` is below alpha | Eq. 16-18, Eq. 40-42 |
+| `statistical_certification` | selected p-value or conservative bound at `ceil(n_req*omega_Q)` is below alpha | Eq. 16-21, Eq. 40-42 |
 | `rate_criterion` | `R_trial` or `R_HEG > n_req/T_env` | Eq. 41-43, Eq. 53 |
 | `decision_criterion` | `tau_dec < T_loc` | Eq. 44-45 |
 | `overall_operational_quantum_advantage` | all preceding regime, advantage, certification, and Table II criteria pass | Table II |
@@ -222,6 +240,7 @@ whose failure prevents the effective fidelity input from passing.
 
 3. Finite statistics:
    - Eq. 40 exact binomial p-value agrees with direct summation for small `m`.
+   - Eq. 20 general-score bound agrees with independent direct binomial sums and geometric interpolation.
    - `n_req` is a minimal integer and increases as `epsilon` approaches threshold.
 
 4. Operational status:

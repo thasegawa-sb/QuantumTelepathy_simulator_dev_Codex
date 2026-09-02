@@ -19,6 +19,11 @@ from quantum_telepathy.li2026.lctc import (
     generalized_lctc_utility,
     generalized_lctc_values,
 )
+from quantum_telepathy.li2026.hft_waterfall import (
+    HFTWaterfallResult,
+    StatisticsMethod,
+    evaluate_hft_waterfall,
+)
 from quantum_telepathy.li2026.operational import (
     CriterionStatus,
     DecisionCriterion,
@@ -31,11 +36,15 @@ from quantum_telepathy.li2026.statistics import (
     NoFiniteCertificationError,
     binomial_tail_p_value,
     certification_p_value,
+    expected_score_threshold,
     expected_win_count,
     required_rate,
+    required_score_trials,
     required_trial_rate,
     required_trials,
     required_trials_sequence,
+    score_certification_p_value,
+    score_p_value_bound,
 )
 
 __all__ = [
@@ -51,6 +60,7 @@ __all__ = [
     "generalized_lctc_matrix",
     "generalized_lctc_utility",
     "generalized_lctc_values",
+    "HFTWaterfallResult",
     "measurement_visibility",
     "NoFiniteCertificationError",
     "noisy_gap",
@@ -60,11 +70,17 @@ __all__ = [
     "singlet_density_matrix",
     "binomial_tail_p_value",
     "certification_p_value",
+    "expected_score_threshold",
     "expected_win_count",
     "required_rate",
+    "required_score_trials",
     "required_trial_rate",
     "required_trials",
     "required_trials_sequence",
+    "score_certification_p_value",
+    "score_p_value_bound",
+    "StatisticsMethod",
+    "evaluate_hft_waterfall",
     "evaluate_operational_advantage",
     "evaluate_operational_advantage_from_error_components",
     "werner_state",

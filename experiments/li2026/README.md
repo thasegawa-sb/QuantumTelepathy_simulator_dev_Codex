@@ -65,3 +65,19 @@ bank and writes replicate, convergence, event-trace, and summary artifacts to
 `experiments/li2026/results/m2_event_cross_validation_v1/`. The committed run
 contains 26,368,000 trials and obtains `7863.867 s^-1` with a 95% interval of
 `[7826.764, 7900.970] s^-1`, containing the analytical `7854.545 s^-1`.
+
+## HFT operational-advantage waterfall
+
+Run from the repository root:
+
+```bash
+PYTHONPATH=src python3 -m experiments.li2026.analyze_hft_waterfall
+```
+
+The Phase 11 analysis consumes the committed Table III lower-level hardware
+result and evaluates eight versioned scenarios. It separates the Ding ideal
+gap, Li model transition, physical-infidelity reduction, finite-statistics
+method, HEG rate, local decision latency, strict LCTC regime, and overall
+status. Fractional utilities use the Eq. 20 general-score bound, while binary
+win/loss utilities retain the exact Eq. 16 path. Outputs are written to
+`experiments/li2026/results/hft_waterfall_v1/`.

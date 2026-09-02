@@ -1,0 +1,26 @@
+{
+  "provenance": {
+    "scenario_expectations": "Analytical equations and independently tested finite-statistics routines",
+    "hardware": "Committed Table III lower-level system calculation"
+  },
+  "hardware_expected": {
+    "epsilon": 0.060972738493541345,
+    "r_heg_hz": 7854.545454545455,
+    "tau_dec_seconds": 9.7e-7
+  },
+  "hardware_absolute_tolerances": {
+    "epsilon": 1.0e-15,
+    "r_heg_hz": 1.0e-10,
+    "tau_dec_seconds": 1.0e-18
+  },
+  "scenarios": {
+    "uniform_chsh_reference": {"statistics_method": "exact_binomial", "n_req": 65, "overall_status": "PASS", "first_failed_criterion": null, "dominant_bottleneck": "fidelity_criterion"},
+    "ding_representative_10s": {"statistics_method": "general_score_bound", "n_req": 66133, "overall_status": "PASS", "first_failed_criterion": null, "dominant_bottleneck": "fidelity_criterion"},
+    "ding_representative_1s_rate_limited": {"statistics_method": "general_score_bound", "n_req": 66133, "overall_status": "FAIL", "first_failed_criterion": "rate_criterion", "dominant_bottleneck": "rate_criterion"},
+    "correlated_asymmetric_generalized": {"statistics_method": "general_score_bound", "n_req": 1772, "overall_status": "PASS", "first_failed_criterion": null, "dominant_bottleneck": "fidelity_criterion"},
+    "correlated_asymmetric_fidelity_limited": {"statistics_method": "general_score_bound", "n_req": null, "overall_status": "FAIL", "first_failed_criterion": "fidelity_criterion", "dominant_bottleneck": "fidelity_criterion"},
+    "decision_latency_limited": {"statistics_method": "exact_binomial", "n_req": 65, "overall_status": "FAIL", "first_failed_criterion": "decision_criterion", "dominant_bottleneck": "decision_criterion"},
+    "utility_flat_limit": {"statistics_method": "general_score_bound", "n_req": null, "overall_status": "FAIL", "first_failed_criterion": "theoretical_advantage", "dominant_bottleneck": "theoretical_advantage"},
+    "communication_regime_invalid": {"statistics_method": "exact_binomial", "n_req": 65, "overall_status": "FAIL", "first_failed_criterion": "latency_constrained_regime", "dominant_bottleneck": "latency_constrained_regime"}
+  }
+}

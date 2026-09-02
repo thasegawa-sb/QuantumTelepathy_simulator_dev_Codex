@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-10 are complete at their configured gates; Phase 11 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-11 are complete at their configured gates; Phase 12 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 11 HFT operational-advantage waterfall |
+| Next task | Phase 12 three-party XOR/GHZ extension |
 
 ## Proposed Package Structure
 
@@ -34,6 +34,7 @@ The repository uses the following package structure:
 | `src/quantum_telepathy/li2026/fidelity.py` | `epsilon_s`, `epsilon_meas`, combined `epsilon`, `epsilon_th` |
 | `src/quantum_telepathy/li2026/statistics.py` | Binomial p-values, `n_req`, `R_req`, score-bound p-values |
 | `src/quantum_telepathy/li2026/operational.py` | Standard pass/fail status object |
+| `src/quantum_telepathy/li2026/hft_waterfall.py` | Ding-to-Li HFT theoretical-to-operational decomposition |
 | `src/quantum_telepathy/hardware/memory_m0_m1_m2.py` | M0 no memory, M1 generic memory, M2 event-ready time multiplexing |
 | `src/quantum_telepathy/hardware/heg.py` | System-level HEG formulas |
 | `src/quantum_telepathy/hardware/yb_node.py` | Li Table III system-level neutral-atom benchmark |
@@ -165,7 +166,7 @@ Validation Gate A:
 
 ### Phase 6: Finite Statistics Model
 
-Status: complete for exact win/loss utilities and Figure 3. The generalized-score bound in Eqs. 19-21 remains deferred.
+Status: complete for exact win/loss utilities, Figure 3, and the generalized-score bound in Eqs. 19-21.
 
 Implement:
 
@@ -174,7 +175,7 @@ Implement:
 | Exact binomial-tail p-value | Eq. 16 and Eq. 40 |
 | `n_req(epsilon,M,alpha)` | Eq. 42 |
 | `R_req` | Eq. 41 and Eq. 43 |
-| General-score bound | Eq. 19-21, after win/loss support |
+| General-score bound | Eq. 19-21, implemented with log-space interpolated binomial tails |
 
 Numerical requirements:
 
@@ -325,8 +326,8 @@ replicate and totaled approximately 28 seconds for the committed run.
 
 | Phase | Scope | Gate |
 |---|---|---|
-| HFT operational waterfall | Ding ideal -> Li generalized -> infidelity -> finite stats -> HEG -> decision latency | Current gate; two-party gates A-D pass |
-| Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | Two-party cross-validation |
+| HFT operational waterfall | Ding ideal -> Li generalized -> infidelity -> finite stats -> HEG -> decision latency | PASS; eight scenarios and lower-level hardware provenance validated |
+| Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | Current gate; two-party gates A-D and Phase 11 pass |
 | Hardware optimization | Minimum improvements satisfying all criteria | Full operational status |
 | HPC optimization | Performance only after correctness | Reproduction suite stable |
 | Phase 16 documentation | Japanese simulator manual (`.docx`), Japanese report (`.docx`), English paper (`.tex`) | Final validation complete |
@@ -360,6 +361,6 @@ project records rather than additional final narrative deliverables.
 
 ## Development Rule
 
-The next scientifically meaningful action is Phase 11: produce the HFT
-operational-advantage waterfall from versioned Ding/Li scenarios and identify
-the first failing criterion and dominant hardware/application bottleneck.
+The next scientifically meaningful action is Phase 12: implement the
+three-party XOR/GHZ model, deterministic classical oracle, Appendix B noise
+threshold, finite-statistics path, and configured Figure 7(b) reproduction.

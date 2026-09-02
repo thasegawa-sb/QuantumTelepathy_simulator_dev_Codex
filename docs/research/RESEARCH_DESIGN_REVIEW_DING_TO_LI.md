@@ -6,7 +6,7 @@ Date: 2026-08-31, updated 2026-09-03
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li generalized LCTC/fidelity/statistics layers, Table II status, analytical M2 Eqs. 46-53, Table III system model, and event-driven cross-validation now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is the HFT operational-advantage waterfall.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li generalized LCTC/fidelity/statistics layers, Table II status, analytical M2 Eqs. 46-53, Table III system model, event-driven cross-validation, and HFT operational waterfall now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is the three-party extension.
 
 ## Existing Implementation
 
@@ -21,7 +21,7 @@ The correct development sequence remains staged. The independently verified nonl
 | Paper reproduction code | Scoped Ding baseline plus Li generalized LCTC, fidelity, statistics, and timing paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 11; HFT operational-advantage waterfall |
+| Current validation gate | Phase 12; three-party XOR/GHZ extension |
 
 Files requested by the operating procedure were not available:
 
@@ -142,8 +142,9 @@ The scaffold follows these architectural requirements:
 7. Completed: add M2 analytical memory/HEG model for Eqs. 46-53.
 8. Completed: derive and reproduce the Table III 50 km benchmark from Eqs. 54-61.
 9. Completed: cross-validate analytical HEG against event-driven simulation.
-10. Current: produce the HFT operational waterfall, followed by multiparty extension and optimization.
+10. Completed: produce the HFT operational waterfall and identify criterion-specific bottlenecks.
+11. Current: implement the multiparty extension, followed by hardware optimization.
 
 ## Design Decision
 
-The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, and the complete Ding regression suite remains mandatory. Development may proceed to the Phase 11 HFT waterfall without changing the retained Table III `PARTIAL` paper-level status.
+The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, and the Phase 11 waterfall consumes that hardware result without changing the retained Table III `PARTIAL` paper-level status. Development may proceed to Phase 12 while the complete Ding and two-party Li regression suites remain mandatory.

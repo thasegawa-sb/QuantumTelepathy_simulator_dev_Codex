@@ -1,0 +1,104 @@
+{
+  "references": {
+    "ding_jiang": {
+      "arxiv_id": "2407.21723",
+      "version": "v3",
+      "retrieval_date": "2026-08-31",
+      "model": "Section 3 HFT hedging utility"
+    },
+    "li2026": {
+      "arxiv_id": "2604.07451",
+      "version": "v1",
+      "retrieval_date": "2026-08-31",
+      "version_reverified_date": "2026-09-02",
+      "model": "Equations 15-25 and 30-45"
+    }
+  },
+  "hardware_source": {
+    "summary_file": "../results/table3_50km_v1/table3_summary.json",
+    "required_source_status": "PASS",
+    "epsilon_path": ["system_level_result", "memory_adjusted_combined_infidelity_upper_bound"],
+    "r_heg_path": ["system_level_result", "rate", "r_heg"],
+    "tau_rot_path": ["configuration", "device", "rotation_time_seconds"],
+    "tau_meas_path": ["configuration", "device", "measurement_time_seconds"],
+    "t_comm_path": ["system_level_result", "tau_link"]
+  },
+  "scenarios": [
+    {
+      "id": "uniform_chsh_reference",
+      "description": "Uniform-input win/loss reference with exact binomial certification.",
+      "statistics_method": "exact_binomial",
+      "ding": {"p": 0.5, "beta": 0.0},
+      "li": {"input_distribution": [[0.25, 0.25], [0.25, 0.25]], "beta1": 0.0, "beta2": 0.0},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 1.0e-5}
+    },
+    {
+      "id": "ding_representative_10s",
+      "description": "Ding-Jiang p=0.3, beta=0.3 case at the upper representative HFT stationary window.",
+      "statistics_method": "general_score_bound",
+      "ding": {"p": 0.3, "beta": 0.3},
+      "li": {"input_distribution": [[0.49, 0.21], [0.21, 0.09]], "beta1": 0.3, "beta2": 0.3},
+      "application": {"alpha": 0.05, "t_env_seconds": 10.0, "t_loc_seconds": 1.0e-5}
+    },
+    {
+      "id": "ding_representative_1s_rate_limited",
+      "description": "Same theoretical game and hardware as the 10 s case, but with a 1 s stationary window.",
+      "statistics_method": "general_score_bound",
+      "ding": {"p": 0.3, "beta": 0.3},
+      "li": {"input_distribution": [[0.49, 0.21], [0.21, 0.09]], "beta1": 0.3, "beta2": 0.3},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 1.0e-5}
+    },
+    {
+      "id": "correlated_asymmetric_generalized",
+      "description": "HFT-style research extension with correlated inputs and beta1 unequal to beta2.",
+      "statistics_method": "general_score_bound",
+      "ding": {"p": 0.5, "beta": 0.05},
+      "li": {"input_distribution": [[0.2, 0.2], [0.2, 0.4]], "beta1": 0.05, "beta2": 0.1},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 1.0e-5}
+    },
+    {
+      "id": "correlated_asymmetric_fidelity_limited",
+      "description": "Correlated asymmetric game whose ideal gap is erased by the Table III error level.",
+      "statistics_method": "general_score_bound",
+      "ding": {"p": 0.5, "beta": 0.1},
+      "li": {"input_distribution": [[0.4, 0.15], [0.15, 0.3]], "beta1": 0.1, "beta2": 0.2},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 1.0e-5}
+    },
+    {
+      "id": "decision_latency_limited",
+      "description": "CHSH control with a local window shorter than the hardware decision latency.",
+      "statistics_method": "exact_binomial",
+      "ding": {"p": 0.5, "beta": 0.0},
+      "li": {"input_distribution": [[0.25, 0.25], [0.25, 0.25]], "beta1": 0.0, "beta2": 0.0},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 5.0e-7}
+    },
+    {
+      "id": "utility_flat_limit",
+      "description": "beta1=beta2=0.5 limit with no ideal quantum-classical gap.",
+      "statistics_method": "general_score_bound",
+      "ding": {"p": 0.5, "beta": 0.5},
+      "li": {"input_distribution": [[0.25, 0.25], [0.25, 0.25]], "beta1": 0.5, "beta2": 0.5},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 1.0e-5}
+    },
+    {
+      "id": "communication_regime_invalid",
+      "description": "CHSH control at T_loc=T_comm, which violates the strict LCTC condition.",
+      "statistics_method": "exact_binomial",
+      "ding": {"p": 0.5, "beta": 0.0},
+      "li": {"input_distribution": [[0.25, 0.25], [0.25, 0.25]], "beta1": 0.0, "beta2": 0.0},
+      "application": {"alpha": 0.05, "t_env_seconds": 1.0, "t_loc_seconds": 2.4e-4}
+    }
+  ],
+  "validation": {
+    "oracle_file": "../oracles/hft_waterfall_v1.json",
+    "classical_enumeration_absolute_tolerance": 1.0e-12,
+    "ding_li_equivalence_absolute_tolerance": 1.0e-12
+  },
+  "plot": {"dpi": 180},
+  "notes": [
+    "The beta1 != beta2 cases are HFT-style research extensions of Li Eq. 23, not empirical market calibrations from either paper.",
+    "Changing from a Ding game to a generalized Li game is reported as a model transition, not as a physical loss term.",
+    "Each scenario pins its statistical interpretation: binary win/loss cases use exact binomial certification and fractional-score cases use the Li Eq. 20 upper bound.",
+    "Strict inequalities are used for epsilon<epsilon_th, R_HEG>R_req, tau_dec<T_loc, and T_loc<T_comm."
+  ]
+}
