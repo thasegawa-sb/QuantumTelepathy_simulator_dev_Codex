@@ -369,7 +369,16 @@ class HardwareCostVector:
     channel_count: float
 
     def values(self) -> tuple[float, ...]:
-        return tuple(asdict(self).values())
+        return (
+            self.state_fidelity,
+            self.measurement_fidelity,
+            self.detector_efficiency,
+            self.optics_efficiency,
+            self.decision_speed,
+            self.memory_lifetime,
+            self.memory_count,
+            self.channel_count,
+        )
 
 
 def _normalized_reduction(value: float, minimum: float) -> float:
@@ -486,6 +495,44 @@ class _CertificationResult:
     r_req: float | None
     passes: bool
     search_limit_exceeded: bool
+
+
+@dataclass(frozen=True)
+class _ScenarioEvaluationContext:
+    classical_value: float
+    quantum_bias: float
+    theoretical_advantage: bool
+    epsilon_threshold: float | None
+    score_min: float
+    score_max: float
+
+
+def _scenario_evaluation_context(
+    scenario: HardwareOptimizationScenario,
+) -> _ScenarioEvaluationContext:
+    game = generalized_lctc_values(
+        scenario.input_distribution, scenario.beta1, scenario.beta2
+    )
+    threshold = (
+        fidelity_threshold(game.classical_bias, game.quantum_bias)
+        if game.quantum_bias > 0.0
+        else None
+    )
+    utility = generalized_lctc_utility(scenario.beta1, scenario.beta2)
+    utility_values = tuple(
+        value
+        for input_row in utility
+        for parity_pair in input_row
+        for value in parity_pair
+    )
+    return _ScenarioEvaluationContext(
+        classical_value=game.classical_value,
+        quantum_bias=game.quantum_bias,
+        theoretical_advantage=game.gap > 0.0,
+        epsilon_threshold=threshold,
+        score_min=min(utility_values),
+        score_max=max(utility_values),
+    )
 
 
 @dataclass(frozen=True)
@@ -715,19 +762,13 @@ def _evaluate_candidate(
     distance_km: float,
     design: HardwareImprovementDesign,
     search_space: HardwareSearchSpace,
+    context: _ScenarioEvaluationContext,
     certification_cache: dict[str, _CertificationResult],
 ) -> HardwareCandidateEvaluation:
     parameters = apply_hardware_improvements(baseline, design, distance_km)
     system = evaluate_yb_system_level(parameters)
-    game = generalized_lctc_values(
-        scenario.input_distribution, scenario.beta1, scenario.beta2
-    )
-    theoretical = game.gap > 0.0
-    threshold = (
-        fidelity_threshold(game.classical_bias, game.quantum_bias)
-        if game.quantum_bias > 0.0
-        else None
-    )
+    theoretical = context.theoretical_advantage
+    threshold = context.epsilon_threshold
     epsilon = system.memory_adjusted_combined_infidelity_upper_bound
     memory = (
         evaluate_m2_memory_fidelity(
@@ -751,13 +792,6 @@ def _evaluate_candidate(
         and epsilon < threshold
     )
 
-    utility = generalized_lctc_utility(scenario.beta1, scenario.beta2)
-    utility_values = tuple(
-        value
-        for input_row in utility
-        for parity_pair in input_row
-        for value in parity_pair
-    )
     certification = _CertificationResult(None, None, None, None, False, False)
     if fidelity and epsilon is not None:
         cache_key = epsilon.hex()
@@ -765,10 +799,10 @@ def _evaluate_candidate(
         if cached_certification is None:
             certification = _certification_result(
                 scenario,
-                game.classical_value,
-                noisy_quantum_value(epsilon, game.quantum_bias),
-                min(utility_values),
-                max(utility_values),
+                context.classical_value,
+                noisy_quantum_value(epsilon, context.quantum_bias),
+                context.score_min,
+                context.score_max,
             )
             certification_cache[cache_key] = certification
         else:
@@ -898,6 +932,7 @@ def search_hardware_designs(
     if not all(baseline_coordinates):
         raise ValueError("search space must contain the unchanged baseline design")
 
+    context = _scenario_evaluation_context(scenario)
     certification_cache: dict[str, _CertificationResult] = {}
     evaluations: list[HardwareCandidateEvaluation] = []
     errors: list[str] = []
@@ -910,6 +945,7 @@ def search_hardware_designs(
                     distance_km=distance,
                     design=design,
                     search_space=search_space,
+                    context=context,
                     certification_cache=certification_cache,
                 )
             )
@@ -927,6 +963,7 @@ def search_hardware_designs(
                 distance_km=distance,
                 design=baseline_design,
                 search_space=search_space,
+                context=context,
                 certification_cache=certification_cache,
             )
         except (ArithmeticError, RuntimeError, ValueError) as error:

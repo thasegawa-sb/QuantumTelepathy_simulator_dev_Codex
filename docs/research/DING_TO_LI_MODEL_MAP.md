@@ -9,7 +9,7 @@ Sources:
 | Ding and Jiang, "Coordinating Decisions via Quantum Telepathy" | arXiv:2407.21723v3 | 2026-08-31 | https://arxiv.org/abs/2407.21723 |
 | Li et al., "Operational criteria for quantum advantage in latency-constrained nonlocal games" | arXiv:2604.07451v1 | 2026-08-31 | https://arxiv.org/abs/2604.07451 |
 
-Initial audit result (2026-08-31): the workspace was empty and was not a Git repository, so there was no prior implementation or history to inspect. Current state (2026-09-03): the repository contains validated Ding and two-party Li layers through the Phase 11 HFT waterfall. The architecture below remains the controlling design map and gap analysis.
+Initial audit result (2026-08-31): the workspace was empty and was not a Git repository, so there was no prior implementation or history to inspect. Current state (2026-09-03): the repository contains validated Ding and Li layers through the Phase 14 performance gate, with explicit `PARTIAL` and deferred scopes retained. The architecture below remains the controlling design map and gap analysis.
 
 ## Scientific Progression
 
@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 14 performance/HPC optimization. Phase 13 now adds finite-grid system-level hardware optimization, exact Pareto membership, distance-law sweeps, and direct operational reevaluation without changing the validated Ding, Li two-party, or multiparty results.
+Current gate: Phase 15 final validation. Phase 14 adds isolated runtime/memory benchmarks and deterministic hot-path optimizations without changing the validated Ding, Li two-party, multiparty, or hardware-search results.
 
 Status:
 
@@ -160,5 +160,6 @@ Status:
 | Li three-party XOR/GHZ game | PASS | 64-strategy classical oracle, symmetric GHZ optimizer, independent three-phase checks, and Appendix B noise equations pass |
 | Li Figure 7(b) paper reproduction | PARTIAL | Full configured grid and analytical structure pass; author pointwise data are unavailable |
 | Hardware-resource optimization | PASS for configured finite grid | 43,776 designs, Pareto fronts, strict rate transitions, and direct Phase 11 reevaluation pass; continuous optimality is not claimed |
-| Equation-to-code map created | PARTIAL | Through the Phase 13 system-level research extension are linked; microscopic CAPS mappings remain incomplete |
-| Next implementation gate | Phase 14 | Profile and optimize runtime while preserving all scientific regression values |
+| Performance/HPC optimization | PASS for configured benchmarks | Hardware-grid median reduced from 13.204 s to 5.696 s; exact result digest and strict statistical boundaries unchanged |
+| Equation-to-code map created | PARTIAL | Through the Phase 14 performance gate are linked; microscopic CAPS mappings remain incomplete |
+| Next implementation gate | Phase 15 | Complete final regression, reproduction, artifact, discrepancy, and provenance audit |

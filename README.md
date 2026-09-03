@@ -6,7 +6,7 @@ Current state:
 
 - Git repository initialized from an empty workspace.
 - Research model maps and reproduction matrix live in `docs/research/`.
-- Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT, direct-photon loss with Figure 5 cross-sections and an independent NPA bound, v3 Type II memory rate, and qubit depolarizing-noise robustness. Li support now includes generalized/asymmetric utility, correlated inputs, exact state and measurement infidelity, Figures 2-3, exact win/loss and bounded-score statistics, all operational criteria, M2 hardware, the 50 km benchmark, event-driven cross-validation, the HFT operational waterfall, the three-party XOR/GHZ Figure 7(b) model, and finite-grid hardware/Pareto optimization.
+- Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT, direct-photon loss with Figure 5 cross-sections and an independent NPA bound, v3 Type II memory rate, and qubit depolarizing-noise robustness. Li support now includes generalized/asymmetric utility, correlated inputs, exact state and measurement infidelity, Figures 2-3, exact win/loss and bounded-score statistics, all operational criteria, M2 hardware, the 50 km benchmark, event-driven cross-validation, the HFT operational waterfall, the three-party XOR/GHZ Figure 7(b) model, finite-grid hardware/Pareto optimization, and deterministic Phase 14 performance regressions.
 
 Run tests:
 
@@ -72,4 +72,10 @@ Run the Phase 13 hardware-resource and distance optimization:
 
 ```bash
 PYTHONPATH=src python3 -m experiments.li2026.optimize_hardware_resources
+```
+
+Run the Phase 14 isolated-process performance benchmarks:
+
+```bash
+python3 experiments/performance/benchmark_phase14.py
 ```

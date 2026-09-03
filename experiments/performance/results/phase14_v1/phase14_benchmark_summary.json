@@ -1,0 +1,260 @@
+{
+  "benchmark_id": "phase14_v1",
+  "environment": {
+    "cvxpy": "1.9.2",
+    "machine": "arm64",
+    "numpy": "2.3.0",
+    "python": "3.13.5",
+    "release": "24.5.0",
+    "scipy": "1.15.3",
+    "system": "Darwin"
+  },
+  "generated_at_utc": "2026-09-03T07:35:06.465769+00:00",
+  "historical_baseline": {
+    "commit": "95bb7e224d39b998d31c088903d06a314acc6ce1",
+    "cprofile": {
+      "function_calls": 121352596,
+      "generalized_lctc_values_calls": 43783,
+      "hardware_search_cumulative_seconds": 19.784,
+      "required_score_trials_cumulative_seconds": 10.397,
+      "total_seconds": 28.404
+    },
+    "environment": {
+      "machine": "arm64",
+      "python": "3.13.5",
+      "system": "Darwin"
+    },
+    "hardware_grid": {
+      "candidate_count": 43776,
+      "median_seconds": 13.20363795798039,
+      "peak_rss_bytes": 261586944,
+      "scientific_signature_sha256": "a495c8c7c05ceff07024d6586e456cd0fdc1cb5d0f545f5b140e949210c88620",
+      "seconds": [
+        12.966736416041385,
+        13.20363795798039,
+        13.330162999976892
+      ]
+    },
+    "measured_date": "2026-09-03"
+  },
+  "notes": [
+    "Wall-clock comparisons are valid only when Python major/minor, operating system, and machine architecture match the historical baseline.",
+    "Peak RSS is process-level high-water memory and includes imported numerical libraries.",
+    "The Figure 5 target measures the representative Q1+AB threshold workflow, not the deferred full 101x101 surface.",
+    "Performance status never substitutes for scientific-value and strict-boundary validation."
+  ],
+  "overall_status": "PASS",
+  "phase": 14,
+  "schema_version": 1,
+  "targets": {
+    "figure5_sdp": {
+      "maximum_seconds": 0.566993625019677,
+      "mean_seconds": 0.3411025280171695,
+      "median_seconds": 0.22861583402846009,
+      "minimum_seconds": 0.2276981250033714,
+      "peak_rss_bytes": 107184128,
+      "repeat_results_identical": true,
+      "repetitions": 3,
+      "scientific_result": {
+        "beta": 0.3,
+        "bracket_width": 0.0003255208333332593,
+        "classical_value": 0.7899999999999999,
+        "evaluation_count": 12,
+        "p": 0.3,
+        "solver_statuses": [
+          "optimal"
+        ],
+        "threshold_lower_bound": 0.931640625,
+        "transition_upper_bound": 0.9319661458333333
+      },
+      "seconds": [
+        0.566993625019677,
+        0.2276981250033714,
+        0.22861583402846009
+      ],
+      "stdev_seconds": 0.19562796662596804
+    },
+    "finite_statistics": {
+      "maximum_seconds": 0.38068579201353714,
+      "mean_seconds": 0.1042363416054286,
+      "median_seconds": 0.0351410000002943,
+      "minimum_seconds": 0.03494849998969585,
+      "peak_rss_bytes": 108347392,
+      "repeat_results_identical": true,
+      "repetitions": 5,
+      "scientific_result": {
+        "cases": [
+          {
+            "alpha": 0.001,
+            "expected_n_req": 238,
+            "id": "chsh_epsilon_0.061_alpha_0.001",
+            "method": "exact_binomial",
+            "n_req": 238,
+            "p_value_at_n_req": 0.0009172732139019824,
+            "p_value_at_previous_round": 0.0010287854333067312
+          },
+          {
+            "alpha": 0.05,
+            "expected_n_req": 66133,
+            "id": "phase13_ding_50km_general_score",
+            "method": "general_score_bound",
+            "n_req": 66133,
+            "p_value_at_n_req": 0.049955612031990254,
+            "p_value_at_previous_round": 0.05020069780623004
+          }
+        ]
+      },
+      "seconds": [
+        0.38068579201353714,
+        0.03531816601753235,
+        0.0350882500060834,
+        0.03494849998969585,
+        0.0351410000002943
+      ],
+      "stdev_seconds": 0.15453999753820843
+    },
+    "hardware_grid": {
+      "maximum_seconds": 6.131571708014235,
+      "mean_seconds": 5.828782041363108,
+      "median_seconds": 5.695682125049643,
+      "minimum_seconds": 5.659092291025445,
+      "peak_rss_bytes": 251445248,
+      "repeat_results_identical": true,
+      "repetitions": 3,
+      "scientific_result": {
+        "candidate_count": 43776,
+        "case_count": 9,
+        "cases": [
+          {
+            "candidate_count": 4864,
+            "distance_km": 25.0,
+            "evaluated_count": 4864,
+            "feasible_count": 4848,
+            "pareto_count": 4,
+            "recommended_n_req": 65629,
+            "scenario_id": "ding_rate_stress_1s",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 50.0,
+            "evaluated_count": 4864,
+            "feasible_count": 4640,
+            "pareto_count": 15,
+            "recommended_n_req": 66133,
+            "scenario_id": "ding_rate_stress_1s",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 75.0,
+            "evaluated_count": 4864,
+            "feasible_count": 3648,
+            "pareto_count": 32,
+            "recommended_n_req": 5306,
+            "scenario_id": "ding_rate_stress_1s",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 100.0,
+            "evaluated_count": 4864,
+            "feasible_count": 2092,
+            "pareto_count": 50,
+            "recommended_n_req": 2861,
+            "scenario_id": "ding_rate_stress_1s",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 125.0,
+            "evaluated_count": 4864,
+            "feasible_count": 228,
+            "pareto_count": 17,
+            "recommended_n_req": 2871,
+            "scenario_id": "ding_rate_stress_1s",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 150.0,
+            "evaluated_count": 4864,
+            "feasible_count": 0,
+            "pareto_count": 0,
+            "recommended_n_req": null,
+            "scenario_id": "ding_rate_stress_1s",
+            "status": "INFEASIBLE_SEARCH_SPACE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 50.0,
+            "evaluated_count": 4864,
+            "feasible_count": 2320,
+            "pareto_count": 15,
+            "recommended_n_req": 66133,
+            "scenario_id": "ding_rate_decision_stress_1s",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 50.0,
+            "evaluated_count": 4864,
+            "feasible_count": 2,
+            "pareto_count": 1,
+            "recommended_n_req": 1132017,
+            "scenario_id": "correlated_asymmetric_fidelity_stress",
+            "status": "FEASIBLE"
+          },
+          {
+            "candidate_count": 4864,
+            "distance_km": 50.0,
+            "evaluated_count": 4864,
+            "feasible_count": 0,
+            "pareto_count": 0,
+            "recommended_n_req": null,
+            "scenario_id": "flat_utility_infeasible_control",
+            "status": "INFEASIBLE_SEARCH_SPACE"
+          }
+        ],
+        "scientific_signature_sha256": "a495c8c7c05ceff07024d6586e456cd0fdc1cb5d0f545f5b140e949210c88620"
+      },
+      "seconds": [
+        6.131571708014235,
+        5.695682125049643,
+        5.659092291025445
+      ],
+      "stdev_seconds": 0.262860972115499
+    }
+  },
+  "validations": {
+    "figure5_sdp": {
+      "paper_representative_efficiency": 0.941,
+      "status": "PASS"
+    },
+    "finite_statistics": {
+      "case_count": 2,
+      "status": "PASS"
+    },
+    "hardware_candidate_count": {
+      "actual": 43776,
+      "expected": 43776,
+      "status": "PASS"
+    },
+    "hardware_runtime": {
+      "actual_median_seconds": 5.695682125049643,
+      "baseline_median_seconds": 13.20363795798039,
+      "comparable_environment": true,
+      "maximum_ratio": 0.75,
+      "runtime_ratio": 0.43137218266478783,
+      "status": "PASS"
+    },
+    "hardware_scientific_signature": {
+      "actual": "a495c8c7c05ceff07024d6586e456cd0fdc1cb5d0f545f5b140e949210c88620",
+      "expected": "a495c8c7c05ceff07024d6586e456cd0fdc1cb5d0f545f5b140e949210c88620",
+      "status": "PASS"
+    },
+    "repeat_determinism": {
+      "status": "PASS"
+    }
+  }
+}

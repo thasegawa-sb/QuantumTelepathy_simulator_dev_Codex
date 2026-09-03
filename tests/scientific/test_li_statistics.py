@@ -134,6 +134,20 @@ def test_required_score_trials_matches_independent_exhaustive_oracle():
         ) >= alpha
 
 
+@pytest.mark.parametrize("chunk_size", [1, 7, 256, 1000, 32_768])
+def test_required_score_trials_is_invariant_to_search_chunking(chunk_size):
+    expected = _brute_force_required_score_trials(0.62, 0.74, 0.05, 0.0, 1.0)
+
+    assert required_score_trials(
+        0.62,
+        0.74,
+        0.05,
+        0.0,
+        1.0,
+        chunk_size=chunk_size,
+    ) == expected
+
+
 def test_score_threshold_stabilizes_integer_boundary():
     assert expected_score_threshold(10, 0.8) == 8
 
@@ -190,6 +204,13 @@ def test_required_trials_sequence_matches_individual_searches_and_is_monotone():
 
     assert sequence == individual
     assert sequence == tuple(sorted(sequence))
+
+
+@pytest.mark.parametrize("chunk_size", [1, 7, 256, 1000, 32_768])
+def test_required_trials_is_invariant_to_search_chunking(chunk_size):
+    expected = _brute_force_required_trials(0.62, 0.74, 0.05)
+
+    assert required_trials(0.62, 0.74, 0.05, chunk_size=chunk_size) == expected
 
 
 def test_large_binomial_tail_remains_nonzero_without_direct_power_underflow():

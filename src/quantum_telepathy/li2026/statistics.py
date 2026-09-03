@@ -10,6 +10,9 @@ import numpy as np
 from scipy.stats import binom
 
 
+_INITIAL_SEARCH_CHUNK_SIZE = 256
+
+
 class NoFiniteCertificationError(ValueError):
     """Raised when the quantum win probability does not exceed the classical one."""
 
@@ -160,7 +163,9 @@ def score_p_value_bound(
     upper = math.ceil(mu)
     fraction = mu - lower
     lower_log_tail = float(binom.logsf(lower - 1, rounds, xi))
-    upper_log_tail = float(binom.logsf(upper - 1, rounds, xi))
+    upper_log_tail = (
+        float(binom.logsf(upper - 1, rounds, xi)) if fraction != 0.0 else 0.0
+    )
     log_bound = (
         1.0
         + _weighted_log_tail(lower_log_tail, 1.0 - fraction)
@@ -236,8 +241,9 @@ def required_score_trials(
     xi = (classical - minimum) / score_range
     log_alpha = math.log(significance)
     start = 1
+    block_size = min(chunk, _INITIAL_SEARCH_CHUNK_SIZE)
     while start <= limit:
-        stop = min(limit + 1, start + chunk)
+        stop = min(limit + 1, start + block_size)
         rounds = np.arange(start, stop, dtype=np.int64)
         expected_totals = np.nextafter(rounds * quantum, -np.inf)
         thresholds = np.ceil(expected_totals)
@@ -246,7 +252,6 @@ def required_score_trials(
         upper = np.ceil(mu).astype(np.int64)
         fractions = mu - lower
         lower_log_tails = binom.logsf(lower - 1, rounds, xi)
-        upper_log_tails = binom.logsf(upper - 1, rounds, xi)
         lower_terms = np.zeros_like(fractions)
         upper_terms = np.zeros_like(fractions)
         np.multiply(
@@ -255,12 +260,16 @@ def required_score_trials(
             out=lower_terms,
             where=fractions != 1.0,
         )
-        np.multiply(
-            fractions,
-            upper_log_tails,
-            out=upper_terms,
-            where=fractions != 0.0,
-        )
+        interpolated = fractions != 0.0
+        if np.any(interpolated):
+            upper_log_tails = binom.logsf(
+                upper[interpolated] - 1,
+                rounds[interpolated],
+                xi,
+            )
+            upper_terms[interpolated] = (
+                fractions[interpolated] * upper_log_tails
+            )
         log_bounds = 1.0 + lower_terms + upper_terms
         if np.any(np.isnan(log_bounds)):
             raise ArithmeticError("general-score p-value bound returned NaN")
@@ -268,6 +277,7 @@ def required_score_trials(
         if passing.size:
             return int(rounds[int(passing[0])])
         start = stop
+        block_size = min(chunk, 2 * block_size)
     raise CertificationSearchLimitError(
         f"no certifying round count found at or below max_rounds={limit}"
     )
@@ -283,8 +293,9 @@ def _first_certifying_round(
     chunk_size: int,
 ) -> int:
     start = lower_bound
+    block_size = min(chunk_size, _INITIAL_SEARCH_CHUNK_SIZE)
     while start <= max_rounds:
-        stop = min(max_rounds + 1, start + chunk_size)
+        stop = min(max_rounds + 1, start + block_size)
         rounds = np.arange(start, stop, dtype=np.int64)
         products = rounds * quantum_win_probability
         expected_wins = np.ceil(np.nextafter(products, -np.inf)).astype(np.int64)
@@ -299,6 +310,7 @@ def _first_certifying_round(
         if passing.size:
             return int(rounds[int(passing[0])])
         start = stop
+        block_size = min(chunk_size, 2 * block_size)
     raise CertificationSearchLimitError(
         f"no certifying round count found at or below max_rounds={max_rounds}"
     )

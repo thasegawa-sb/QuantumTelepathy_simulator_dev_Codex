@@ -14,7 +14,7 @@ Retrieval and version audit:
 | arXiv HTML | https://arxiv.org/html/2604.07451v1 |
 | Retrieval date | 2026-08-31 |
 | Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible when reverified 2026-09-02 |
-| Local repository state | Layer 0/1 core, Ding regression suite, Li two-party operational/hardware layers, Phase 12 three-party XOR/GHZ Figure 7(b), and Phase 13 bipartite hardware optimization are present |
+| Local repository state | Layer 0/1 core, Ding regression suite, Li two-party operational/hardware layers, Phase 12 three-party XOR/GHZ Figure 7(b), Phase 13 bipartite hardware optimization, and Phase 14 deterministic performance benchmarks are present |
 
 ## Scope
 
@@ -128,6 +128,16 @@ reevaluated through the Phase 11 operational API. The configured Ding
 representative one-second scenario remains feasible at 125 km but has no
 feasible candidate at 150 km. Details and limitations are recorded in
 `docs/research/HARDWARE_OPTIMIZATION.md`.
+
+### Phase 14 Performance Extension
+
+The performance work does not change the Li model or any claimed paper value.
+It moves scenario-invariant generalized-game calculations outside the 4,864
+candidate loop, removes recursive conversion from Pareto cost-vector access,
+and avoids redundant binomial tails while retaining an exhaustive contiguous
+search for the exact discrete `n_req`. The 43,776-candidate result digest is
+unchanged. Isolated benchmark results, process-memory scope, and the decision
+to retain sequential Q1+AB solves are recorded in `BENCHMARKS.md`.
 
 ### Figure 2 Reproduction Record
 

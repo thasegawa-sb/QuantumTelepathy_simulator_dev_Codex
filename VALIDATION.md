@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-578 passed in 17.58s
+592 passed in 21.14s
 ```
 
 ## Passing Coverage
@@ -54,6 +54,7 @@ Result:
 | Li required-rate identity and stationary-window units | `tests/scientific/test_li_statistics.py` |
 | Li Eq. 20 general-score bound versus independent direct binomial sums | `tests/scientific/test_li_statistics.py` |
 | Li general-score `n_req` discrete minimality | `tests/scientific/test_li_statistics.py` |
+| Li exact/general-score `n_req` invariance across search chunk sizes | `tests/scientific/test_li_statistics.py` |
 | Li Figure 3 configured-grid gates and generated artifacts | `tests/scientific/test_li_fig3_artifacts.py` |
 | Li Eq. 44 decision-latency sum and strict Eq. 45 boundary | `tests/scientific/test_li_operational.py` |
 | Li Table II fidelity/rate/decision status mapping | `tests/scientific/test_li_operational.py` |
@@ -77,6 +78,8 @@ Result:
 | Li Figure 7(b) full-grid invariants and committed artifacts | `tests/scientific/test_li_fig7b_artifacts.py` |
 | Phase 13 improvement mapping, finite search, Pareto logic, and infeasibility classification | `tests/scientific/test_hardware_optimization.py` |
 | Phase 13 configured candidate counts, direct reevaluation, strict channel threshold, distance envelope, and artifacts | `tests/scientific/test_hardware_optimization_artifacts.py` |
+| Phase 14 scenario-invariant game evaluation count | `tests/scientific/test_hardware_optimization.py` |
+| Phase 14 runtime, memory, exact hardware digest, finite-statistics minimality, and Figure 5 Q1+AB benchmark artifacts | `tests/scientific/test_phase14_performance_artifacts.py` |
 
 ## Known Gaps
 
@@ -98,3 +101,4 @@ Result:
 | Li multiparty CAPS Figure 7(c-e) | NOT_IMPLEMENTED: game/noise support is separate; microscopic atom-cavity pulse dynamics and GHZ generation rates remain outside the validated scope |
 | Bipartite hardware-resource optimization | PASS for the configured 43,776-candidate finite grid: all evaluations complete, Pareto and direct-operational gates pass, and the configured distance envelope ends at 125 km before failing at 150 km |
 | Continuous/global and multiparty hardware optimization | PARTIAL: finite-grid optimality is exact, but continuous global optimality is not claimed and CAPS hardware equations remain unavailable |
+| Scientific-computing performance | PASS on the pinned macOS arm64/Python 3.13 benchmark: hardware-grid median fell from `13.204 s` to `5.696 s` with the exact scientific digest unchanged; timing portability is not claimed |

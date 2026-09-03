@@ -6,7 +6,7 @@ Date: 2026-08-31, updated 2026-09-03
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li two-party operational/hardware layers, HFT waterfall, three-party XOR/GHZ Appendix B model, and finite-grid hardware optimization now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is performance/HPC optimization.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li two-party operational/hardware layers, HFT waterfall, three-party XOR/GHZ Appendix B model, finite-grid hardware optimization, and deterministic performance benchmarks now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is final validation.
 
 ## Existing Implementation
 
@@ -17,11 +17,11 @@ The correct development sequence remains staged. The independently verified nonl
 | Tests | CHSH, Ding regressions, Li utility/fidelity/statistics, paper figures, operational status, hardware, DES, multiparty, and optimization tests present |
 | Experiment scripts | Version-pinned Ding/Li reproductions, operational waterfall, M2 cross-validation, multiparty, and hardware-optimization workflows present |
 | Configurations | Version-pinned Ding and Li experiment configurations present |
-| Validation results | Generated Ding and Li result summaries and data present through the Phase 13 optimization gate |
+| Validation results | Generated Ding and Li result summaries and data present through the Phase 14 performance gate |
 | Paper reproduction code | Scoped Ding baseline plus Li generalized LCTC, fidelity, statistics, and timing paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 14; performance/HPC optimization |
+| Current validation gate | Phase 15; final validation |
 
 Files requested by the operating procedure were not available:
 
@@ -35,7 +35,7 @@ Files requested by the operating procedure were not available:
 | `DECISIONS.md` | Present |
 | `ASSUMPTIONS.md` | Present |
 | `VALIDATION.md` | Present |
-| `BENCHMARKS.md` | Not present |
+| `BENCHMARKS.md` | Present; Phase 14 environment, runtime, RSS, and optimization evidence |
 | prior `docs/research/REPRODUCTION_MATRIX.md` | Not present |
 
 ## Reusable Components
@@ -145,8 +145,10 @@ The scaffold follows these architectural requirements:
 9. Completed: cross-validate analytical HEG against event-driven simulation.
 10. Completed: produce the HFT operational waterfall and identify criterion-specific bottlenecks.
 11. Completed: implement the three-party XOR/GHZ game, Appendix B noise model, and Figure 7(b) computation.
-12. Current: optimize minimum hardware improvements under all operational constraints.
+12. Completed: optimize minimum hardware improvements under all operational constraints.
+13. Completed: profile and optimize validated scientific workflows with deterministic result digests.
+14. Current: complete final regression, reproduction, artifact, discrepancy, and provenance validation.
 
 ## Design Decision
 
-The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, the Phase 11 waterfall consumes that hardware result, Phase 12 adds a separate GHZ game/noise path, and Phase 13 searches the bipartite system-level hardware lattice. Development may proceed to Phase 14 without changing the retained Table III or Figure 7(b) `PARTIAL` paper-level statuses; complete Ding, two-party Li, multiparty, and optimization regression suites remain mandatory.
+The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, the Phase 11 waterfall consumes that hardware result, Phase 12 adds a separate GHZ game/noise path, Phase 13 searches the bipartite system-level hardware lattice, and Phase 14 reduces runtime while preserving exact result signatures. Development may proceed to Phase 15 without changing the retained Table III or Figure 7(b) `PARTIAL` paper-level statuses; complete Ding, two-party Li, multiparty, optimization, and performance regression suites remain mandatory.

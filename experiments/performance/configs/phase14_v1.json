@@ -1,0 +1,78 @@
+{
+  "phase": 14,
+  "benchmark_id": "phase14_v1",
+  "historical_baseline": {
+    "commit": "95bb7e224d39b998d31c088903d06a314acc6ce1",
+    "measured_date": "2026-09-03",
+    "environment": {
+      "python": "3.13.5",
+      "system": "Darwin",
+      "machine": "arm64"
+    },
+    "hardware_grid": {
+      "candidate_count": 43776,
+      "seconds": [
+        12.966736416041385,
+        13.20363795798039,
+        13.330162999976892
+      ],
+      "median_seconds": 13.20363795798039,
+      "peak_rss_bytes": 261586944,
+      "scientific_signature_sha256": "a495c8c7c05ceff07024d6586e456cd0fdc1cb5d0f545f5b140e949210c88620"
+    },
+    "cprofile": {
+      "total_seconds": 28.404,
+      "function_calls": 121352596,
+      "hardware_search_cumulative_seconds": 19.784,
+      "generalized_lctc_values_calls": 43783,
+      "required_score_trials_cumulative_seconds": 10.397
+    }
+  },
+  "targets": {
+    "hardware_grid": {
+      "repetitions": 3,
+      "config_file": "../../li2026/configs/hardware_optimization_v1.json",
+      "maximum_median_runtime_ratio": 0.75,
+      "expected_candidate_count": 43776,
+      "expected_scientific_signature_sha256": "a495c8c7c05ceff07024d6586e456cd0fdc1cb5d0f545f5b140e949210c88620"
+    },
+    "finite_statistics": {
+      "repetitions": 5,
+      "cases": [
+        {
+          "id": "chsh_epsilon_0.061_alpha_0.001",
+          "method": "exact_binomial",
+          "classical_value": 0.75,
+          "quantum_value": 0.831986633767084,
+          "alpha": 0.001,
+          "expected_n_req": 238
+        },
+        {
+          "id": "phase13_ding_50km_general_score",
+          "method": "general_score_bound",
+          "classical_value": 0.79,
+          "quantum_value": 0.7932955597847058,
+          "alpha": 0.05,
+          "score_min": 0.0,
+          "score_max": 1.0,
+          "expected_n_req": 66133
+        }
+      ]
+    },
+    "figure5_sdp": {
+      "repetitions": 3,
+      "p": 0.3,
+      "beta": 0.3,
+      "efficiency_tolerance": 0.0005,
+      "paper_representative_efficiency": 0.941,
+      "maximum_paper_bracket_distance": 0.02,
+      "maximum_numerical_bracket_width": 0.0005
+    }
+  },
+  "notes": [
+    "Wall-clock comparisons are valid only when Python major/minor, operating system, and machine architecture match the historical baseline.",
+    "Peak RSS is process-level high-water memory and includes imported numerical libraries.",
+    "The Figure 5 target measures the representative Q1+AB threshold workflow, not the deferred full 101x101 surface.",
+    "Performance status never substitutes for scientific-value and strict-boundary validation."
+  ]
+}

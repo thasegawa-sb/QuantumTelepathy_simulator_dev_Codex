@@ -1,5 +1,6 @@
 import pytest
 
+import quantum_telepathy.optimization.hardware as hardware_module
 from quantum_telepathy.core.xor_game import (
     independent_bernoulli_distribution,
     uniform_distribution,
@@ -127,6 +128,28 @@ def test_finite_search_finds_rate_and_fidelity_tradeoff():
     assert result.pareto_count == 2
     assert result.recommended is not None
     assert result.recommended.changed_lever_count == 1
+
+
+def test_game_values_are_computed_once_per_hardware_search(monkeypatch):
+    original = hardware_module.generalized_lctc_values
+    call_count = 0
+
+    def counted_values(*args, **kwargs):
+        nonlocal call_count
+        call_count += 1
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(hardware_module, "generalized_lctc_values", counted_values)
+
+    result = search_hardware_designs(
+        baseline=_baseline(),
+        scenario=_scenario(),
+        distance_km=50.0,
+        search_space=_small_space(),
+    )
+
+    assert result.evaluated_count == 8
+    assert call_count == 1
 
 
 def test_selected_candidate_matches_direct_phase11_operational_reevaluation():
