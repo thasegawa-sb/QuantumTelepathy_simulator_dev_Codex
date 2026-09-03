@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 15, final validation.
+Current validation gate: Phase 16 complete. All requested phases are closed.
 
 ## Completed
 
@@ -35,18 +35,20 @@ Current validation gate: Phase 15, final validation.
 | 2026-09-03 | Reproduced the Li Figure 7(b) computation on a 101x101 grid with independent phase optimization | `experiments/li2026/results/fig7b_v1/` |
 | 2026-09-03 | Completed exhaustive finite-grid hardware-resource optimization and Pareto analysis | `experiments/li2026/results/hardware_optimization_v1/` |
 | 2026-09-03 | Completed deterministic performance optimization and isolated runtime/memory benchmarks | `BENCHMARKS.md`, `experiments/performance/results/phase14_v1/` |
+| 2026-09-03 | Completed Phase 15 final validation: 12/12 workflows and immutable-artifact audit PASS | `docs/research/FINAL_VALIDATION.md`, `experiments/final_validation/results/phase15_v1/` |
+| 2026-09-03 | Completed Phase 16 Japanese simulator manual and Japanese research report | `deliverables/phase16/*.docx` |
+| 2026-09-03 | Completed and compile-validated the English LaTeX research paper | `deliverables/phase16/operational_lctc_quantum_advantage.tex` |
+| 2026-09-03 | Completed full-page Word/LaTeX visual QA and structural deliverable tests | `docs/research/PHASE16_DELIVERABLES.md`, `tests/scientific/test_phase16_deliverables.py` |
 
 ## Next Gates
 
-1. Complete Phase 15 final validation:
-   - run the complete test suite,
-   - rerun all practical paper reproductions and cross-validations,
-   - verify committed artifacts, discrepancy statuses, and parameter provenance,
-   - retain the documented full Figure 5 and microscopic-model limitations.
+No mandatory project gate remains. The deferred items below are scientifically
+valuable future work but require unavailable author data, microscopic pulse
+information, or an explicitly expanded research scope.
 
 ## Phase 16 Deliverables
 
-Phase 16 will produce exactly three final narrative artifacts:
+Phase 16 produced exactly three final narrative artifacts:
 
 1. Japanese simulator manual in Word format (`.docx`).
 2. Japanese research report in Word format (`.docx`).

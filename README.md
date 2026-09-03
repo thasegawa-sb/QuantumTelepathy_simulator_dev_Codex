@@ -7,11 +7,32 @@ Current state:
 - Git repository initialized from an empty workspace.
 - Research model maps and reproduction matrix live in `docs/research/`.
 - Implemented gates cover CHSH, deterministic classical baselines, Ding-Jiang ideal HFT, direct-photon loss with Figure 5 cross-sections and an independent NPA bound, v3 Type II memory rate, and qubit depolarizing-noise robustness. Li support now includes generalized/asymmetric utility, correlated inputs, exact state and measurement infidelity, Figures 2-3, exact win/loss and bounded-score statistics, all operational criteria, M2 hardware, the 50 km benchmark, event-driven cross-validation, the HFT operational waterfall, the three-party XOR/GHZ Figure 7(b) model, finite-grid hardware/Pareto optimization, and deterministic Phase 14 performance regressions.
+- Phase 15 final validation passes all 12 selected reproduction/extension workflows and preserves the committed scientific artifacts.
+- Phase 16 delivers the Japanese Word manual, Japanese Word research report, and English LaTeX paper under `deliverables/phase16/`.
 
 Run tests:
 
 ```bash
 python3 -m pytest
+```
+
+Run the final reproduction and regression audit:
+
+```bash
+python3 experiments/final_validation/run_phase15.py
+```
+
+Regenerate the Phase 16 Word documents:
+
+```bash
+python3 tools/build_phase16_documents.py
+```
+
+Compile the English paper with Tectonic:
+
+```bash
+cd deliverables/phase16
+tectonic operational_lctc_quantum_advantage.tex
 ```
 
 Reproduce Ding-Jiang v3 Figure 3:

@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-592 passed in 21.14s
+598 passed in 65.82s
 ```
 
 ## Passing Coverage
@@ -80,6 +80,10 @@ Result:
 | Phase 13 configured candidate counts, direct reevaluation, strict channel threshold, distance envelope, and artifacts | `tests/scientific/test_hardware_optimization_artifacts.py` |
 | Phase 14 scenario-invariant game evaluation count | `tests/scientific/test_hardware_optimization.py` |
 | Phase 14 runtime, memory, exact hardware digest, finite-statistics minimality, and Figure 5 Q1+AB benchmark artifacts | `tests/scientific/test_phase14_performance_artifacts.py` |
+| Phase 15 twelve-workflow rerun, version pins, immutable artifacts, JSON provenance, and reproduction-matrix audit | `experiments/final_validation/results/phase15_v1/final_validation_summary.json` |
+| Phase 15 machine-readable final-validation artifact | `tests/scientific/test_phase15_final_validation_artifacts.py` |
+| Phase 16 exact three-document set, DOCX structure/alt text, and LaTeX figures/citations | `tests/scientific/test_phase16_deliverables.py` |
+| Phase 16 Word full-page render, heading, and accessibility QA; LaTeX warning-free compile | `docs/research/PHASE16_DELIVERABLES.md` |
 
 ## Known Gaps
 

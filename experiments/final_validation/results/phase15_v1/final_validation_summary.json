@@ -1,0 +1,507 @@
+{
+  "committed_artifact_manifest": {
+    "aggregate_sha256": "efcdb1d91de1a757007203c0234cdefa1b3d4568996c39bc206486f4ccc84e9a",
+    "file_count": 45,
+    "files": [
+      {
+        "bytes": 771124,
+        "path": "experiments/ding_jiang/results/fig3_v3/fig3_data.csv",
+        "sha256": "4e96a6094c45c6cc1f72b005e121e28000730359eccd37ef9a949502d2381e0c"
+      },
+      {
+        "bytes": 312697,
+        "path": "experiments/ding_jiang/results/fig3_v3/fig3_reproduction.png",
+        "sha256": "6a2f348e19c5b2560e6a53346b334bcb6083068d1a7bfe75d16b406fdfa1ff5c"
+      },
+      {
+        "bytes": 2598,
+        "path": "experiments/ding_jiang/results/fig3_v3/fig3_summary.json",
+        "sha256": "a490e52b1f758de6ee77e6a520de5f7b563dbd4beecd8058596df4f0e04ad419"
+      },
+      {
+        "bytes": 5104,
+        "path": "experiments/ding_jiang/results/fig5_cross_sections_v3/fig5_cross_sections.csv",
+        "sha256": "4614715c9212381157336ba791be00ac6acb0f87b23ca3e87e6b99c890a51348"
+      },
+      {
+        "bytes": 86523,
+        "path": "experiments/ding_jiang/results/fig5_cross_sections_v3/fig5_cross_sections.png",
+        "sha256": "a3fc041153fe4d4cde9d7c2ce48e2929a9169465faa23489ab6829a3e115fb7f"
+      },
+      {
+        "bytes": 22111,
+        "path": "experiments/ding_jiang/results/fig5_cross_sections_v3/fig5_cross_sections_summary.json",
+        "sha256": "48bf32ed7d03897a1f564042e7802451dd672ee62af93cb7676804917338280f"
+      },
+      {
+        "bytes": 3891,
+        "path": "experiments/ding_jiang/results/loss_example_v3/loss_example_summary.json",
+        "sha256": "10cbb225ad0ce4c64070250be7493380c2a3ba3c6fb87c413c7f3613ed38cf9b"
+      },
+      {
+        "bytes": 1018,
+        "path": "experiments/ding_jiang/results/loss_example_v3/loss_threshold_trace.csv",
+        "sha256": "f49cf213987975de2d07b46ffb53da613aa74685b17a00d167e018a5a82d30b9"
+      },
+      {
+        "bytes": 293133,
+        "path": "experiments/ding_jiang/results/noise_robustness_v3/fig7_reproduction.png",
+        "sha256": "9bae19d79ebdd47d15566da94b8679c7e26d30e72d7eaec8d478b045096d9d5e"
+      },
+      {
+        "bytes": 765792,
+        "path": "experiments/ding_jiang/results/noise_robustness_v3/fig7_robustness_data.csv",
+        "sha256": "96b838c27279a1f2dd9c813e01eec29053efd9828aaf9d65defb8b9d08936278"
+      },
+      {
+        "bytes": 2865426,
+        "path": "experiments/ding_jiang/results/noise_robustness_v3/fig8_noisy_gap_data.csv",
+        "sha256": "2f9741ed67ea89603fd708f02b5deb679425f8db3775a3c8e44e9022a35279c1"
+      },
+      {
+        "bytes": 608049,
+        "path": "experiments/ding_jiang/results/noise_robustness_v3/fig8_reproduction.png",
+        "sha256": "67525095c3a7b789c34d43a9929b6452f9d67f2343e681a638f7d4f3be8e0230"
+      },
+      {
+        "bytes": 5619,
+        "path": "experiments/ding_jiang/results/noise_robustness_v3/noise_robustness_summary.json",
+        "sha256": "b7616f26148d89104b0087f2779c8029150ea3de59c920d18ff29b2bc80e6835"
+      },
+      {
+        "bytes": 310,
+        "path": "experiments/ding_jiang/results/type_ii_memory_v3/memory_rate_by_count.csv",
+        "sha256": "86d1ada18b121c8c208acddefa59f72828dec324fb193b872aac9a55aac6d418"
+      },
+      {
+        "bytes": 3847,
+        "path": "experiments/ding_jiang/results/type_ii_memory_v3/type_ii_memory_summary.json",
+        "sha256": "2d1c7229d764d227e169cd9a9dc78a22a6a9ce8c6ad4366c583cd33a2eb426bc"
+      },
+      {
+        "bytes": 188519,
+        "path": "experiments/li2026/results/fig2_v1/fig2_reproduction.png",
+        "sha256": "34719b237884c275851e250193df032c784dd4b894a24e67ebd5b49936fb3408"
+      },
+      {
+        "bytes": 6691,
+        "path": "experiments/li2026/results/fig2_v1/fig2_summary.json",
+        "sha256": "b7d65bfe18d26db5d9a4ff7db40f5043a21db02f95eadb9863d272eae3c54dfe"
+      },
+      {
+        "bytes": 1156474,
+        "path": "experiments/li2026/results/fig2_v1/fig2a_independent_gap.csv",
+        "sha256": "53080aee64b44df69ee7f1d38910fc35e02066fd8d203ed9b7b861f30df7d9c1"
+      },
+      {
+        "bytes": 1212657,
+        "path": "experiments/li2026/results/fig2_v1/fig2b_correlated_gap.csv",
+        "sha256": "7d2f06a62cb7361c86bec94b97cd85d90d28dc4d7b3a2b8a8ffdf9b27fd67ee7"
+      },
+      {
+        "bytes": 502782,
+        "path": "experiments/li2026/results/fig2_v1/fig2c_noisy_gap.csv",
+        "sha256": "522c8a09a29f8533aaccb49ff3720cc7801b6ed369c6e64c36fb565119f21cfd"
+      },
+      {
+        "bytes": 17184,
+        "path": "experiments/li2026/results/fig2_v1/fig2c_threshold.csv",
+        "sha256": "42ee8eea791cd1d5c1f3492f453bec156c4996148b00980bc640634b963d4cc3"
+      },
+      {
+        "bytes": 1368,
+        "path": "experiments/li2026/results/fig3_v1/fig3_reference_points.csv",
+        "sha256": "27701439ff359b942a430a29dbea025f24d19c49ec4a15fb0e6ee8cecf741b75"
+      },
+      {
+        "bytes": 138189,
+        "path": "experiments/li2026/results/fig3_v1/fig3_reproduction.png",
+        "sha256": "dab77fecac1bb9ecab3d50b1cf1eb282af77e5eadc3817521bb921b8d5a50f25"
+      },
+      {
+        "bytes": 316330,
+        "path": "experiments/li2026/results/fig3_v1/fig3_required_rate.csv",
+        "sha256": "11d2979667166367f398ead099609a405b72a666c898095c7362d89275caa329"
+      },
+      {
+        "bytes": 10408,
+        "path": "experiments/li2026/results/fig3_v1/fig3_summary.json",
+        "sha256": "bdfd2249bb5495cadd05f7d2b3d115ba2e2423555fad4ce291c9d4affa36169a"
+      },
+      {
+        "bytes": 1490239,
+        "path": "experiments/li2026/results/fig7b_v1/fig7b_gap.csv",
+        "sha256": "2e16f8a8d5cfd83d8330d510d816cf0493883caf47fe62f2a7873cbbfb727577"
+      },
+      {
+        "bytes": 1669,
+        "path": "experiments/li2026/results/fig7b_v1/fig7b_quantum_cross_validation.csv",
+        "sha256": "0741f8acc0b8b2c14eab9f4571b7c678633e5200a144b1cb4d5d9adb43a35986"
+      },
+      {
+        "bytes": 50567,
+        "path": "experiments/li2026/results/fig7b_v1/fig7b_reproduction.png",
+        "sha256": "835ee5d38f4d094f5f233d95cf430a58f8e5d05b85812ac9403be9cd71d94efd"
+      },
+      {
+        "bytes": 11712,
+        "path": "experiments/li2026/results/fig7b_v1/fig7b_summary.json",
+        "sha256": "af1bf42b1be129c23d1c533f3949026e12c1421ad4700f6542ceaf0ae5ffde01"
+      },
+      {
+        "bytes": 21512271,
+        "path": "experiments/li2026/results/hardware_optimization_v1/hardware_candidates.csv",
+        "sha256": "353448f2e95ea7fb6d01e5e0c52bc0d8c42bf96a37a14768d70dd9a9d5533a97"
+      },
+      {
+        "bytes": 117008,
+        "path": "experiments/li2026/results/hardware_optimization_v1/hardware_optimization.png",
+        "sha256": "ebebee2a0dc54d4748b3d3b2dd8369315ba04351dcbeb95da1b78e4ded7a2629"
+      },
+      {
+        "bytes": 50501,
+        "path": "experiments/li2026/results/hardware_optimization_v1/hardware_optimization_summary.json",
+        "sha256": "64a92d2a6bc339ecef75760bafc4a350e69380ca649fc752ca3cce071c3e1e5f"
+      },
+      {
+        "bytes": 64114,
+        "path": "experiments/li2026/results/hardware_optimization_v1/pareto_front.csv",
+        "sha256": "e3a9b72566a785bad6f05255793f62cacc67684f2024c905b537f9c99a6083c2"
+      },
+      {
+        "bytes": 4429,
+        "path": "experiments/li2026/results/hardware_optimization_v1/recommended_designs.csv",
+        "sha256": "cd45e5e84546b77cf5d78c6e6bf29b227900cfffd13790215ceaf71643313cd5"
+      },
+      {
+        "bytes": 121271,
+        "path": "experiments/li2026/results/hft_waterfall_v1/hft_waterfall.png",
+        "sha256": "b26d4be471cc836dc6e498101b1a34dd0b1ef125f95ebcec45322cbee3475c5e"
+      },
+      {
+        "bytes": 2950,
+        "path": "experiments/li2026/results/hft_waterfall_v1/hft_waterfall_scenarios.csv",
+        "sha256": "38ee9b0d087ca0f5c57b3a17c3efc45d1423a9cc741ec69a24a850907b420e6e"
+      },
+      {
+        "bytes": 5357,
+        "path": "experiments/li2026/results/hft_waterfall_v1/hft_waterfall_stages.csv",
+        "sha256": "d25c90ad4d80478e9d459eb143107a51acfbed4648b55dd295f8ee30ba0292c4"
+      },
+      {
+        "bytes": 24586,
+        "path": "experiments/li2026/results/hft_waterfall_v1/hft_waterfall_summary.json",
+        "sha256": "344ceaf16e5e8d189114fd5e8b59e2a8476d332f80b5c85cea103cf0748a7a2d"
+      },
+      {
+        "bytes": 686,
+        "path": "experiments/li2026/results/m2_event_cross_validation_v1/m2_event_convergence.csv",
+        "sha256": "08c0cceadc938ab56dc351b302934760f49b0a837e035ae303492aa786d42b6c"
+      },
+      {
+        "bytes": 40561,
+        "path": "experiments/li2026/results/m2_event_cross_validation_v1/m2_event_replicates.csv",
+        "sha256": "6012435bc173f4e47c2ac31c734486de53a6ed2a2392200fd3c208fc20c9a91a"
+      },
+      {
+        "bytes": 7936,
+        "path": "experiments/li2026/results/m2_event_cross_validation_v1/m2_event_summary.json",
+        "sha256": "6d92cd790387eb37b3ac742b8aa9fe200435c4d398f03af86d42ce15e7753c79"
+      },
+      {
+        "bytes": 958,
+        "path": "experiments/li2026/results/m2_event_cross_validation_v1/m2_event_trace.csv",
+        "sha256": "cfbb12e239dee97a45091822bdaf518cd211ae1a908581f80f5eed227034d188"
+      },
+      {
+        "bytes": 1722,
+        "path": "experiments/li2026/results/table3_50km_v1/table3_paper_comparison.csv",
+        "sha256": "70a2627e1d0afb7b6d946cf45fd8301448b3ff5ecb849b1d7925342dd13fafdb"
+      },
+      {
+        "bytes": 14667,
+        "path": "experiments/li2026/results/table3_50km_v1/table3_summary.json",
+        "sha256": "da87a04fd2c11c884d79a627a1f8314bd45227f713f2e1ba54e674701b50efd0"
+      },
+      {
+        "bytes": 8254,
+        "path": "experiments/performance/results/phase14_v1/phase14_benchmark_summary.json",
+        "sha256": "d3ff59cb85565150ae2b20e6244429777aa69f537a0f0fcedb751359935754ef"
+      }
+    ],
+    "total_bytes": 32829302
+  },
+  "environment": {
+    "platform": "macOS-15.5-arm64-arm-64bit-Mach-O",
+    "python": "3.13.5"
+  },
+  "generated_at_utc": "2026-09-03T08:05:51.467954+00:00",
+  "jobs": [
+    {
+      "committed_summary_sha256": "a490e52b1f758de6ee77e6a520de5f7b563dbd4beecd8058596df4f0e04ad419",
+      "generated_summary_sha256": "a490e52b1f758de6ee77e6a520de5f7b563dbd4beecd8058596df4f0e04ad419",
+      "id": "ding_fig3_v3",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 26.42981470801169,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "10cbb225ad0ce4c64070250be7493380c2a3ba3c6fb87c413c7f3613ed38cf9b",
+      "generated_summary_sha256": "10cbb225ad0ce4c64070250be7493380c2a3ba3c6fb87c413c7f3613ed38cf9b",
+      "id": "ding_loss_example_v3",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 75.74514691601507,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "48bf32ed7d03897a1f564042e7802451dd672ee62af93cb7676804917338280f",
+      "generated_summary_sha256": "321dfb24165eb72fb66fb6cc92a0599af51e2bc93998a694c35b5ebb24e3ec60",
+      "id": "ding_fig5_cross_sections_v3",
+      "note": "Recomputes all Q1+AB bounds and reuses the prior 577.8 s explicit-strategy fields after compatibility validation.",
+      "overall_status": "PASS",
+      "paper_reproduction_status": "PARTIAL",
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 39.745033791987225,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "2d1c7229d764d227e169cd9a9dc78a22a6a9ce8c6ad4366c583cd33a2eb426bc",
+      "generated_summary_sha256": "2d1c7229d764d227e169cd9a9dc78a22a6a9ce8c6ad4366c583cd33a2eb426bc",
+      "id": "ding_type_ii_memory_v3",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 1.7614839159650728,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "b7616f26148d89104b0087f2779c8029150ea3de59c920d18ff29b2bc80e6835",
+      "generated_summary_sha256": "b7616f26148d89104b0087f2779c8029150ea3de59c920d18ff29b2bc80e6835",
+      "id": "ding_noise_robustness_v3",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 28.847170582972467,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "b7d65bfe18d26db5d9a4ff7db40f5043a21db02f95eadb9863d272eae3c54dfe",
+      "generated_summary_sha256": "b7d65bfe18d26db5d9a4ff7db40f5043a21db02f95eadb9863d272eae3c54dfe",
+      "id": "li_fig2_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": "PARTIAL",
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 33.48866575001739,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "bdfd2249bb5495cadd05f7d2b3d115ba2e2423555fad4ce291c9d4affa36169a",
+      "generated_summary_sha256": "bdfd2249bb5495cadd05f7d2b3d115ba2e2423555fad4ce291c9d4affa36169a",
+      "id": "li_fig3_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": "PARTIAL",
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 54.8115862919949,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "da87a04fd2c11c884d79a627a1f8314bd45227f713f2e1ba54e674701b50efd0",
+      "generated_summary_sha256": "da87a04fd2c11c884d79a627a1f8314bd45227f713f2e1ba54e674701b50efd0",
+      "id": "li_table3_50km_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": "PARTIAL",
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 1.7124767909990624,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "6d92cd790387eb37b3ac742b8aa9fe200435c4d398f03af86d42ce15e7753c79",
+      "generated_summary_sha256": "3a267837ab0be9fdcb9ccfd766e4d68cf59c39e9b68ffdf99be61f0a86642294",
+      "id": "li_m2_event_cross_validation_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 88.2875171250198,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "344ceaf16e5e8d189114fd5e8b59e2a8476d332f80b5c85cea103cf0748a7a2d",
+      "generated_summary_sha256": "344ceaf16e5e8d189114fd5e8b59e2a8476d332f80b5c85cea103cf0748a7a2d",
+      "id": "li_hft_waterfall_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 23.382176958024502,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "af1bf42b1be129c23d1c533f3949026e12c1421ad4700f6542ceaf0ae5ffde01",
+      "generated_summary_sha256": "af1bf42b1be129c23d1c533f3949026e12c1421ad4700f6542ceaf0ae5ffde01",
+      "id": "li_fig7b_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": "PARTIAL",
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 46.96839875000296,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    },
+    {
+      "committed_summary_sha256": "64a92d2a6bc339ecef75760bafc4a350e69380ca649fc752ca3cce071c3e1e5f",
+      "generated_summary_sha256": "64a92d2a6bc339ecef75760bafc4a350e69380ca649fc752ca3cce071c3e1e5f",
+      "id": "hardware_optimization_v1",
+      "note": null,
+      "overall_status": "PASS",
+      "paper_reproduction_status": null,
+      "paper_version_matches": true,
+      "return_code": 0,
+      "runtime_seconds": 42.57666141696973,
+      "status": "PASS",
+      "summary_comparison": {
+        "examples": [],
+        "maximum_numeric_absolute_error": 0.0,
+        "mismatch_count": 0,
+        "tolerance": 1e-07
+      }
+    }
+  ],
+  "notes": [
+    "All regenerated artifacts are written to temporary directories; committed paper artifacts are read-only comparison oracles.",
+    "A computation-level PASS does not upgrade a paper-level PARTIAL result when author pointwise data or internally consistent displayed values are unavailable.",
+    "The full Ding Figure 5 explicit-strategy cross-section run is represented by its previously recorded 577.8 s artifact; Phase 15 recomputes the independent Q1+AB side and validates reuse compatibility.",
+    "Microscopic cQED/TPI/CAPS models remain outside the validated system-level scope because the required pulse data or author code are unavailable."
+  ],
+  "overall_status": "PASS",
+  "phase": 15,
+  "schema_version": 1,
+  "validation_id": "phase15_v1",
+  "validations": {
+    "committed_artifacts_unchanged": {
+      "after_sha256": "efcdb1d91de1a757007203c0234cdefa1b3d4568996c39bc206486f4ccc84e9a",
+      "before_sha256": "efcdb1d91de1a757007203c0234cdefa1b3d4568996c39bc206486f4ccc84e9a",
+      "status": "PASS"
+    },
+    "configuration_json": {
+      "failures": [],
+      "json_file_count": 25,
+      "status": "PASS"
+    },
+    "experiment_jobs": {
+      "passed": 12,
+      "status": "PASS",
+      "total": 12
+    },
+    "reproduction_matrix": {
+      "invalid_statuses": [],
+      "malformed_row_lines": [],
+      "row_count": 56,
+      "status": "PASS",
+      "status_counts": {
+        "INSUFFICIENT_INFORMATION": 3,
+        "NOT_IMPLEMENTED": 1,
+        "PARTIAL": 17,
+        "PASS": 35
+      }
+    },
+    "result_worktree_clean": {
+      "changed_paths": [],
+      "status": "PASS"
+    },
+    "test_suite": {
+      "return_code": 0,
+      "runtime_seconds": 49.21035266702529,
+      "status": "PASS",
+      "stderr_tail": "",
+      "summary": "============================= 592 passed in 46.67s ============================="
+    }
+  }
+}

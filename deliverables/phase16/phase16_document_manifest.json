@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_on": "2026-09-03",
+  "source_validation": "phase15_v1",
+  "documents": [
+    {
+      "path": "deliverables/phase16/quantum_telepathy_simulator_manual_ja.docx",
+      "bytes": 523435,
+      "sha256": "602f8b33edab410d895b1d74e38c7c9ee91349c73511acd4d4cd1539a5f1bb01",
+      "preset": "compact_reference_guide",
+      "header_pattern": "editorial_cover"
+    },
+    {
+      "path": "deliverables/phase16/quantum_telepathy_research_report_ja.docx",
+      "bytes": 906493,
+      "sha256": "d28a381eb9a74975c15ac7cef24424fd3d2cc800a6c7a6d306465f423ce53476",
+      "preset": "narrative_proposal",
+      "header_pattern": "editorial_cover"
+    },
+    {
+      "path": "deliverables/phase16/operational_lctc_quantum_advantage.tex",
+      "bytes": 21802,
+      "sha256": "fdcfe1cdcb2399579628d547aec97f37ba7d277c70d013273c9da9f4453fae1a",
+      "preset": "latex_research_article",
+      "header_pattern": "article_maketitle"
+    }
+  ]
+}

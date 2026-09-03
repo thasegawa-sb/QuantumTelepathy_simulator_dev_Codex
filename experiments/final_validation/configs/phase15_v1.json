@@ -1,0 +1,126 @@
+{
+  "phase": 15,
+  "validation_id": "phase15_v1",
+  "maximum_workers": 4,
+  "comparison_absolute_tolerance": 1e-7,
+  "ignored_comparison_key_fragments": [
+    "runtime",
+    "wall_clock",
+    "generated_at",
+    "explicit_strategy_source"
+  ],
+  "jobs": [
+    {
+      "id": "ding_fig3_v3",
+      "script": "experiments/ding_jiang/reproduce_fig3.py",
+      "output_flag": "--output-dir",
+      "summary_file": "fig3_summary.json",
+      "committed_summary": "experiments/ding_jiang/results/fig3_v3/fig3_summary.json",
+      "expected_version": "v3"
+    },
+    {
+      "id": "ding_loss_example_v3",
+      "script": "experiments/ding_jiang/reproduce_loss_example.py",
+      "output_flag": "--output-dir",
+      "summary_file": "loss_example_summary.json",
+      "committed_summary": "experiments/ding_jiang/results/loss_example_v3/loss_example_summary.json",
+      "expected_version": "v3"
+    },
+    {
+      "id": "ding_fig5_cross_sections_v3",
+      "script": "experiments/ding_jiang/reproduce_fig5_cross_sections.py",
+      "output_flag": "--output-dir",
+      "summary_file": "fig5_cross_sections_summary.json",
+      "committed_summary": "experiments/ding_jiang/results/fig5_cross_sections_v3/fig5_cross_sections_summary.json",
+      "expected_version": "v3",
+      "extra_args": [
+        "--reuse-explicit-summary",
+        "experiments/ding_jiang/results/fig5_cross_sections_v3/fig5_cross_sections_summary.json"
+      ],
+      "note": "Recomputes all Q1+AB bounds and reuses the prior 577.8 s explicit-strategy fields after compatibility validation."
+    },
+    {
+      "id": "ding_type_ii_memory_v3",
+      "script": "experiments/ding_jiang/reproduce_type_ii_memory.py",
+      "output_flag": "--output-dir",
+      "summary_file": "type_ii_memory_summary.json",
+      "committed_summary": "experiments/ding_jiang/results/type_ii_memory_v3/type_ii_memory_summary.json",
+      "expected_version": "v3"
+    },
+    {
+      "id": "ding_noise_robustness_v3",
+      "script": "experiments/ding_jiang/reproduce_noise_robustness.py",
+      "output_flag": "--output-dir",
+      "summary_file": "noise_robustness_summary.json",
+      "committed_summary": "experiments/ding_jiang/results/noise_robustness_v3/noise_robustness_summary.json",
+      "expected_version": "v3"
+    },
+    {
+      "id": "li_fig2_v1",
+      "script": "experiments/li2026/reproduce_fig2.py",
+      "output_flag": "--output-dir",
+      "summary_file": "fig2_summary.json",
+      "committed_summary": "experiments/li2026/results/fig2_v1/fig2_summary.json",
+      "expected_version": "v1"
+    },
+    {
+      "id": "li_fig3_v1",
+      "script": "experiments/li2026/reproduce_fig3.py",
+      "output_flag": "--output-dir",
+      "summary_file": "fig3_summary.json",
+      "committed_summary": "experiments/li2026/results/fig3_v1/fig3_summary.json",
+      "expected_version": "v1"
+    },
+    {
+      "id": "li_table3_50km_v1",
+      "script": "experiments/li2026/reproduce_table3_50km.py",
+      "output_flag": "--output-dir",
+      "summary_file": "table3_summary.json",
+      "committed_summary": "experiments/li2026/results/table3_50km_v1/table3_summary.json",
+      "expected_version": "v1"
+    },
+    {
+      "id": "li_m2_event_cross_validation_v1",
+      "script": "experiments/li2026/cross_validate_m2_event_simulation.py",
+      "output_flag": "--output-dir",
+      "summary_file": "m2_event_summary.json",
+      "committed_summary": "experiments/li2026/results/m2_event_cross_validation_v1/m2_event_summary.json",
+      "expected_version": "v1"
+    },
+    {
+      "id": "li_hft_waterfall_v1",
+      "script": "experiments/li2026/analyze_hft_waterfall.py",
+      "output_flag": "--output",
+      "summary_file": "hft_waterfall_summary.json",
+      "committed_summary": "experiments/li2026/results/hft_waterfall_v1/hft_waterfall_summary.json",
+      "expected_version": "v1"
+    },
+    {
+      "id": "li_fig7b_v1",
+      "script": "experiments/li2026/reproduce_fig7b.py",
+      "output_flag": "--output",
+      "summary_file": "fig7b_summary.json",
+      "committed_summary": "experiments/li2026/results/fig7b_v1/fig7b_summary.json",
+      "expected_version": "v1"
+    },
+    {
+      "id": "hardware_optimization_v1",
+      "script": "experiments/li2026/optimize_hardware_resources.py",
+      "output_flag": "--output",
+      "summary_file": "hardware_optimization_summary.json",
+      "committed_summary": "experiments/li2026/results/hardware_optimization_v1/hardware_optimization_summary.json",
+      "expected_version": "v1"
+    }
+  ],
+  "result_roots": [
+    "experiments/ding_jiang/results",
+    "experiments/li2026/results",
+    "experiments/performance/results"
+  ],
+  "notes": [
+    "All regenerated artifacts are written to temporary directories; committed paper artifacts are read-only comparison oracles.",
+    "A computation-level PASS does not upgrade a paper-level PARTIAL result when author pointwise data or internally consistent displayed values are unavailable.",
+    "The full Ding Figure 5 explicit-strategy cross-section run is represented by its previously recorded 577.8 s artifact; Phase 15 recomputes the independent Q1+AB side and validates reuse compatibility.",
+    "Microscopic cQED/TPI/CAPS models remain outside the validated system-level scope because the required pulse data or author code are unavailable."
+  ]
+}
