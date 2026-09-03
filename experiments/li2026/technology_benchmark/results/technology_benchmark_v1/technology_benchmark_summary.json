@@ -1,0 +1,20 @@
+{
+  "as_of_date": "2026-09-03",
+  "evidence_counts": {
+    "benchmark": 15,
+    "commercial": 6,
+    "measured": 33,
+    "projected": 2,
+    "record": 12
+  },
+  "figures": {
+    "li_technology_interface_trends.png": "1527ff571631549cc9e1d6a5683a03522f284fe2f53681e00728a6aeb8f0f0c7",
+    "li_technology_node_trends.png": "60a58b9eb32a60ee029ad1e0737d53a12e60869f69c41b76f3eb372be6bf83b5",
+    "li_technology_photonics_trends.png": "d18a0da9a1ed427c3255561aa2fbcd8f1abc5b13dc79884976e70d199e586632",
+    "li_technology_remote_entanglement_trends.png": "4eb2a7bfffb822c32e5585aa63f0d8731f0e865af8335937ae1280c2c4744381"
+  },
+  "parameter_count": 15,
+  "point_count": 68,
+  "schema_version": 1,
+  "source_count": 25
+}

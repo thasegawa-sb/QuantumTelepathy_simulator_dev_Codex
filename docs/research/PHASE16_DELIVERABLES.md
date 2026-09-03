@@ -12,7 +12,7 @@ Phase 16 contains exactly the three requested narrative documents:
 |---|---|---|
 | `deliverables/phase16/quantum_telepathy_simulator_manual_ja.docx` | Japanese Word | Installation, execution, configuration, output interpretation, regression, extension, troubleshooting |
 | `deliverables/phase16/quantum_telepathy_research_report_ja.docx` | Japanese Word | Research method, Ding-to-Li results, operational criteria, hardware, discrepancies, conclusions |
-| `deliverables/phase16/operational_lctc_quantum_advantage.tex` | English LaTeX | Reproduction paper with equations, six validated figures, limitations, and bibliography |
+| `deliverables/phase16/operational_lctc_quantum_advantage.tex` | English LaTeX | Reproduction paper with equations, ten validated figures, a technology-context appendix, limitations, and bibliography |
 
 `references.bib`, `figures/`, and the JSON manifest are supporting source/assets,
 not additional narrative deliverables.
@@ -24,9 +24,10 @@ not retype final scientific values or use expected paper values as model
 inputs. The machine-readable artifact manifest is
 `deliverables/phase16/phase16_document_manifest.json`.
 
-The English paper includes copies of six committed reproduction figures. The
-copies keep the LaTeX directory self-contained; their source calculations and
-CSV data remain under `experiments/`.
+The English paper includes copies of six committed reproduction figures and
+four technology-context figures. The copies keep the LaTeX directory
+self-contained; their source calculations, CSV data, and literature-provenance
+JSON remain under `experiments/`.
 
 ## Word QA
 
@@ -50,14 +51,15 @@ TOC-only pages.
 
 ## LaTeX QA
 
-Tectonic 0.17.0 compiled the paper with BibTeX and all six local figures. The
+Tectonic 0.17.0 compiled the paper with BibTeX and all ten local figures. The
 final QA PDF was written only to a temporary directory and is not a fourth
 narrative deliverable.
 
 | Check | Result |
 |---|---:|
-| Compiled pages | 9 |
-| TeX warnings after correction | 0 |
+| Compiled pages | 18 |
+| Blocking TeX warnings | 0 |
+| Non-blocking underfull bibliography boxes | 1 |
 | Undefined citations/references | 0 |
 | Missing figure assets | 0 |
 | Full-page visual inspection | PASS |
@@ -66,7 +68,9 @@ narrative deliverable.
 
 ```bash
 python3 tools/build_phase16_documents.py
+python3 experiments/li2026/technology_benchmark/plot_technology_benchmarks.py
 python3 -m pytest tests/scientific/test_phase16_deliverables.py -q
+python3 -m pytest tests/scientific/test_li2026_technology_benchmark.py -q
 
 cd deliverables/phase16
 tectonic --outdir /tmp/quantum_telepathy_latex operational_lctc_quantum_advantage.tex

@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "title": "Technology context for the Li et al. 2026 Table III benchmark",
+  "as_of_date": "2026-09-03",
+  "scope": "Primary research reports and official manufacturer specifications. Values are not treated as directly comparable when platform, wavelength, distance, or metric definition differs.",
+  "evidence_classes": {
+    "benchmark": "Li et al. Table III design input or lower-level model output; not an integrated experimental demonstration.",
+    "measured": "Experimentally measured research value.",
+    "record": "Experimentally measured value for which the primary source explicitly makes a record or state-of-the-art claim.",
+    "projected": "Published theoretical or engineering projection.",
+    "commercial": "Official manufacturer specification for an orderable subsystem. This does not imply a turnkey quantum-network product."
+  },
+  "sources": {
+    "1": {"bibkey": "li2026", "year": 2026, "short": "Li et al.", "evidence": "benchmark", "url": "https://arxiv.org/abs/2604.07451"},
+    "2": {"bibkey": "jenkins2022", "year": 2022, "short": "Jenkins et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2112.06732"},
+    "3": {"bibkey": "ebadi2021", "year": 2021, "short": "Ebadi et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2012.12281"},
+    "4": {"bibkey": "manetsch2025", "year": 2025, "short": "Manetsch et al.", "evidence": "record", "url": "https://arxiv.org/abs/2403.12021"},
+    "5": {"bibkey": "hartung2024", "year": 2024, "short": "Hartung et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2407.09109"},
+    "6": {"bibkey": "ye2026", "year": 2026, "short": "Ye et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2607.04090"},
+    "7": {"bibkey": "deist2022", "year": 2022, "short": "Deist et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2205.14138"},
+    "8": {"bibkey": "wang2025", "year": 2025, "short": "Wang et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2412.12584"},
+    "9": {"bibkey": "lis2023", "year": 2023, "short": "Lis et al.", "evidence": "measured", "url": "https://doi.org/10.1103/PhysRevX.13.041035"},
+    "10": {"bibkey": "muecke2013", "year": 2013, "short": "Muecke et al.", "evidence": "record", "url": "https://arxiv.org/abs/1302.2897"},
+    "11": {"bibkey": "marsili2013", "year": 2013, "short": "Marsili et al.", "evidence": "record", "url": "https://arxiv.org/abs/1209.5774"},
+    "12": {"bibkey": "reddy2020", "year": 2020, "short": "Reddy et al.", "evidence": "measured", "url": "https://doi.org/10.1364/OPTICA.400751"},
+    "13": {"bibkey": "idq2026", "year": 2026, "short": "ID Quantique ID281", "evidence": "commercial", "url": "https://www.idquantique.com/quantum-detection-systems/products/id281-snspd-system/"},
+    "14": {"bibkey": "tamura2017", "year": 2017, "short": "Tamura et al.", "evidence": "record", "url": "https://doi.org/10.1364/OFC.2017.Th5D.1"},
+    "15": {"bibkey": "petrovich2025", "year": 2025, "short": "Petrovich et al.", "evidence": "record", "url": "https://arxiv.org/abs/2503.21467"},
+    "16": {"bibkey": "corning2025", "year": 2025, "short": "Corning SMF-28 Ultra", "evidence": "commercial", "url": "https://www.corning.com/catalog/coc/documents/selection-guides/CRR-718-BEN.pdf"},
+    "17": {"bibkey": "fujikura2026", "year": 2026, "short": "Fujikura FutureGuide-LWP", "evidence": "commercial", "url": "https://www.optic-product.fujikura.com/wp-content/uploads/2026/03/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E8%8B%B1%E8%AA%9E_Optical-Fibers_FutureGuide-LWP.pdf"},
+    "18": {"bibkey": "vanleent2022", "year": 2022, "short": "van Leent et al.", "evidence": "measured", "url": "https://doi.org/10.1038/s41586-022-04764-4"},
+    "19": {"bibkey": "knaut2024", "year": 2024, "short": "Knaut et al.", "evidence": "measured", "url": "https://doi.org/10.1038/s41586-024-07252-z"},
+    "20": {"bibkey": "main2025", "year": 2025, "short": "Main et al.", "evidence": "measured", "url": "https://doi.org/10.1038/s41586-024-08404-x"},
+    "21": {"bibkey": "saha2025", "year": 2025, "short": "Saha et al.", "evidence": "measured", "url": "https://doi.org/10.1038/s41467-025-57557-4"},
+    "22": {"bibkey": "liu2026", "year": 2026, "short": "Liu et al.", "evidence": "record", "url": "https://arxiv.org/abs/2602.08472"},
+    "23": {"bibkey": "luo2022", "year": 2022, "short": "Luo et al.", "evidence": "measured", "url": "https://arxiv.org/abs/2201.11953"},
+    "24": {"bibkey": "lithompson2024", "year": 2024, "short": "Y. Li and Thompson", "evidence": "projected", "url": "https://arxiv.org/abs/2401.04075"},
+    "25": {"bibkey": "luo2025", "year": 2025, "short": "Luo et al.", "evidence": "record", "url": "https://arxiv.org/abs/2504.05660"}
+  },
+  "figures": [
+    {
+      "filename": "li_technology_node_trends.png",
+      "title": "Node and memory technology context",
+      "layout": [3, 2],
+      "series": [
+        {
+          "key": "internal_cooperativity",
+          "title": "Single-emitter cooperativity",
+          "ylabel": "Cooperativity",
+          "yscale": "log",
+          "points": [
+            {"source": "7", "value": 2.3, "note": "Rb atom-cavity; definition follows source"},
+            {"source": "19", "value": 12.4, "note": "SiV node A; platform and convention differ"},
+            {"source": "8", "value": 4.65, "note": "Rb fiber cavity"},
+            {"source": "1", "value": 20.0, "note": "Li internal-cooperativity design input"},
+            {"source": "6", "value": 125.0, "error": 13.0, "note": "Optically characterized single-atom value; reported after Li v1"}
+          ]
+        },
+        {
+          "key": "memory_qubits",
+          "title": "Neutral atoms / cavity register size",
+          "ylabel": "Atoms or qubits",
+          "yscale": "log",
+          "points": [
+            {"source": "3", "value": 256.0, "note": "Free-space Rydberg array"},
+            {"source": "2", "value": 92.73, "note": "Expected loaded atoms in a 100-site Yb array"},
+            {"source": "9", "value": 48.0, "note": "Free-space Yb array with mid-circuit operations"},
+            {"source": "5", "value": 6.0, "note": "Cavity-integrated quantum-network register"},
+            {"source": "4", "value": 6100.0, "note": "Free-space tweezer array"},
+            {"source": "1", "value": 250.0, "note": "Li cavity-integrated memory design input"},
+            {"source": "6", "value": 16.0, "note": "Atoms simultaneously coupled to one cavity mode; reported after Li v1"}
+          ]
+        },
+        {
+          "key": "memory_coherence",
+          "title": "Neutral-atom memory coherence",
+          "ylabel": "Coherence time (s)",
+          "yscale": "log",
+          "points": [
+            {"source": "2", "value": 7.9, "error": 0.4, "note": "Hahn-echo T2"},
+            {"source": "4", "value": 12.6, "error": 0.1, "note": "Hyperfine coherence; source claims tweezer-array record"},
+            {"source": "1", "value": 7.9, "note": "Li memory-lifetime input inherited from Jenkins et al."}
+          ]
+        },
+        {
+          "key": "rotation_time",
+          "title": "Yb nuclear-spin rotation",
+          "ylabel": "Rotation time (us)",
+          "yscale": "log",
+          "points": [
+            {"source": "2", "value": 1.0, "qualifier": "<", "note": "Published as submicrosecond; plotted at the upper bound"},
+            {"source": "1", "value": 0.1, "note": "Li design input"}
+          ]
+        },
+        {
+          "key": "reset_time",
+          "title": "Neutral-atom reset / preparation",
+          "ylabel": "Time (us)",
+          "yscale": "log",
+          "points": [
+            {"source": "9", "value": 3800.0, "note": "Full cooling plus optical-pumping reset"},
+            {"source": "8", "value": 5.98, "note": "Slower of two cavity-assisted state-preparation times; proxy, not a full motional reset"},
+            {"source": "1", "value": 1.0, "note": "Li communication-qubit reset design input"}
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "li_technology_interface_trends.png",
+      "title": "Photon interface and measurement technology context",
+      "layout": [2, 2],
+      "series": [
+        {
+          "key": "photon_emission_probability",
+          "title": "Cavity photon efficiency",
+          "ylabel": "Probability / efficiency",
+          "yscale": "linear",
+          "ylim": [0.0, 1.05],
+          "points": [
+            {"source": "10", "value": 0.56, "note": "D2 photon-generation probability"},
+            {"source": "5", "value": 0.90, "qualifier": "~", "note": "Generation-to-detection efficiency; proxy with a broader definition"},
+            {"source": "1", "value": 0.70, "note": "Li emitted-photon probability design input"}
+          ]
+        },
+        {
+          "key": "photon_pulse_duration",
+          "title": "Cavity photon pulse duration",
+          "ylabel": "Pulse duration (us)",
+          "yscale": "linear",
+          "points": [
+            {"source": "10", "value": 0.25, "note": "Shortest reported FWHM in the compared atom-cavity source"},
+            {"source": "1", "value": 0.24, "note": "Li design input"}
+          ]
+        },
+        {
+          "key": "measurement_time",
+          "title": "Single-neutral-atom readout time",
+          "ylabel": "Readout time (us)",
+          "yscale": "log",
+          "points": [
+            {"source": "7", "value": 50.0, "note": "Cavity fluorescence implementation"},
+            {"source": "8", "value": 0.2, "note": "Fast operating point, 99.1% fidelity"},
+            {"source": "8", "value": 9.0, "note": "High-fidelity operating point, 99.985% fidelity"},
+            {"source": "1", "value": 0.87, "note": "Li design input, 99.8% fidelity"}
+          ]
+        },
+        {
+          "key": "measurement_fidelity",
+          "title": "Single-neutral-atom readout fidelity",
+          "ylabel": "Fidelity",
+          "yscale": "linear",
+          "ylim": [0.985, 1.0005],
+          "points": [
+            {"source": "7", "value": 0.995, "qualifier": "~", "note": "Approximately 0.5% SPAM infidelity"},
+            {"source": "8", "value": 0.991, "error": 0.002, "note": "200 ns operating point"},
+            {"source": "8", "value": 0.99985, "error": 0.00008, "note": "9 us operating point"},
+            {"source": "1", "value": 0.998, "note": "Li design input"}
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "li_technology_photonics_trends.png",
+      "title": "Detector and fiber technology context",
+      "layout": [1, 3],
+      "series": [
+        {
+          "key": "detector_efficiency",
+          "title": "SNSPD system detection efficiency",
+          "ylabel": "Efficiency",
+          "yscale": "linear",
+          "ylim": [0.85, 1.005],
+          "points": [
+            {"source": "11", "value": 0.93, "note": "Research system near 1550 nm"},
+            {"source": "12", "value": 0.98, "note": "Research system at 1550 nm"},
+            {"source": "1", "value": 0.90, "note": "Li detector-efficiency input"},
+            {"source": "13", "value": 0.95, "qualifier": ">", "note": "Current orderable-system headline specification"}
+          ]
+        },
+        {
+          "key": "dark_count_rate",
+          "title": "SNSPD dark-count rate",
+          "ylabel": "Dark counts (s^-1)",
+          "yscale": "log",
+          "points": [
+            {"source": "11", "value": 0.01, "qualifier": "~", "note": "Shielded device dark count"},
+            {"source": "1", "value": 10.0, "note": "Li design input"},
+            {"source": "13", "value": 1.0, "qualifier": "<", "note": "Lowest current orderable-system specification"}
+          ]
+        },
+        {
+          "key": "fiber_attenuation",
+          "title": "Fiber attenuation",
+          "ylabel": "Attenuation (dB km^-1)",
+          "yscale": "log",
+          "points": [
+            {"source": "14", "value": 0.1419, "note": "Research silica-core record at 1560 nm"},
+            {"source": "15", "value": 0.091, "note": "Research hollow-core record at 1550 nm"},
+            {"source": "16", "value": 0.32, "qualifier": "<=", "note": "Commercial maximum at 1383 nm"},
+            {"source": "16", "value": 0.18, "qualifier": "<=", "note": "Commercial maximum at 1550 nm"},
+            {"source": "1", "value": 0.25, "note": "Li input near 1389 nm"},
+            {"source": "17", "value": 0.34, "qualifier": "<=", "note": "Commercial maximum at 1383 nm"},
+            {"source": "17", "value": 0.20, "qualifier": "<=", "note": "Commercial maximum at 1550 nm"}
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "li_technology_remote_entanglement_trends.png",
+      "title": "Remote matter-memory entanglement context",
+      "layout": [1, 3],
+      "series": [
+        {
+          "key": "remote_fiber_length",
+          "title": "Demonstrated / assumed fiber length",
+          "ylabel": "Fiber length (km)",
+          "yscale": "log",
+          "points": [
+            {"source": "23", "value": 20.5, "note": "12.5 km physical separation, 20.5 km deployed fiber"},
+            {"source": "18", "value": 33.0, "note": "Single-atom nodes"},
+            {"source": "19", "value": 35.0, "note": "Deployed metropolitan loop"},
+            {"source": "25", "value": 420.0, "note": "Atomic-ensemble memories; different protocol and platform"},
+            {"source": "1", "value": 50.0, "note": "Li design point"},
+            {"source": "22", "value": 101.0, "note": "Trapped-ion entanglement with immediate readout; reported after Li v1"}
+          ]
+        },
+        {
+          "key": "remote_entanglement_fidelity",
+          "title": "Remote matter-memory Bell fidelity",
+          "ylabel": "Bell-state fidelity",
+          "yscale": "linear",
+          "ylim": [0.5, 1.01],
+          "points": [
+            {"source": "23", "value": 0.90, "note": "20.5 km field fiber; retrieved memory-memory state"},
+            {"source": "18", "value": 0.622, "note": "33 km fiber"},
+            {"source": "19", "value": 0.69, "error": 0.07, "note": "35 km deployed fiber"},
+            {"source": "20", "value": 0.9689, "error": 0.0008, "note": "Laboratory optical link"},
+            {"source": "21", "value": 0.970, "error": 0.004, "note": "Laboratory-separated trapped atoms"},
+            {"source": "1", "value": 0.96, "qualifier": ">", "note": "Li state-fidelity design bound at 50 km"},
+            {"source": "22", "value": 0.90, "qualifier": ">", "note": "Reported through 101 km with immediate measurement"},
+            {"source": "24", "value": 0.999, "qualifier": "~", "note": "Projected local modular-interconnect protocol"}
+          ]
+        },
+        {
+          "key": "remote_entanglement_rate",
+          "title": "Remote Bell-pair generation rate",
+          "ylabel": "Rate (s^-1)",
+          "yscale": "log",
+          "points": [
+            {"source": "18", "value": 0.011764705882352941, "note": "33 km fiber"},
+            {"source": "19", "value": 1.0, "qualifier": "<=", "note": "Maximum short-link rate; not the 35 km configuration"},
+            {"source": "20", "value": 9.7, "note": "Laboratory optical link including recooling duty cycle"},
+            {"source": "21", "value": 0.35, "note": "Laboratory-separated trapped atoms"},
+            {"source": "24", "value": 100000.0, "note": "Projected local modular-interconnect rate"},
+            {"source": "1", "value": 7854.545, "note": "Li lower-level 50 km model output"},
+            {"source": "22", "value": 2.2222222222, "note": "10 km, inverse of 450 ms average establishment time"}
+          ]
+        }
+      ]
+    }
+  ]
+}

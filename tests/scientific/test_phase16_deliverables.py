@@ -107,8 +107,12 @@ def test_english_latex_paper_has_resolved_local_inputs() -> None:
     assert "All 12 jobs pass" in source
     assert "592 pre-existing tests" in source
     assert "\\bibliography{references}" in source
-    assert len(figures) == 6
+    assert len(figures) == 10
     assert all((DELIVERABLES / "figures" / figure).is_file() for figure in figures)
     assert citation_keys <= bibliography_keys
     assert {"dingjiang2025", "li2026", "chsh1969", "npa2007"} <= bibliography_keys
+    assert "\\appendix" in source
+    assert "Technology Context for the Li 50-km Benchmark" in source
+    assert "li_technology_remote_entanglement_trends.png" in figures
+    assert all(f"[{source_id}]" in source for source_id in range(1, 26))
     assert not any(token in source for token in ("TODO", "PLACEHOLDER", "Lorem ipsum"))

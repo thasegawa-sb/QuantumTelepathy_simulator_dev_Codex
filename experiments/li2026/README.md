@@ -52,6 +52,22 @@ formula gate and the 10 ms/100 ms operational cases pass. Paper-level status is
 `PARTIAL`: the output records four displayed-value inconsistencies while the
 derived `R_HEG=7854.545 s^-1` reproduces the reported `7.9e3 s^-1`.
 
+## Table III technology context
+
+Run from the repository root:
+
+```bash
+python3 experiments/li2026/technology_benchmark/plot_technology_benchmarks.py
+```
+
+This literature audit compares 15 Table III device or system quantities with
+68 time-stamped values from 25 primary research reports and official commercial
+specifications. It emits four numbered scatter figures, a flattened CSV, and a
+machine-readable provenance summary under
+`experiments/li2026/technology_benchmark/results/technology_benchmark_v1/`.
+The evidence classes distinguish Li benchmark values, measured results,
+explicit records, projections, and commercially specified subsystems.
+
 ## M2 analytical/event-driven cross-validation
 
 Run from the repository root:

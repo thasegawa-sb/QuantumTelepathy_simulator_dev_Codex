@@ -1,0 +1,69 @@
+figure,parameter,source_id,year,value,error,qualifier,evidence,source,bibkey,note,url
+li_technology_node_trends.png,internal_cooperativity,7,2022,2.3,,=,measured,Deist et al.,deist2022,Rb atom-cavity; definition follows source,https://arxiv.org/abs/2205.14138
+li_technology_node_trends.png,internal_cooperativity,19,2024,12.4,,=,measured,Knaut et al.,knaut2024,SiV node A; platform and convention differ,https://doi.org/10.1038/s41586-024-07252-z
+li_technology_node_trends.png,internal_cooperativity,8,2025,4.65,,=,measured,Wang et al.,wang2025,Rb fiber cavity,https://arxiv.org/abs/2412.12584
+li_technology_node_trends.png,internal_cooperativity,1,2026,20.0,,=,benchmark,Li et al.,li2026,Li internal-cooperativity design input,https://arxiv.org/abs/2604.07451
+li_technology_node_trends.png,internal_cooperativity,6,2026,125.0,13.0,=,measured,Ye et al.,ye2026,Optically characterized single-atom value; reported after Li v1,https://arxiv.org/abs/2607.04090
+li_technology_node_trends.png,memory_qubits,3,2021,256.0,,=,measured,Ebadi et al.,ebadi2021,Free-space Rydberg array,https://arxiv.org/abs/2012.12281
+li_technology_node_trends.png,memory_qubits,2,2022,92.73,,=,measured,Jenkins et al.,jenkins2022,Expected loaded atoms in a 100-site Yb array,https://arxiv.org/abs/2112.06732
+li_technology_node_trends.png,memory_qubits,9,2023,48.0,,=,measured,Lis et al.,lis2023,Free-space Yb array with mid-circuit operations,https://doi.org/10.1103/PhysRevX.13.041035
+li_technology_node_trends.png,memory_qubits,5,2024,6.0,,=,measured,Hartung et al.,hartung2024,Cavity-integrated quantum-network register,https://arxiv.org/abs/2407.09109
+li_technology_node_trends.png,memory_qubits,4,2025,6100.0,,=,record,Manetsch et al.,manetsch2025,Free-space tweezer array,https://arxiv.org/abs/2403.12021
+li_technology_node_trends.png,memory_qubits,1,2026,250.0,,=,benchmark,Li et al.,li2026,Li cavity-integrated memory design input,https://arxiv.org/abs/2604.07451
+li_technology_node_trends.png,memory_qubits,6,2026,16.0,,=,measured,Ye et al.,ye2026,Atoms simultaneously coupled to one cavity mode; reported after Li v1,https://arxiv.org/abs/2607.04090
+li_technology_node_trends.png,memory_coherence,2,2022,7.9,0.4,=,measured,Jenkins et al.,jenkins2022,Hahn-echo T2,https://arxiv.org/abs/2112.06732
+li_technology_node_trends.png,memory_coherence,4,2025,12.6,0.1,=,record,Manetsch et al.,manetsch2025,Hyperfine coherence; source claims tweezer-array record,https://arxiv.org/abs/2403.12021
+li_technology_node_trends.png,memory_coherence,1,2026,7.9,,=,benchmark,Li et al.,li2026,Li memory-lifetime input inherited from Jenkins et al.,https://arxiv.org/abs/2604.07451
+li_technology_node_trends.png,rotation_time,2,2022,1.0,,<,measured,Jenkins et al.,jenkins2022,Published as submicrosecond; plotted at the upper bound,https://arxiv.org/abs/2112.06732
+li_technology_node_trends.png,rotation_time,1,2026,0.1,,=,benchmark,Li et al.,li2026,Li design input,https://arxiv.org/abs/2604.07451
+li_technology_node_trends.png,reset_time,9,2023,3800.0,,=,measured,Lis et al.,lis2023,Full cooling plus optical-pumping reset,https://doi.org/10.1103/PhysRevX.13.041035
+li_technology_node_trends.png,reset_time,8,2025,5.98,,=,measured,Wang et al.,wang2025,"Slower of two cavity-assisted state-preparation times; proxy, not a full motional reset",https://arxiv.org/abs/2412.12584
+li_technology_node_trends.png,reset_time,1,2026,1.0,,=,benchmark,Li et al.,li2026,Li communication-qubit reset design input,https://arxiv.org/abs/2604.07451
+li_technology_interface_trends.png,photon_emission_probability,10,2013,0.56,,=,record,Muecke et al.,muecke2013,D2 photon-generation probability,https://arxiv.org/abs/1302.2897
+li_technology_interface_trends.png,photon_emission_probability,5,2024,0.9,,~,measured,Hartung et al.,hartung2024,Generation-to-detection efficiency; proxy with a broader definition,https://arxiv.org/abs/2407.09109
+li_technology_interface_trends.png,photon_emission_probability,1,2026,0.7,,=,benchmark,Li et al.,li2026,Li emitted-photon probability design input,https://arxiv.org/abs/2604.07451
+li_technology_interface_trends.png,photon_pulse_duration,10,2013,0.25,,=,record,Muecke et al.,muecke2013,Shortest reported FWHM in the compared atom-cavity source,https://arxiv.org/abs/1302.2897
+li_technology_interface_trends.png,photon_pulse_duration,1,2026,0.24,,=,benchmark,Li et al.,li2026,Li design input,https://arxiv.org/abs/2604.07451
+li_technology_interface_trends.png,measurement_time,7,2022,50.0,,=,measured,Deist et al.,deist2022,Cavity fluorescence implementation,https://arxiv.org/abs/2205.14138
+li_technology_interface_trends.png,measurement_time,8,2025,0.2,,=,measured,Wang et al.,wang2025,"Fast operating point, 99.1% fidelity",https://arxiv.org/abs/2412.12584
+li_technology_interface_trends.png,measurement_time,8,2025,9.0,,=,measured,Wang et al.,wang2025,"High-fidelity operating point, 99.985% fidelity",https://arxiv.org/abs/2412.12584
+li_technology_interface_trends.png,measurement_time,1,2026,0.87,,=,benchmark,Li et al.,li2026,"Li design input, 99.8% fidelity",https://arxiv.org/abs/2604.07451
+li_technology_interface_trends.png,measurement_fidelity,7,2022,0.995,,~,measured,Deist et al.,deist2022,Approximately 0.5% SPAM infidelity,https://arxiv.org/abs/2205.14138
+li_technology_interface_trends.png,measurement_fidelity,8,2025,0.991,0.002,=,measured,Wang et al.,wang2025,200 ns operating point,https://arxiv.org/abs/2412.12584
+li_technology_interface_trends.png,measurement_fidelity,8,2025,0.99985,8e-05,=,measured,Wang et al.,wang2025,9 us operating point,https://arxiv.org/abs/2412.12584
+li_technology_interface_trends.png,measurement_fidelity,1,2026,0.998,,=,benchmark,Li et al.,li2026,Li design input,https://arxiv.org/abs/2604.07451
+li_technology_photonics_trends.png,detector_efficiency,11,2013,0.93,,=,record,Marsili et al.,marsili2013,Research system near 1550 nm,https://arxiv.org/abs/1209.5774
+li_technology_photonics_trends.png,detector_efficiency,12,2020,0.98,,=,measured,Reddy et al.,reddy2020,Research system at 1550 nm,https://doi.org/10.1364/OPTICA.400751
+li_technology_photonics_trends.png,detector_efficiency,1,2026,0.9,,=,benchmark,Li et al.,li2026,Li detector-efficiency input,https://arxiv.org/abs/2604.07451
+li_technology_photonics_trends.png,detector_efficiency,13,2026,0.95,,>,commercial,ID Quantique ID281,idq2026,Current orderable-system headline specification,https://www.idquantique.com/quantum-detection-systems/products/id281-snspd-system/
+li_technology_photonics_trends.png,dark_count_rate,11,2013,0.01,,~,record,Marsili et al.,marsili2013,Shielded device dark count,https://arxiv.org/abs/1209.5774
+li_technology_photonics_trends.png,dark_count_rate,1,2026,10.0,,=,benchmark,Li et al.,li2026,Li design input,https://arxiv.org/abs/2604.07451
+li_technology_photonics_trends.png,dark_count_rate,13,2026,1.0,,<,commercial,ID Quantique ID281,idq2026,Lowest current orderable-system specification,https://www.idquantique.com/quantum-detection-systems/products/id281-snspd-system/
+li_technology_photonics_trends.png,fiber_attenuation,14,2017,0.1419,,=,record,Tamura et al.,tamura2017,Research silica-core record at 1560 nm,https://doi.org/10.1364/OFC.2017.Th5D.1
+li_technology_photonics_trends.png,fiber_attenuation,15,2025,0.091,,=,record,Petrovich et al.,petrovich2025,Research hollow-core record at 1550 nm,https://arxiv.org/abs/2503.21467
+li_technology_photonics_trends.png,fiber_attenuation,16,2025,0.32,,<=,commercial,Corning SMF-28 Ultra,corning2025,Commercial maximum at 1383 nm,https://www.corning.com/catalog/coc/documents/selection-guides/CRR-718-BEN.pdf
+li_technology_photonics_trends.png,fiber_attenuation,16,2025,0.18,,<=,commercial,Corning SMF-28 Ultra,corning2025,Commercial maximum at 1550 nm,https://www.corning.com/catalog/coc/documents/selection-guides/CRR-718-BEN.pdf
+li_technology_photonics_trends.png,fiber_attenuation,1,2026,0.25,,=,benchmark,Li et al.,li2026,Li input near 1389 nm,https://arxiv.org/abs/2604.07451
+li_technology_photonics_trends.png,fiber_attenuation,17,2026,0.34,,<=,commercial,Fujikura FutureGuide-LWP,fujikura2026,Commercial maximum at 1383 nm,https://www.optic-product.fujikura.com/wp-content/uploads/2026/03/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E8%8B%B1%E8%AA%9E_Optical-Fibers_FutureGuide-LWP.pdf
+li_technology_photonics_trends.png,fiber_attenuation,17,2026,0.2,,<=,commercial,Fujikura FutureGuide-LWP,fujikura2026,Commercial maximum at 1550 nm,https://www.optic-product.fujikura.com/wp-content/uploads/2026/03/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E8%8B%B1%E8%AA%9E_Optical-Fibers_FutureGuide-LWP.pdf
+li_technology_remote_entanglement_trends.png,remote_fiber_length,23,2022,20.5,,=,measured,Luo et al.,luo2022,"12.5 km physical separation, 20.5 km deployed fiber",https://arxiv.org/abs/2201.11953
+li_technology_remote_entanglement_trends.png,remote_fiber_length,18,2022,33.0,,=,measured,van Leent et al.,vanleent2022,Single-atom nodes,https://doi.org/10.1038/s41586-022-04764-4
+li_technology_remote_entanglement_trends.png,remote_fiber_length,19,2024,35.0,,=,measured,Knaut et al.,knaut2024,Deployed metropolitan loop,https://doi.org/10.1038/s41586-024-07252-z
+li_technology_remote_entanglement_trends.png,remote_fiber_length,25,2025,420.0,,=,record,Luo et al.,luo2025,Atomic-ensemble memories; different protocol and platform,https://arxiv.org/abs/2504.05660
+li_technology_remote_entanglement_trends.png,remote_fiber_length,1,2026,50.0,,=,benchmark,Li et al.,li2026,Li design point,https://arxiv.org/abs/2604.07451
+li_technology_remote_entanglement_trends.png,remote_fiber_length,22,2026,101.0,,=,record,Liu et al.,liu2026,Trapped-ion entanglement with immediate readout; reported after Li v1,https://arxiv.org/abs/2602.08472
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,23,2022,0.9,,=,measured,Luo et al.,luo2022,20.5 km field fiber; retrieved memory-memory state,https://arxiv.org/abs/2201.11953
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,18,2022,0.622,,=,measured,van Leent et al.,vanleent2022,33 km fiber,https://doi.org/10.1038/s41586-022-04764-4
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,19,2024,0.69,0.07,=,measured,Knaut et al.,knaut2024,35 km deployed fiber,https://doi.org/10.1038/s41586-024-07252-z
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,20,2025,0.9689,0.0008,=,measured,Main et al.,main2025,Laboratory optical link,https://doi.org/10.1038/s41586-024-08404-x
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,21,2025,0.97,0.004,=,measured,Saha et al.,saha2025,Laboratory-separated trapped atoms,https://doi.org/10.1038/s41467-025-57557-4
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,1,2026,0.96,,>,benchmark,Li et al.,li2026,Li state-fidelity design bound at 50 km,https://arxiv.org/abs/2604.07451
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,22,2026,0.9,,>,record,Liu et al.,liu2026,Reported through 101 km with immediate measurement,https://arxiv.org/abs/2602.08472
+li_technology_remote_entanglement_trends.png,remote_entanglement_fidelity,24,2024,0.999,,~,projected,Y. Li and Thompson,lithompson2024,Projected local modular-interconnect protocol,https://arxiv.org/abs/2401.04075
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,18,2022,0.011764705882352941,,=,measured,van Leent et al.,vanleent2022,33 km fiber,https://doi.org/10.1038/s41586-022-04764-4
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,19,2024,1.0,,<=,measured,Knaut et al.,knaut2024,Maximum short-link rate; not the 35 km configuration,https://doi.org/10.1038/s41586-024-07252-z
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,20,2025,9.7,,=,measured,Main et al.,main2025,Laboratory optical link including recooling duty cycle,https://doi.org/10.1038/s41586-024-08404-x
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,21,2025,0.35,,=,measured,Saha et al.,saha2025,Laboratory-separated trapped atoms,https://doi.org/10.1038/s41467-025-57557-4
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,24,2024,100000.0,,=,projected,Y. Li and Thompson,lithompson2024,Projected local modular-interconnect rate,https://arxiv.org/abs/2401.04075
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,1,2026,7854.545,,=,benchmark,Li et al.,li2026,Li lower-level 50 km model output,https://arxiv.org/abs/2604.07451
+li_technology_remote_entanglement_trends.png,remote_entanglement_rate,22,2026,2.2222222222,,=,record,Liu et al.,liu2026,"10 km, inverse of 450 ms average establishment time",https://arxiv.org/abs/2602.08472

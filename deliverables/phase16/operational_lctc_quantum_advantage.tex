@@ -6,6 +6,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{longtable}
 \usepackage{microtype}
 \usepackage{tabularx}
 \usepackage{xcolor}
@@ -23,6 +24,7 @@
 \graphicspath{{figures/}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5pt}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcommand{\pass}{\textsc{pass}}
 \newcommand{\partialstatus}{\textsc{partial}}
 
@@ -54,7 +56,9 @@ decision, or no-communication constraints.  All 12 final reproduction jobs
 and 592 pre-existing tests pass.  Published plots without pointwise author
 data and microscopic device models without sufficient pulse information
 remain explicitly partial or information-limited rather than being promoted
-to successful reproductions.
+to successful reproductions.  A technology-context audit further separates
+commercially available optical components from research demonstrations and
+from the projected integrated-node performance used in the 50-km benchmark.
 \end{abstract}
 
 \section{Introduction}
@@ -468,6 +472,241 @@ falsifiable.  The next scientific priorities are author-data pointwise checks,
 microscopic device models once sufficient data are available, correlated-fault
 event simulation, empirical market calibration, and continuous multiobjective
 resource optimization.
+
+\appendix
+\section{Technology Context for the Li 50-km Benchmark}
+\label{app:technology-context}
+
+\subsection{Method and interpretation rules}
+
+This appendix asks a narrower question than the reproduction in Table
+\ref{tab:50km}: whether the lower-level values adopted by Li \emph{et al.}
+represent commercially procurable performance, an experimentally demonstrated
+research frontier, or a projected combination of separately demonstrated
+components.  The literature cut-off is September 3, 2026.  We used primary
+research reports and official manufacturer specifications.  The machine-readable
+dataset records the source URL, evidence class, inequality qualifier, uncertainty,
+and a comparability note for every plotted point.
+
+The bracketed labels in Figures \ref{fig:technode}--\ref{fig:techremote} map to
+Table \ref{tab:technology-sources}; they are plot identifiers, not bibliography
+numbers.  ``Record'' is used only when the primary source makes an explicit
+record or state-of-the-art claim.  A manufacturer specification establishes
+commercial availability of that subsystem, not of a complete quantum-network
+node.  Points are not joined: platform, wavelength, distance, duty cycle, and
+metric definition are not homogeneous across sources.  Proxy points are
+retained only when their broader or narrower definition is stated explicitly.
+Fifteen quantities with at least one defensible comparator are plotted.
+Protocol constants, pure scenario choices, and algebraically derived quantities
+are classified in Table \ref{tab:technology-disposition} rather than assigned
+artificial time series.
+
+\subsection{Parameter-by-parameter disposition}
+
+Table \ref{tab:technology-disposition} audits every independent Table III input
+and the principal displayed outputs.  ``Research-demonstrated'' means that a
+close component-level value has been measured; it does not imply that all
+values have coexisted in one apparatus.
+
+\begin{longtable}{L{0.19\textwidth}L{0.12\textwidth}L{0.18\textwidth}L{0.39\textwidth}}
+  \caption{Technology disposition of the Li \emph{et al.} 50-km benchmark.}
+  \label{tab:technology-disposition}\\
+  \toprule
+  Quantity & Li value & Evidence type & Assessment at the literature cut-off \\
+  \midrule
+  \endfirsthead
+  \multicolumn{4}{l}{\small\itshape Table \ref{tab:technology-disposition} continued}\\
+  \toprule
+  Quantity & Li value & Evidence type & Assessment at the literature cut-off \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{4}{r}{\small\itshape Continued on next page}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  Internal cooperativity $C_{\rm in}$ & 20 & Research design input & Not a world record and not a catalogued node specification.  A later array--cavity experiment reports single-atom cooperativity $125\pm13$, but only 16 simultaneously coupled atoms \cite{ye2026}. \\
+  Memory atoms $N_a$ & 250 & Projected integration & Ordinary free-space arrays exceeded 250 atoms by 2021 and reached 6100 by 2025 \cite{ebadi2021,manetsch2025}.  The relevant cavity-integrated scale remained six atoms in 2024 and 16 in a post-Li 2026 report \cite{hartung2024,ye2026}; 250 cavity-coupled memories are therefore not demonstrated. \\
+  Parallel channels & 1 & Architecture choice & Neither a record nor a procurement specification; throughput scales with additional independently supported channels in the model. \\
+  Rotation / swap time & 100 ns each & Research projection & Submicrosecond Yb rotations are measured \cite{jenkins2022}, but the exact 100-ns operation with the required networking fidelity is not established by the surveyed source set. \\
+  Reset time & $1\,\mu$s & Research projection & Aggressive for a full neutral-atom reset.  A 2023 spin-plus-motional reset took 3.8 ms \cite{lis2023}; 2025 cavity-assisted state preparation reached microsecond scale but is not a complete motional reset \cite{wang2025}. \\
+  Memory lifetime & 7.9 s & Research-demonstrated & Directly measured as a Yb Hahn-echo $T_2$ \cite{jenkins2022} and later surpassed by a 12.6-s tweezer-array coherence record \cite{manetsch2025}.  It is not a commercial quantum-memory-node specification. \\
+  Emitted-photon probability $p_e$ & 0.70 & Component-level projection & The magnitude is plausible: 0.56 generation probability was measured in 2013, while a later cavity register reported near-0.90 generation-to-detection efficiency under a broader definition \cite{muecke2013,hartung2024}.  The Li value is not demonstrated in the same Yb telecom time-bin system. \\
+  Photon duration & 240 ns & Research-demonstrated scale & A 250-ns atom--cavity photon width was already reported in the compared 2013 system \cite{muecke2013}; the duration alone is not a frontier assumption. \\
+  TPI success probability & 0.25 & Protocol ceiling & This is the ideal accepted-outcome probability for the specified two-photon linear-optics protocol, not a device record or product specification. \\
+  Intrinsic rate $R_0$ & $4.3\times10^5\,\mathrm{s}^{-1}$ & Derived & Computed from $p_e$, the TPI factor, and trial duration.  Its feasibility inherits all three assumptions and the rounding discrepancy documented in Section 6. \\
+  Fiber distance $L$ & 50 km & Scenario choice & Distance alone is not exceptional: matter-memory entanglement has been reported over 33--35 km deployed links, 101 km ion links, and longer ensemble links \cite{vanleent2022,knaut2024,liu2026,luo2025}.  Distance must be assessed jointly with fidelity and rate. \\
+  Fiber attenuation & $0.25\,\mathrm{dB\,km^{-1}}$ near 1389 nm & Commercially plausible, lot-dependent & Not a world record.  Current commercial low-water-peak maxima at 1383 nm are 0.32--0.34 dB/km, whereas commercial 1550-nm maxima are 0.18--0.20 dB/km \cite{corning2025,fujikura2026}.  The assumed E-band value may require selected fiber or measured typical rather than guaranteed worst-case performance. \\
+  Link transmission & 0.06 & Derived & Rounded from attenuation and distance.  It is not independently purchasable or a record. \\
+  Detector efficiency & 0.90 & Commercially available & Conservative relative to 0.98 research performance and current orderable SNSPD systems advertised above 0.95 \cite{reddy2020,idq2026}. \\
+  Dark-count rate & $10\,\mathrm{s}^{-1}$ & Commercially available & Also conservative at the detector level: orderable systems specify values down to below $1\,\mathrm{s}^{-1}$ \cite{idq2026}.  Installed background and conversion noise can dominate the bare detector value. \\
+  Miscellaneous optics efficiency & 0.80 & Integration budget & Individual optics are commercial, but this lumped end-to-end factor is not one product specification and has no meaningful world-record comparison.  It must be verified for the assembled wavelength-conversion, filtering, coupling, and switching path. \\
+  Group velocity / link latency & $2.10\times10^8\,\mathrm{m\,s^{-1}}$ / $240\,\mu$s & Physical / derived & Conventional fiber propagation and a distance-derived one-way delay; not a technology frontier. \\
+  Measurement time & 870 ns & Research-demonstrated scale & A 2025 Rb cavity experiment measured 99.1\% in 200 ns and 99.985\% in $9\,\mu$s \cite{wang2025}.  Thus 870 ns is credible at component level, but the exact Yb-node operating point is not an integrated demonstration. \\
+  Measurement infidelity & 0.2\% & Research-demonstrated scale & Bracketed by the same measured speed--fidelity trade-off \cite{wang2025}.  It is not a commercial neutral-atom readout module. \\
+  Decision latency $\tau_{\rm dec}$ & $0.97\,\mu$s & Derived integration target & Sum of the 100-ns rotation and 870-ns measurement assumptions.  Component evidence is strong, but input receipt, control triggering, and a same-platform end-to-end measurement remain unvalidated. \\
+  Occupancy time & $244\,\mu$s & Derived & Dominated by link wait and reset timing.  The simulator obtains $242.55\,\mu$s from unrounded inputs; this is not a separately measured device parameter. \\
+  State infidelity $\epsilon_s$ & $<4\%$ & System target & Approximately 97\% remote Bell fidelity has been measured on laboratory links \cite{main2025,saha2025}, but surveyed tens-of-kilometres experiments report lower fidelity or far lower rate \cite{vanleent2022,knaut2024}.  The 50-km, kHz-rate combination is not demonstrated. \\
+  Combined infidelity $\epsilon$ & $<6.1\%$ & Derived bound & Exact composition of state and measurement errors.  It is only as credible as their simultaneous realization plus omitted network-error margins. \\
+  HEG rate $R_{\rm HEG}$ & $7.9\times10^3\,\mathrm{s}^{-1}$ & System-model output & Not a measured world record and not commercially purchasable.  The value is a proposed 50-km, 250-memory integration result; no surveyed experiment simultaneously matches its distance, fidelity, and rate. \\
+\end{longtable}
+
+\subsection{Node, memory, interface, and readout trends}
+
+Figure \ref{fig:technode} shows why atom count must be qualified by integration
+context.  Free-space neutral-atom arrays advanced from 256 qubits in 2021 to
+6100 loaded atoms and 12.6-s coherence by 2025 \cite{ebadi2021,manetsch2025}.
+Those results make the numerical values $N_a=250$ and $\tau_{\rm mem}=7.9$ s
+individually conservative.  They do not establish 250 memories simultaneously
+addressable inside one networking cavity.  The directly relevant cavity-array
+reports progress from a six-atom network register to 16 simultaneously coupled
+atoms, even though the latter already exceeds the Li cooperativity target by a
+large factor \cite{hartung2024,ye2026}.  The dominant node risk is therefore
+scale--cavity integration and control, not atom count or coherence in isolation.
+
+The 100-ns rotation target is one order of magnitude below the conservative
+upper-bound point used for the published ``submicrosecond'' Yb result.  The
+$1\,\mu$s reset target is much more demanding than a full demonstrated
+spin-and-motion recycle, although fast state preparation indicates that the
+gap depends strongly on what Li's reset operation must physically restore.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.94\linewidth]{li_technology_node_trends.png}
+  \caption{Year--value scatter plots for node and memory parameters.  Free-space
+  array size and cavity-integrated register size are deliberately distinguished
+  in the source notes; they are not interchangeable scaling records.}
+  \label{fig:technode}
+\end{figure}
+
+Figure \ref{fig:techinterface} indicates that $p_e=0.70$ and a 240-ns photon
+are reasonable component-level goals, but the 0.90 comparison point uses the
+broader generation-to-detection definition and is not a direct proof of
+$p_e=0.90$.  Readout improved markedly from tens of microseconds and about
+99.5\% fidelity in 2022 to a measured 200-ns/99.1\% versus
+$9\,\mu$s/99.985\% trade-off in 2025 \cite{deist2022,wang2025}.  The Li
+870-ns/99.8\% pair falls inside this component-level envelope.  The unresolved
+issue is simultaneous realization in the proposed species, cavity, networking
+sequence, and reset duty cycle.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.94\linewidth]{li_technology_interface_trends.png}
+  \caption{Photon-interface and single-atom measurement trends.  Multiple
+  points from one source show distinct speed--fidelity operating points.}
+  \label{fig:techinterface}
+\end{figure}
+
+\subsection{Commercial photonics and the integrated link}
+
+The detector assumptions are the clearest commercially mature part of the
+benchmark.  Research SNSPD efficiency rose from 0.93 to 0.98, and official
+current systems specify efficiency above 0.95 and dark counts below
+$1\,\mathrm{s}^{-1}$ \cite{marsili2013,reddy2020,idq2026}.  Li's 0.90 and
+$10\,\mathrm{s}^{-1}$ are therefore not champion values; they are conservative
+relative to an orderable cryogenic detector subsystem.  Procurement still
+requires a wavelength-specific quotation and does not remove cryogenic,
+coupling, or installed-background engineering.
+
+Fiber loss is wavelength-specific.  The 0.25-dB/km E-band assumption is far
+above the 0.1419-dB/km silica-core and 0.091-dB/km hollow-core research records
+at approximately 1550 nm \cite{tamura2017,petrovich2025}.  It is also above
+commercial C-band maxima of 0.18--0.20 dB/km, but below the surveyed guaranteed
+commercial E-band maxima of 0.32--0.34 dB/km.  It should be treated as a
+plausible characterized-link value, not an unconditional catalog guarantee.
+The aggregate 0.80 miscellaneous-optics efficiency remains a system integration
+allowance; comparing it with a single catalog component would be misleading.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\linewidth]{li_technology_photonics_trends.png}
+  \caption{SNSPD and fiber trends.  Fiber points include E-band and C-band
+  specifications and research fibers; wavelengths are recorded in the source
+  notes, so the vertical comparison is contextual rather than like-for-like.}
+  \label{fig:techphotonics}
+\end{figure}
+
+Figure \ref{fig:techremote} is the decisive system-level comparison.  Long
+fiber distances and high local-link fidelities have both been demonstrated,
+but generally in different operating regimes.  At 33 km, single atoms were
+entangled at $1/85\,\mathrm{s}^{-1}$ with fidelity 0.622
+\cite{vanleent2022}; a 35-km deployed SiV link reported fidelity
+$0.69\pm0.07$ \cite{knaut2024}.  Laboratory trapped-ion and neutral-atom links
+reached about 0.97 fidelity at 9.7 and $0.35\,\mathrm{s}^{-1}$,
+respectively \cite{main2025,saha2025}.  A post-Li trapped-ion experiment
+established 10-km entanglement in 450 ms on average and reported fidelity above
+0.90 through 101 km \cite{liu2026}.  These advances validate the physical
+ingredients, but none validates $7.9\times10^3\,\mathrm{s}^{-1}$ together
+with 50 km and state fidelity above 0.96.  The plotted $10^5\,\mathrm{s}^{-1}$
+neutral-atom point is itself a published projection, not an experiment
+\cite{lithompson2024}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\linewidth]{li_technology_remote_entanglement_trends.png}
+  \caption{Remote matter-memory entanglement context.  The panels compare
+  reported parameter values by year, but not every source reports all three
+  quantities in the same configuration.  Distance and rate notes in Table
+  \ref{tab:technology-sources} prevent local-link rates from being assigned to
+  metropolitan links.}
+  \label{fig:techremote}
+\end{figure}
+
+The procurement conclusion is consequently mixed.  Fiber and SNSPD performance
+are available through ordinary specialist commercial channels.  Atom arrays,
+multi-atom cavity nodes, high-fidelity submicrosecond readout, memory buffering,
+and telecom atom--photon interfaces remain laboratory systems.  Li's component
+values are mostly grounded in measured scales, and several are no longer
+records, but the simultaneous 250-memory, 50-km, $>0.96$-fidelity,
+$7.9$-kHz operating point remains a research-system projection rather than a
+turnkey commercial capability.
+
+\clearpage
+\subsection{Numbered plot-source table}
+
+\begin{longtable}{L{0.055\textwidth}L{0.10\textwidth}L{0.24\textwidth}L{0.47\textwidth}}
+  \caption{Sources corresponding to bracketed labels in Figures \ref{fig:technode}--\ref{fig:techremote}.}
+  \label{tab:technology-sources}\\
+  \toprule
+  Plot ID & Year & Source & Values and evidence used \\
+  \midrule
+  \endfirsthead
+  \multicolumn{4}{l}{\small\itshape Table \ref{tab:technology-sources} continued}\\
+  \toprule
+  Plot ID & Year & Source & Values and evidence used \\
+  \midrule
+  \endhead
+  \midrule
+  \multicolumn{4}{r}{\small\itshape Continued on next page}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  {[1]} & 2026 & Li \emph{et al.} \cite{li2026} & Table III benchmark/model values: $C_{\rm in}=20$, $N_a=250$, $T_2=7.9$ s, 100-ns rotation, $1\,\mu$s reset, $p_e=0.70$, 240-ns photon, 870-ns/0.998 readout, detector 0.90, 10-Hz dark counts, 0.25 dB/km, 50 km, state fidelity $>0.96$, and modeled $R_{\rm HEG}=7854.545\,\mathrm{s}^{-1}$. \\
+  {[2]} & 2022 & Jenkins \emph{et al.} \cite{jenkins2022} & Measured 92.73\% loading in 100 sites, submicrosecond Yb rotations, and Hahn-echo $T_2=7.9(4)$ s. \\
+  {[3]} & 2021 & Ebadi \emph{et al.} \cite{ebadi2021} & Measured programmable free-space neutral-atom systems up to 256 qubits. \\
+  {[4]} & 2025 & Manetsch \emph{et al.} \cite{manetsch2025} & Measured 6100 atoms and 12.6(1)-s coherence; the source explicitly claims the latter as a tweezer-array hyperfine record. \\
+  {[5]} & 2024 & Hartung \emph{et al.} \cite{hartung2024} & Six-atom cavity network register and generation-to-detection efficiency approaching 0.90; the efficiency is a broad proxy for $p_e$. \\
+  {[6]} & 2026 & Ye \emph{et al.} \cite{ye2026} & Post-Li measured single-atom cooperativity $125\pm13$ and simultaneous coupling of 16 atoms. \\
+  {[7]} & 2022 & Deist \emph{et al.} \cite{deist2022} & Rb cavity cooperativity 2.3, approximately 50-$\mu$s readout, and approximately 0.5\% SPAM infidelity. \\
+  {[8]} & 2025 & Wang \emph{et al.} \cite{wang2025} & Rb cooperativity 4.65(23); readout 0.991(2) in 200 ns and 0.99985(8) in $9\,\mu$s; 5.98-$\mu$s state-preparation proxy. \\
+  {[9]} & 2023 & Lis \emph{et al.} \cite{lis2023} & 48-site Yb array and 3.8-ms full gray-molasses, sideband-cooling, and optical-pumping reset. \\
+  {[10]} & 2013 & M{"u}cke \emph{et al.} \cite{muecke2013} & Measured 0.56 D2 photon-generation efficiency and approximately 250-ns minimum photon FWHM; source claims record efficiency for its defined mode. \\
+  {[11]} & 2013 & Marsili \emph{et al.} \cite{marsili2013} & Research SNSPD system efficiency 0.93 and shielded device dark-count rate approximately $0.01\,\mathrm{s}^{-1}$; explicit record claim. \\
+  {[12]} & 2020 & Reddy \emph{et al.} \cite{reddy2020} & Measured fiber-coupled SNSPD system efficiency 0.98 at 1550 nm. \\
+  {[13]} & 2026 & ID Quantique \cite{idq2026} & Official orderable ID281 specifications: efficiency can exceed 0.95 and lowest dark-count option below $1\,\mathrm{s}^{-1}$. \\
+  {[14]} & 2017 & Tamura \emph{et al.} \cite{tamura2017} & Explicit silica-core record attenuation 0.1419 dB/km at 1560 nm. \\
+  {[15]} & 2025 & Petrovich \emph{et al.} \cite{petrovich2025} & Explicit hollow-core research record 0.091 dB/km at 1550 nm; not conventional deployed silica fiber. \\
+  {[16]} & 2025 & Corning \cite{corning2025} & Official SMF-28 Ultra maxima: 0.32 dB/km at 1383 nm and 0.18 dB/km at 1550 nm. \\
+  {[17]} & 2026 & Fujikura \cite{fujikura2026} & Official FutureGuide-LWP maxima: 0.34 dB/km at 1383 nm and 0.20 dB/km at 1550 nm. \\
+  {[18]} & 2022 & van Leent \emph{et al.} \cite{vanleent2022} & Single-atom entanglement through 33 km fiber: 0.622 fidelity and one event per 85 s. \\
+  {[19]} & 2024 & Knaut \emph{et al.} \cite{knaut2024} & SiV node-A cooperativity 12.4; 35-km deployed-link nuclear-memory fidelity $0.69(7)$; rates up to $1\,\mathrm{s}^{-1}$ refer to a short-link electron-spin configuration. \\
+  {[20]} & 2025 & Main \emph{et al.} \cite{main2025} & Laboratory trapped-ion optical link: Bell fidelity 0.9689(8) and average generation rate $9.7\,\mathrm{s}^{-1}$ including recooling. \\
+  {[21]} & 2025 & Saha \emph{et al.} \cite{saha2025} & Laboratory-separated trapped atoms using time-bin photons: fidelity 0.970(4) and mean rate $0.35\,\mathrm{s}^{-1}$. \\
+  {[22]} & 2026 & Liu \emph{et al.} \cite{liu2026} & Post-Li trapped-ion result: 450-ms average establishment at 10 km and fidelity above 0.90 through 101 km with immediate measurement; source claims a major repeater-distance advance. \\
+  {[23]} & 2022 & Luo \emph{et al.} \cite{luo2022} & Atomic memories 12.5 km apart over 20.5 km deployed fiber; retrieved memory-memory fidelity 0.90. \\
+  {[24]} & 2024 & Y. Li and Thompson \cite{lithompson2024} & Projected neutral-atom modular interconnect, $10^5\,\mathrm{s}^{-1}$ Bell-pair rate and fidelity near 0.999; not measured. \\
+  {[25]} & 2025 & Luo \emph{et al.} \cite{luo2025} & Reported atomic-ensemble memory entanglement over 420 km fiber; a different platform and protocol, included for distance context only. \\
+\end{longtable}
 
 \bibliographystyle{plain}
 \bibliography{references}

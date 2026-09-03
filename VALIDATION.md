@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-598 passed in 65.82s
+601 passed in 17.11s
 ```
 
 ## Passing Coverage
@@ -66,6 +66,7 @@ Result:
 | Li M2-derived effective error/rate integration with operational status | `tests/scientific/test_li_m2_hardware.py` |
 | Li Yb system-level Eqs. 54-61 versus independent 60-digit Decimal formulas | `tests/scientific/test_li_yb_node.py` |
 | Li Table III 50 km configuration, displayed-value discrepancies, and operational cases | `tests/scientific/test_li_table3_artifacts.py` |
+| Li Table III technology-context provenance, 25-source identifier coverage, 68-point schema, configuration linkage, and plot copies | `tests/scientific/test_li2026_technology_benchmark.py` |
 | Li event-driven M2 scheduling, memory limits, trace timing, and probability limits | `tests/scientific/test_li_m2_event_simulation.py` |
 | Li analytical/event-driven throughput, occupancy, binomial statistics, and convergence artifacts | `tests/scientific/test_li_m2_event_artifacts.py` |
 | Ding-to-Li HFT waterfall stage separation and criterion-specific failure cases | `tests/scientific/test_li_hft_waterfall.py` |
@@ -83,7 +84,7 @@ Result:
 | Phase 15 twelve-workflow rerun, version pins, immutable artifacts, JSON provenance, and reproduction-matrix audit | `experiments/final_validation/results/phase15_v1/final_validation_summary.json` |
 | Phase 15 machine-readable final-validation artifact | `tests/scientific/test_phase15_final_validation_artifacts.py` |
 | Phase 16 exact three-document set, DOCX structure/alt text, and LaTeX figures/citations | `tests/scientific/test_phase16_deliverables.py` |
-| Phase 16 Word full-page render, heading, and accessibility QA; LaTeX warning-free compile | `docs/research/PHASE16_DELIVERABLES.md` |
+| Phase 16 Word full-page render, heading, and accessibility QA; LaTeX compile and 18-page visual QA | `docs/research/PHASE16_DELIVERABLES.md` |
 
 ## Known Gaps
 
@@ -99,6 +100,7 @@ Result:
 | Li operational output schema | PASS: all required statuses and source quantities are emitted; strict equality and partial-failure cases are tested |
 | Li M2 analytical HEG/time-multiplexing model | PASS for Eqs. 46-53 and the configured deterministic-timing event simulation |
 | Li Table III 50 km benchmark | PARTIAL: formula and operational gates pass, and `R_HEG=7854.545 s^-1` reproduces `7.9e3 s^-1`; exact listed-parameter calculations disagree with displayed `R0`, `p_ent`, `tau_occ`, and `p_false` |
+| Li Table III technology maturity | PASS for source traceability and evidence classification: 15 comparable quantities, 68 points, 25 primary/official sources, and all independent inputs/principal outputs classified; heterogeneous platforms and metric definitions make the plots contextual rather than a homogeneous meta-analysis |
 | Analytical/event-driven cross-validation | PASS: 256 seeds, 26,368,000 trials, mean `7863.867 s^-1`, 95% CI `[7826.764,7900.970] s^-1`, analytical `7854.545 s^-1`, and all ten configured gates pass |
 | HFT operational-advantage waterfall | PASS: eight configuration-driven scenarios, three overall PASS and five intended criterion-specific FAIL cases; hardware inputs are traced to the committed Table III artifact |
 | Li multiparty Figure 7(b) | PARTIAL: all equation, 64-strategy, three-phase, symmetry, limit, noise, and finite-statistics gates pass; author pointwise data are unavailable |
