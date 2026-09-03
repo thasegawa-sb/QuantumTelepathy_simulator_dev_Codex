@@ -129,7 +129,7 @@ The implementation should reuse Ding-Jiang only up to the mathematical game laye
 
 ## Current Validation Gate
 
-Current gate: Phase 13 hardware-resource optimization. Phase 12 now adds the Li three-party majority XOR/GHZ game, Appendix B noise model, finite-statistics status, and configured Figure 7(b) reproduction without changing the Ding or two-party Li layers.
+Current gate: Phase 14 performance/HPC optimization. Phase 13 now adds finite-grid system-level hardware optimization, exact Pareto membership, distance-law sweeps, and direct operational reevaluation without changing the validated Ding, Li two-party, or multiparty results.
 
 Status:
 
@@ -159,5 +159,6 @@ Status:
 | Ding-to-Li HFT waterfall | PASS | Eight scenarios derive hardware inputs from the Table III artifact; 3 overall PASS and 5 controlled FAIL cases match oracles |
 | Li three-party XOR/GHZ game | PASS | 64-strategy classical oracle, symmetric GHZ optimizer, independent three-phase checks, and Appendix B noise equations pass |
 | Li Figure 7(b) paper reproduction | PARTIAL | Full configured grid and analytical structure pass; author pointwise data are unavailable |
-| Equation-to-code map created | PARTIAL | Through the Phase 12 game/noise layer are linked; microscopic CAPS and optimization mappings remain incomplete |
-| Next implementation gate | Phase 13 | Optimize minimum hardware improvements subject to all operational constraints |
+| Hardware-resource optimization | PASS for configured finite grid | 43,776 designs, Pareto fronts, strict rate transitions, and direct Phase 11 reevaluation pass; continuous optimality is not claimed |
+| Equation-to-code map created | PARTIAL | Through the Phase 13 system-level research extension are linked; microscopic CAPS mappings remain incomplete |
+| Next implementation gate | Phase 14 | Profile and optimize runtime while preserving all scientific regression values |

@@ -11,7 +11,7 @@ python3 -m pytest
 Result:
 
 ```text
-550 passed in 18.82s
+578 passed in 17.58s
 ```
 
 ## Passing Coverage
@@ -75,6 +75,8 @@ Result:
 | Li Appendix B GHZ density matrix, combined infidelity, and direct correlator trace | `tests/scientific/test_li_multiparty.py` |
 | Multiparty exact-binomial certification and strict operational boundaries | `tests/scientific/test_li_multiparty.py` |
 | Li Figure 7(b) full-grid invariants and committed artifacts | `tests/scientific/test_li_fig7b_artifacts.py` |
+| Phase 13 improvement mapping, finite search, Pareto logic, and infeasibility classification | `tests/scientific/test_hardware_optimization.py` |
+| Phase 13 configured candidate counts, direct reevaluation, strict channel threshold, distance envelope, and artifacts | `tests/scientific/test_hardware_optimization_artifacts.py` |
 
 ## Known Gaps
 
@@ -94,3 +96,5 @@ Result:
 | HFT operational-advantage waterfall | PASS: eight configuration-driven scenarios, three overall PASS and five intended criterion-specific FAIL cases; hardware inputs are traced to the committed Table III artifact |
 | Li multiparty Figure 7(b) | PARTIAL: all equation, 64-strategy, three-phase, symmetry, limit, noise, and finite-statistics gates pass; author pointwise data are unavailable |
 | Li multiparty CAPS Figure 7(c-e) | NOT_IMPLEMENTED: game/noise support is separate; microscopic atom-cavity pulse dynamics and GHZ generation rates remain outside the validated scope |
+| Bipartite hardware-resource optimization | PASS for the configured 43,776-candidate finite grid: all evaluations complete, Pareto and direct-operational gates pass, and the configured distance envelope ends at 125 km before failing at 150 km |
+| Continuous/global and multiparty hardware optimization | PARTIAL: finite-grid optimality is exact, but continuous global optimality is not claimed and CAPS hardware equations remain unavailable |

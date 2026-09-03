@@ -1,0 +1,42 @@
+{
+  "provenance": "Analytical constraints and expected qualitative outcomes for the configured exhaustive finite grid",
+  "expected_case_count": 9,
+  "expected_candidate_count_per_case": 4864,
+  "expected_search_status": {
+    "ding_rate_stress_1s@25km": "FEASIBLE",
+    "ding_rate_stress_1s@50km": "FEASIBLE",
+    "ding_rate_stress_1s@75km": "FEASIBLE",
+    "ding_rate_stress_1s@100km": "FEASIBLE",
+    "ding_rate_stress_1s@125km": "FEASIBLE",
+    "ding_rate_stress_1s@150km": "INFEASIBLE_SEARCH_SPACE",
+    "ding_rate_decision_stress_1s@50km": "FEASIBLE",
+    "correlated_asymmetric_fidelity_stress@50km": "FEASIBLE",
+    "flat_utility_infeasible_control@50km": "INFEASIBLE_SEARCH_SPACE"
+  },
+  "distance_envelope": {
+    "scenario_id": "ding_rate_stress_1s",
+    "maximum_configured_feasible_distance_km": 125.0,
+    "first_configured_infeasible_distance_km": 150.0
+  },
+  "expected_recommended_designs": {
+    "ding_rate_stress_1s@25km": {"state_infidelity_scale": 1.0, "decision_time_scale": 1.0, "n_memory_qubits": 250, "n_channels": 2},
+    "ding_rate_stress_1s@50km": {"state_infidelity_scale": 1.0, "decision_time_scale": 1.0, "n_memory_qubits": 250, "n_channels": 9},
+    "ding_rate_stress_1s@75km": {"state_infidelity_scale": 0.5, "decision_time_scale": 1.0, "n_memory_qubits": 250, "n_channels": 5},
+    "ding_rate_stress_1s@100km": {"state_infidelity_scale": 0.25, "decision_time_scale": 1.0, "n_memory_qubits": 250, "n_channels": 14},
+    "ding_rate_stress_1s@125km": {"state_infidelity_scale": 0.25, "decision_time_scale": 1.0, "n_memory_qubits": 419, "n_channels": 48},
+    "ding_rate_decision_stress_1s@50km": {"state_infidelity_scale": 1.0, "decision_time_scale": 0.5, "n_memory_qubits": 250, "n_channels": 9},
+    "correlated_asymmetric_fidelity_stress@50km": {"state_infidelity_scale": 0.1, "measurement_infidelity_scale": 0.5, "detector_headroom_fraction": 1.0, "optics_headroom_fraction": 1.0, "decision_time_scale": 1.0, "memory_lifetime_multiplier": 2.0, "n_memory_qubits": 419, "n_channels": 48}
+  },
+  "expected_feasible_counts": {
+    "ding_rate_stress_1s@25km": 4848,
+    "ding_rate_stress_1s@50km": 4640,
+    "ding_rate_stress_1s@75km": 3648,
+    "ding_rate_stress_1s@100km": 2092,
+    "ding_rate_stress_1s@125km": 228,
+    "ding_rate_stress_1s@150km": 0,
+    "ding_rate_decision_stress_1s@50km": 2320,
+    "correlated_asymmetric_fidelity_stress@50km": 2,
+    "flat_utility_infeasible_control@50km": 0
+  },
+  "infeasible_control_required_violation": "theoretical_advantage"
+}

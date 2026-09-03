@@ -14,7 +14,7 @@ Retrieval and version audit:
 | arXiv HTML | https://arxiv.org/html/2604.07451v1 |
 | Retrieval date | 2026-08-31 |
 | Version history from arXiv | v1 submitted 2026-04-08; no newer arXiv revision visible when reverified 2026-09-02 |
-| Local repository state | Layer 0/1 core, Ding regression suite, Li two-party operational/hardware layers through Phase 11, and the Phase 12 three-party XOR/GHZ Figure 7(b) model are present |
+| Local repository state | Layer 0/1 core, Ding regression suite, Li two-party operational/hardware layers, Phase 12 three-party XOR/GHZ Figure 7(b), and Phase 13 bipartite hardware optimization are present |
 
 ## Scope
 
@@ -116,6 +116,18 @@ Li et al. extends Ding-Jiang from idealized quantum-classical expected-utility g
 | Fig. 7 | VI | Multiparty network, three-party gap, GHZ generation | `reproduce_fig7b.py`; CAPS remains separate | Eq. 62-67 and Appendix B-C | PARTIAL: panel (b) computation PASS; panels (c-e) not reproduced |
 | Fig. 8 | App. A | Optimal measurement angles for Fig. 2 cases | Optional strategy diagnostics | Angle optimizer | NOT_IMPLEMENTED |
 | Fig. 9 | App. C | GHZ-generation schematic | Documentation and optional microscopic model | Appendix C | NOT_IMPLEMENTED |
+
+### Phase 13 Research Extension
+
+The hardware-resource optimizer is not a claimed Li paper reproduction. It
+composes the validated two-party game, statistics, timing, M2, and Yb
+system-level equations into an exhaustive finite search. Nine configured
+scenario-distance cases contain 43,776 candidates. Pareto membership is checked
+by an independently written dominance scan, and every selected design is
+reevaluated through the Phase 11 operational API. The configured Ding
+representative one-second scenario remains feasible at 125 km but has no
+feasible candidate at 150 km. Details and limitations are recorded in
+`docs/research/HARDWARE_OPTIMIZATION.md`.
 
 ### Figure 2 Reproduction Record
 

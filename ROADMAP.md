@@ -1,6 +1,6 @@
 # Roadmap
 
-Current validation gate: Phase 13, hardware-resource optimization.
+Current validation gate: Phase 14, performance/HPC optimization.
 
 ## Completed
 
@@ -33,15 +33,15 @@ Current validation gate: Phase 13, hardware-resource optimization.
 | 2026-09-03 | Implemented and independently validated the Li Eq. 20 general-score finite-statistics bound | `src/quantum_telepathy/li2026/statistics.py` |
 | 2026-09-03 | Implemented the Li three-party XOR/GHZ game, 64-strategy classical oracle, and Appendix B noise model | `src/quantum_telepathy/multiparty/`, `src/quantum_telepathy/li2026/multiparty.py` |
 | 2026-09-03 | Reproduced the Li Figure 7(b) computation on a 101x101 grid with independent phase optimization | `experiments/li2026/results/fig7b_v1/` |
+| 2026-09-03 | Completed exhaustive finite-grid hardware-resource optimization and Pareto analysis | `experiments/li2026/results/hardware_optimization_v1/` |
 
 ## Next Gates
 
-1. Implement configuration-driven hardware-resource optimization:
-   - minimize hardware improvements while satisfying every operational criterion,
-   - include fidelity, HEG rate, decision latency, memory, and distance constraints,
-   - distinguish infeasible search regions from numerical optimizer failure,
-   - produce Pareto fronts for competing hardware improvements,
-   - validate selected optima by direct operational-status reevaluation.
+1. Profile and optimize scientific-computing performance without changing results:
+   - establish reproducible runtime and memory benchmarks,
+   - prioritize the finite-statistics search, Figure 5 SDP workflow, and hardware-grid evaluation,
+   - add parallelism or vectorization only with deterministic regression oracles,
+   - preserve all strict operational boundaries and generated scientific values.
 
 ## Phase 16 Deliverables
 

@@ -1,0 +1,124 @@
+{
+  "reference": {
+    "ding_jiang": {
+      "arxiv_id": "2407.21723",
+      "version": "v3",
+      "retrieval_date": "2026-08-31"
+    },
+    "li2026": {
+      "arxiv_id": "2604.07451",
+      "version": "v1",
+      "retrieval_date": "2026-08-31",
+      "version_reverified_date": "2026-09-02",
+      "paper_items": "Equations 15-25, 30-57, Table II, and Table III"
+    }
+  },
+  "research_scope": "Phase 13 finite-grid system-level hardware-resource optimization for bipartite HFT-style LCTC applications",
+  "baseline": {
+    "table3_config_file": "table3_50km_v1.json",
+    "distance_policy": "Remove Table III rounded transmission and latency overrides; use attenuation and propagation laws at every configured distance"
+  },
+  "search_space": {
+    "state_infidelity_scales": [1.0, 0.5, 0.25, 0.1],
+    "measurement_infidelity_scales": [1.0, 0.5],
+    "detector_headroom_fractions": [0.0, 1.0],
+    "optics_headroom_fractions": [0.0, 1.0],
+    "decision_time_scales": [1.0, 0.5],
+    "memory_lifetime_multipliers": [1.0, 2.0],
+    "n_memory_qubits": [250, 419],
+    "n_channels": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 24, 32, 48],
+    "cost_weights": {
+      "state_fidelity": 1.0,
+      "measurement_fidelity": 1.0,
+      "detector_efficiency": 1.0,
+      "optics_efficiency": 1.0,
+      "decision_speed": 1.0,
+      "memory_lifetime": 1.0,
+      "memory_count": 1.0,
+      "channel_count": 1.0
+    },
+    "cost_definition": "Each lever is normalized from zero at the Table III baseline to one at its configured search boundary; reduction and lifetime factors use logarithmic normalization"
+  },
+  "scenarios": [
+    {
+      "id": "ding_rate_stress_1s",
+      "description": "Ding-Jiang p=0.3 beta=0.3 with a one-second stationary window; exposes fidelity-rate-resource tradeoffs.",
+      "distances_km": [25.0, 50.0, 75.0, 100.0, 125.0, 150.0],
+      "ding": {"p": 0.3, "beta": 0.3},
+      "li": {
+        "input_distribution": [[0.49, 0.21], [0.21, 0.09]],
+        "beta1": 0.3,
+        "beta2": 0.3
+      },
+      "statistics_method": "general_score_bound",
+      "application": {
+        "alpha": 0.05,
+        "t_env_seconds": 1.0,
+        "t_loc_seconds": 1.0e-5
+      }
+    },
+    {
+      "id": "ding_rate_decision_stress_1s",
+      "description": "The same Ding game with a 0.5 microsecond local window; rate and local decision speed must both pass.",
+      "distances_km": [50.0],
+      "ding": {"p": 0.3, "beta": 0.3},
+      "li": {
+        "input_distribution": [[0.49, 0.21], [0.21, 0.09]],
+        "beta1": 0.3,
+        "beta2": 0.3
+      },
+      "statistics_method": "general_score_bound",
+      "application": {
+        "alpha": 0.05,
+        "t_env_seconds": 1.0,
+        "t_loc_seconds": 5.0e-7
+      }
+    },
+    {
+      "id": "correlated_asymmetric_fidelity_stress",
+      "description": "Correlated asymmetric game whose Table III baseline exceeds the fidelity threshold.",
+      "distances_km": [50.0],
+      "ding": {"p": 0.5, "beta": 0.1},
+      "li": {
+        "input_distribution": [[0.4, 0.15], [0.15, 0.3]],
+        "beta1": 0.1,
+        "beta2": 0.2
+      },
+      "statistics_method": "general_score_bound",
+      "application": {
+        "alpha": 0.05,
+        "t_env_seconds": 1.0,
+        "t_loc_seconds": 1.0e-5
+      }
+    },
+    {
+      "id": "flat_utility_infeasible_control",
+      "description": "No-theoretical-gap control used to distinguish physical infeasibility from optimizer failure.",
+      "distances_km": [50.0],
+      "ding": {"p": 0.5, "beta": 0.5},
+      "li": {
+        "input_distribution": [[0.25, 0.25], [0.25, 0.25]],
+        "beta1": 0.5,
+        "beta2": 0.5
+      },
+      "statistics_method": "general_score_bound",
+      "application": {
+        "alpha": 0.05,
+        "t_env_seconds": 1.0,
+        "t_loc_seconds": 1.0e-5
+      }
+    }
+  ],
+  "validation": {
+    "oracle_file": "../oracles/hardware_optimization_v1.json",
+    "numeric_absolute_tolerance": 1.0e-12,
+    "pareto_tolerance": 1.0e-12
+  },
+  "plot": {"dpi": 180},
+  "notes": [
+    "This is an exhaustive finite-grid result, not a continuous global optimum.",
+    "The equal-weight recommendation is one explicit engineering-effort proxy; the Pareto front is the primary cost-agnostic result.",
+    "No monetary, procurement, or technology-development cost is inferred from the normalized effort index.",
+    "The bipartite TPI system model is not reused for the distinct multiparty CAPS architecture."
+  ]
+}

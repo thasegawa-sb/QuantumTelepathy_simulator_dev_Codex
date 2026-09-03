@@ -6,22 +6,22 @@ Date: 2026-08-31, updated 2026-09-03
 
 The literature path is clear. The initial workspace was empty and not a Git repository, so no prior Ding-Jiang implementation, tests, experiments, validation records, project memory, or commit history could be audited. On 2026-09-01, the user requested a fresh `git init`; a new repository and minimal scientific scaffold now exist.
 
-The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li two-party operational/hardware layers, HFT waterfall, and three-party XOR/GHZ Appendix B model now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is hardware-resource optimization.
+The correct development sequence remains staged. The independently verified nonlocal/XOR-game core, scoped Ding baseline, Li two-party operational/hardware layers, HFT waterfall, three-party XOR/GHZ Appendix B model, and finite-grid hardware optimization now pass their configured gates. Documented paper-level partial results remain partial where author data or internally consistent displayed values are unavailable. The next gate is performance/HPC optimization.
 
 ## Existing Implementation
 
 | Area | Finding |
 |---|---|
 | Repository structure | Fresh scaffold |
-| Source code | Shared core, paper-specific Ding/Li modules, analytical hardware models, and event-driven M2 simulator present |
-| Tests | CHSH, Ding regressions, Li utility/fidelity/statistics, Figures 2-3, operational status, hardware, and DES tests present |
-| Experiment scripts | Version-pinned Ding reproductions, Li Figure 2-3/Table III scripts, and M2 cross-validation present |
+| Source code | Shared core, paper-specific Ding/Li modules, analytical hardware models, event-driven M2 simulator, and finite-grid optimizer present |
+| Tests | CHSH, Ding regressions, Li utility/fidelity/statistics, paper figures, operational status, hardware, DES, multiparty, and optimization tests present |
+| Experiment scripts | Version-pinned Ding/Li reproductions, operational waterfall, M2 cross-validation, multiparty, and hardware-optimization workflows present |
 | Configurations | Version-pinned Ding and Li experiment configurations present |
-| Validation results | Generated Ding and Li result summaries and data present; Phase 10 statistical gates pass |
+| Validation results | Generated Ding and Li result summaries and data present through the Phase 13 optimization gate |
 | Paper reproduction code | Scoped Ding baseline plus Li generalized LCTC, fidelity, statistics, and timing paths present |
 | Git history | Fresh repository initialized 2026-09-01 |
 | Project memory docs | `ROADMAP.md`, `VALIDATION.md`, `ASSUMPTIONS.md`, `DECISIONS.md` added |
-| Current validation gate | Phase 13; hardware-resource optimization |
+| Current validation gate | Phase 14; performance/HPC optimization |
 
 Files requested by the operating procedure were not available:
 
@@ -50,27 +50,27 @@ The fresh scaffold now contains these reusable components:
 | 2x2 quantum XOR optimizer | `Q(M)`, CHSH, Fig. 2, Ding Fig. 3 |
 | Li exact combined-infidelity formulas | Fidelity criterion |
 | Stable binomial-tail statistics | PASS for exact win/loss utilities and Figure 3 |
-| Hardware parameter/config system | Still missing |
+| Hardware parameter/config system | PASS for system-level M2/Yb parameters and Phase 13 finite search |
+| Finite Pareto optimizer | PASS for configured bipartite hardware lattices and direct operational reevaluation |
 
 ## Operational Prerequisites
 
-The following are mandatory before operational Li claims; rows marked PASS in
-their descriptions are already available, while the remaining operational
-layers still block an overall claim:
+The following are mandatory before operational Li claims. Their implemented
+scope is retained as a regression contract:
 
 | Component | Why required |
 |---|---|
 | Version-pinned result metadata | PASS: Ding v3 and Li v1 are recorded in experiment configs and summaries |
 | Classical deterministic enumerator | PASS for binary two-party scope: independent oracle for admissible classical baseline |
 | CHSH analytical tests | PASS: gate for `C(M)`, `Q(M)`, `omega_C`, `omega_Q`, threshold |
-| Ding HFT reproduction | Prevent Li extension from silently changing foundational results |
+| Ding HFT reproduction | PASS for the scoped regression baseline; prevents silent foundational changes |
 | Li generalized utility/input model | PASS for binary two-party scope, including independent and correlated Figure 2 inputs |
 | Exact Li fidelity model | PASS for Eq. 26 and Eq. 28-38 Figure 2 scope |
 | Exact binomial finite-statistics model | PASS for Criterion B win/loss scope |
-| Decision-latency model | Required for Criterion C |
-| M2 time-multiplexed memory model | Required for Li operational architecture |
-| 50 km benchmark | Required for Table III reproduction |
-| Standard operational status output | Prevent ambiguous "quantum advantage" claims |
+| Decision-latency model | PASS for Criterion C and strict boundary cases |
+| M2 time-multiplexed memory model | PASS for analytical and configured event-driven scopes |
+| 50 km benchmark | PARTIAL at paper level; equation and operational gates pass |
+| Standard operational status output | PASS; prevents ambiguous "quantum advantage" claims |
 
 ## Required Refactoring
 
@@ -104,6 +104,7 @@ The scaffold follows these architectural requirements:
 | P6 | Li Table III 50 km benchmark | PARTIAL: derived rate and operational gates PASS; four displayed-value discrepancies documented |
 | P7 | Analytical M2 versus event-driven HEG | PASS for deterministic timing and independent Bernoulli herald scope |
 | P8 | Multiparty Fig. 7 and Appendix B-C | PARTIAL: Figure 7(b) and Appendix B computation pass; CAPS panels (c-e) remain unimplemented |
+| P9 | Hardware-resource optimization | PASS for 43,776 configured bipartite designs, Pareto validation, distance envelope, and direct operational reevaluation |
 
 ## Test Strategy
 
@@ -148,4 +149,4 @@ The scaffold follows these architectural requirements:
 
 ## Design Decision
 
-The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, the Phase 11 waterfall consumes that hardware result, and Phase 12 adds a separate GHZ game/noise path. Development may proceed to Phase 13 without changing the retained Table III or Figure 7(b) `PARTIAL` paper-level statuses; complete Ding, two-party Li, and multiparty regression suites remain mandatory.
+The analytical and event-driven M2 contracts are consistent within the stated deterministic-timing scope, the Phase 11 waterfall consumes that hardware result, Phase 12 adds a separate GHZ game/noise path, and Phase 13 searches the bipartite system-level hardware lattice. Development may proceed to Phase 14 without changing the retained Table III or Figure 7(b) `PARTIAL` paper-level statuses; complete Ding, two-party Li, multiparty, and optimization regression suites remain mandatory.

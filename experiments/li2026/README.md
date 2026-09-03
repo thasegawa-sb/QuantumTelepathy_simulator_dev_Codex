@@ -98,3 +98,19 @@ threshold and an exact-binomial prospective operational case. Outputs are
 written to `experiments/li2026/results/fig7b_v1/`. Paper-level status is
 `PARTIAL` because author pointwise Figure 7(b) data are unavailable. The CAPS
 hardware calculations in Figure 7(c-e) are not part of this game-layer result.
+
+## Phase 13 hardware-resource optimization
+
+Run from the repository root:
+
+```bash
+PYTHONPATH=src python3 -m experiments.li2026.optimize_hardware_resources
+```
+
+The experiment exhaustively evaluates 4,864 system designs for each of nine
+scenario-distance cases. It varies source and measurement infidelity, optical
+and detector efficiency, decision speed, memory lifetime and count, and channel
+count. Every feasible recommendation is reevaluated through the Phase 11 HFT
+operational API. Outputs include all candidates, Pareto fronts, recommended
+designs, a distance-envelope plot, and a validation summary in
+`experiments/li2026/results/hardware_optimization_v1/`.

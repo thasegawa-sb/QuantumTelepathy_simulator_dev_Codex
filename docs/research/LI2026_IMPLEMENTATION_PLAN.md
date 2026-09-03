@@ -1,6 +1,6 @@
 # Li 2026 Implementation Plan
 
-This plan records the staged implementation after the user authorized a fresh repository. Phases 0-12 are complete at their configured gates; Phase 13 is current.
+This plan records the staged implementation after the user authorized a fresh repository. Phases 0-13 are complete at their configured gates; Phase 14 is current.
 
 Primary references:
 
@@ -16,7 +16,7 @@ Primary references:
 | Repository and traceability files | Present on `main` |
 | Ding-Jiang regression baseline | Implemented; documented partials retained where author data are unavailable |
 | Li generalized LCTC and Figure 2 | Configured validation gate PASS; paper reproduction PARTIAL |
-| Next task | Phase 13 hardware-resource optimization |
+| Next task | Phase 14 performance/HPC optimization |
 
 ## Proposed Package Structure
 
@@ -40,6 +40,7 @@ The repository uses the following package structure:
 | `src/quantum_telepathy/hardware/yb_node.py` | Li Table III system-level neutral-atom benchmark |
 | `src/quantum_telepathy/multiparty/xor.py` | Generic multiparty XOR coefficients, local strategies, and GHZ phase optimization |
 | `src/quantum_telepathy/li2026/multiparty.py` | Li three-party majority utility, GHZ noise, and operational status |
+| `src/quantum_telepathy/optimization/hardware.py` | Finite system-level search, Pareto front, and direct operational reevaluation |
 | `experiments/ding_jiang/` | Ding reproduction scripts/configs |
 | `experiments/li2026/` | Li reproduction scripts/configs |
 | `tests/scientific/` | Analytical and reproduction tests |
@@ -329,9 +330,15 @@ replicate and totaled approximately 28 seconds for the committed run.
 |---|---|---|
 | HFT operational waterfall | Ding ideal -> Li generalized -> infidelity -> finite stats -> HEG -> decision latency | PASS; eight scenarios and lower-level hardware provenance validated |
 | Multiparty extension | Three-party XOR/GHZ, Eq. 62-67, Appendix B | PASS for game/noise computation; Figure 7(b) paper level PARTIAL |
-| Hardware optimization | Minimum improvements satisfying all criteria | Current gate; bipartite and multiparty operational status available |
-| HPC optimization | Performance only after correctness | Reproduction suite stable |
+| Hardware optimization | Minimum improvements satisfying all criteria | PASS on the configured bipartite finite grid; multiparty CAPS hardware remains unavailable |
+| HPC optimization | Performance only after correctness | Current gate; reproduction suite stable |
 | Phase 16 documentation | Japanese simulator manual (`.docx`), Japanese report (`.docx`), English paper (`.tex`) | Final validation complete |
+
+Phase 13 evaluates 4,864 designs for each of nine scenario-distance cases.
+All 43,776 candidates complete without evaluation errors. Independent Pareto
+checks and direct Phase 11 reevaluation pass. The Ding representative one-second
+case is feasible through the configured 125 km point and infeasible at 150 km;
+this is a finite-grid envelope, not a continuous distance threshold.
 
 ### Phase 16: Final Narrative Artifacts
 
@@ -362,7 +369,7 @@ project records rather than additional final narrative deliverables.
 
 ## Development Rule
 
-The next scientifically meaningful action is Phase 13: formulate the minimum
-hardware-improvement search over fidelity, HEG rate, decision latency, memory,
-and distance, then validate Pareto-optimal candidates by direct reevaluation of
-the complete operational status.
+The next scientifically meaningful action is Phase 14: establish reproducible
+runtime and memory benchmarks, then optimize the finite-statistics, hardware
+grid, and SDP bottlenecks without changing any scientific value or strict
+criterion boundary.
